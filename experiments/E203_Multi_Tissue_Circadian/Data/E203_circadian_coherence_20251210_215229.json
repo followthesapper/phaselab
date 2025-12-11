@@ -1,0 +1,59 @@
+{
+  "experiment": "E203_Multi_Tissue_Circadian",
+  "timestamp": "2025-12-10T21:52:29.386604",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "e2_threshold": 0.1353352832366127,
+  "results": [
+    {
+      "scenario": "healthy_synchronized",
+      "classical_R_bar": 0.999897768995235,
+      "quantum_R_bar": 0.9998852482906672,
+      "hardware_R_bar": 0.9990309719271787,
+      "classification": "SYNCHRONIZED",
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "jet_lag_acute",
+      "classical_R_bar": 0.7929552652258176,
+      "quantum_R_bar": 0.9999106702473353,
+      "hardware_R_bar": 0.9992437720027731,
+      "classification": "PARTIALLY_SYNCHRONIZED",
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "chronic_shift_work",
+      "classical_R_bar": 0.9974171217461651,
+      "quantum_R_bar": 0.9999509367062581,
+      "hardware_R_bar": 0.9997394943979026,
+      "classification": "SYNCHRONIZED",
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "disease_desynchronization",
+      "classical_R_bar": 0.9230875607290299,
+      "quantum_R_bar": 0.9996076204821707,
+      "hardware_R_bar": 0.9999290917391936,
+      "classification": "SYNCHRONIZED",
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "NO-GO",
+      "validation_passed": false
+    }
+  ],
+  "validation_passed": 3,
+  "total_tests": 4
+}
