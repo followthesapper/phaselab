@@ -1,0 +1,278 @@
+{
+  "experiment": "E210_PTEN_CRISPRa_Cancer",
+  "timestamp": "2025-12-11T17:24:55.975456",
+  "genome_build": "GRCh38",
+  "target_region": "chr10:87862625-87864125",
+  "pten_tss": 87863625,
+  "disease": "Cancer (melanoma, TNBC)",
+  "therapeutic_goal": "Reactivate PTEN 2-3 fold to suppress PI3K/AKT/mTOR",
+  "reference": "Moses et al. 2019, PMID: 30654190",
+  "cell_models": [
+    "SK-MEL-28 (melanoma)",
+    "SUM159 (TNBC)"
+  ],
+  "total_pam_sites": 336,
+  "crispra_window_candidates": 53,
+  "validation_components": [
+    "Real genomic sequence (NCBI RefSeq)",
+    "MIT off-target algorithm",
+    "Cancer cell chromatin accessibility (ENCODE)",
+    "SantaLucia thermodynamics",
+    "IR coherence (validated on IBM hardware)"
+  ],
+  "top_candidates": [
+    {
+      "sequence": "CGGAAGGGGGAGCGCGGCAG",
+      "pam": "CGG",
+      "position": -90,
+      "strand": "+",
+      "gc_content": 0.8,
+      "seed_gc": 0.8333333333333334,
+      "off_target_score": 0.4611111111111112,
+      "complexity_score": 0.8611111111111112,
+      "homopolymer_flags": [
+        "WARN: Gx5 run"
+      ],
+      "accessibility": 0.85,
+      "chromatin_class": "OPEN (near TSS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 7.780112304687501,
+      "combined_score": 23.15005615234375,
+      "coherence_R_bar": 0.9448953418307646,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "WARN: Gx5 run"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    },
+    {
+      "sequence": "GGAGCGGAGCGAGGAGGCGG",
+      "pam": "AGG",
+      "position": -265,
+      "strand": "+",
+      "gc_content": 0.8,
+      "seed_gc": 0.8333333333333334,
+      "off_target_score": 0.5597222222222222,
+      "complexity_score": 0.6597222222222222,
+      "homopolymer_flags": [],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (CRISPRa optimal)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 7.803974609375,
+      "combined_score": 23.461987304687504,
+      "coherence_R_bar": 0.9450061991966667,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "PASS: All validation checks"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    },
+    {
+      "sequence": "GAGGCGGGACCCGCGTGCGG",
+      "pam": "CGG",
+      "position": -145,
+      "strand": "+",
+      "gc_content": 0.85,
+      "seed_gc": 0.8333333333333334,
+      "off_target_score": 0.6166666666666667,
+      "complexity_score": 0.9166666666666667,
+      "homopolymer_flags": [
+        "WARN: High GC (>80%)"
+      ],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (CRISPRa optimal)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 7.9362426757812505,
+      "combined_score": 23.528121337890628,
+      "coherence_R_bar": 0.9440883758092837,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "WARN: High GC (>80%)",
+        "WARN: Very high GC (CpG island)"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    },
+    {
+      "sequence": "GCGGCAGCGGAGCGCGCGCG",
+      "pam": "CGG",
+      "position": -77,
+      "strand": "+",
+      "gc_content": 0.9,
+      "seed_gc": 0.9166666666666666,
+      "off_target_score": 0.35625,
+      "complexity_score": 0.65625,
+      "homopolymer_flags": [
+        "WARN: High GC (>80%)"
+      ],
+      "accessibility": 0.85,
+      "chromatin_class": "OPEN (near TSS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 8.613251953125,
+      "combined_score": 23.566625976562502,
+      "coherence_R_bar": 0.9453872948640636,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "WARN: High GC (>80%)",
+        "WARN: Very high GC (CpG island)"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    },
+    {
+      "sequence": "GAGCGAGGCGGAGCGGAGCG",
+      "pam": "AGG",
+      "position": -274,
+      "strand": "+",
+      "gc_content": 0.8,
+      "seed_gc": 0.8333333333333334,
+      "off_target_score": 0.46597222222222223,
+      "complexity_score": 0.5659722222222222,
+      "homopolymer_flags": [],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (CRISPRa optimal)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 8.10177978515625,
+      "combined_score": 23.61088989257813,
+      "coherence_R_bar": 0.9442568357597896,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "PASS: All validation checks"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    },
+    {
+      "sequence": "CGAGCGCGAGGAGGCGCCGA",
+      "pam": "GGG",
+      "position": -236,
+      "strand": "+",
+      "gc_content": 0.8,
+      "seed_gc": 0.75,
+      "off_target_score": 0.6777777777777778,
+      "complexity_score": 0.7777777777777778,
+      "homopolymer_flags": [],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (CRISPRa optimal)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 8.13525390625,
+      "combined_score": 23.627626953125002,
+      "coherence_R_bar": 0.9439823528467649,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "PASS: All validation checks"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    },
+    {
+      "sequence": "CGAGGCGGAGCGGAGCGAGG",
+      "pam": "AGG",
+      "position": -271,
+      "strand": "+",
+      "gc_content": 0.8,
+      "seed_gc": 0.75,
+      "off_target_score": 0.46597222222222223,
+      "complexity_score": 0.5659722222222222,
+      "homopolymer_flags": [],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (CRISPRa optimal)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 8.279809570312501,
+      "combined_score": 23.699904785156253,
+      "coherence_R_bar": 0.9429719921807516,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "PASS: All validation checks"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    },
+    {
+      "sequence": "CGCGCGCGGAAGGGGGAGCG",
+      "pam": "CGG",
+      "position": -96,
+      "strand": "+",
+      "gc_content": 0.85,
+      "seed_gc": 0.75,
+      "off_target_score": 0.11527777777777781,
+      "complexity_score": 0.7152777777777778,
+      "homopolymer_flags": [
+        "WARN: Gx5 run",
+        "WARN: High GC (>80%)"
+      ],
+      "accessibility": 0.85,
+      "chromatin_class": "OPEN (near TSS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 8.9761474609375,
+      "combined_score": 23.74807373046875,
+      "coherence_R_bar": 0.9452593777335435,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "WARN: Gx5 run",
+        "WARN: High GC (>80%)",
+        "WARN: Very high GC (CpG island)"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    },
+    {
+      "sequence": "AGCGAGGCGGGACCCGCGTG",
+      "pam": "CGG",
+      "position": -148,
+      "strand": "+",
+      "gc_content": 0.8,
+      "seed_gc": 0.8333333333333334,
+      "off_target_score": 0.8444444444444444,
+      "complexity_score": 0.9444444444444444,
+      "homopolymer_flags": [],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (CRISPRa optimal)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 8.4939453125,
+      "combined_score": 23.806972656250004,
+      "coherence_R_bar": 0.9428414175727763,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "PASS: All validation checks"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    },
+    {
+      "sequence": "GGCGGAGCGGAGCGAGGAGG",
+      "pam": "CGG",
+      "position": -268,
+      "strand": "+",
+      "gc_content": 0.8,
+      "seed_gc": 0.75,
+      "off_target_score": 0.49722222222222223,
+      "complexity_score": 0.5972222222222222,
+      "homopolymer_flags": [],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (CRISPRa optimal)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 8.51048583984375,
+      "combined_score": 23.81524291992188,
+      "coherence_R_bar": 0.9438253989771797,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "PASS: All validation checks"
+      ],
+      "hardware_validated": false,
+      "hardware_R_bar": null
+    }
+  ],
+  "hardware_validation": {
+    "backend": "aer_simulator",
+    "shots": 4096,
+    "results": [
+      {
+        "sequence": "CGGAAGGGGGAGCGCGGCAG",
+        "position": -90,
+        "hardware_R_bar": 0.9442589601359888,
+        "hardware_go_no_go": "GO",
+        "sim_R_bar": 0.9448953418307646,
+        "agreement": 

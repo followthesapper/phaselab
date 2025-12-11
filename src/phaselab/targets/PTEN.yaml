@@ -1,0 +1,105 @@
+# PTEN Target Configuration for PhaseLab CRISPRa
+# Cancer CRISPRa - Tumor Suppressor Reactivation
+#
+# Reference: Moses et al. 2019, Mol Ther Nucleic Acids
+#   "Activating PTEN Tumor Suppressor Expression with the CRISPR/dCas9 System"
+#   doi: 10.1016/j.omtn.2018.12.003
+#   PMID: 30654190
+
+gene_symbol: "PTEN"
+genome_build: "GRCh38"
+
+# Gene information
+gene_id: "ENSG00000171862"
+refseq_id: "NM_000314.8"
+uniprot_id: "P60484"
+ncbi_gene_id: 5728
+
+promoter:
+  chrom: "chr10"
+  start: 87862625        # TSS - 1000 bp
+  end:   87864125        # TSS + 500 bp
+  tss:   87863625        # GRCh38 PTEN TSS (RefSeq/Ensembl)
+
+crispr:
+  system: "SpCas9"
+  pam: "NGG"
+  activator: "VPR"       # dCas9-VPR (VP64-p65-Rta)
+  window:
+    # CRISPRa window relative to TSS (Moses et al. 2019)
+    start_offset: -300
+    end_offset: -50
+
+filters:
+  gc_min: 0.40
+  gc_max: 0.70
+  max_homopolymer: 4
+  min_complexity: 0.5
+
+scoring:
+  use_thermodynamics: true
+  use_offtarget: true
+  use_chromatin: true
+  use_coherence: true
+  coherence_threshold: 0.135   # e^-2
+
+chromatin:
+  source: "ENCODE"
+  tissue: "cancer_general"
+  cell_type: "melanoma_tnbc"
+  tracks:
+    - "encode_dnase_sk_mel_28"
+    - "encode_dnase_sum159"
+    - "encode_atac_k562"
+
+cancer_models:
+  # Cell lines from Moses et al. 2019
+  - name: "SK-MEL-28"
+    type: "melanoma"
+    pten_status: "wild-type, low expression"
+    mutation: "BRAF V600E"
+    notes: "Intrinsic resistance to dabrafenib (B-Raf inhibitor)"
+  - name: "SUM159"
+    type: "triple-negative breast cancer (TNBC)"
+    pten_status: "wild-type, low expression"
+    notes: "Mesenchymal stem-like TNBC cell line"
+
+notes:
+  disease: "Cancer (melanoma, TNBC, glioblastoma, prostate)"
+  omim: "601728"
+  mode: "tumor_suppressor_loss"
+  therapeutic_goal: "Reactivate PTEN expression 2-3 fold to suppress PI3K/AKT/mTOR signaling and reduce tumor growth"
+
+  mechanism: |
+    PTEN is a tumor suppressor that antagonizes PI3K signaling.
+    Loss of PTEN expression leads to hyperactivation of AKT/mTOR/MAPK
+    pathways, driving cell proliferation, survival, and metabolism.
+    CRISPRa-mediated PTEN reactivation can restore tumor suppression.
+
+  clinical_relevance: |
+    - PTEN loss occurs in ~40% of TNBC, ~30% of melanoma, ~70% of glioblastoma
+    - Loss contributes to resistance to targeted therapies (BRAF inhibitors)
+    - Restoration of PTEN sensitizes tumors to PI3K/mTOR inhibitors
+    - Combination CRISPRa + targeted therapy shows synergistic effects
+
+  moses_2019_findings:
+    best_guide_position: -54  # bp from TSS
+    fold_activation: 2.27     # in SUM159 with sgRNA -54
+    downstream_effects:
+      - "Reduced p-AKT"
+      - "Reduced p-mTOR"
+      - "Reduced p-S6K"
+      - "Reduced colony formation"
+      - "Increased sensitivity to B-Raf + PI3K/mTOR inhibitors"
+
+  references:
+    - title: "Activating PTEN Tumor Suppressor Expression with the CRISPR/dCas9 System"
+      journal: "Molecular Therapy Nucleic Acids"
+      year: 2019
+      pmid: "30654190"
+      pmcid: "PMC6348769"
+      doi: "10.1016/j.omtn.2018.12.003"
+    - title: "PTEN, a Putative Protein Tyrosine Phosphatase Gene Mutated in Human Brain, Breast, and Prostate Cancer"
+      journal: "Science"
+      year: 1997
+      pmid: "9090379"
