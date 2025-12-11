@@ -1,0 +1,87 @@
+{
+  "experiment": "E208_Base_Editing_Validation",
+  "timestamp": "2025-12-11T12:50:14.818563",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "guides": {
+    "abe_optimal_pos5": {
+      "sequence": "GCGAATGCTACATAGCCAGG",
+      "editor": "ABE8e",
+      "target_position": 5,
+      "gc": 0.55,
+      "position_efficiency": 1.0,
+      "context_score": 0.9,
+      "combined_efficiency": 0.9,
+      "n_bystanders": 1,
+      "simulator_R": 0.8960752384338528,
+      "hardware_R": 0.8834290129104402,
+      "go_no_go": "GO"
+    },
+    "abe_pos7": {
+      "sequence": "GCGACTGATACATAGCCAGG",
+      "editor": "ABE8e",
+      "target_position": 7,
+      "gc": 0.55,
+      "position_efficiency": 0.8,
+      "context_score": 1.0,
+      "combined_efficiency": 0.8,
+      "n_bystanders": 2,
+      "simulator_R": 0.8881547996083132,
+      "hardware_R": 0.8890097123659335,
+      "go_no_go": "GO"
+    },
+    "abe_edge_pos3": {
+      "sequence": "GCAACTGCTACATAGCCAGG",
+      "editor": "ABE8.20",
+      "target_position": 3,
+      "gc": 0.55,
+      "position_efficiency": 0.3,
+      "context_score": 1.0,
+      "combined_efficiency": 0.3,
+      "n_bystanders": 1,
+      "simulator_R": 0.802969392627072,
+      "hardware_R": 0.8109091312900714,
+      "go_no_go": "GO"
+    },
+    "cbe_optimal_tc_context": {
+      "sequence": "GCTCCTGCTACATAGCCAGG",
+      "editor": "BE4",
+      "target_position": 4,
+      "gc": 0.6,
+      "position_efficiency": 0.85,
+      "context_score": 1.2,
+      "combined_efficiency": 1.02,
+      "n_bystanders": 2,
+      "simulator_R": 0.9279563464190743,
+      "hardware_R": 0.9118237291904298,
+      "go_no_go": "GO"
+    },
+    "cbe_poor_context": {
+      "sequence": "GCGCCTGCTACATAGCCAGG",
+      "editor": "BE4",
+      "target_position": 4,
+      "gc": 0.65,
+      "position_efficiency": 0.85,
+      "context_score": 0.6,
+      "combined_efficiency": 0.51,
+      "n_bystanders": 2,
+      "simulator_R": 0.6186935540281663,
+      "hardware_R": 0.6157723622508303,
+      "go_no_go": "GO"
+    },
+    "abe_multiple_bystanders": {
+      "sequence": "AAAACTGCTACATAGCCAGG",
+      "editor": "ABE8e",
+      "target_position": 5,
+      "gc": 0.45,
+      "position_efficiency": 1.0,
+      "context_score": 1.0,
+      "combined_efficiency": 1.0,
+      "n_bystanders": 1,
+      "simulator_R": 0.9426441730181245,
+      "hardware_R": 0.9437356155193584,
+      "go_no_go": "GO"
+    }
+  },
+  "all_validated": true
+}

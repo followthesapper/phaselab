@@ -1,0 +1,64 @@
+# SCN2A Target Configuration for PhaseLab CRISPRa
+# Autism-linked haploinsufficiency - validated by Nature 2025 CRISPRa rescue study
+
+gene_symbol: "SCN2A"
+genome_build: "GRCh38"
+
+# Gene information
+gene_id: "ENSG00000136531"
+refseq_id: "NM_021007.3"
+uniprot_id: "Q99250"
+
+promoter:
+  chrom: "chr2"
+  start: 165238414        # TSS - 1000 bp
+  end:   165239914        # TSS + 500 bp
+  tss:   165239414        # NCBI GRCh38.p14 TSS (NM_021007.3)
+
+crispr:
+  system: "SpCas9"
+  pam: "NGG"
+  window:
+    # CRISPRa window relative to TSS
+    # Based on optimal activation range for CRISPRa
+    start_offset: -400
+    end_offset: -50
+
+filters:
+  gc_min: 0.40
+  gc_max: 0.70
+  max_homopolymer: 4
+  min_complexity: 0.5
+
+scoring:
+  use_thermodynamics: true
+  use_offtarget: true
+  use_chromatin: true
+  use_coherence: true
+  coherence_threshold: 0.135   # e^-2
+
+chromatin:
+  source: "PsychENCODE"
+  tissue: "human_cortex"
+  cell_type: "neurons"
+  # Brain-specific chromatin accessibility tracks
+  tracks:
+    - "psychencode_cortex_neuron_atac"
+
+notes:
+  disease: "SCN2A-related neurodevelopmental disorder (ASD, epilepsy, ID)"
+  omim: "182390"
+  mode: "haploinsufficiency"
+  therapeutic_goal: "Boost remaining allele from ~50% toward 100% of wild-type expression"
+
+  # Key literature
+  references:
+    - title: "CRISPR activation for SCN2A-related neurodevelopmental disorders"
+      journal: "Nature"
+      year: 2025
+      doi: "10.1038/s41586-025-09522-w"
+      summary: "CRISPRa rescue of Scn2a haploinsufficiency in mice - electrophysiological and behavioral rescue"
+
+    - title: "SFARI SCN2A CRISPRa Development"
+      source: "SFARI"
+      url: "https://www.sfari.org/funded-project/development-of-crispr-activation-therapeutics-to-rescue-scn2a-function/"

@@ -5,10 +5,10 @@ Summary: Phase-coherence analysis framework for quantum, biological, and dynamic
 Author-email: Dylan Vaca <dylan@phaselab.dev>
 Maintainer-email: Dylan Vaca <dylan@phaselab.dev>
 License: MIT
-Project-URL: Homepage, https://github.com/dylanvaca/phaselab
+Project-URL: Homepage, https://github.com/followthesapper/phaselab
 Project-URL: Documentation, https://phaselab.readthedocs.io
-Project-URL: Repository, https://github.com/dylanvaca/phaselab
-Project-URL: Issues, https://github.com/dylanvaca/phaselab/issues
+Project-URL: Repository, https://github.com/followthesapper/phaselab
+Project-URL: Issues, https://github.com/followthesapper/phaselab/issues
 Keywords: quantum computing,coherence,CRISPR,CRISPRa,gene therapy,circadian rhythm,Kuramoto,VQE,informational relativity
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Science/Research
@@ -27,6 +27,7 @@ License-File: LICENSE
 Requires-Dist: numpy>=1.21
 Requires-Dist: scipy>=1.7
 Requires-Dist: pandas>=1.3
+Requires-Dist: pyyaml>=6.0
 Provides-Extra: quantum
 Requires-Dist: qiskit>=1.0; extra == "quantum"
 Requires-Dist: qiskit-aer>=0.13; extra == "quantum"
@@ -203,6 +204,22 @@ for i, row in guides.head(3).iterrows():
 - Zero off-targets ≤2 mismatches
 - IBM Torino coherence: R̄ = 0.839
 
+## Documentation
+
+- **[API Guide](docs/API_GUIDE.md)** - Complete API reference with detailed examples
+- **[Examples](docs/EXAMPLES.md)** - Practical code examples for common use cases
+- **[SMS Gene Therapy Research](docs/SMS_GENE_THERAPY_RESEARCH.md)** - Full research paper on IBM Quantum-validated CRISPRa design for Smith-Magenis Syndrome
+
+## Research Papers
+
+Three publishable papers establishing PhaseLab and its applications:
+
+| Paper | Title | Target Journals |
+|-------|-------|-----------------|
+| **[Paper 1](docs/papers/PAPER_1_PHASELAB_FRAMEWORK.md)** | PhaseLab: A Generalized Coherence Framework for Quantum-Biological Simulation | *Nature Computational Science*, *NPJ Quantum Information* |
+| **[Paper 2](docs/papers/PAPER_2_CRISPRA_GRNA_DESIGN.md)** | Quantum-Informed CRISPRa gRNA Design for RAI1 Activation in SMS | *Nature Biotechnology*, *Nucleic Acids Research* |
+| **[Paper 3](docs/papers/PAPER_3_CIRCADIAN_MODELING.md)** | Phase-Based Modeling of Circadian Dysregulation in SMS | *Cell Systems*, *eLife*, *Journal of Biological Rhythms* |
+
 ## API Reference
 
 ### Core (`phaselab.core`)
@@ -261,7 +278,7 @@ If you use PhaseLab in research, please cite:
   author = {Vaca, Dylan},
   title = {PhaseLab: Phase-coherence analysis for quantum and biological systems},
   year = {2025},
-  url = {https://github.com/dylanvaca/phaselab}
+  url = {https://github.com/followthesapper/phaselab}
 }
 ```
 

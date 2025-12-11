@@ -1,0 +1,44 @@
+{
+  "experiment": "E201_SCN2A_Hardware",
+  "timestamp": "2025-12-10T20:56:51.853937",
+  "backend": "ibm_torino",
+  "shots": 2000,
+  "guides": [
+    {
+      "sequence": "TTCCACTTTTGACCAGGAGA",
+      "position": -64,
+      "gc_content": 0.45,
+      "chromatin": "OPEN (DNase HS)",
+      "simulator_coherence": 0.944,
+      "hardware_coherence": 0.9713640309416572,
+      "difference_percent": 2.8987320912772554,
+      "quantum_energy": 0.24216000000000001,
+      "go_no_go": "GO",
+      "job_id": "d4t29p7t3pms7399q6ag"
+    },
+    {
+      "sequence": "AGATGGTTCCACTTTTGACC",
+      "position": -70,
+      "gc_content": 0.45,
+      "chromatin": "OPEN (DNase HS)",
+      "simulator_coherence": 0.945,
+      "hardware_coherence": 0.9700333542170971,
+      "difference_percent": 2.649032192285416,
+      "quantum_energy": 0.38511000000000006,
+      "go_no_go": "GO",
+      "job_id": "d4t29rkfitbs739jh28g"
+    },
+    {
+      "sequence": "GCTGACTGCTACATAGCCAA",
+      "position": -104,
+      "gc_content": 0.5,
+      "chromatin": "OPEN (DNase HS)",
+      "simulator_coherence": 0.945,
+      "hardware_coherence": 0.9702490525343268,
+      "difference_percent": 2.6718574110398787,
+      "quantum_energy": -0.0502279999999998,
+      "go_no_go": "GO",
+      "job_id": "d4t29ts5fjns73d313ag"
+    }
+  ]
+}

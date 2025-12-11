@@ -1,0 +1,87 @@
+{
+  "experiment": "E208_Base_Editing_Validation",
+  "timestamp": "2025-12-11T12:31:25.480896",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "guides": {
+    "abe_optimal_pos5": {
+      "sequence": "GCGAATGCTACATAGCCAGG",
+      "editor": "ABE8e",
+      "target_position": 5,
+      "gc": 0.55,
+      "position_efficiency": 1.0,
+      "context_score": 0.9,
+      "combined_efficiency": 0.9,
+      "n_bystanders": 1,
+      "simulator_R": 0.019940277356834006,
+      "hardware_R": 0.05125108026973414,
+      "go_no_go": "NO-GO"
+    },
+    "abe_pos7": {
+      "sequence": "GCGACTGATACATAGCCAGG",
+      "editor": "ABE8e",
+      "target_position": 7,
+      "gc": 0.55,
+      "position_efficiency": 0.8,
+      "context_score": 1.0,
+      "combined_efficiency": 0.8,
+      "n_bystanders": 2,
+      "simulator_R": 0.013032593770680096,
+      "hardware_R": 0.017297072781088735,
+      "go_no_go": "NO-GO"
+    },
+    "abe_edge_pos3": {
+      "sequence": "GCAACTGCTACATAGCCAGG",
+      "editor": "ABE8.20",
+      "target_position": 3,
+      "gc": 0.55,
+      "position_efficiency": 0.3,
+      "context_score": 1.0,
+      "combined_efficiency": 0.3,
+      "n_bystanders": 1,
+      "simulator_R": 0.005715563409701486,
+      "hardware_R": 0.02374591925739148,
+      "go_no_go": "NO-GO"
+    },
+    "cbe_optimal_tc_context": {
+      "sequence": "GCTCCTGCTACATAGCCAGG",
+      "editor": "BE4",
+      "target_position": 4,
+      "gc": 0.6,
+      "position_efficiency": 0.85,
+      "context_score": 1.2,
+      "combined_efficiency": 1.02,
+      "n_bystanders": 2,
+      "simulator_R": 0.008774976205303436,
+      "hardware_R": 0.009299570856069025,
+      "go_no_go": "NO-GO"
+    },
+    "cbe_poor_context": {
+      "sequence": "GCGCCTGCTACATAGCCAGG",
+      "editor": "BE4",
+      "target_position": 4,
+      "gc": 0.65,
+      "position_efficiency": 0.85,
+      "context_score": 0.6,
+      "combined_efficiency": 0.51,
+      "n_bystanders": 2,
+      "simulator_R": 0.005925602908327375,
+      "hardware_R": 0.02008438377549475,
+      "go_no_go": "NO-GO"
+    },
+    "abe_multiple_bystanders": {
+      "sequence": "AAAACTGCTACATAGCCAGG",
+      "editor": "ABE8e",
+      "target_position": 5,
+      "gc": 0.45,
+      "position_efficiency": 1.0,
+      "context_score": 1.0,
+      "combined_efficiency": 1.0,
+      "n_bystanders": 1,
+      "simulator_R": 0.02585898262891271,
+      "hardware_R": 0.05747047904441641,
+      "go_no_go": "NO-GO"
+    }
+  },
+  "all_validated": false
+}

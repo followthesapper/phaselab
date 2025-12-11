@@ -21,3 +21,10 @@ src/phaselab/crispr/pipeline.py
 src/phaselab/crispr/scoring.py
 src/phaselab/io/__init__.py
 src/phaselab/io/export.py
+src/phaselab/targets/RAI1.yaml
+src/phaselab/targets/SCN2A.yaml
+src/phaselab/targets/__init__.py
+src/phaselab/targets/config.py
+tests/test_circadian.py
+tests/test_core.py
+tests/test_crispr.py

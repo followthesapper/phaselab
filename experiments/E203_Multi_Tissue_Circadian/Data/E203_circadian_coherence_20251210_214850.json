@@ -1,0 +1,59 @@
+{
+  "experiment": "E203_Multi_Tissue_Circadian",
+  "timestamp": "2025-12-10T21:48:50.063828",
+  "backend": "AerSimulator",
+  "shots": 4096,
+  "e2_threshold": 0.1353352832366127,
+  "results": [
+    {
+      "scenario": "healthy_synchronized",
+      "classical_R_bar": 0.999897768995235,
+      "quantum_R_bar": 0.9999878106508051,
+      "hardware_R_bar": null,
+      "classification": "SYNCHRONIZED",
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": null,
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "jet_lag_acute",
+      "classical_R_bar": 0.7929552652258176,
+      "quantum_R_bar": 0.9999291850534875,
+      "hardware_R_bar": null,
+      "classification": "PARTIALLY_SYNCHRONIZED",
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": null,
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "chronic_shift_work",
+      "classical_R_bar": 0.9974171217461651,
+      "quantum_R_bar": 0.9998882233355545,
+      "hardware_R_bar": null,
+      "classification": "SYNCHRONIZED",
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": null,
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "disease_desynchronization",
+      "classical_R_bar": 0.9230875607290299,
+      "quantum_R_bar": 0.9998066592147928,
+      "hardware_R_bar": null,
+      "classification": "SYNCHRONIZED",
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": null,
+      "expected": "NO-GO",
+      "validation_passed": false
+    }
+  ],
+  "validation_passed": 3,
+  "total_tests": 4
+}

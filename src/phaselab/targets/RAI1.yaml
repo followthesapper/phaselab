@@ -1,0 +1,66 @@
+# RAI1 Target Configuration for PhaseLab CRISPRa
+# Smith-Magenis Syndrome - validated on IBM Quantum hardware
+
+gene_symbol: "RAI1"
+genome_build: "GRCh38"
+
+# Gene information
+gene_id: "ENSG00000108557"
+refseq_id: "NC_000017.11"
+uniprot_id: "Q7Z5J4"
+
+promoter:
+  chrom: "chr17"
+  start: 17680458        # TSS - 1000 bp
+  end:   17681958        # TSS + 500 bp
+  tss:   17681458        # GRCh38 RAI1 TSS (Ensembl)
+
+crispr:
+  system: "SpCas9"
+  pam: "NGG"
+  window:
+    # CRISPRa window relative to TSS
+    start_offset: -400
+    end_offset: -50
+
+filters:
+  gc_min: 0.40
+  gc_max: 0.70
+  max_homopolymer: 4
+  min_complexity: 0.5
+
+scoring:
+  use_thermodynamics: true
+  use_offtarget: true
+  use_chromatin: true
+  use_coherence: true
+  coherence_threshold: 0.135   # e^-2
+
+chromatin:
+  source: "ENCODE"
+  tissue: "mixed"
+  cell_type: "unspecified"
+  tracks:
+    - "encode_dnase_general"
+
+notes:
+  disease: "Smith-Magenis Syndrome (SMS)"
+  omim: "182290"
+  mode: "haploinsufficiency"
+  therapeutic_goal: "Boost remaining allele by 20-60% to restore circadian and transcriptional function"
+
+  # PhaseLab validation
+  hardware_validation:
+    backend: "ibm_torino"
+    job_id: "d4suvd7t3pms7399mq8g"
+    date: "2025-12-10"
+    top_guide: "TACAGGAGCTTCCAGCGTCA"
+    coherence_R: 0.839
+    mit_score: 83
+    cfd_score: 93
+
+  references:
+    - title: "rAAV-CRISPRa therapy for Smith-Magenis Syndrome"
+      journal: "PMC"
+      year: 2022
+      pmcid: "PMC9762195"

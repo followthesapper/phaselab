@@ -1,0 +1,59 @@
+{
+  "experiment": "E205_CRISPR_Knockout_Validation",
+  "timestamp": "2025-12-11T11:44:54.480116",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "guides": {
+    "high_efficiency": {
+      "sequence": "GCGACTGCTACATAGCCAGG",
+      "gc": 0.6,
+      "cut_efficiency": 1.0,
+      "frameshift_prob": 0.5940000000000001,
+      "simulator_R": 0.6355434732771206,
+      "hardware_R": null,
+      "go_no_go": "GO",
+      "expected": "HIGH"
+    },
+    "moderate_efficiency": {
+      "sequence": "ATCGATCGATCGATCGATCG",
+      "gc": 0.5,
+      "cut_efficiency": 1.0,
+      "frameshift_prob": 0.5940000000000001,
+      "simulator_R": 0.6377097297743862,
+      "hardware_R": null,
+      "go_no_go": "GO",
+      "expected": "MODERATE"
+    },
+    "low_efficiency": {
+      "sequence": "TTTTAAAACCCCGGGGAAAA",
+      "gc": 0.4,
+      "cut_efficiency": 0.5,
+      "frameshift_prob": 0.5940000000000001,
+      "simulator_R": 0.4419713799433357,
+      "hardware_R": null,
+      "go_no_go": "GO",
+      "expected": "LOW"
+    },
+    "seed_optimized": {
+      "sequence": "AACTGACGGCGCTAGCCGTG",
+      "gc": 0.65,
+      "cut_efficiency": 1.0,
+      "frameshift_prob": 0.5940000000000001,
+      "simulator_R": 0.6395236905041488,
+      "hardware_R": null,
+      "go_no_go": "GO",
+      "expected": "HIGH"
+    },
+    "pam_proximal_optimal": {
+      "sequence": "ACTGATCGATCGATCGATGG",
+      "gc": 0.5,
+      "cut_efficiency": 1.0,
+      "frameshift_prob": 0.5940000000000001,
+      "simulator_R": 0.650463228647077,
+      "hardware_R": null,
+      "go_no_go": "GO",
+      "expected": "MODERATE_HIGH"
+    }
+  },
+  "all_validated": true
+}

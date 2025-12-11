@@ -1,0 +1,139 @@
+{
+  "experiment": "E204_Chronotherapy_Optimization",
+  "timestamp": "2025-12-10T21:53:46.194363",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "e2_threshold": 0.1353352832366127,
+  "drug_models": {
+    "melatonin": {
+      "name": "melatonin",
+      "ka": 2.0,
+      "ke": 0.5,
+      "Vd": 35.0,
+      "optimal_phase": 3.9269908169872414,
+      "phase_sensitivity": 0.8,
+      "therapeutic_range": [
+        0.1,
+        0.5
+      ]
+    },
+    "prednisone": {
+      "name": "prednisone",
+      "ka": 1.5,
+      "ke": 0.15,
+      "Vd": 60.0,
+      "optimal_phase": 0.7853981633974483,
+      "phase_sensitivity": 0.6,
+      "therapeutic_range": [
+        0.05,
+        0.3
+      ]
+    },
+    "amlodipine": {
+      "name": "amlodipine",
+      "ka": 0.3,
+      "ke": 0.02,
+      "Vd": 21.0,
+      "optimal_phase": 2.356194490192345,
+      "phase_sensitivity": 0.4,
+      "therapeutic_range": [
+        0.005,
+        0.02
+      ]
+    },
+    "tacrolimus": {
+      "name": "tacrolimus",
+      "ka": 0.5,
+      "ke": 0.06,
+      "Vd": 700.0,
+      "optimal_phase": 2.356194490192345,
+      "phase_sensitivity": 0.7,
+      "therapeutic_range": [
+        0.01,
+        0.02
+      ]
+    }
+  },
+  "results": [
+    {
+      "scenario": "melatonin_optimal",
+      "drug": "melatonin",
+      "classical_R_bar": 1.0,
+      "quantum_R_bar": 0.9999999999999998,
+      "hardware_R_bar": 1.0,
+      "efficacy_modifier": 1.0,
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "melatonin_misaligned",
+      "drug": "melatonin",
+      "classical_R_bar": 0.9999999999999999,
+      "quantum_R_bar": 0.9999999999999999,
+      "hardware_R_bar": 1.0,
+      "efficacy_modifier": 0.7929447639179833,
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "prednisone_optimal",
+      "drug": "prednisone",
+      "classical_R_bar": 1.0,
+      "quantum_R_bar": 0.9999999999999999,
+      "hardware_R_bar": 1.0,
+      "efficacy_modifier": 1.3,
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "tacrolimus_twice_daily",
+      "drug": "tacrolimus",
+      "classical_R_bar": 2.8305244335018383e-16,
+      "quantum_R_bar": 0.9909783752908276,
+      "hardware_R_bar": 0.9929060205222858,
+      "efficacy_modifier": null,
+      "go_no_go_classical": "NO-GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "GO",
+      "validation_passed": false
+    },
+    {
+      "scenario": "amlodipine_shift_worker",
+      "drug": "amlodipine",
+      "classical_R_bar": 0.9999999999999999,
+      "quantum_R_bar": 1.0,
+      "hardware_R_bar": 1.0,
+      "efficacy_modifier": 1.3863703305156272,
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "GO",
+      "validation_passed": true
+    },
+    {
+      "scenario": "random_dosing",
+      "drug": "tacrolimus",
+      "classical_R_bar": 0.5056336853708421,
+      "quantum_R_bar": 0.9787095143344097,
+      "hardware_R_bar": 0.9820288944059141,
+      "efficacy_modifier": null,
+      "go_no_go_classical": "GO",
+      "go_no_go_quantum": "GO",
+      "go_no_go_hardware": "GO",
+      "expected": "GO",
+      "validation_passed": true
+    }
+  ],
+  "validation_passed": 5,
+  "total_tests": 6
+}
