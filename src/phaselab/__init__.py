@@ -10,12 +10,24 @@ Built on the Informational Relativity (IR) framework, PhaseLab provides:
 - Multi-tissue circadian models with inter-tissue coupling (v0.3.0)
 - Drug response modeling and chronotherapy optimization (v0.3.0)
 - Expanded CRISPR editors: base editing (ABE/CBE) and prime editing (v0.3.0)
+- Complete CRISPR toolkit with knockout and CRISPRi (v0.4.0)
+- Therapeutic dosage optimization with haploinsufficiency models (v0.4.0)
+
+NEW in v0.5.0:
+- Real ATAC-seq BigWig integration for tissue-specific accessibility
+- CpG methylation modeling for CRISPRa efficiency prediction
+- Nucleosome occupancy prediction (NuPoP-like algorithm)
+- Multi-guide synergy modeling for combinatorial CRISPR
+- Enhancer targeting for CRISPRa
+- AAV serotype selection and delivery modeling
+- Immunogenicity prediction for Cas9 and guide RNA
+- Comprehensive validation report generation
 
 Author: Dylan Vaca
 License: MIT
 """
 
-__version__ = "0.3.0-dev"
+__version__ = "0.5.0"
 __author__ = "Dylan Vaca"
 
 from .core.coherence import coherence_score, go_no_go, phase_variance
