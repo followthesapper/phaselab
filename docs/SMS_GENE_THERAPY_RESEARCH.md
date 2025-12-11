@@ -302,7 +302,7 @@ The IR coherence framework provides a novel reliability metric for guide RNA des
 |----------|----------|
 | Quantum results | IBM Quantum: Job `d4suvd7t3pms7399mq8g` |
 | CRISPOR analysis | Batch `QkJQAaLNZB1vU53T54MY` |
-| PhaseLab package | https://github.com/dylanvaca/phaselab |
+| PhaseLab package | https://github.com/followthesapper/phaselab |
 | Raw data | `experiments/E200_SMS_Gene_Therapy/Data/` |
 
 ## Appendix B: Code Availability

@@ -230,7 +230,7 @@ If you use PhaseLab in research, please cite:
   author = {Vaca, Dylan},
   title = {PhaseLab: Phase-coherence analysis for quantum and biological systems},
   year = {2025},
-  url = {https://github.com/dylanvaca/phaselab}
+  url = {https://github.com/followthesapper/phaselab}
 }
 ```
 

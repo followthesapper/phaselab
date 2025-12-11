@@ -387,7 +387,7 @@ print(f"Optimal RAI1: {optimal['rai1']:.0%}")
 | Resource | Location |
 |----------|----------|
 | PhaseLab Package | https://pypi.org/project/phaselab/ |
-| Source Code | https://github.com/dylanvaca/phaselab |
+| Source Code | https://github.com/followthesapper/phaselab |
 | Simulation Scripts | phaselab/circadian/sms_model.py |
 | Parameter Files | phaselab/circadian/params/ |
 

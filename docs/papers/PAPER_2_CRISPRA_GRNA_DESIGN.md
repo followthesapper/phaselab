@@ -282,7 +282,7 @@ for guide in top_candidates['sequence']:
 | IBM Quantum Job | d4suvd7t3pms7399mq8g |
 | CRISPOR Batch | QkJQAaLNZB1vU53T54MY |
 | PhaseLab Package | https://pypi.org/project/phaselab/ |
-| Source Code | https://github.com/dylanvaca/phaselab |
+| Source Code | https://github.com/followthesapper/phaselab |
 | RAI1 RefSeq | NC_000017.11 |
 
 ---

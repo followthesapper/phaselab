@@ -296,7 +296,7 @@ Future work will extend the framework to protein folding Hamiltonians using HP l
 pip install phaselab[quantum]
 ```
 
-Repository: https://github.com/dylanvaca/phaselab
+Repository: https://github.com/followthesapper/phaselab
 
 ### 7.2 Hardware Results
 

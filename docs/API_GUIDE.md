@@ -52,7 +52,7 @@ pip install phaselab[all]
 ### Development Installation
 
 ```bash
-git clone https://github.com/dylanvaca/phaselab.git
+git clone https://github.com/followthesapper/phaselab.git
 cd phaselab
 pip install -e ".[dev]"
 ```
@@ -653,7 +653,7 @@ If you use PhaseLab in your research, please cite:
   author = {Vaca, Dylan},
   title = {PhaseLab: Phase-coherence analysis framework},
   year = {2024},
-  url = {https://github.com/dylanvaca/phaselab}
+  url = {https://github.com/followthesapper/phaselab}
 }
 ```
 
