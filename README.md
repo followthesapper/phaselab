@@ -164,7 +164,7 @@ PhaseLab includes pre-configured targets for haploinsufficiency disorders:
 | Target | Disease | Status |
 |--------|---------|--------|
 | **RAI1** | Smith-Magenis Syndrome | Hardware validated (IBM Torino) |
-| **SCN2A** | Autism-linked NDD, epilepsy | Simulator validated |
+| **SCN2A** | Autism-linked NDD, epilepsy | Hardware validated (IBM Torino) |
 
 ```python
 from phaselab.targets import load_target_config, list_available_targets
@@ -186,7 +186,8 @@ See [Target Library Documentation](docs/TARGETS.md) for adding new targets.
 - **[API Guide](docs/API_GUIDE.md)** - Complete API reference with detailed examples
 - **[Examples](docs/EXAMPLES.md)** - Practical code examples for common use cases
 - **[Target Library](docs/TARGETS.md)** - Gene target configurations for CRISPRa experiments
-- **[SMS Gene Therapy Research](docs/SMS_GENE_THERAPY_RESEARCH.md)** - Full research paper on IBM Quantum-validated CRISPRa design for Smith-Magenis Syndrome
+- **[SMS Gene Therapy Research](docs/SMS_GENE_THERAPY_RESEARCH.md)** - IBM Quantum-validated CRISPRa design for Smith-Magenis Syndrome (RAI1)
+- **[SCN2A Gene Therapy Research](docs/SCN2A_GENE_THERAPY_RESEARCH.md)** - IBM Quantum-validated CRISPRa design for Autism-linked NDD (SCN2A)
 
 ## Research Papers
 
@@ -244,7 +245,8 @@ PhaseLab metrics have been validated against:
 | System | Method | R̄ | Hardware |
 |--------|--------|-----|----------|
 | H₂ molecule | VQE | 0.891 | IBM Brisbane |
-| gRNA binding | Hamiltonian sim | 0.839-0.854 | IBM Torino |
+| RAI1 gRNA (SMS) | Hamiltonian sim | 0.839 | IBM Torino |
+| SCN2A gRNA (Autism) | Hamiltonian sim | 0.970 | IBM Torino |
 | Circadian clock | Kuramoto ODE | 0.73-0.99 | Classical |
 
 ## Citation

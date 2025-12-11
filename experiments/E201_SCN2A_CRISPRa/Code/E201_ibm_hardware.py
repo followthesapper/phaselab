@@ -193,7 +193,7 @@ def run_hardware_validation(backend_name="ibm_torino", shots=2000):
 
     print(f"Connecting to IBM Quantum...")
     service = QiskitRuntimeService(
-        channel="ibm_quantum",
+        channel="ibm_quantum_platform",
         token=token
     )
 

@@ -64,7 +64,7 @@ Coherence metric validated on IBM Quantum hardware:
 | After quality filtering | 15 |
 | All GO classification | 100% |
 
-### Top Candidates
+### Top Candidates (Simulator)
 
 | Rank | Sequence | Position | GC | Chromatin | R̄ | Status |
 |------|----------|----------|-----|-----------|-------|--------|
@@ -74,12 +74,49 @@ Coherence metric validated on IBM Quantum hardware:
 | 4 | ATCTTAATTCACGTTCCTTT | -106 | 30% | OPEN | 0.942 | GO |
 | 5 | CAAAGGAACGTGAATTAAGA | -87 | 35% | OPEN | 0.945 | GO |
 
+### IBM Quantum Hardware Validation
+
+**Backend**: IBM Torino (133 qubits)
+**Date**: December 10, 2025
+**Shots**: 2000 per circuit
+
+| Guide | Position | Simulator R̄ | Hardware R̄ | Difference | Status |
+|-------|----------|-------------|-------------|------------|--------|
+| TTCCACTTTTGACCAGGAGA | -64 | 0.944 | 0.971 | 2.9% | GO |
+| AGATGGTTCCACTTTTGACC | -70 | 0.945 | 0.970 | 2.6% | GO |
+| **GCTGACTGCTACATAGCCAA** | -104 | 0.945 | **0.970** | 2.7% | **GO** |
+
+**Average simulator-hardware agreement: 2.7%**
+
+### CRISPOR Off-Target Validation
+
+| Guide | MIT | CFD | 0mm | 1mm | 2mm | 3mm | 4mm | Total OT | Verdict |
+|-------|-----|-----|-----|-----|-----|-----|-----|----------|---------|
+| TTCCACTTTTGACCAGGAGA | 67 | 76 | 0 | 0 | 1 | 25 | 217 | 243 | Has 1 OT at 2mm |
+| AGATGGTTCCACTTTTGACC | 79 | 89 | 0 | 0 | 3 | 9 | 110 | 122 | Has 3 OT at 2mm |
+| **GCTGACTGCTACATAGCCAA** | **83** | **89** | 0 | 0 | **0** | 10 | 89 | 99 | **BEST** |
+
+### Lead Candidate
+
+**Sequence**: `GCTGACTGCTACATAGCCAA AGG`
+
+| Metric | Value |
+|--------|-------|
+| Position | -104 bp from TSS |
+| GC Content | 50% |
+| MIT Specificity | 83 |
+| CFD Score | 89 |
+| Off-targets ≤2mm | **0** |
+| Hardware Coherence | 0.970 |
+| Status | **GO** |
+
 ### Key Findings
 
 1. **All 15 candidates achieved GO classification** (R̄ > 0.135)
 2. **Average coherence: 0.944** (Excellent reliability)
-3. **Top candidates are in open chromatin** near the TSS
-4. **Optimal GC range (45-50%)** in positions -64 to -104
+3. **Hardware validation confirms simulator predictions** (2.7% average difference)
+4. **Lead candidate has zero off-targets at ≤2 mismatches**
+5. **MIT score 83 matches RAI1 lead candidate quality**
 
 ## Comparison with E200 (RAI1)
 
@@ -90,13 +127,16 @@ Coherence metric validated on IBM Quantum hardware:
 | CRISPRa validated | Yes (mouse) | Yes (mouse, Nature 2025) |
 | Total PAM sites | 274 | 75 |
 | CRISPRa candidates | 91 | 18 |
-| Top coherence | 0.945 | 0.945 |
-| Hardware validated | IBM Torino | Pending |
+| Lead guide MIT | 83 | 83 |
+| Lead guide CFD | 93 | 89 |
+| Off-targets ≤2mm | 0 | 0 |
+| Hardware R̄ | 0.839 | 0.970 |
+| Hardware validated | IBM Torino | IBM Torino |
 
 ## Next Steps
 
-1. **Hardware Validation**: Run top 3 guides on IBM Torino
-2. **CRISPOR Analysis**: Submit for genome-wide off-target screening
+1. ~~**Hardware Validation**: Run top 3 guides on IBM Torino~~ ✅ Complete
+2. ~~**CRISPOR Analysis**: Submit for genome-wide off-target screening~~ ✅ Complete
 3. **Literature Comparison**: Compare with guides from Nature 2025 paper
 4. **Experimental Validation**: Consider testing in iPSC-derived neurons
 

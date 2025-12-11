@@ -7,7 +7,14 @@ PhaseLab supports gene target configurations for CRISPRa/CRISPRi experiments. Ea
 | Target | Disease | Mode | Status |
 |--------|---------|------|--------|
 | **RAI1** | Smith-Magenis Syndrome | Haploinsufficiency | Hardware validated (IBM Torino) |
-| **SCN2A** | Autism-linked NDD | Haploinsufficiency | Simulator validated |
+| **SCN2A** | Autism-linked NDD | Haploinsufficiency | Hardware validated (IBM Torino) |
+
+### Validated Guide Candidates
+
+| Target | Lead Candidate | MIT | CFD | Off-targets ≤2mm | Hardware R̄ |
+|--------|----------------|-----|-----|------------------|-------------|
+| RAI1 | `TACAGGAGCTTCCAGCGTCA` | 83 | 93 | 0 | 0.839 |
+| SCN2A | `GCTGACTGCTACATAGCCAA` | 83 | 89 | 0 | 0.970 |
 
 ## Adding a New Target
 
