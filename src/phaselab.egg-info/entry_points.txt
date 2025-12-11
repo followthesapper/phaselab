@@ -1,0 +1,2 @@
+[console_scripts]
+phaselab = phaselab.cli:main

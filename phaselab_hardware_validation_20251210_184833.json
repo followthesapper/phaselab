@@ -1,0 +1,57 @@
+{
+  "candidates": [
+    {
+      "name": "gRNA_1",
+      "sequence": "GAAGGAGAGCAAGAGCGCGA",
+      "position": -81,
+      "energy": 0.008399999999999994,
+      "coherence_R": 0.9993627431344602,
+      "expected_R": 0.854,
+      "difference": 0.14536274313446018,
+      "agreement": "MODERATE",
+      "go_no_go": "GO",
+      "expectations": [
+        0.05,
+        -0.03900000000000002,
+        -0.010999999999999989,
+        0.008400000000000001
+      ]
+    },
+    {
+      "name": "gRNA_2",
+      "sequence": "AACTGCAAAGAAGTGGGCAC",
+      "position": -334,
+      "energy": -0.019999999999999983,
+      "coherence_R": 0.9980812182199617,
+      "expected_R": 0.84,
+      "difference": 0.15808121821996168,
+      "agreement": "MODERATE",
+      "go_no_go": "GO",
+      "expectations": [
+        0.056000000000000015,
+        -0.07499999999999998,
+        -0.005500000000000024,
+        0.004500000000000008
+      ]
+    },
+    {
+      "name": "gRNA_3",
+      "sequence": "TACAGGAGCTTCCAGCGTCA",
+      "position": -294,
+      "energy": 0.38310000000000005,
+      "coherence_R": 0.9808868144991476,
+      "expected_R": 0.839,
+      "difference": 0.14188681449914764,
+      "agreement": "MODERATE",
+      "go_no_go": "GO",
+      "expectations": [
+        0.25000000000000006,
+        0.11100000000000002,
+        0.0004999999999999675,
+        0.0216
+      ]
+    }
+  ],
+  "backend": "ibm_torino",
+  "job_id": "d4t0dhnt3pms7399o7h0"
+}
