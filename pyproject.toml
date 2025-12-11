@@ -68,10 +68,10 @@ all = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/dylanvaca/phaselab"
+Homepage = "https://github.com/followthesapper/phaselab"
 Documentation = "https://phaselab.readthedocs.io"
-Repository = "https://github.com/dylanvaca/phaselab"
-Issues = "https://github.com/dylanvaca/phaselab/issues"
+Repository = "https://github.com/followthesapper/phaselab"
+Issues = "https://github.com/followthesapper/phaselab/issues"
 
 [project.scripts]
 phaselab = "phaselab.cli:main"
