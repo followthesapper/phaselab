@@ -1,0 +1,248 @@
+{
+  "experiment": "E201_SCN2A_CRISPRa",
+  "timestamp": "2025-12-10T20:46:48.787826",
+  "genome_build": "GRCh38.p14",
+  "target_region": "chr2:165238414-165239914",
+  "scn2a_tss": 165239414,
+  "disease": "SCN2A-related neurodevelopmental disorder (ASD, epilepsy, ID)",
+  "therapeutic_goal": "Boost remaining allele from ~50% toward 100% WT",
+  "total_pam_sites": 75,
+  "crispra_window_candidates": 18,
+  "validation_components": [
+    "Real genomic sequence (NCBI RefSeq)",
+    "MIT off-target algorithm",
+    "Brain-specific chromatin accessibility (PsychENCODE-style)",
+    "SantaLucia thermodynamics",
+    "IR coherence (validated on IBM Brisbane/Torino)"
+  ],
+  "top_candidates": [
+    {
+      "sequence": "AAATCTTAAGTTTTCAATGA",
+      "pam": "TGG",
+      "position": -301,
+      "strand": "+",
+      "gc_content": 0.2,
+      "seed_gc": 0.25,
+      "off_target_score": 0.5444444444444444,
+      "complexity_score": 0.9444444444444444,
+      "homopolymer_flags": [
+        "NOTE: Tx4 run",
+        "WARN: Low GC (<30%)"
+      ],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "MODERATE (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 5.5275537109375,
+      "combined_score": 22.32377685546875,
+      "coherence_R_bar": 0.9421867068239652,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "NOTE: Tx4 run",
+        "WARN: Low GC (<30%)"
+      ]
+    },
+    {
+      "sequence": "TTTCAAATAGAGTGGAATTA",
+      "pam": "TGG",
+      "position": -151,
+      "strand": "+",
+      "gc_content": 0.25,
+      "seed_gc": 0.3333333333333333,
+      "off_target_score": 0.6722222222222223,
+      "complexity_score": 0.9722222222222222,
+      "homopolymer_flags": [
+        "WARN: Low GC (<30%)"
+      ],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 5.647575683593749,
+      "combined_score": 22.383787841796877,
+      "coherence_R_bar": 0.9440540421646726,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "WARN: Low GC (<30%)"
+      ]
+    },
+    {
+      "sequence": "AATCTTAAGTTTTCAATGAT",
+      "pam": "GGG",
+      "position": -300,
+      "strand": "+",
+      "gc_content": 0.2,
+      "seed_gc": 0.25,
+      "off_target_score": 0.5444444444444444,
+      "complexity_score": 0.9444444444444444,
+      "homopolymer_flags": [
+        "NOTE: Tx4 run",
+        "WARN: Low GC (<30%)"
+      ],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "MODERATE (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 5.6636865234375,
+      "combined_score": 22.39184326171875,
+      "coherence_R_bar": 0.9444275965372237,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "NOTE: Tx4 run",
+        "WARN: Low GC (<30%)"
+      ]
+    },
+    {
+      "sequence": "ATCTTAATTCACGTTCCTTT",
+      "pam": "CCN",
+      "position": -106,
+      "strand": "-",
+      "gc_content": 0.3,
+      "seed_gc": 0.4166666666666667,
+      "off_target_score": 0.8444444444444444,
+      "complexity_score": 0.9444444444444444,
+      "homopolymer_flags": [],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 5.7864892578125,
+      "combined_score": 22.45324462890625,
+      "coherence_R_bar": 0.9424763257357961,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "PASS: All validation checks"
+      ]
+    },
+    {
+      "sequence": "ACATTATGTTTAAACTAAAT",
+      "pam": "CCN",
+      "position": -287,
+      "strand": "-",
+      "gc_content": 0.15,
+      "seed_gc": 0.08333333333333333,
+      "off_target_score": 0.6166666666666667,
+      "complexity_score": 0.9166666666666667,
+      "homopolymer_flags": [
+        "WARN: Low GC (<30%)"
+      ],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "MODERATE (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 5.8868603515624995,
+      "combined_score": 22.50343017578125,
+      "coherence_R_bar": 0.9430491044304059,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "WARN: Low GC (<30%)"
+      ]
+    },
+    {
+      "sequence": "TTCAAATAGAGTGGAATTAT",
+      "pam": "GGG",
+      "position": -150,
+      "strand": "+",
+      "gc_content": 0.25,
+      "seed_gc": 0.3333333333333333,
+      "off_target_score": 0.6722222222222223,
+      "complexity_score": 0.9722222222222222,
+      "homopolymer_flags": [
+        "WARN: Low GC (<30%)"
+      ],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 5.91734130859375,
+      "combined_score": 22.518670654296876,
+      "coherence_R_bar": 0.9448383139095445,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "WARN: Low GC (<30%)"
+      ]
+    },
+    {
+      "sequence": "GTAGTTGATTTCAAATAGAG",
+      "pam": "TGG",
+      "position": -159,
+      "strand": "+",
+      "gc_content": 0.3,
+      "seed_gc": 0.25,
+      "off_target_score": 0.8722222222222222,
+      "complexity_score": 0.9722222222222222,
+      "homopolymer_flags": [],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 5.934218749999999,
+      "combined_score": 22.527109375000002,
+      "coherence_R_bar": 0.9437275809343288,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "PASS: All validation checks"
+      ]
+    },
+    {
+      "sequence": "TTCCACTTTTGACCAGGAGA",
+      "pam": "TGG",
+      "position": -64,
+      "strand": "+",
+      "gc_content": 0.45,
+      "seed_gc": 0.5,
+      "off_target_score": 0.8444444444444444,
+      "complexity_score": 0.9444444444444444,
+      "homopolymer_flags": [
+        "NOTE: Tx4 run"
+      ],
+      "accessibility": 0.76,
+      "chromatin_class": "OPEN (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 6.44192626953125,
+      "combined_score": 22.660963134765627,
+      "coherence_R_bar": 0.9444818724780788,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "NOTE: Tx4 run"
+      ]
+    },
+    {
+      "sequence": "AGATGGTTCCACTTTTGACC",
+      "pam": "AGG",
+      "position": -70,
+      "strand": "+",
+      "gc_content": 0.45,
+      "seed_gc": 0.5,
+      "off_target_score": 0.8722222222222222,
+      "complexity_score": 0.9722222222222222,
+      "homopolymer_flags": [
+        "NOTE: Tx4 run"
+      ],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 6.712021484375001,
+      "combined_score": 22.916010742187503,
+      "coherence_R_bar": 0.944999531607252,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "NOTE: Tx4 run"
+      ]
+    },
+    {
+      "sequence": "CAAAGGAACGTGAATTAAGA",
+      "pam": "TGG",
+      "position": -87,
+      "strand": "+",
+      "gc_content": 0.35,
+      "seed_gc": 0.3333333333333333,
+      "off_target_score": 0.8444444444444444,
+      "complexity_score": 0.9444444444444444,
+      "homopolymer_flags": [],
+      "accessibility": 0.6999999999999998,
+      "chromatin_class": "OPEN (DNase HS)",
+      "thermo_energy": 20.96,
+      "quantum_energy": 6.72044189453125,
+      "combined_score": 22.920220947265626,
+      "coherence_R_bar": 0.9450602398388914,
+      "go_no_go": "GO",
+      "validation_notes": [
+        "PASS: All validation checks"
+      ]
+    }
+  ]
+}

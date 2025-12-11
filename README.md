@@ -11,6 +11,7 @@ PhaseLab implements the **Informational Relativity (IR) framework** for assessin
 - **Quantum coherence metrics** (R̄, V_φ) validated on IBM Quantum hardware
 - **CRISPR/CRISPRa guide RNA design** with multi-layer validation
 - **Circadian clock modeling** for gene therapy dosage optimization
+- **Gene target library** for haploinsufficiency disorders (RAI1, SCN2A)
 
 ## Quick Start
 
@@ -156,10 +157,35 @@ for i, row in guides.head(3).iterrows():
 - Zero off-targets ≤2 mismatches
 - IBM Torino coherence: R̄ = 0.839
 
+## Gene Targets
+
+PhaseLab includes pre-configured targets for haploinsufficiency disorders:
+
+| Target | Disease | Status |
+|--------|---------|--------|
+| **RAI1** | Smith-Magenis Syndrome | Hardware validated (IBM Torino) |
+| **SCN2A** | Autism-linked NDD, epilepsy | Simulator validated |
+
+```python
+from phaselab.targets import load_target_config, list_available_targets
+
+# List all targets
+print(list_available_targets())  # ['RAI1', 'SCN2A']
+
+# Load SCN2A configuration
+scn2a = load_target_config("SCN2A")
+print(f"Gene: {scn2a.gene_symbol}")
+print(f"Disease: {scn2a.disease}")
+print(f"TSS: chr{scn2a.chrom}:{scn2a.tss_genomic}")
+```
+
+See [Target Library Documentation](docs/TARGETS.md) for adding new targets.
+
 ## Documentation
 
 - **[API Guide](docs/API_GUIDE.md)** - Complete API reference with detailed examples
 - **[Examples](docs/EXAMPLES.md)** - Practical code examples for common use cases
+- **[Target Library](docs/TARGETS.md)** - Gene target configurations for CRISPRa experiments
 - **[SMS Gene Therapy Research](docs/SMS_GENE_THERAPY_RESEARCH.md)** - Full research paper on IBM Quantum-validated CRISPRa design for Smith-Magenis Syndrome
 
 ## Research Papers

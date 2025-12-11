@@ -43,6 +43,7 @@ dependencies = [
     "numpy>=1.21",
     "scipy>=1.7",
     "pandas>=1.3",
+    "pyyaml>=6.0",
 ]
 
 [project.optional-dependencies]
@@ -80,7 +81,7 @@ phaselab = "phaselab.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-phaselab = ["py.typed"]
+phaselab = ["py.typed", "targets/*.yaml"]
 
 [tool.black]
 line-length = 100
