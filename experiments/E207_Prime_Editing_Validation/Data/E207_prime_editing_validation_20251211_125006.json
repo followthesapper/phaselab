@@ -1,0 +1,64 @@
+{
+  "experiment": "E207_Prime_Editing_Validation",
+  "timestamp": "2025-12-11T12:49:33.409466",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "designs": {
+    "optimal_design": {
+      "spacer": "GCGACTGCTACATAGCCAGG",
+      "pbs": "CCTGGCTATGTAGC",
+      "rt_template": "AGTCGATCGATCG",
+      "pbs_score": 1.2,
+      "rt_score": 1.2,
+      "extension_ss_dg": -15.0,
+      "simulator_R": 0.9448097123339786,
+      "hardware_R": 0.9269914183254808,
+      "go_no_go": "GO"
+    },
+    "short_pbs": {
+      "spacer": "ATCGATCGATCGATCGATCG",
+      "pbs": "CGATCGAT",
+      "rt_template": "AGTCGATCGATCG",
+      "pbs_score": 1.0,
+      "rt_score": 1.2,
+      "extension_ss_dg": -15.0,
+      "simulator_R": 0.8950333201740889,
+      "hardware_R": 0.8769479080070628,
+      "go_no_go": "GO"
+    },
+    "long_rt": {
+      "spacer": "GCGACTGCTACATAGCCAGG",
+      "pbs": "CCTGGCTATGTAGC",
+      "rt_template": "AGTCGATCGATCGATCGATCGATCGATCG",
+      "pbs_score": 1.2,
+      "rt_score": 0.6,
+      "extension_ss_dg": -15.0,
+      "simulator_R": 0.8289809579823625,
+      "hardware_R": 0.8079180847429525,
+      "go_no_go": "GO"
+    },
+    "high_gc_extension": {
+      "spacer": "GCGCGCGCGCGCGCGCGCGC",
+      "pbs": "GCGCGCGCGCGCGC",
+      "rt_template": "GCGCGCGCGCGCGC",
+      "pbs_score": 0.288,
+      "rt_score": 0.504,
+      "extension_ss_dg": -15.0,
+      "simulator_R": 0.9146715443933368,
+      "hardware_R": 0.890411546710389,
+      "go_no_go": "GO"
+    },
+    "balanced_design": {
+      "spacer": "AACTGACGGCGCTAGCCGTG",
+      "pbs": "CACGGCTAGCGCC",
+      "rt_template": "GTCAGTTAGCATC",
+      "pbs_score": 0.48,
+      "rt_score": 1.2,
+      "extension_ss_dg": -15.0,
+      "simulator_R": 0.9415423379967292,
+      "hardware_R": 0.9271247776904941,
+      "go_no_go": "GO"
+    }
+  },
+  "all_validated": true
+}

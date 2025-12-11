@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "phaselab"
-version = "0.1.0"
+version = "0.4.0"
 description = "Phase-coherence analysis framework for quantum, biological, and dynamical systems"
 readme = "README.md"
 license = {text = "MIT"}
@@ -19,11 +19,16 @@ keywords = [
     "coherence",
     "CRISPR",
     "CRISPRa",
+    "CRISPRi",
     "gene therapy",
+    "prime editing",
+    "base editing",
+    "knockout",
     "circadian rhythm",
     "Kuramoto",
     "VQE",
     "informational relativity",
+    "therapeutic window",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",

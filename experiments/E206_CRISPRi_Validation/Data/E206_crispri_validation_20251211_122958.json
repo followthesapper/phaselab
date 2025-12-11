@@ -1,0 +1,64 @@
+{
+  "experiment": "E206_CRISPRi_Validation",
+  "timestamp": "2025-12-11T12:29:03.815641",
+  "backend": "ibm_torino",
+  "shots": 4096,
+  "guides": {
+    "tss_optimal_template": {
+      "sequence": "GCGACTGCTACATAGCCAGG",
+      "position": 75,
+      "strand": "+",
+      "gc": 0.6,
+      "repression_efficiency": 1.0,
+      "steric_hindrance": 0.75,
+      "simulator_R": 0.014274763610783482,
+      "hardware_R": 0.012631861963090144,
+      "go_no_go": "NO-GO"
+    },
+    "tss_optimal_nontemplate": {
+      "sequence": "ATCGATCGATCGATCGATCG",
+      "position": 75,
+      "strand": "-",
+      "gc": 0.5,
+      "repression_efficiency": 0.85,
+      "steric_hindrance": 0.6000000000000001,
+      "simulator_R": 0.006368993213803243,
+      "hardware_R": 0.03797847230343593,
+      "go_no_go": "NO-GO"
+    },
+    "promoter_proximal": {
+      "sequence": "GCGACTGCTACATAGCCAGG",
+      "position": -25,
+      "strand": "+",
+      "gc": 0.6,
+      "repression_efficiency": 0.6,
+      "steric_hindrance": 0.6,
+      "simulator_R": 0.009763441036405175,
+      "hardware_R": 0.0086993215774621,
+      "go_no_go": "NO-GO"
+    },
+    "downstream_weak": {
+      "sequence": "ATCGATCGATCGATCGATCG",
+      "position": 400,
+      "strand": "+",
+      "gc": 0.5,
+      "repression_efficiency": 0.5,
+      "steric_hindrance": 0.2,
+      "simulator_R": 0.03364506770056043,
+      "hardware_R": 0.023209525549987772,
+      "go_no_go": "NO-GO"
+    },
+    "steric_optimal": {
+      "sequence": "AACTGACGGCGCTAGCCGTG",
+      "position": 50,
+      "strand": "+",
+      "gc": 0.65,
+      "repression_efficiency": 1.0,
+      "steric_hindrance": 1.0,
+      "simulator_R": 0.019707572173472035,
+      "hardware_R": 0.015676752733616406,
+      "go_no_go": "NO-GO"
+    }
+  },
+  "all_validated": false
+}
