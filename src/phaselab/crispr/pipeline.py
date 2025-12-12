@@ -224,8 +224,8 @@ def _compute_guide_coherence(guide_seq: str) -> float:
     """
     Compute IR coherence for a guide sequence.
 
-    Uses a simplified statevector simulation of the gRNA Hamiltonian.
-    For hardware runs, use the full VQE pipeline.
+    Uses ATLAS-Q enhanced coherence via shared utility (v0.6.0+).
+    Falls back to native implementation if ATLAS-Q unavailable.
 
     Args:
         guide_seq: 20bp guide sequence.
@@ -233,33 +233,8 @@ def _compute_guide_coherence(guide_seq: str) -> float:
     Returns:
         Coherence R̄ value.
     """
-    try:
-        # Build Hamiltonian
-        H = build_grna_hamiltonian(guide_seq)
-
-        # Simple coherence estimate from Hamiltonian structure
-        # (Full implementation would run VQE or statevector sim)
-        terms = H.get_terms()
-        if not terms:
-            return 0.5
-
-        # Use term coefficients as proxy for binding quality
-        energies = [abs(coeff) for coeff, _ in terms]
-        mean_energy = np.mean(energies)
-        std_energy = np.std(energies)
-
-        # Map to coherence (heuristic)
-        # Lower variance = more consistent = higher coherence
-        if mean_energy > 0:
-            V_phi = std_energy / mean_energy
-            R_bar = np.exp(-V_phi / 2)
-        else:
-            R_bar = 0.5
-
-        return float(np.clip(R_bar, 0, 1))
-
-    except Exception:
-        return 0.5
+    from .coherence_utils import compute_guide_coherence
+    return compute_guide_coherence(guide_seq, use_atlas_q=True)
 
 
 def _compute_combined_score(

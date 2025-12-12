@@ -74,6 +74,19 @@ from .scoring import (
     chromatin_accessibility_score,
 )
 
+# v0.6.0: Unified ATLAS-Q enhanced coherence
+# v0.6.1: Added CoherenceMode for heuristic vs quantum selection
+from .coherence_utils import (
+    CoherenceMode,
+    compute_guide_coherence,
+    compute_guide_coherence_with_details,
+    compute_coherence_batch,
+    compute_coherence_with_zscore,
+    is_guide_coherent,
+    get_coherence_method,
+    get_coherence_eligibility_info,
+)
+
 # v0.5.0: Multi-guide synergy
 from .multiguide import (
     GuideCandidate,
@@ -153,6 +166,17 @@ __all__ = [
     "cfd_score",
     "max_homopolymer_run",
     "chromatin_accessibility_score",
+
+    # ATLAS-Q Enhanced Coherence (v0.6.0+)
+    # v0.6.1: CoherenceMode for heuristic vs quantum selection
+    "CoherenceMode",
+    "compute_guide_coherence",
+    "compute_guide_coherence_with_details",
+    "compute_coherence_batch",
+    "compute_coherence_with_zscore",
+    "is_guide_coherent",
+    "get_coherence_method",
+    "get_coherence_eligibility_info",
 
     # Multi-guide (v0.5.0)
     "GuideCandidate",

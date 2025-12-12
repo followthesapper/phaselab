@@ -168,7 +168,48 @@ This threshold has been validated on:
 - gRNA binding simulations (R̄ = 0.84)
 - Circadian oscillator models
 
-## CRISPR Toolkit (v0.4.0)
+## What PhaseLab Is and Is Not
+
+### What PhaseLab IS:
+- **A prioritization tool** that helps rank guide candidates for experimental validation
+- **A structural analysis layer** that examines off-target risk topology, not just counts
+- **A complement to CRISPOR** that adds IR coherence metrics to standard specificity scores
+- **A reliability assessment framework** using phase coherence to identify trustworthy simulations
+
+### What PhaseLab is NOT:
+- **NOT a predictor** of fold-change, editing efficiency, or wet-lab outcomes
+- **NOT a replacement for CRISPOR** - we use CRISPOR's MIT/CFD scores as ground truth for off-targets
+- **NOT a guarantee** - all top candidates require experimental validation
+- **NOT specialized to any gene** - SMS/RAI1 is a case study, the framework is general
+
+### The Core Value Proposition:
+PhaseLab reduces experimental entropy by providing **structure-aware prioritization**. Instead of testing 50 guides blindly, PhaseLab helps you identify which 5-10 are worth testing first based on:
+1. IR coherence (simulation reliability)
+2. Off-target risk distribution (entropy)
+3. Coherence contrast (ΔR̄)
+4. Exonic risk flagging
+
+## What's New in v0.6.1
+
+- **Coherence Mode Parameter**: Choose between `mode="heuristic"` (fast, default) and `mode="quantum"` (VQE simulation)
+- **Honest Coherence Weighting**: Heuristic coherence demoted to tie-breaker (0.05 weight vs 0.30 for quantum)
+- **Two-Stage Scoring**: Hard safety gates (Stage 1) + soft ranking (Stage 2)
+- **Risk Mass Metrics**: `risk_mass_close`, `risk_mass_exonic`, `tail_risk_score`
+- **Concentration Measures**: Gini coefficient and Herfindahl-Hirschman Index for off-target distribution
+- **Evidence Levels**: A/B/C classification prevents over-trust in unvalidated guides
+- **Score Capping**: Level C (unvalidated) guides capped at 0.20 to prevent misleading rankings
+
+## What's New in v0.6.0
+
+- **ATLAS-Q Integration**: All CRISPR modules now use unified coherence computation via ATLAS-Q backend
+- **IR-Enhanced Off-Target Analysis**: CRISPOR integration with off-target entropy, coherence contrast (ΔR̄), and energy spectrum
+- **Off-Target Clustering**: Detection of dangerous off-target "families" indicating systematic vulnerabilities
+- **Region Difficulty Index**: "Soup index" for GC-rich/repetitive regions to normalize expectations
+- **Real Circular Statistics**: Proper phase variance calculation replacing heuristic estimates
+- **Exonic Risk Flagging**: Automatic detection of dangerous off-targets in coding regions
+- **Score Adjustment System**: IR-based penalties/bonuses for off-target landscape quality
+
+## CRISPR Toolkit (v0.4.0+)
 
 PhaseLab provides a complete genome engineering toolkit:
 
@@ -193,6 +234,8 @@ All CRISPR modules include multi-layer scoring:
 | **CFD Score** | Mismatch penalty | Cutting frequency |
 | **Chromatin** | DNase HS model | Accessibility |
 | **IR Coherence** | R̄ metric | Simulation reliability |
+| **Off-target Entropy** | Shannon entropy | Risk distribution (v0.6.0) |
+| **Coherence Contrast** | ΔR̄ | Off-target competitiveness (v0.6.0) |
 
 ## Circadian Model Features
 
@@ -328,6 +371,35 @@ from phaselab.crispr import (
     gc_content,
     delta_g_santalucia,
     mit_specificity_score,
+
+    # ATLAS-Q Coherence (v0.6.0)
+    compute_guide_coherence,
+    compute_guide_coherence_with_details,
+    is_guide_coherent,
+    get_coherence_method,
+)
+```
+
+### CRISPOR Integration (`phaselab.integrations.crispor`)
+
+```python
+from phaselab.integrations.crispor import (
+    # CRISPOR Client
+    CrisporClient,
+    CrisporConfig,
+
+    # Pipeline
+    design_guides_with_crispor,
+    GuideCandidate,
+    ScoringWeights,
+
+    # IR-Enhanced Off-Target Analysis (v0.6.0)
+    OffTargetSite,
+    OffTargetIRAnalysis,
+    analyze_offtarget_landscape,
+    compute_offtarget_entropy,
+    compute_coherence_contrast,
+    compute_ir_enhanced_score,
 )
 ```
 
@@ -371,6 +443,33 @@ PhaseLab metrics have been validated against IBM Quantum hardware:
 | **Therapy** | Dosage optimization | 0.65-0.98 | IBM Torino | ✓ GO |
 | Circadian | Kuramoto ODE | 0.73-0.99 | Classical | ✓ GO |
 
+## Known Limitations
+
+PhaseLab has inherent limitations that users should understand:
+
+### Biological Limitations
+- **No efficacy prediction**: We cannot predict fold-change in gene expression or editing efficiency
+- **Context-dependent effects**: Chromatin state, cell type, and delivery method all affect real-world outcomes
+- **GC-rich regions remain hard**: High-GC promoters (like RAI1) have many off-targets regardless of tool used
+
+### Technical Limitations
+- **Heuristic coherence**: Guide coherence uses Hamiltonian coefficient variance as a proxy, not actual VQE measurement
+- **Hardware R̄ differs from heuristic R̄**: IBM Quantum validation gave R̄ = 0.84-0.97, heuristic gives ~0.68-0.69
+- **CRISPOR dependency**: Off-target counts and MIT/CFD scores come from CRISPOR's empirical models
+
+### Methodological Limitations
+- **Dual leaderboard required**: Unvalidated guides must not be compared directly to validated guides
+- **Experimental validation required**: All top candidates must be tested in wet lab
+- **Region-specific thresholds needed**: A "good" score in a GC-soup region differs from a balanced region
+
+### What This Means in Practice
+PhaseLab is best used as a **prioritization filter**, not an oracle:
+1. Generate candidates with `design_guides()`
+2. Validate top candidates on CRISPOR
+3. Use IR-enhanced analysis to identify structural risks
+4. Select 5-10 guides for wet-lab testing
+5. Iterate based on experimental results
+
 ## Citation
 
 If you use PhaseLab in research, please cite:
@@ -396,4 +495,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 *Developed as part of the Informational Relativity research program.*
 *Hardware validation: IBM Torino, December 2025.*
-*Version 0.4.0: Complete CRISPR toolkit with knockout, CRISPRi, prime editing, base editing, and therapeutic dosage optimization.*
+*Version 0.6.0: ATLAS-Q integration with unified coherence, IR-enhanced off-target analysis, and CRISPOR integration.*
