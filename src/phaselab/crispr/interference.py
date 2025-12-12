@@ -364,26 +364,9 @@ def _empty_crispri_df() -> pd.DataFrame:
 
 
 def _compute_guide_coherence(guide_seq: str) -> float:
-    """Compute IR coherence for guide sequence."""
-    try:
-        H = build_grna_hamiltonian(guide_seq)
-        terms = H.get_terms()
-        if not terms:
-            return 0.5
-
-        energies = [abs(coeff) for coeff, _ in terms]
-        mean_energy = np.mean(energies)
-        std_energy = np.std(energies)
-
-        if mean_energy > 0:
-            V_phi = std_energy / mean_energy
-            R_bar = np.exp(-V_phi / 2)
-        else:
-            R_bar = 0.5
-
-        return float(np.clip(R_bar, 0, 1))
-    except Exception:
-        return 0.5
+    """Compute IR coherence using ATLAS-Q enhanced backend (v0.6.0+)."""
+    from .coherence_utils import compute_guide_coherence
+    return compute_guide_coherence(guide_seq, use_atlas_q=True)
 
 
 def _compute_crispri_score(

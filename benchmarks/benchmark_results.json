@@ -1,0 +1,135 @@
+{
+  "timestamp": "2025-12-12T10:19:59.257556",
+  "phaselab_version": "0.6.0",
+  "atlas_q_available": true,
+  "atlas_q_version": "0.6.3",
+  "gpu_available": true,
+  "results": [
+    {
+      "name": "coherence_heuristic",
+      "method": "native_heuristic",
+      "time_ms": 0.008689417998539284,
+      "value": 0.6843580743833411,
+      "extra": {
+        "V_phi": 0.7585479955555227,
+        "is_go": true
+      }
+    },
+    {
+      "name": "coherence_circular_native",
+      "method": "native_circular",
+      "time_ms": 0.005836646014358848,
+      "value": 0.9669231586491639,
+      "extra": {
+        "V_phi": 0.06727250067515186,
+        "is_go": true
+      }
+    },
+    {
+      "name": "coherence_circular_atlas",
+      "method": "atlas_q",
+      "time_ms": 0.008326472016051412,
+      "value": 0.9669231586491639,
+      "extra": {
+        "V_phi": 0.06727250067515186,
+        "is_go": true
+      }
+    },
+    {
+      "name": "grouping_simple",
+      "method": "simple_commuting",
+      "time_ms": 0.17459013004554436,
+      "value": 3.8461538461538463,
+      "extra": {
+        "n_groups": 13,
+        "method": "simple_commuting"
+      }
+    },
+    {
+      "name": "grouping_ir_enhanced",
+      "method": "atlas_q_vra",
+      "time_ms": 5.404385570145678,
+      "value": 2.2321630098347396,
+      "extra": {
+        "n_groups": 14,
+        "method": "atlas_q:vra_coherence_commuting"
+      }
+    },
+    {
+      "name": "vqe_simple",
+      "method": "simple",
+      "time_ms": 1.038519002031535,
+      "value": 4.032550010636595,
+      "extra": {
+        "converged": true,
+        "n_iterations": 4,
+        "coherence_R": 0.8521819217842957
+      }
+    },
+    {
+      "name": "vqe_atlas",
+      "method": "atlas_q",
+      "time_ms": 0.8422456041444093,
+      "value": 4.032550005374816,
+      "extra": {
+        "converged": true,
+        "n_iterations": 4,
+        "coherence_R": 0.8521819217842957
+      }
+    },
+    {
+      "name": "backend_selection_small_circuit",
+      "method": "auto",
+      "time_ms": 0,
+      "value": 0,
+      "extra": {
+        "n_qubits": 4,
+        "is_clifford": false,
+        "selected_backend": "qiskit_aer"
+      }
+    },
+    {
+      "name": "backend_selection_medium_circuit",
+      "method": "auto",
+      "time_ms": 0,
+      "value": 0,
+      "extra": {
+        "n_qubits": 15,
+        "is_clifford": false,
+        "selected_backend": "qiskit_aer"
+      }
+    },
+    {
+      "name": "backend_selection_large_circuit",
+      "method": "auto",
+      "time_ms": 0,
+      "value": 0,
+      "extra": {
+        "n_qubits": 30,
+        "is_clifford": false,
+        "selected_backend": "atlas_mps"
+      }
+    },
+    {
+      "name": "backend_selection_clifford_circuit",
+      "method": "auto",
+      "time_ms": 0,
+      "value": 0,
+      "extra": {
+        "n_qubits": 10,
+        "is_clifford": true,
+        "selected_backend": "atlas_stabilizer"
+      }
+    },
+    {
+      "name": "batch_coherence",
+      "method": "gpu",
+      "time_ms": 31.62134580197744,
+      "value": 0.9624109578132629,
+      "extra": {
+        "n_batches": 100,
+        "gpu_available": true
+      }
+    }
+  ]
+}
