@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "phaselab"
-version = "0.6.1"
+version = "0.7.0"
 description = "Phase-coherence analysis framework for quantum, biological, and dynamical systems"
 readme = "README.md"
 license = {text = "MIT"}

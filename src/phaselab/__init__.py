@@ -42,11 +42,18 @@ NEW in v0.6.1:
 - Evidence levels: A/B/C classification for validation status
 - Score capping: unvalidated guides capped to prevent misleading rankings
 
+NEW in v0.7.0 - Virtual Assay Stack:
+- Biological context layer: ATAC-seq, methylation, histone marks from ENCODE/Roadmap
+- ML outcome predictor protocol: adapters for DeepCRISPR, DeepSpCas9, Enformer
+- Evidence fusion system: hierarchical score combination with uncertainty
+- Score calibration: Platt/isotonic calibration for ML predictions
+- Enhanced GO/NO-GO: context-aware coherence thresholds
+
 Author: Dylan Vaca
 License: MIT
 """
 
-__version__ = "0.6.1"
+__version__ = "0.7.0"
 __author__ = "Dylan Vaca"
 
 from .core.coherence import coherence_score, go_no_go, phase_variance
