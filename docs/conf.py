@@ -108,14 +108,14 @@ master_doc = 'index'
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
-# html_logo = '_static/logo.png'  # Uncomment when logo exists
-# html_favicon = '_static/favicon.png'  # Uncomment when favicon exists
+html_logo = '_static/logo.svg'
+html_favicon = '_static/favicon.svg'
 
 html_theme_options = {
     "logo": {
         "text": "PhaseLab",
-        # "image_light": "_static/logo-lm.png",  # Uncomment when logo exists
-        # "image_dark": "_static/logo.png",  # Uncomment when logo exists
+        "image_light": "_static/logo-lm.svg",
+        "image_dark": "_static/logo.svg",
     },
     "show_prev_next": True,
     "navbar_align": "left",
