@@ -74,6 +74,32 @@ from .scoring import (
     chromatin_accessibility_score,
 )
 
+# v0.5.0: Multi-guide synergy
+from .multiguide import (
+    GuideCandidate,
+    GuidePair,
+    MultiGuideSet,
+    MultiGuideConfig,
+    design_multiguide_set,
+    analyze_guide_pair,
+    predict_pairwise_synergy,
+    validate_guide_set,
+    optimize_guide_spacing,
+)
+
+# v0.5.0: Enhancer targeting
+from .enhancer import (
+    Enhancer,
+    EnhancerConfig,
+    EnhancerGuideResult,
+    design_enhancer_guides,
+    identify_target_enhancers,
+    score_enhancer_for_activation,
+    predict_enhancer_activation_effect,
+    compare_promoter_vs_enhancer,
+    get_known_enhancers,
+)
+
 __all__ = [
     # CRISPRa (activation)
     "design_guides",
@@ -127,4 +153,26 @@ __all__ = [
     "cfd_score",
     "max_homopolymer_run",
     "chromatin_accessibility_score",
+
+    # Multi-guide (v0.5.0)
+    "GuideCandidate",
+    "GuidePair",
+    "MultiGuideSet",
+    "MultiGuideConfig",
+    "design_multiguide_set",
+    "analyze_guide_pair",
+    "predict_pairwise_synergy",
+    "validate_guide_set",
+    "optimize_guide_spacing",
+
+    # Enhancer targeting (v0.5.0)
+    "Enhancer",
+    "EnhancerConfig",
+    "EnhancerGuideResult",
+    "design_enhancer_guides",
+    "identify_target_enhancers",
+    "score_enhancer_for_activation",
+    "predict_enhancer_activation_effect",
+    "compare_promoter_vs_enhancer",
+    "get_known_enhancers",
 ]

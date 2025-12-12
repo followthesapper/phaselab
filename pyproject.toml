@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "phaselab"
-version = "0.4.0"
+version = "0.5.0"
 description = "Phase-coherence analysis framework for quantum, biological, and dynamical systems"
 readme = "README.md"
 license = {text = "MIT"}
@@ -29,6 +29,13 @@ keywords = [
     "VQE",
     "informational relativity",
     "therapeutic window",
+    "ATAC-seq",
+    "methylation",
+    "nucleosome",
+    "enhancer",
+    "AAV",
+    "immunogenicity",
+    "multi-guide",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -61,6 +68,9 @@ plotting = [
     "matplotlib>=3.5",
     "seaborn>=0.12",
 ]
+chromatin = [
+    "pyBigWig>=0.3",  # BigWig file access for ATAC-seq
+]
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
@@ -70,7 +80,7 @@ dev = [
     "ruff>=0.1",
 ]
 all = [
-    "phaselab[quantum,plotting,dev]",
+    "phaselab[quantum,plotting,chromatin,dev]",
 ]
 
 [project.urls]
