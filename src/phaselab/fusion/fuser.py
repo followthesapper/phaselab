@@ -17,9 +17,114 @@ from phaselab.fusion.evidence import (
     EvidenceSource,
     EvidenceType,
     EvidenceCollection,
+    ClaimLevel,
 )
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass
+class LayerDisagreement:
+    """
+    Tracks disagreement between evidence layers.
+
+    When different layers (ML, context, sequence) give conflicting signals,
+    this provides diagnostic information for the user.
+
+    Attributes
+    ----------
+    layer1 : str
+        First layer name (e.g., "ml", "context")
+    layer2 : str
+        Second layer name
+    score1 : float
+        Score from first layer [0, 1]
+    score2 : float
+        Score from second layer [0, 1]
+    delta : float
+        Absolute difference between scores
+    is_critical : bool
+        Whether this disagreement is critical (delta > 0.4)
+    message : str
+        Human-readable description
+    """
+    layer1: str
+    layer2: str
+    score1: float
+    score2: float
+    delta: float
+    is_critical: bool
+    message: str
+
+    @classmethod
+    def check_pair(
+        cls,
+        name1: str,
+        score1: Optional[float],
+        name2: str,
+        score2: Optional[float],
+        critical_threshold: float = 0.4,
+    ) -> Optional["LayerDisagreement"]:
+        """
+        Check if two layers disagree significantly.
+
+        Parameters
+        ----------
+        name1 : str
+            First layer name
+        score1 : float or None
+            Score from first layer
+        name2 : str
+            Second layer name
+        score2 : float or None
+            Score from second layer
+        critical_threshold : float
+            Delta above which disagreement is critical
+
+        Returns
+        -------
+        LayerDisagreement or None
+            Disagreement object if significant, None otherwise
+        """
+        if score1 is None or score2 is None:
+            return None
+
+        delta = abs(score1 - score2)
+
+        # Only flag disagreements > 0.2
+        if delta < 0.2:
+            return None
+
+        is_critical = delta >= critical_threshold
+
+        # Generate diagnostic message
+        higher = name1 if score1 > score2 else name2
+        lower = name1 if score1 < score2 else name2
+        higher_score = max(score1, score2)
+        lower_score = min(score1, score2)
+
+        if is_critical:
+            message = (
+                f"CRITICAL: {higher} predicts high ({higher_score:.2f}) "
+                f"but {lower} predicts low ({lower_score:.2f}). "
+                f"Investigate cause of {delta:.0%} disagreement."
+            )
+        else:
+            message = (
+                f"Moderate disagreement: {higher} ({higher_score:.2f}) vs "
+                f"{lower} ({lower_score:.2f}). Consider which layer is more "
+                f"reliable for this context."
+            )
+
+        return cls(
+            layer1=name1,
+            layer2=name2,
+            score1=score1,
+            score2=score2,
+            delta=delta,
+            is_critical=is_critical,
+            message=message,
+        )
 
 
 @dataclass
@@ -119,6 +224,12 @@ class FusedResult:
         Number of evidence sources used
     warnings : List[str]
         Fusion warnings
+    claim_level : ClaimLevel
+        Claim level classification (v0.8.0)
+    disagreements : List[LayerDisagreement]
+        Layer disagreements detected (v0.8.0)
+    is_unknown : bool
+        Whether this falls into the "unknown" bucket (v0.8.0)
     """
     score: float
     confidence: float
@@ -131,6 +242,9 @@ class FusedResult:
     coherence: Optional[float]
     evidence_count: int
     warnings: List[str] = field(default_factory=list)
+    claim_level: ClaimLevel = field(default=ClaimLevel.UNKNOWN)
+    disagreements: List[LayerDisagreement] = field(default_factory=list)
+    is_unknown: bool = False
 
     @property
     def is_go(self) -> bool:
@@ -141,6 +255,27 @@ class FusedResult:
     def is_viable(self) -> bool:
         """Whether guide is viable (passes gates and GO)."""
         return self.passes_gates and self.is_go
+
+    @property
+    def has_critical_disagreement(self) -> bool:
+        """Whether any layer disagreement is critical."""
+        return any(d.is_critical for d in self.disagreements)
+
+    @property
+    def n_agreeing_layers(self) -> int:
+        """Count layers that agree (score within 0.2 of each other)."""
+        scores = list(self.component_scores.values())
+        if len(scores) < 2:
+            return len(scores)
+
+        # Use mean as reference, count within 0.2
+        mean_score = np.mean(scores)
+        return sum(1 for s in scores if abs(s - mean_score) < 0.2)
+
+    @property
+    def claim_description(self) -> str:
+        """Human-readable claim level description."""
+        return self.claim_level.description
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary."""
@@ -156,6 +291,22 @@ class FusedResult:
             "coherence": self.coherence,
             "evidence_count": self.evidence_count,
             "warnings": self.warnings,
+            # v0.8.0 additions
+            "claim_level": self.claim_level.value,
+            "claim_description": self.claim_description,
+            "disagreements": [
+                {
+                    "layers": (d.layer1, d.layer2),
+                    "scores": (d.score1, d.score2),
+                    "delta": d.delta,
+                    "is_critical": d.is_critical,
+                    "message": d.message,
+                }
+                for d in self.disagreements
+            ],
+            "is_unknown": self.is_unknown,
+            "n_agreeing_layers": self.n_agreeing_layers,
+            "has_critical_disagreement": self.has_critical_disagreement,
         }
 
 
@@ -397,6 +548,22 @@ class EvidenceFusion:
         # Calculate confidence interval
         ci = self._calculate_confidence_interval(combined_score, confidence)
 
+        # v0.8.0: Detect layer disagreements
+        disagreements = self._detect_disagreements(component_scores)
+        for d in disagreements:
+            if d.is_critical:
+                warnings.append(d.message)
+
+        # v0.8.0: Determine claim level
+        n_agreeing = self._count_agreeing_layers(component_scores)
+        claim_level = ClaimLevel.from_confidence(confidence, n_agreeing)
+
+        # v0.8.0: Check for unknown bucket
+        is_unknown = self._is_unknown(confidence, component_scores, disagreements)
+        if is_unknown:
+            claim_level = ClaimLevel.UNKNOWN
+            warnings.append("Insufficient evidence: prediction marked as UNKNOWN")
+
         return FusedResult(
             score=float(combined_score),
             confidence=float(confidence),
@@ -409,7 +576,127 @@ class EvidenceFusion:
             coherence=coherence_value,
             evidence_count=len(self._evidence.evidences),
             warnings=warnings,
+            claim_level=claim_level,
+            disagreements=disagreements,
+            is_unknown=is_unknown,
         )
+
+    def _detect_disagreements(
+        self,
+        component_scores: Dict[str, float],
+    ) -> List[LayerDisagreement]:
+        """
+        Detect disagreements between evidence layers.
+
+        Parameters
+        ----------
+        component_scores : Dict[str, float]
+            Scores from each component layer
+
+        Returns
+        -------
+        List[LayerDisagreement]
+            Detected disagreements
+        """
+        disagreements = []
+
+        # Get scores for comparison (None if not present)
+        ml_score = component_scores.get("ml")
+        ctx_score = component_scores.get("context")
+        seq_score = component_scores.get("sequence")
+        spec_score = component_scores.get("specificity")
+
+        # Check ML vs Context disagreement
+        d = LayerDisagreement.check_pair("ml", ml_score, "context", ctx_score)
+        if d:
+            disagreements.append(d)
+
+        # Check ML vs Sequence disagreement
+        d = LayerDisagreement.check_pair("ml", ml_score, "sequence", seq_score)
+        if d:
+            disagreements.append(d)
+
+        # Check Context vs Sequence disagreement
+        d = LayerDisagreement.check_pair("context", ctx_score, "sequence", seq_score)
+        if d:
+            disagreements.append(d)
+
+        # Check Specificity vs ML disagreement
+        d = LayerDisagreement.check_pair("specificity", spec_score, "ml", ml_score)
+        if d:
+            disagreements.append(d)
+
+        return disagreements
+
+    def _count_agreeing_layers(self, component_scores: Dict[str, float]) -> int:
+        """
+        Count number of layers that agree (score within 0.2 of mean).
+
+        Parameters
+        ----------
+        component_scores : Dict[str, float]
+            Scores from each component layer
+
+        Returns
+        -------
+        int
+            Number of agreeing layers
+        """
+        scores = list(component_scores.values())
+        if len(scores) < 2:
+            return len(scores)
+
+        mean_score = np.mean(scores)
+        return sum(1 for s in scores if abs(s - mean_score) < 0.2)
+
+    def _is_unknown(
+        self,
+        confidence: float,
+        component_scores: Dict[str, float],
+        disagreements: List[LayerDisagreement],
+    ) -> bool:
+        """
+        Determine if this prediction should be in the "unknown" bucket.
+
+        Criteria for unknown:
+        - Confidence < 0.3
+        - No component scores available
+        - Multiple critical disagreements
+        - All component scores near 0.5 (no signal)
+
+        Parameters
+        ----------
+        confidence : float
+            Overall confidence
+        component_scores : Dict[str, float]
+            Component layer scores
+        disagreements : List[LayerDisagreement]
+            Detected disagreements
+
+        Returns
+        -------
+        bool
+            True if prediction should be unknown
+        """
+        # Too low confidence
+        if confidence < 0.3:
+            return True
+
+        # No evidence
+        if len(component_scores) == 0:
+            return True
+
+        # Multiple critical disagreements
+        n_critical = sum(1 for d in disagreements if d.is_critical)
+        if n_critical >= 2:
+            return True
+
+        # All scores near 0.5 (no signal)
+        scores = list(component_scores.values())
+        if scores and all(0.4 <= s <= 0.6 for s in scores):
+            return True
+
+        return False
 
     def _calculate_component_scores(self) -> Dict[str, float]:
         """Calculate scores for each evidence category."""

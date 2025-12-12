@@ -22,6 +22,111 @@ class EvidenceType(Enum):
     COHERENCE = "coherence"      # IR coherence metric
 
 
+class ClaimLevel(Enum):
+    """
+    Claim level classification for guide predictions.
+
+    Indicates the strength of computational support for the prediction.
+    This helps users understand what the evidence actually supports.
+
+    Levels
+    ------
+    STRONG_COMPUTATIONAL : str
+        Multiple layers agree (ML, context, sequence)
+        High confidence (>0.8)
+        Validated against wet-lab data
+    CONTEXT_DEPENDENT : str
+        Prediction depends on biological context
+        May vary by cell type, tissue, or conditions
+        Moderate confidence (0.5-0.8)
+    EXPLORATORY : str
+        Limited evidence, single layer agreement
+        Useful for hypothesis generation
+        Lower confidence (0.3-0.5)
+    UNKNOWN : str
+        Insufficient evidence to make a call
+        Confidence below threshold (<0.3)
+        Explicit "we don't know" bucket
+    """
+    STRONG_COMPUTATIONAL = "strong_computational"
+    CONTEXT_DEPENDENT = "context_dependent"
+    EXPLORATORY = "exploratory"
+    UNKNOWN = "unknown"
+
+    @classmethod
+    def from_confidence(
+        cls,
+        confidence: float,
+        n_agreeing_layers: int = 1,
+        has_wet_lab_validation: bool = False,
+    ) -> "ClaimLevel":
+        """
+        Determine claim level from confidence and layer agreement.
+
+        Parameters
+        ----------
+        confidence : float
+            Overall confidence in prediction [0, 1]
+        n_agreeing_layers : int
+            Number of evidence layers that agree
+        has_wet_lab_validation : bool
+            Whether prediction is validated against wet-lab data
+
+        Returns
+        -------
+        ClaimLevel
+            Appropriate claim level
+        """
+        # Unknown: insufficient evidence
+        if confidence < 0.3 or n_agreeing_layers == 0:
+            return cls.UNKNOWN
+
+        # Exploratory: limited evidence
+        if confidence < 0.5 or n_agreeing_layers == 1:
+            return cls.EXPLORATORY
+
+        # Context-dependent: moderate evidence
+        if confidence < 0.8 or n_agreeing_layers < 3:
+            return cls.CONTEXT_DEPENDENT
+
+        # Strong computational: high evidence + agreement
+        return cls.STRONG_COMPUTATIONAL
+
+    @property
+    def description(self) -> str:
+        """Human-readable description of claim level."""
+        descriptions = {
+            ClaimLevel.STRONG_COMPUTATIONAL: (
+                "Strong computational support: Multiple evidence layers agree "
+                "with high confidence. Suitable for prioritization."
+            ),
+            ClaimLevel.CONTEXT_DEPENDENT: (
+                "Context-dependent prediction: May vary by cell type or conditions. "
+                "Validate in target context before proceeding."
+            ),
+            ClaimLevel.EXPLORATORY: (
+                "Exploratory only: Limited evidence. Use for hypothesis generation, "
+                "not definitive ranking."
+            ),
+            ClaimLevel.UNKNOWN: (
+                "Unknown: Insufficient evidence to make a reliable prediction. "
+                "Additional data needed."
+            ),
+        }
+        return descriptions.get(self, "Unknown claim level")
+
+    @property
+    def color_code(self) -> str:
+        """Color code for visualization (green/yellow/orange/gray)."""
+        colors = {
+            ClaimLevel.STRONG_COMPUTATIONAL: "green",
+            ClaimLevel.CONTEXT_DEPENDENT: "yellow",
+            ClaimLevel.EXPLORATORY: "orange",
+            ClaimLevel.UNKNOWN: "gray",
+        }
+        return colors.get(self, "gray")
+
+
 class EvidenceSource(Enum):
     """Source of evidence."""
     # Sequence-based

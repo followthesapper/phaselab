@@ -42,11 +42,13 @@ from phaselab.fusion.evidence import (
     Evidence,
     EvidenceSource,
     EvidenceType,
+    ClaimLevel,  # v0.8.0
 )
 from phaselab.fusion.fuser import (
     EvidenceFusion,
     FusedResult,
     FusionConfig,
+    LayerDisagreement,  # v0.8.0
 )
 from phaselab.fusion.calibration import (
     Calibrator,
@@ -62,6 +64,9 @@ __all__ = [
     "EvidenceFusion",
     "FusedResult",
     "FusionConfig",
+    # v0.8.0: Claim levels and disagreement tracking
+    "ClaimLevel",
+    "LayerDisagreement",
     # Calibration
     "Calibrator",
     "CalibrationCurve",

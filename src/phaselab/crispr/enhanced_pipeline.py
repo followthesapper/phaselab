@@ -52,6 +52,8 @@ from ..fusion import (
     EvidenceType,
     FusedResult,
     FusionConfig,
+    ClaimLevel,  # v0.8.0
+    LayerDisagreement,  # v0.8.0
 )
 
 logger = logging.getLogger(__name__)
@@ -172,6 +174,13 @@ class EnhancedGuide:
     # Evidence level
     evidence_level: str = "C"  # A/B/C
 
+    # v0.8.0: Claim level and diagnostics
+    claim_level: str = "unknown"  # strong_computational, context_dependent, exploratory, unknown
+    claim_description: str = ""
+    is_unknown: bool = False
+    layer_disagreements: List[Dict[str, Any]] = field(default_factory=list)
+    has_critical_disagreement: bool = False
+
     @property
     def is_go(self) -> bool:
         return self.go_status == "GO"
@@ -179,6 +188,11 @@ class EnhancedGuide:
     @property
     def is_viable(self) -> bool:
         return self.passes_gates and self.is_go
+
+    @property
+    def claim_level_enum(self) -> ClaimLevel:
+        """Return ClaimLevel enum."""
+        return ClaimLevel(self.claim_level)
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary."""
@@ -204,6 +218,12 @@ class EnhancedGuide:
             "passes_gates": self.passes_gates,
             "evidence_level": self.evidence_level,
             "is_viable": self.is_viable,
+            # v0.8.0 additions
+            "claim_level": self.claim_level,
+            "claim_description": self.claim_description,
+            "is_unknown": self.is_unknown,
+            "layer_disagreements": self.layer_disagreements,
+            "has_critical_disagreement": self.has_critical_disagreement,
         }
 
 
@@ -520,6 +540,22 @@ def design_enhanced_guides(
         else:
             evidence_level = "C"
 
+        # v0.8.0: Extract claim level and disagreements from fused result
+        claim_level = fused.claim_level.value
+        claim_description = fused.claim_level.description
+        is_unknown = fused.is_unknown
+        layer_disagreements = [
+            {
+                "layers": (d.layer1, d.layer2),
+                "scores": (round(d.score1, 2), round(d.score2, 2)),
+                "delta": round(d.delta, 2),
+                "is_critical": d.is_critical,
+                "message": d.message,
+            }
+            for d in fused.disagreements
+        ]
+        has_critical_disagreement = fused.has_critical_disagreement
+
         # Create enhanced guide
         guide = EnhancedGuide(
             sequence=guide_seq,
@@ -552,6 +588,12 @@ def design_enhanced_guides(
             passes_gates=fused.passes_gates,
             failed_gates=fused.failed_gates,
             evidence_level=evidence_level,
+            # v0.8.0 additions
+            claim_level=claim_level,
+            claim_description=claim_description,
+            is_unknown=is_unknown,
+            layer_disagreements=layer_disagreements,
+            has_critical_disagreement=has_critical_disagreement,
         )
 
         guides.append(guide)

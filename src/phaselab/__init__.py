@@ -49,11 +49,18 @@ NEW in v0.7.0 - Virtual Assay Stack:
 - Score calibration: Platt/isotonic calibration for ML predictions
 - Enhanced GO/NO-GO: context-aware coherence thresholds
 
+NEW in v0.8.0 - Claim Levels and Diagnostics:
+- ClaimLevel classification: STRONG_COMPUTATIONAL, CONTEXT_DEPENDENT, EXPLORATORY, UNKNOWN
+- Layer disagreement detection: diagnostic warnings when ML and context disagree
+- Explicit unknown bucket: predictions with insufficient evidence marked as UNKNOWN
+- Human-readable claim descriptions for user communication
+- Critical disagreement flagging for conflicting evidence
+
 Author: Dylan Vaca
 License: MIT
 """
 
-__version__ = "0.7.0"
+__version__ = "0.8.0"
 __author__ = "Dylan Vaca"
 
 from .core.coherence import coherence_score, go_no_go, phase_variance
@@ -86,6 +93,15 @@ from .integrations.crispor.offtarget_ir import (
     compute_ir_enhanced_score,
 )
 
+# Evidence fusion (v0.7.0) and claim levels (v0.8.0)
+from .fusion import (
+    ClaimLevel,
+    LayerDisagreement,
+    EvidenceFusion,
+    FusedResult,
+    FusionConfig,
+)
+
 __all__ = [
     # Core coherence
     "coherence_score",
@@ -115,4 +131,11 @@ __all__ = [
     "OffTargetIRAnalysis",
     "analyze_offtarget_landscape",
     "compute_ir_enhanced_score",
+
+    # Evidence fusion and claim levels (v0.7.0, v0.8.0)
+    "ClaimLevel",
+    "LayerDisagreement",
+    "EvidenceFusion",
+    "FusedResult",
+    "FusionConfig",
 ]
