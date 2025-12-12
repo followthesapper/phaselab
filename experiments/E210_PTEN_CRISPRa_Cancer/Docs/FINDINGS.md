@@ -96,7 +96,7 @@ PhaseLab successfully designed and pre-validated CRISPRa guides for PTEN tumor s
 ```
 Normal: PTEN active → PI3K suppressed → Controlled growth
 Cancer: PTEN silenced → PI3K hyperactive → Uncontrolled growth
-CRISPRa: PTEN reactivated → PI3K suppressed → Growth control restored
+CRISPRa: PTEN reactivated → PI3K suppressed → Growth control partially restored
 ```
 
 ### Expected Downstream Effects
@@ -123,13 +123,11 @@ When PTEN is reactivated by CRISPRa:
 
 ### High GC Content and CpG Island Context
 
-The PTEN promoter is a **CpG island** with ~80% GC content. This is normal for tumor suppressor genes and does not indicate poor guide quality.
-
 The PTEN core promoter resides in a CpG-island context with unusually high GC content, a known feature of many tumor suppressor promoters. Because of this, several top candidates have GC fractions around ~80%. For PTEN we explicitly relaxed the default 40-70% GC filter used in PhaseLab, and relied on thermodynamic ΔG and IR coherence to down-select guides that remain physically plausible despite the GC-rich background.
 
 - CpG islands are common in tumor suppressors
 - High GC = strong secondary structure, but still accessible
-- All guides still achieved GO status on hardware
+- All hardware-tested guides achieved GO status
 
 ### Hardware Validation Details
 

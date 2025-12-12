@@ -119,7 +119,8 @@ Coherence metric validated on IBM Quantum hardware:
 
 ### Lead Candidate
 
-**Sequence**: `CGGAAGGGGGAGCGCGGCAG CGG`
+**Spacer**: `CGGAAGGGGGAGCGCGGCAG`
+**PAM**: `CGG`
 
 | Metric | Value |
 |--------|-------|
