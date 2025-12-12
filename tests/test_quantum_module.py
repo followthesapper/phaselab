@@ -213,9 +213,19 @@ class TestVQEModule:
         assert result.converged is True
 
 
+def _has_qiskit_aer():
+    """Check if qiskit_aer is available."""
+    try:
+        from qiskit_aer import AerSimulator
+        return True
+    except ImportError:
+        return False
+
+
 class TestBackendModule:
     """Test backend selection."""
 
+    @pytest.mark.skipif(not _has_qiskit_aer(), reason="qiskit_aer not installed")
     def test_get_available_backends(self):
         """Test listing available backends."""
         from phaselab.quantum.backend import get_available_backends
@@ -227,6 +237,7 @@ class TestBackendModule:
         names = [b.name for b in backends]
         assert "qiskit_aer" in names
 
+    @pytest.mark.skipif(not _has_qiskit_aer(), reason="qiskit_aer not installed")
     def test_get_optimal_backend_small(self):
         """Test backend selection for small circuits."""
         from phaselab.quantum.backend import get_optimal_backend, BackendType
@@ -234,6 +245,7 @@ class TestBackendModule:
         backend = get_optimal_backend(n_qubits=4, is_clifford=False)
         assert isinstance(backend, BackendType)
 
+    @pytest.mark.skipif(not _has_qiskit_aer(), reason="qiskit_aer not installed")
     def test_get_optimal_backend_large(self):
         """Test backend selection for large circuits."""
         from phaselab.quantum.backend import get_optimal_backend, BackendType
