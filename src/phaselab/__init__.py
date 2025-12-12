@@ -23,11 +23,19 @@ NEW in v0.5.0:
 - Immunogenicity prediction for Cas9 and guide RNA
 - Comprehensive validation report generation
 
+NEW in v0.6.0:
+- ATLAS-Q integration for advanced quantum simulation
+- IR measurement grouping (5× variance reduction)
+- Real circular statistics coherence (replaces heuristic)
+- Coherence-aware VQE optimization
+- Optional GPU acceleration via Triton kernels
+- Rust backend support for 30-77× faster simulation
+
 Author: Dylan Vaca
 License: MIT
 """
 
-__version__ = "0.5.0"
+__version__ = "0.6.0"
 __author__ = "Dylan Vaca"
 
 from .core.coherence import coherence_score, go_no_go, phase_variance
