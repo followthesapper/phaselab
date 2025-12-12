@@ -12,6 +12,13 @@ Provides:
 - Thermodynamic binding energy (SantaLucia)
 - Chromatin accessibility modeling
 - IR coherence-based reliability scoring
+
+NEW in v0.7.0 - Enhanced Pipeline:
+- Full Virtual Assay Stack integration
+- Biological context from ENCODE (ATAC-seq, methylation, histones)
+- ML efficiency predictions (DeepCRISPR, DeepSpCas9 adapters)
+- Evidence fusion with uncertainty quantification
+- Context-aware guide ranking
 """
 
 # CRISPRa (activation)
@@ -113,6 +120,16 @@ from .enhancer import (
     get_known_enhancers,
 )
 
+# v0.7.0: Enhanced Pipeline with Virtual Assay Stack
+from .enhanced_pipeline import (
+    Modality,
+    EnhancedGuideConfig,
+    EnhancedGuide,
+    EnhancedDesignResult,
+    design_enhanced_guides,
+    compare_guides_with_without_context,
+)
+
 __all__ = [
     # CRISPRa (activation)
     "design_guides",
@@ -199,4 +216,12 @@ __all__ = [
     "predict_enhancer_activation_effect",
     "compare_promoter_vs_enhancer",
     "get_known_enhancers",
+
+    # Enhanced Pipeline with Virtual Assay Stack (v0.7.0)
+    "Modality",
+    "EnhancedGuideConfig",
+    "EnhancedGuide",
+    "EnhancedDesignResult",
+    "design_enhanced_guides",
+    "compare_guides_with_without_context",
 ]
