@@ -2,7 +2,7 @@
 
 ## Overview
 
-This experiment applies the PhaseLab CRISPRa design pipeline to PTEN, one of the most frequently silenced tumor suppressor genes in human cancer. The same validated methodology used for RAI1/Smith-Magenis Syndrome (E200) and SCN2A/Autism (E201) is applied to design and validate guide RNAs for reactivating PTEN expression in cancer cells.
+This experiment applies the PhaseLab CRISPRa design pipeline to PTEN, one of the most frequently silenced tumor suppressor genes in human cancer. The same validated methodology used for RAI1/Smith-Magenis Syndrome (E200) and SCN2A/Autism (E201) is applied to design and pre-validate guide RNAs for reactivating PTEN expression in cancer cells.
 
 ## Background
 
@@ -42,9 +42,11 @@ Reference: [Mol Ther Nucleic Acids 2019](https://pubmed.ncbi.nlm.nih.gov/3065419
 - **Gene**: PTEN (phosphatase and tensin homolog)
 - **Chromosome**: 10 (10q23.31)
 - **Genome Build**: GRCh38
-- **TSS**: chr10:87,863,625
+- **TSS**: chr10:87,863,625 (RefSeq NM_000314.8, UCSC hg38)
 - **Promoter Region**: chr10:87,862,625-87,864,125 (1500 bp)
 - **CRISPRa Window**: -300 to -50 bp from TSS
+
+*Note: Coordinates refer to RefSeq NM_000314.8 on GRCh38 (UCSC hg38). Alternative upstream TSSs have been reported but are not targeted here.*
 
 ### Cell Models
 
@@ -61,12 +63,16 @@ Reference: [Mol Ther Nucleic Acids 2019](https://pubmed.ncbi.nlm.nih.gov/3065419
 ### Pipeline Components
 
 1. **PAM Scanning**: SpCas9 (NGG) on both strands
-2. **Basic Filtering**: GC 40-70%, max homopolymer ≤4
-3. **Off-target Scoring**: MIT algorithm + complexity analysis
+2. **Basic Filtering**: GC 40-70% (relaxed to ~85% for CpG island context), max homopolymer ≤4
+3. **Off-target Scoring**: MIT algorithm + complexity analysis (internal scoring)
 4. **Chromatin Accessibility**: Cancer cell model (ENCODE data)
 5. **Thermodynamics**: SantaLucia nearest-neighbor energy
 6. **Quantum Simulation**: Pauli Hamiltonian encoding
 7. **IR Coherence**: R̄ = exp(-V_φ/2) with e⁻² threshold
+
+### CpG Island Promoter Consideration
+
+The PTEN core promoter resides in a CpG-island context with unusually high GC content, a known feature of many tumor suppressor promoters. Because of this, several top candidates have GC fractions around ~80%. For PTEN we explicitly relaxed the default 40-70% GC filter used in PhaseLab, and relied on thermodynamic ΔG and IR coherence to down-select guides that remain physically plausible despite the GC-rich background.
 
 ### Quantum Validation
 
@@ -83,7 +89,7 @@ Coherence metric validated on IBM Quantum hardware:
 | Total PAM sites | 336 |
 | In CRISPRa window | 53 |
 | After quality filtering | 15 |
-| All GO classification | 100% |
+| Simulator GO classification | 100% |
 
 ### Top Candidates (Simulator)
 
@@ -109,6 +115,8 @@ Coherence metric validated on IBM Quantum hardware:
 
 **Average simulator-hardware agreement: 1.0%** (Excellent)
 
+*Note: Hardware validation was performed on the top 3 ranked guides. All three achieved GO status.*
+
 ### Lead Candidate
 
 **Sequence**: `CGGAAGGGGGAGCGCGGCAG CGG`
@@ -124,13 +132,14 @@ Coherence metric validated on IBM Quantum hardware:
 
 ### Key Findings
 
-1. **All 15 candidates achieved GO classification** (R̄ > 0.135)
-2. **Average coherence: 0.944** (Excellent reliability)
-3. **Hardware validation confirms simulator predictions** (1.0% average difference)
-4. **High GC content (~80%) is inherent** to PTEN's CpG island promoter
-5. **Top guide position (-90 bp) aligns** with Moses et al. optimal window
+1. **All 15 simulator candidates achieved GO classification** (R̄ > 0.135)
+2. **All 3 hardware-tested guides confirmed GO status** on IBM Torino
+3. **Average coherence: 0.944** (Excellent reliability)
+4. **Hardware validation confirms simulator predictions** (1.0% average difference)
+5. **High GC content (~80%) is expected** given PTEN's CpG island promoter context
+6. **Top guide position (-90 bp) aligns** with Moses et al. optimal window (-54 bp)
 
-## Comparison with Other Haploinsufficiency Targets
+## Comparison with Other PhaseLab Targets
 
 | Metric | E200 (RAI1) | E201 (SCN2A) | E210 (PTEN) |
 |--------|-------------|--------------|-------------|
@@ -167,6 +176,16 @@ CRISPRa can overcome these mechanisms by recruiting transcriptional activators (
 |-----------|-------|------------------|--------|
 | SUM159 | sgRNA -54 | 2.27x | Reduced p-AKT |
 | SK-MEL-28 | sgRNA -54 | 1.8x | Drug sensitization |
+
+## Limitations
+
+- **Computational + quantum only**: No wet-lab testing has been performed yet
+- **Off-target scoring is internal**: Based on PhaseLab's MIT/CFD-style scoring; genome-wide off-target enumeration via CRISPOR is still required
+- **Does not model**:
+  - Promoter methylation dynamics directly
+  - Chromatin remodeling in actual tumors
+  - Intratumor heterogeneity and clonal selection
+  - Delivery efficiency, immune response, or toxicity
 
 ## Next Steps
 

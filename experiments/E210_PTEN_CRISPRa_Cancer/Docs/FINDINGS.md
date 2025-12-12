@@ -10,9 +10,9 @@
 
 ## Executive Summary
 
-PhaseLab successfully designed and validated CRISPRa guides for PTEN tumor suppressor reactivation in cancer cells. All guides achieved **GO** status on IBM Quantum hardware, demonstrating reliability for experimental use.
+PhaseLab successfully designed and pre-validated CRISPRa guides for PTEN tumor suppressor reactivation in cancer cells. All three top-ranked guides achieved GO status on IBM Quantum hardware, providing strong candidates for experimental validation.
 
-**Bottom Line**: PhaseLab can design reliable CRISPRa guides for cancer gene therapy.
+**Bottom Line**: PhaseLab can design and pre-validate CRISPRa guides for tumor suppressor reactivation in cancer models, providing strong candidates for gene-therapy-oriented experiments.
 
 ---
 
@@ -26,7 +26,7 @@ PhaseLab successfully designed and validated CRISPRa guides for PTEN tumor suppr
 | GGAGCGGAGCGAGGAGGCGG | -265 bp | 0.944 | **0.953** | 0.9% |
 | GAGGCGGGACCCGCGTGCGG | -145 bp | 0.942 | **0.952** | 1.1% |
 
-**All 3 guides: GO status confirmed on real quantum hardware**
+**All 3 top-ranked guides: GO status confirmed on real quantum hardware**
 
 ### Pipeline Statistics
 
@@ -35,7 +35,9 @@ PhaseLab successfully designed and validated CRISPRa guides for PTEN tumor suppr
 | Total PAM sites scanned | 336 |
 | CRISPRa window candidates | 53 |
 | Evaluated candidates | 15 |
-| GO classification | **100%** |
+| Simulator GO classification | **100%** |
+| Hardware-tested guides | 3 |
+| Hardware GO classification | **100%** |
 | Average coherence (R̄) | 0.944 |
 | Hardware-simulator agreement | **1.0%** |
 
@@ -94,7 +96,7 @@ PhaseLab successfully designed and validated CRISPRa guides for PTEN tumor suppr
 ```
 Normal: PTEN active → PI3K suppressed → Controlled growth
 Cancer: PTEN silenced → PI3K hyperactive → Uncontrolled growth
-CRISPRa: PTEN reactivated → PI3K suppressed → Growth restored
+CRISPRa: PTEN reactivated → PI3K suppressed → Growth control restored
 ```
 
 ### Expected Downstream Effects
@@ -119,13 +121,15 @@ When PTEN is reactivated by CRISPRa:
 
 ## Technical Notes
 
-### High GC Content
+### High GC Content and CpG Island Context
 
-The PTEN promoter is a **CpG island** with ~80% GC content. This is normal and does not indicate poor guide quality.
+The PTEN promoter is a **CpG island** with ~80% GC content. This is normal for tumor suppressor genes and does not indicate poor guide quality.
+
+The PTEN core promoter resides in a CpG-island context with unusually high GC content, a known feature of many tumor suppressor promoters. Because of this, several top candidates have GC fractions around ~80%. For PTEN we explicitly relaxed the default 40-70% GC filter used in PhaseLab, and relied on thermodynamic ΔG and IR coherence to down-select guides that remain physically plausible despite the GC-rich background.
 
 - CpG islands are common in tumor suppressors
 - High GC = strong secondary structure, but still accessible
-- All guides still achieved GO status
+- All guides still achieved GO status on hardware
 
 ### Hardware Validation Details
 
@@ -134,6 +138,18 @@ The PTEN promoter is a **CpG island** with ~80% GC content. This is normal and d
 - **Circuit depth**: ~20 gates
 - **Shots**: 4096
 - **Job completion**: Successful
+
+---
+
+## Limitations
+
+- **Computational + quantum only**: These results are purely computational plus quantum-hardware validation; no wet-lab testing has been performed yet.
+- **Off-target scoring is internal**: PhaseLab's scoring does not replace genome-wide off-target enumeration via tools like CRISPOR, which is still required for any experimental work.
+- **Does not model**:
+  - Promoter methylation dynamics directly
+  - Chromatin remodeling in actual tumors
+  - Intratumor heterogeneity and clonal selection
+  - Delivery efficiency, immune response, or toxicity
 
 ---
 
@@ -175,12 +191,12 @@ The PTEN promoter is a **CpG island** with ~80% GC content. This is normal and d
 
 ## Conclusion
 
-**E210 demonstrates that PhaseLab can design reliable CRISPRa guides for cancer therapy applications.** The PTEN guides achieved excellent coherence scores on IBM Quantum hardware, matching or exceeding previous results for RAI1 (Smith-Magenis) and SCN2A (Autism).
+E210 demonstrates that PhaseLab can design and pre-validate CRISPRa guides for tumor suppressor reactivation in cancer models. The PTEN guides achieved excellent coherence scores on IBM Quantum hardware, matching or exceeding previous results for RAI1 (Smith-Magenis) and SCN2A (Autism).
 
 This opens the door for:
 - Systematic CRISPRa design for other tumor suppressors (CDKN2A, RB1, TP53)
 - Combination approaches with targeted cancer therapies
-- Potential clinical translation for PTEN-deficient cancers
+- Experimental validation toward potential clinical translation for PTEN-deficient cancers
 
 ---
 
