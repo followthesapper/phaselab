@@ -56,11 +56,23 @@ NEW in v0.8.0 - Claim Levels and Diagnostics:
 - Human-readable claim descriptions for user communication
 - Critical disagreement flagging for conflicting evidence
 
+NEW in v0.9.0 - SMS Trials Module (Preclinical Decision Engine):
+- CRISPRa RAI1 activation trial for SMS therapeutic development
+- CRISPRi modifier gene suppression trials (PER1, CRY1, CLOCK)
+- Knockout model validation trials
+- Base editing trials for RAI1 variant correction
+- Prime editing trials for regulatory motif repair
+- Circadian rescue simulation with therapeutic window prediction
+- AAV delivery feasibility assessment for CNS targeting
+- Complete SMS pipeline orchestrator with GO/NO-GO decisions
+- Falsification test framework for validation studies
+- Wet lab recommendations and validation priorities
+
 Author: Dylan Vaca
 License: MIT
 """
 
-__version__ = "0.8.0"
+__version__ = "0.9.0"
 __author__ = "Dylan Vaca"
 
 from .core.coherence import coherence_score, go_no_go, phase_variance
