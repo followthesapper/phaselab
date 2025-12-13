@@ -13,6 +13,20 @@ Provides:
 - Chromatin accessibility modeling
 - IR coherence-based reliability scoring
 
+NEW in v0.9.3 - CRISPRa Binding Register Model:
+- NucleaseRole: Explicit BINDING vs CUTTING mode
+- Relaxed PAM patterns for dCas9 binding (e.g., SaCas9 NNGRRN)
+- Sliding binding register (±2bp) for GC-dense promoters
+- Configurable guide length for literature reproduction
+- Validated against Chang et al. 2022 sg2 winner
+
+NEW in v0.9.2 - Guide Enumeration & Policy System:
+- Region declaration with multi-TSS support
+- PAM scanning for SpCas9, SaCas9, Cas12a
+- Policy-based dominance ranking
+- Benchmark mode for validation against published guides
+- Reproducibility manifests
+
 NEW in v0.7.0 - Enhanced Pipeline:
 - Full Virtual Assay Stack integration
 - Biological context from ENCODE (ATAC-seq, methylation, histones)
@@ -79,6 +93,26 @@ from .scoring import (
     cfd_score,
     max_homopolymer_run,
     chromatin_accessibility_score,
+    # v0.9.1: U6/Pol III compatibility and repeat detection
+    poly_t_penalty,
+    is_repeat_region,
+    u6_compatibility_check,
+    # v0.9.1: CRISPOR composite scoring (legacy)
+    OFFTARGET_MISMATCH_WEIGHTS,
+    CRISPORMetrics,
+    crispor_composite_score,
+    rank_guides_crispor_style,
+    validate_and_rerank_with_crispor,
+    # v0.9.2: Policy-based dominance ranking
+    RankingPolicy,
+    PolicyConfig,
+    POLICY_CONFIGS,
+    GateResult,
+    GuideTier,
+    apply_hard_gates,
+    rank_guides,
+    emit_manifest,
+    print_ranking_report,
 )
 
 # v0.6.0: Unified ATLAS-Q enhanced coherence
@@ -128,6 +162,49 @@ from .enhanced_pipeline import (
     EnhancedDesignResult,
     design_enhanced_guides,
     compare_guides_with_without_context,
+)
+
+# v0.9.1: Local CRISPOR integration for genome-wide off-target validation
+# Note: Requires separate CRISPOR installation due to large genome files (~6GB)
+from .crispor_integration import (
+    CrisporConfig,
+    CrisporValidator,
+    setup_crispor,
+    validate_with_crispor,
+)
+
+# v0.9.2: Region declaration, enumeration, and full design pipeline
+from .region import (
+    GenomeBuild,
+    TSSSource,
+    TSSAnnotation,
+    Window,
+    Region,
+    RegionSet,
+    RegionBuilder,
+    build_regions_for_gene,
+    get_tss_for_gene,
+)
+from .enumerate import (
+    Nuclease,
+    NucleaseRole,  # v0.9.3: BINDING vs CUTTING mode
+    NucleaseConfig,
+    NUCLEASE_CONFIGS,
+    CandidateGuide,
+    PAMScanner,
+    EnumerationResult,
+    enumerate_guides,
+    enumerate_from_sequence,
+)
+from .design import (
+    DesignResult,
+    BenchmarkResult,
+    design_crispra_guides,  # v0.9.3: Primary CRISPRa API with binding mode
+    design_crispra_guides as design_crispra_guides_v2,  # Alias for compatibility
+    design_knockout_guides as design_knockout_guides_v2,
+    evaluate_candidate,
+    evaluate_candidates,
+    benchmark_against_published,
 )
 
 __all__ = [
@@ -183,6 +260,26 @@ __all__ = [
     "cfd_score",
     "max_homopolymer_run",
     "chromatin_accessibility_score",
+    # v0.9.1: U6/Pol III compatibility and repeat detection
+    "poly_t_penalty",
+    "is_repeat_region",
+    "u6_compatibility_check",
+    # v0.9.1: CRISPOR composite scoring (legacy)
+    "OFFTARGET_MISMATCH_WEIGHTS",
+    "CRISPORMetrics",
+    "crispor_composite_score",
+    "rank_guides_crispor_style",
+    "validate_and_rerank_with_crispor",
+    # v0.9.2: Policy-based dominance ranking
+    "RankingPolicy",
+    "PolicyConfig",
+    "POLICY_CONFIGS",
+    "GateResult",
+    "GuideTier",
+    "apply_hard_gates",
+    "rank_guides",
+    "emit_manifest",
+    "print_ranking_report",
 
     # ATLAS-Q Enhanced Coherence (v0.6.0+)
     # v0.6.1: CoherenceMode for heuristic vs quantum selection
@@ -224,4 +321,44 @@ __all__ = [
     "EnhancedDesignResult",
     "design_enhanced_guides",
     "compare_guides_with_without_context",
+
+    # CRISPOR Integration (v0.9.1)
+    "CrisporConfig",
+    "CrisporValidator",
+    "setup_crispor",
+    "validate_with_crispor",
+
+    # v0.9.2: Region declaration
+    "GenomeBuild",
+    "TSSSource",
+    "TSSAnnotation",
+    "Window",
+    "Region",
+    "RegionSet",
+    "RegionBuilder",
+    "build_regions_for_gene",
+    "get_tss_for_gene",
+
+    # v0.9.2: Guide enumeration
+    "Nuclease",
+    "NucleaseConfig",
+    "NUCLEASE_CONFIGS",
+    "CandidateGuide",
+    "PAMScanner",
+    "EnumerationResult",
+    "enumerate_guides",
+    "enumerate_from_sequence",
+
+    # v0.9.3: NucleaseRole for binding vs cutting mode
+    "NucleaseRole",
+
+    # v0.9.2/v0.9.3: Full design pipeline
+    "DesignResult",
+    "BenchmarkResult",
+    "design_crispra_guides",  # v0.9.3: Primary CRISPRa API
+    "design_crispra_guides_v2",  # Alias for compatibility
+    "design_knockout_guides_v2",
+    "evaluate_candidate",
+    "evaluate_candidates",
+    "benchmark_against_published",
 ]

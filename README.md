@@ -189,25 +189,67 @@ PhaseLab reduces experimental entropy by providing **structure-aware prioritizat
 3. Coherence contrast (ΔR̄)
 4. Exonic risk flagging
 
-## What's New in v0.6.1
+## What's New in v0.9.3
 
-- **Coherence Mode Parameter**: Choose between `mode="heuristic"` (fast, default) and `mode="quantum"` (VQE simulation)
-- **Honest Coherence Weighting**: Heuristic coherence demoted to tie-breaker (0.05 weight vs 0.30 for quantum)
-- **Two-Stage Scoring**: Hard safety gates (Stage 1) + soft ranking (Stage 2)
-- **Risk Mass Metrics**: `risk_mass_close`, `risk_mass_exonic`, `tail_risk_score`
-- **Concentration Measures**: Gini coefficient and Herfindahl-Hirschman Index for off-target distribution
+**CRISPRa Binding Register Model - Major Methodology Correction**
+
+v0.9.3 fixes a fundamental assumption that caused CRISPRa pipelines to miss experimentally validated guides:
+
+- **NucleaseRole**: Explicit `BINDING` vs `CUTTING` mode determines PAM stringency
+- **Relaxed PAM patterns**: SaCas9 uses NNGRRN (binding) instead of NNGRRT (cutting)
+- **Sliding binding register**: ±2bp enumeration captures guides that rigid anchoring misses
+- **Configurable guide length**: Override defaults for literature reproduction
+
+```python
+from phaselab.crispr import design_crispra_guides, Nuclease
+
+# Match Chang et al. 2022 experimental parameters
+result = design_crispra_guides(
+    gene_symbol="Rai1",
+    promoter_sequence=promoter_seq,
+    tss_position=600,
+    nuclease=Nuclease.SACAS9,
+    relaxed_pam=True,    # BINDING mode (default)
+    guide_length=20,     # Chang used 20bp, not standard 21bp
+)
+
+# sg2 winner is now correctly recovered at TSS-80
+```
+
+**Key insight**: CRISPRa binding is invariant to small PAM-guide register shifts in GC-dense promoters. Standard pipelines enforce rigid spacer anchoring that works for cutting but systematically misses validated CRISPRa guides.
+
+## What's New in v0.9.0
+
+- **SMS Trials Module**: Complete therapeutic trial framework for Smith-Magenis Syndrome
+  - **CRISPRa RAI1 Trial**: Activate RAI1 expression with therapeutic window validation (70-110%)
+  - **CRISPRi Modifier Trial**: Suppress circadian modifier genes (PER1, CRY1, CLOCK)
+  - **Knockout Validation Trial**: Research-use gene disruption models
+  - **Base Editing Trial**: Correct RAI1 point mutations (A→G, C→T)
+  - **Prime Editing Trial**: Precise regulatory motif corrections
+  - **Circadian Rescue Simulation**: Predict sleep/wake cycle restoration from RAI1 boost
+  - **Delivery Assessment**: AAV serotype selection for CNS delivery
+  - **SMS Pipeline Orchestrator**: Integrated GO/NO-GO decision system with falsification tests
+- **Falsification Test Framework**: Automated generation of wet-lab validation experiments
+- **Claim Levels**: STRONG_COMPUTATIONAL, CONTEXT_DEPENDENT, EXPLORATORY, UNKNOWN
+
+## What's New in v0.8.0
+
+- **Claim Level System**: Four-tier evidence classification for all predictions
+- **Fusion Module**: Multi-source data integration with uncertainty quantification
+- **Virtual Assay Stack**: Enhanced guide scoring with tissue-specific modeling
+
+## What's New in v0.7.0
+
+- **Enhanced Pipeline**: `design_enhanced_guides()` with modality-specific scoring
+- **Modality Support**: CRISPRa, CRISPRi, Knockout, Base Editing, Prime Editing
+- **Tissue-Specific Scoring**: Brain, liver, blood, and muscle accessibility models
+
+## What's New in v0.6.x
+
+- **Coherence Mode Parameter**: Choose between `mode="heuristic"` (fast) and `mode="quantum"` (VQE)
+- **ATLAS-Q Integration**: Unified coherence computation via ATLAS-Q backend
+- **IR-Enhanced Off-Target Analysis**: CRISPOR integration with off-target entropy
 - **Evidence Levels**: A/B/C classification prevents over-trust in unvalidated guides
-- **Score Capping**: Level C (unvalidated) guides capped at 0.20 to prevent misleading rankings
-
-## What's New in v0.6.0
-
-- **ATLAS-Q Integration**: All CRISPR modules now use unified coherence computation via ATLAS-Q backend
-- **IR-Enhanced Off-Target Analysis**: CRISPOR integration with off-target entropy, coherence contrast (ΔR̄), and energy spectrum
-- **Off-Target Clustering**: Detection of dangerous off-target "families" indicating systematic vulnerabilities
-- **Region Difficulty Index**: "Soup index" for GC-rich/repetitive regions to normalize expectations
-- **Real Circular Statistics**: Proper phase variance calculation replacing heuristic estimates
-- **Exonic Risk Flagging**: Automatic detection of dangerous off-targets in coding regions
-- **Score Adjustment System**: IR-based penalties/bonuses for off-target landscape quality
 
 ## CRISPR Toolkit (v0.4.0+)
 
@@ -303,6 +345,76 @@ print(f"TSS: chr{scn2a.chrom}:{scn2a.tss_genomic}")
 ```
 
 See [Target Library Documentation](docs/TARGETS.md) for adding new targets.
+
+## SMS Trials Module (v0.9.0+)
+
+PhaseLab v0.9.0 introduces a complete therapeutic trial framework for SMS:
+
+### Run Full SMS Pipeline
+
+```python
+from phaselab.trials.sms import SMSPipeline, SMSTrialConfig
+
+# Configure pipeline
+config = SMSTrialConfig(
+    therapeutic_window=(0.70, 1.10),
+    optimal_expression=0.80,
+    use_virtual_assay=True,
+)
+
+# Run full pipeline
+pipeline = SMSPipeline(config=config)
+result = pipeline.run_full_pipeline()
+
+# Get GO/NO-GO decision
+print(f"Overall: {result.overall_go_nogo}")  # GO, CONDITIONAL, NO-GO
+print(f"Claim level: {result.overall_claim_level}")
+print(f"Top CRISPRa guide: {result.crispra_result.best_candidate['sequence']}")
+
+# Get falsification tests for wet lab
+for test in result.falsification_tests:
+    print(f"Test {test['id']}: {test['name']}")
+    print(f"  Failure condition: {test['failure_condition']}")
+```
+
+### Individual Trial Runners
+
+```python
+from phaselab.trials.sms import (
+    run_sms_crispra_trial,      # RAI1 activation
+    run_sms_crispri_trial,      # Modifier suppression
+    run_sms_knockout_trial,     # Gene disruption (research)
+    run_sms_base_editing_trial, # Point mutation correction
+    run_sms_prime_editing_trial,# Regulatory motif repair
+    run_circadian_rescue_simulation,  # Sleep/wake prediction
+    run_delivery_assessment,    # AAV serotype selection
+)
+
+# CRISPRa trial for RAI1 activation
+crispra = run_sms_crispra_trial(promoter_sequence=rai1_promoter)
+print(f"Found {crispra.n_candidates} guides in therapeutic window")
+
+# Circadian rescue simulation
+circadian = run_circadian_rescue_simulation(predicted_rai1_expression=0.80)
+print(f"Rescue status: {circadian.metrics['rescue_status']}")
+print(f"Sleep quality: {circadian.metrics['sleep_quality_prediction']}")
+
+# AAV delivery assessment for CNS
+delivery = run_delivery_assessment(modality="CRISPRa_VP64", target_tissue="brain")
+print(f"Feasibility: {delivery.metrics['delivery_feasibility']}")
+print(f"Recommended: {delivery.best_candidate['recommended_serotype']}")
+```
+
+### Falsification Tests
+
+The pipeline automatically generates falsification tests for wet-lab validation:
+
+| Test | Purpose | Failure Condition |
+|------|---------|-------------------|
+| **A** | Ranking validity | PhaseLab guides ≤ random controls |
+| **B** | Risk prediction | High-risk guides pass safety screen |
+| **C** | Dosage prediction | Expression correlation < 0.6 |
+| **D** | UNKNOWN bucket | UNKNOWN guides perform systematically |
 
 ## Documentation
 
@@ -415,6 +527,31 @@ from phaselab.therapy import (
 )
 ```
 
+### SMS Trials (`phaselab.trials.sms`) - v0.9.0+
+
+```python
+from phaselab.trials.sms import (
+    # Pipeline orchestrator
+    SMSPipeline,
+    SMSTrialConfig,
+    SMSTrialResult,
+    SMSPipelineResult,
+
+    # Individual trial runners
+    run_sms_crispra_trial,       # RAI1 activation
+    run_sms_crispri_trial,       # Modifier suppression
+    run_sms_knockout_trial,      # Gene disruption
+    run_sms_base_editing_trial,  # Point mutation correction
+    run_sms_prime_editing_trial, # Regulatory motif repair
+    run_circadian_rescue_simulation,  # Sleep/wake prediction
+    run_delivery_assessment,     # AAV serotype selection
+
+    # Trial status/types
+    TrialStatus,
+    TrialType,
+)
+```
+
 ### Circadian (`phaselab.circadian`)
 
 ```python
@@ -495,4 +632,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 *Developed as part of the Informational Relativity research program.*
 *Hardware validation: IBM Torino, December 2025.*
-*Version 0.6.0: ATLAS-Q integration with unified coherence, IR-enhanced off-target analysis, and CRISPOR integration.*
+*Version 0.9.3: CRISPRa Binding Register Model - methodology correction for GC-dense promoters.*

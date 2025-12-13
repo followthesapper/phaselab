@@ -260,5 +260,198 @@ class TestGuideDesignConfig:
         assert config.min_gc == 0.3
 
 
+class TestCRISPORCompositeScoring:
+    """Test CRISPOR-style composite scoring with mismatch distance weighting."""
+
+    def test_crispor_composite_basic(self):
+        """Test basic CRISPOR composite score calculation."""
+        from phaselab.crispr.scoring import crispor_composite_score
+
+        # Perfect guide: MIT=93, CFD=95, no dangerous off-targets
+        score, breakdown = crispor_composite_score(
+            mit_score=93,
+            cfd_score=95,
+            off_targets={0: 0, 1: 0, 2: 0, 3: 5, 4: 15},
+        )
+
+        # Base: 93+95=188
+        # v0.9.2 weights: 3mm=0.1, 4mm=0.01 (negligible for non-critical mismatches)
+        # Penalties: 5*0.1 + 15*0.01 = 0.5 + 0.15 = 0.65
+        # Final: 188 - 0.65 = 187.35
+        assert score == 187.35
+        assert breakdown["base_score"] == 188.0
+        assert breakdown["total_ot_penalty"] == 0.65
+
+    def test_crispor_composite_u6_penalty(self):
+        """Test that U6 incompatibility applies 100-point penalty."""
+        from phaselab.crispr.scoring import crispor_composite_score
+
+        # Guide with TTTT start (U6 incompatible)
+        score_bad, _ = crispor_composite_score(
+            mit_score=98,
+            cfd_score=98,
+            off_targets={0: 0, 1: 0, 2: 1, 3: 6, 4: 22},
+            u6_compatible=False,
+        )
+
+        score_good, _ = crispor_composite_score(
+            mit_score=98,
+            cfd_score=98,
+            off_targets={0: 0, 1: 0, 2: 1, 3: 6, 4: 22},
+            u6_compatible=True,
+        )
+
+        # U6 penalty should be exactly 100 points
+        assert score_good - score_bad == 100.0
+
+    def test_crispor_composite_repeat_penalty(self):
+        """Test that repeat region applies 1000-point penalty."""
+        from phaselab.crispr.scoring import crispor_composite_score
+
+        score_repeat, breakdown = crispor_composite_score(
+            mit_score=90,
+            cfd_score=90,
+            is_repeat=True,
+        )
+
+        score_normal, _ = crispor_composite_score(
+            mit_score=90,
+            cfd_score=90,
+            is_repeat=False,
+        )
+
+        assert breakdown["repeat_penalty"] == 1000.0
+        assert score_normal - score_repeat == 1000.0
+
+    def test_crispor_mismatch_weighting(self):
+        """Test that 0-1mm off-targets are penalized more than 3-4mm."""
+        from phaselab.crispr.scoring import crispor_composite_score
+
+        # One 0mm off-target (catastrophic)
+        score_0mm, breakdown_0mm = crispor_composite_score(
+            mit_score=90, cfd_score=90,
+            off_targets={0: 1},
+        )
+
+        # One 4mm off-target (minimal risk)
+        score_4mm, breakdown_4mm = crispor_composite_score(
+            mit_score=90, cfd_score=90,
+            off_targets={4: 1},
+        )
+
+        # v0.9.2: 0mm = 10000 (disqualifying), 4mm = 0.01 (negligible)
+        assert breakdown_0mm["total_ot_penalty"] == 10000.0
+        assert breakdown_4mm["total_ot_penalty"] == 0.01
+        assert score_4mm > score_0mm
+
+    def test_rank_guides_crispor_style(self):
+        """Test that ranking properly handles the MIT98/CFD98 trap."""
+        from phaselab.crispr.scoring import rank_guides_crispor_style
+
+        guides = [
+            # Guide #1: Lower MIT/CFD but clean off-target profile
+            {
+                "sequence": "TTCGATGAATGGTTGCTACC",
+                "mit_score": 93,
+                "cfd_score": 95,
+                "off_targets": {0: 0, 1: 0, 2: 0, 3: 5, 4: 15},
+                "u6_compatible": True,
+                "is_repeat": False,
+            },
+            # Guide #7: High MIT/CFD but TTTT start (U6 trap)
+            {
+                "sequence": "TTTTAATGGCCGGCGATGCC",
+                "mit_score": 98,
+                "cfd_score": 98,
+                "off_targets": {0: 0, 1: 0, 2: 1, 3: 6, 4: 22},
+                "u6_compatible": False,
+                "is_repeat": False,
+            },
+            # Guide #8: Good scores but in repeat region
+            {
+                "sequence": "CAGCAGCAGCAGCAGCAGCA",
+                "mit_score": 85,
+                "cfd_score": 88,
+                "off_targets": {0: 0, 1: 0, 2: 0, 3: 2, 4: 8},
+                "u6_compatible": True,
+                "is_repeat": True,
+            },
+        ]
+
+        # With default exclusions (require U6, exclude repeats)
+        ranked = rank_guides_crispor_style(guides)
+
+        # Only Guide #1 should remain (others excluded)
+        assert len(ranked) == 1
+        assert ranked[0]["sequence"] == "TTCGATGAATGGTTGCTACC"
+        assert ranked[0]["crispor_rank"] == 1
+
+    def test_rank_guides_without_exclusions(self):
+        """Test ranking without hard exclusions."""
+        from phaselab.crispr.scoring import rank_guides_crispor_style
+
+        guides = [
+            {
+                "sequence": "TTCGATGAATGGTTGCTACC",
+                "mit_score": 93,
+                "cfd_score": 95,
+                "off_targets": {0: 0, 1: 0, 2: 0, 3: 5, 4: 15},
+            },
+            {
+                "sequence": "TTTTAATGGCCGGCGATGCC",
+                "mit_score": 98,
+                "cfd_score": 98,
+                "off_targets": {0: 0, 1: 0, 2: 1, 3: 6, 4: 22},
+                "u6_compatible": False,
+            },
+        ]
+
+        # Allow U6-incompatible guides (soft penalty instead)
+        ranked = rank_guides_crispor_style(
+            guides,
+            require_u6_compatible=False,
+            exclude_repeats=False,
+        )
+
+        assert len(ranked) == 2
+        # Guide #1 should still rank higher due to 100-point U6 penalty on #7
+        assert ranked[0]["sequence"] == "TTCGATGAATGGTTGCTACC"
+
+    def test_poly_t_penalty_function(self):
+        """Test poly-T detection for U6 compatibility."""
+        from phaselab.crispr.scoring import poly_t_penalty
+
+        # TTTT at start - incompatible
+        is_bad, reason = poly_t_penalty("TTTTAATGGCCGGCGATGCC")
+        assert is_bad
+        assert "5' end" in reason
+
+        # Internal TTTT - problematic
+        is_bad, reason = poly_t_penalty("AATGTTTTGGCCGGCGATGC")
+        assert is_bad
+        assert "Internal" in reason
+
+        # Normal guide - OK
+        is_bad, reason = poly_t_penalty("TTCGATGAATGGTTGCTACC")
+        assert not is_bad
+
+    def test_is_repeat_region_function(self):
+        """Test repeat region detection."""
+        from phaselab.crispr.scoring import is_repeat_region
+
+        # Tandem repeat (CAG repeat expansion)
+        is_rep, reason = is_repeat_region("CAGCAGCAGCAGCAGCAGCA")
+        assert is_rep
+        assert "CAG" in reason
+
+        # Dinucleotide repeat
+        is_rep, reason = is_repeat_region("ATATATATATATATATATATAT"[:20])
+        assert is_rep
+
+        # Normal complex sequence
+        is_rep, reason = is_repeat_region("TTCGATGAATGGTTGCTACC")
+        assert not is_rep
+
+
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
