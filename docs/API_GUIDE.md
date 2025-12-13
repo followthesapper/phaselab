@@ -17,9 +17,13 @@
 5. [Circadian Module](#circadian-module)
    - [SMS Clock Model](#sms-clock-model)
    - [Kuramoto Oscillators](#kuramoto-oscillators)
-6. [Quantum Integration](#quantum-integration)
-7. [Complete Examples](#complete-examples)
-8. [API Reference](#api-reference)
+6. [SMS Trials Module](#sms-trials-module) *(v0.9.0+)*
+   - [Trial Runners](#trial-runners)
+   - [SMS Pipeline](#sms-pipeline)
+   - [Falsification Tests](#falsification-tests)
+7. [Quantum Integration](#quantum-integration)
+8. [Complete Examples](#complete-examples)
+9. [API Reference](#api-reference)
 
 ---
 
@@ -171,6 +175,43 @@ category = classify_coherence(0.10)  # Returns: "CRITICAL"
 ## CRISPR Module
 
 The CRISPR module provides tools for CRISPRa guide RNA design with phase-coherence validation.
+
+### CRISPRa Design (v0.9.3+)
+
+The primary API for CRISPRa guide design with binding-aware enumeration:
+
+```python
+from phaselab.crispr import design_crispra_guides, Nuclease, NucleaseRole
+
+# Design CRISPRa guides with explicit binding mode
+result = design_crispra_guides(
+    gene_symbol="Rai1",
+    promoter_sequence=promoter_seq,
+    tss_position=600,
+    nuclease=Nuclease.SACAS9,
+    relaxed_pam=True,    # BINDING mode (default for CRISPRa)
+    guide_length=20,     # Override default 21bp
+)
+
+# Access results by tier
+print(f"Total guides: {result.total_guides}")
+print(f"Tier A (safest): {len(result.tier_a_guides)}")
+print(f"Tier B (good): {len(result.tier_b_guides)}")
+print(f"Tier C (acceptable): {len(result.tier_c_guides)}")
+
+# View top candidates
+for guide in result.tier_a_guides[:5]:
+    print(f"{guide['sequence']} TSS{guide['tss_relative_position']:+d}")
+```
+
+**Key v0.9.3 Features:**
+
+- **NucleaseRole**: `BINDING` (CRISPRa/CRISPRi) vs `CUTTING` (knockout)
+- **Relaxed PAM patterns**: SaCas9 uses NNGRRN for binding vs NNGRRT for cutting
+- **Sliding binding register**: ±2bp enumeration in BINDING mode
+- **Configurable guide length**: Override defaults (e.g., 20bp with SaCas9)
+
+**Why this matters**: Standard CRISPR pipelines use rigid PAM-spacer anchoring that works for cutting but systematically misses experimentally validated CRISPRa guides in GC-dense promoters.
 
 ### PAM Scanning
 
@@ -417,6 +458,183 @@ results = network.simulate(
     t_end=240.0,
     external_forcing=light_forcing
 )
+```
+
+---
+
+## SMS Trials Module
+
+*Added in v0.9.0*
+
+The SMS Trials module provides a complete therapeutic trial framework for Smith-Magenis Syndrome gene therapy development.
+
+### Trial Runners
+
+Individual trial runners for each therapeutic modality:
+
+```python
+from phaselab.trials.sms import (
+    run_sms_crispra_trial,
+    run_sms_crispri_trial,
+    run_sms_knockout_trial,
+    run_sms_base_editing_trial,
+    run_sms_prime_editing_trial,
+    run_circadian_rescue_simulation,
+    run_delivery_assessment,
+    SMSTrialConfig,
+)
+
+# Configure trials
+config = SMSTrialConfig(
+    therapeutic_window=(0.70, 1.10),  # 70-110% of normal RAI1
+    optimal_expression=0.80,          # Target 80%
+    baseline_expression=0.50,         # SMS baseline is ~50%
+    use_virtual_assay=True,           # Use enhanced pipeline
+    coherence_mode="heuristic",       # Fast mode
+    verbose=True,
+)
+
+# CRISPRa trial for RAI1 activation
+crispra_result = run_sms_crispra_trial(
+    promoter_sequence=rai1_promoter,  # Your promoter sequence
+    config=config,
+)
+
+print(f"Status: {crispra_result.status}")
+print(f"Candidates: {crispra_result.n_candidates}")
+print(f"Claim level: {crispra_result.claim_level}")
+if crispra_result.best_candidate:
+    print(f"Best guide: {crispra_result.best_candidate['sequence']}")
+```
+
+#### CRISPRi Modifier Suppression
+
+```python
+# Target circadian modifier genes (PER1, PER2, CRY1)
+crispri_result = run_sms_crispri_trial(
+    target_gene="PER1",
+    config=config,
+)
+
+# Check suppression levels (target: 30-60% suppression)
+if crispri_result.best_candidate:
+    supp = crispri_result.best_candidate['expected_suppression']
+    print(f"Expected suppression: {supp:.0%}")
+```
+
+#### Circadian Rescue Simulation
+
+```python
+# Predict circadian rescue from RAI1 boost
+circadian_result = run_circadian_rescue_simulation(
+    predicted_rai1_expression=0.80,  # Expected RAI1 level after treatment
+    config=config,
+)
+
+print(f"Rescue status: {circadian_result.metrics['rescue_status']}")
+print(f"Final R̄: {circadian_result.metrics['final_R_bar']:.3f}")
+print(f"Sleep quality: {circadian_result.metrics['sleep_quality_prediction']}")
+```
+
+#### Delivery Assessment
+
+```python
+# Assess AAV delivery feasibility for CNS
+delivery_result = run_delivery_assessment(
+    modality="CRISPRa_VP64",
+    target_tissue="brain",
+    config=config,
+)
+
+print(f"Feasibility: {delivery_result.metrics['delivery_feasibility']}")
+print(f"Payload size: {delivery_result.metrics['payload_size']}bp")
+print(f"Recommended serotype: {delivery_result.best_candidate['recommended_serotype']}")
+print(f"Capacity utilization: {delivery_result.metrics['packaging_utilization']:.0%}")
+```
+
+### SMS Pipeline
+
+The SMSPipeline orchestrates all trials and provides integrated GO/NO-GO decisions:
+
+```python
+from phaselab.trials.sms import SMSPipeline, SMSTrialConfig
+
+# Configure pipeline
+config = SMSTrialConfig(
+    therapeutic_window=(0.70, 1.10),
+    use_virtual_assay=True,
+    simulation_hours=120.0,
+    n_circadian_trials=5,
+)
+
+# Create and run pipeline
+pipeline = SMSPipeline(config=config)
+result = pipeline.run_full_pipeline(
+    include_modifiers=True,   # Include CRISPRi trials
+    include_editing=True,     # Include base/prime editing
+)
+
+# Overall decision
+print(f"Overall GO/NO-GO: {result.overall_go_nogo}")
+print(f"Claim level: {result.overall_claim_level}")
+
+# Individual results
+print(f"CRISPRa candidates: {result.crispra_result.n_candidates}")
+print(f"Circadian rescue: {result.circadian_result.metrics['rescue_status']}")
+print(f"Delivery feasible: {result.delivery_result.metrics['delivery_feasibility']}")
+
+# Wet lab recommendations
+for rec in result.wet_lab_recommendations:
+    print(f"- {rec}")
+```
+
+### Falsification Tests
+
+The pipeline automatically generates falsification tests for wet-lab validation:
+
+```python
+# Get falsification tests
+for test in result.falsification_tests:
+    print(f"\nTest {test['id']}: {test['name']}")
+    print(f"  Description: {test['description']}")
+    print(f"  Failure condition: {test['failure_condition']}")
+    print(f"  Required for: {test['required_for']}")
+```
+
+**Available Tests:**
+
+| Test | Name | Purpose |
+|------|------|---------|
+| **A** | Ranking Validity | PhaseLab-ranked guides must outperform random CRISPOR-acceptable controls |
+| **B** | Risk Prediction | High-risk (CAUTION) guides should fail safety screen more often |
+| **C** | Dosage Prediction | Predicted expression levels should correlate (r > 0.6) with observed |
+| **D** | UNKNOWN Bucket | UNKNOWN-labeled guides should fail at approximately random rate |
+
+### Trial Result Structure
+
+All trial runners return `SMSTrialResult` with consistent structure:
+
+```python
+@dataclass
+class SMSTrialResult:
+    trial_type: TrialType          # Type of trial (CRISPRA_RAI1, CRISPRI_MODIFIER, etc.)
+    status: TrialStatus            # COMPLETED, FAILED, PENDING
+    summary: str                   # Human-readable summary
+    candidates: List[Dict]         # Ranked candidates
+    best_candidate: Optional[Dict] # Top candidate
+    metrics: Dict[str, Any]        # Trial-specific metrics
+    claim_level: str               # STRONG_COMPUTATIONAL, CONTEXT_DEPENDENT, etc.
+    claim_description: str         # Explanation of claim level
+    warnings: List[str]            # Important warnings
+    errors: List[str]              # Any errors encountered
+
+    # Helper properties
+    @property
+    def is_successful(self) -> bool: ...
+    @property
+    def has_viable_candidates(self) -> bool: ...
+    @property
+    def n_candidates(self) -> int: ...
 ```
 
 ---

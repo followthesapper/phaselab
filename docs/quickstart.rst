@@ -30,24 +30,59 @@ The universal GO/NO-GO threshold is e^-2 (approximately 0.1353). Systems with R 
 CRISPR Guide Design
 -------------------
 
-Design guide RNAs with coherence validation:
+Design guide RNAs with the v0.9.3 binding-aware enumeration:
 
 .. code-block:: python
 
-   from phaselab.crispr import design_guides, GuideDesignConfig
+   from phaselab.crispr import design_crispra_guides, Nuclease
 
-   # Target sequence with TSS
-   sequence = """
-   ATGCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
-   AGGCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
-   """
-   tss_index = 50  # Transcription start site
+   # v0.9.3: CRISPRa with explicit binding mode
+   result = design_crispra_guides(
+       gene_symbol="Rai1",
+       promoter_sequence=promoter_seq,
+       tss_position=600,
+       nuclease=Nuclease.SACAS9,
+       relaxed_pam=True,    # BINDING mode (default for CRISPRa)
+       guide_length=20,     # Override default 21bp
+   )
 
-   # Design guides
-   guides = design_guides(sequence, tss_index)
+   # View top candidates by tier
+   for guide in result.tier_a_guides[:5]:
+       print(f"{guide['sequence']} TSS{guide['tss_relative_position']:+d} (Tier A)")
 
-   # View top candidates
-   print(guides[['sequence', 'position', 'gc_content', 'combined_score', 'go_no_go']].head())
+Binding vs Cutting Mode (v0.9.3)
+---------------------------------
+
+v0.9.3 introduces explicit nuclease role declaration:
+
+.. code-block:: python
+
+   from phaselab.crispr import (
+       design_crispra_guides,
+       design_knockout_guides_v2,
+       Nuclease,
+       NucleaseRole,
+   )
+
+   # CRISPRa uses BINDING mode (relaxed PAM, tolerant of register shifts)
+   crispra_result = design_crispra_guides(
+       gene_symbol="RAI1",
+       promoter_sequence=promoter,
+       tss_position=500,
+       nuclease=Nuclease.SACAS9,
+       relaxed_pam=True,  # BINDING mode - default for CRISPRa
+   )
+
+   # Knockout uses CUTTING mode (strict PAM, exact anchoring)
+   ko_result = design_knockout_guides_v2(
+       gene_symbol="RAI1",
+       sequence=exon_seq,
+       cds_start=100,
+   )
+
+**Key insight**: CRISPRa binding tolerates non-canonical PAMs and small register shifts
+(±2bp) that would fail for cutting. Pipelines that enforce rigid spacer-PAM anchoring
+systematically miss experimentally validated CRISPRa guides in GC-dense promoters.
 
 Coherence Modes (v0.6.1)
 ------------------------

@@ -3,7 +3,7 @@ PhaseLab Documentation
 
 PhaseLab is a comprehensive phase-coherence analysis framework for quantum, biological, and dynamical systems. Built on the Informational Relativity (IR) framework, PhaseLab provides quantum coherence metrics, CRISPR guide RNA design pipelines, circadian clock modeling, and therapeutic dosage optimization.
 
-Version 0.6.1 (December 2025)
+Version 0.9.3 (December 2025)
 
 **Phase-Coherence Meets Precision Medicine**
 
@@ -12,22 +12,30 @@ PhaseLab bridges theoretical physics and biotechnology by applying IR coherence 
 Key Capabilities
 ----------------
 
-**Quantum Coherence (v0.6.0+)**
+**CRISPRa Binding Register Model (v0.9.3)**
 
-- ATLAS-Q integration for advanced quantum simulation
-- IR measurement grouping with 5x variance reduction
-- Real circular statistics coherence (replaces heuristic)
-- Coherence-aware VQE optimization
-- Optional GPU acceleration via Triton kernels
+- **NucleaseRole enum**: Explicit ``BINDING`` vs ``CUTTING`` mode for PAM stringency
+- **Relaxed PAM patterns**: SaCas9 NNGRRN (binding) vs NNGRRT (cutting)
+- **Sliding binding register**: ±2bp enumeration captures guides rigid anchoring misses
+- **Configurable guide length**: Override defaults for literature reproduction
+- **Validated**: Chang et al. 2022 sg2 winner correctly recovered at TSS-80
 
-**CRISPR Design (v0.6.1)**
+**Guide Enumeration & Policy System (v0.9.2)**
 
-- **Coherence Mode Parameter**: ``mode="heuristic"`` (fast) vs ``mode="quantum"`` (VQE)
-- **Honest Coherence Weighting**: Heuristic demoted to tie-breaker (0.05 vs 0.30)
-- **Two-Stage Scoring**: Hard safety gates + soft ranking
-- **Risk Mass Metrics**: ``risk_mass_close``, ``risk_mass_exonic``, ``tail_risk_score``
-- **Evidence Levels**: A/B/C classification for validation status
-- **Score Capping**: Unvalidated guides capped to prevent misleading rankings
+- Region declaration with multi-TSS support
+- PAM scanning for SpCas9, SaCas9, Cas12a
+- Dominance-based ranking: lexicographic sort on (0mm, 1mm, 2mm) off-targets
+- Policy system: ``CUTTING_STRICT``, ``BINDING_STRICT``, ``EXPLORATORY``
+- Tier system: A (0/0/0), B (0/0/1-2), C (other)
+- Reproducibility manifests for audit trails
+
+**SMS Trials Module (v0.9.0)**
+
+- Complete therapeutic trial framework for Smith-Magenis Syndrome
+- CRISPRa RAI1 activation with therapeutic window validation (70-110%)
+- CRISPRi modifier gene suppression (PER1, CRY1, CLOCK)
+- Base/prime editing trials for mutation correction
+- GO/NO-GO decision system with claim level propagation
 
 **Complete CRISPR Toolkit**
 
@@ -52,20 +60,23 @@ Quick Example
 
 .. code-block:: python
 
-   import phaselab as pl
-   from phaselab.crispr import design_guides
+   from phaselab.crispr import design_crispra_guides, Nuclease
 
-   # Compute coherence from phase data
-   phases = [0.1, 0.15, 0.12, 0.08, 0.11]
-   R_bar = pl.coherence_score(phases)
-   print(f"Coherence: {R_bar:.4f}")
-   print(f"Status: {pl.go_no_go(R_bar)}")
+   # v0.9.3: Design CRISPRa guides with binding mode
+   result = design_crispra_guides(
+       gene_symbol="Rai1",
+       promoter_sequence=promoter_seq,
+       tss_position=600,
+       nuclease=Nuclease.SACAS9,
+       relaxed_pam=True,    # BINDING mode (default)
+       guide_length=20,     # Override default 21bp
+   )
 
-   # Design CRISPR guides with coherence validation
-   sequence = "ATGCGATCGATCGATCGATCGATCGATCGATCGATCGATCG..."
-   guides = design_guides(sequence, tss_index=100)
+   # Access ranked guides by tier
+   for guide in result.tier_a_guides[:5]:
+       print(f"{guide['sequence']} TSS{guide['tss_relative_position']:+d}")
 
-   # v0.6.1: Use coherence mode for honest validation
+   # Coherence validation
    from phaselab.crispr import compute_guide_coherence
    r_bar = compute_guide_coherence("ATCGATCGATCGATCGATCG", mode="quantum")
 
@@ -131,7 +142,7 @@ Citation
      author={Vaca, Dylan},
      year={2025},
      url={https://github.com/followthesapper/phaselab},
-     version={0.6.1}
+     version={0.9.3}
    }
 
 Indices and tables
