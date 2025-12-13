@@ -3,7 +3,6 @@
 **Dylan Vaca**
 Independent Researcher
 PhaseLab / Informational Relativity Program
-Contact: <email>
 
 ---
 
