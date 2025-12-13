@@ -1,0 +1,1202 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SCN2A Gene Therapy Research for Autism-Linked Haploinsufficiency &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'SCN2A_GENE_THERAPY_RESEARCH';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">SCN2A Gene Therapy Research for Autism-Linked Haploinsufficiency</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scn2a-gene-therapy-research-for-autism-linked-haploinsufficiency">
+<h1>SCN2A Gene Therapy Research for Autism-Linked Haploinsufficiency<a class="headerlink" href="#scn2a-gene-therapy-research-for-autism-linked-haploinsufficiency" title="Link to this heading">#</a></h1>
+<p><strong>CRISPRa Guide RNA Design Using Quantum-Validated Coherence Metrics</strong></p>
+<p><em>Dylan Vaca | December 2025</em></p>
+<hr class="docutils" />
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Link to this heading">#</a></h2>
+<p>We present a CRISPRa guide RNA design approach for SCN2A-related neurodevelopmental disorders, the most common monogenic cause of autism-linked haploinsufficiency. Using IBM Quantum hardware (Torino, 133 qubits) and genome-wide off-target analysis (CRISPOR), we identified and validated optimal guide RNAs for upregulating SCN2A expression. Our lead candidate (<code class="docutils literal notranslate"><span class="pre">GCTGACTGCTACATAGCCAA</span></code>) achieved excellent specificity scores (MIT 83, CFD 89) with zero off-targets at ≤2 mismatches, validated by quantum coherence R̄ = 0.970 on real hardware. This work extends the PhaseLab framework previously validated for RAI1/Smith-Magenis Syndrome to a second therapeutic target.</p>
+</section>
+<hr class="docutils" />
+<section id="background">
+<h2>1. Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
+<section id="scn2a-and-autism">
+<h3>1.1 SCN2A and Autism<a class="headerlink" href="#scn2a-and-autism" title="Link to this heading">#</a></h3>
+<p>SCN2A encodes the voltage-gated sodium channel NaV1.2, which is critical for excitatory neuron function during early brain development. Loss-of-function mutations leading to haploinsufficiency cause:</p>
+<ul class="simple">
+<li><p><strong>Autism Spectrum Disorder (ASD)</strong></p></li>
+<li><p><strong>Intellectual disability</strong></p></li>
+<li><p><strong>Epilepsy</strong> (in a subset of patients)</p></li>
+</ul>
+<p>SCN2A-related neurodevelopmental disorders (SCN2A-NDD) represent one of the most frequent monogenic causes of ASD.</p>
+<p><strong>Genetic Basis:</strong>
+Most affected individuals have heterozygous loss-of-function variants, leaving approximately 50% of normal SCN2A expression. Unlike gain-of-function variants (which cause early-onset epilepsy), loss-of-function variants are ideal targets for CRISPRa upregulation.</p>
+</section>
+<section id="therapeutic-evidence">
+<h3>1.2 Therapeutic Evidence<a class="headerlink" href="#therapeutic-evidence" title="Link to this heading">#</a></h3>
+<p>A landmark 2025 Nature paper demonstrated that CRISPRa upregulation of the remaining Scn2a allele in haploinsufficient mice:</p>
+<ul class="simple">
+<li><p>Restores Scn2a expression toward normal levels</p></li>
+<li><p>Rescues electrophysiological deficits in neurons</p></li>
+<li><p>Reduces seizures and improves behavioral phenotypes</p></li>
+<li><p><strong>Works even when delivered in adolescence</strong> (critical for clinical translation)</p></li>
+</ul>
+<p>Reference: <a class="reference external" href="https://www.nature.com/articles/s41586-025-09522-w">Nature 2025 - DOI: 10.1038/s41586-025-09522-w</a></p>
+</section>
+<section id="the-ir-coherence-framework">
+<h3>1.3 The IR Coherence Framework<a class="headerlink" href="#the-ir-coherence-framework" title="Link to this heading">#</a></h3>
+<p>This research applies the <strong>Informational Relativity (IR) framework</strong> to assess simulation reliability:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Application</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>R̄ = exp(-V_φ/2)</strong></p></td>
+<td><p>Coherence metric for binding quality</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>e⁻² threshold</strong></p></td>
+<td><p>GO/NO-GO decision boundary (≈0.135)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Pauli Hamiltonian</strong></p></td>
+<td><p>DNA-gRNA binding encoding</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Hardware validation</strong></p></td>
+<td><p>IBM Torino 133-qubit processor</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="methods">
+<h2>2. Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
+<section id="genomic-data">
+<h3>2.1 Genomic Data<a class="headerlink" href="#genomic-data" title="Link to this heading">#</a></h3>
+<p><strong>Source:</strong> NCBI RefSeq NC_000002.12 (GRCh38.p14)</p>
+<p><strong>Region Analyzed:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Chromosome</span><span class="p">:</span>  <span class="mi">2</span>
+<span class="n">Cytoband</span><span class="p">:</span>    <span class="mi">2</span><span class="n">q24</span><span class="mf">.3</span>
+<span class="n">Coordinates</span><span class="p">:</span> <span class="mi">165</span><span class="p">,</span><span class="mi">238</span><span class="p">,</span><span class="mi">414</span> <span class="o">-</span> <span class="mi">165</span><span class="p">,</span><span class="mi">239</span><span class="p">,</span><span class="mi">914</span> <span class="p">(</span><span class="mi">1500</span> <span class="n">bp</span> <span class="n">promoter</span><span class="p">)</span>
+<span class="n">TSS</span><span class="p">:</span>         <span class="mi">165</span><span class="p">,</span><span class="mi">239</span><span class="p">,</span><span class="mi">414</span>
+<span class="n">Gene</span><span class="p">:</span>        <span class="n">SCN2A</span> <span class="p">(</span><span class="n">sodium</span> <span class="n">voltage</span><span class="o">-</span><span class="n">gated</span> <span class="n">channel</span> <span class="n">alpha</span> <span class="n">subunit</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="grna-design-pipeline">
+<h3>2.2 gRNA Design Pipeline<a class="headerlink" href="#grna-design-pipeline" title="Link to this heading">#</a></h3>
+<p>Our multi-layer validation pipeline (identical to RAI1/E200):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Layer</p></th>
+<th class="head"><p>Method</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PAM Scanning</p></td>
+<td><p>NGG (SpCas9)</p></td>
+<td><p>Find Cas9 binding sites</p></td>
+</tr>
+<tr class="row-odd"><td><p>GC Content</p></td>
+<td><p>40-70% filter</p></td>
+<td><p>Optimal hybridization</p></td>
+</tr>
+<tr class="row-even"><td><p>Thermodynamics</p></td>
+<td><p>SantaLucia ΔG</p></td>
+<td><p>Binding energy prediction</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chromatin</p></td>
+<td><p>DNase HS model (brain)</p></td>
+<td><p>Accessibility assessment</p></td>
+</tr>
+<tr class="row-even"><td><p>MIT Score</p></td>
+<td><p>Position-weighted</p></td>
+<td><p>Off-target specificity</p></td>
+</tr>
+<tr class="row-odd"><td><p>CFD Score</p></td>
+<td><p>Mismatch penalty</p></td>
+<td><p>Cutting frequency</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>IR Coherence</strong></p></td>
+<td><p>R̄ metric</p></td>
+<td><p>Simulation reliability</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="quantum-simulation">
+<h3>2.3 Quantum Simulation<a class="headerlink" href="#quantum-simulation" title="Link to this heading">#</a></h3>
+<p><strong>Hamiltonian Encoding:</strong></p>
+<ul class="simple">
+<li><p>DNA-RNA base pairing → Pauli ZZ terms</p></li>
+<li><p>Stacking interactions → XX/YY terms</p></li>
+<li><p>Nearest-neighbor energy model (SantaLucia parameters)</p></li>
+</ul>
+<p><strong>Hardware:</strong></p>
+<ul class="simple">
+<li><p>IBM Torino (133 superconducting qubits)</p></li>
+<li><p>7 circuits per guide (Pauli term measurements)</p></li>
+<li><p>2,000 shots per circuit</p></li>
+</ul>
+</section>
+<section id="crispra-window">
+<h3>2.4 CRISPRa Window<a class="headerlink" href="#crispra-window" title="Link to this heading">#</a></h3>
+<p>For transcriptional activation, guides must bind within:</p>
+<ul class="simple">
+<li><p><strong>Optimal window:</strong> -400 to -50 bp from TSS</p></li>
+<li><p><strong>Mechanism:</strong> dCas9-VP64 recruits transcriptional machinery</p></li>
+<li><p><strong>Chromatin:</strong> Must be in accessible (open) region</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="results">
+<h2>3. Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<section id="candidate-identification">
+<h3>3.1 Candidate Identification<a class="headerlink" href="#candidate-identification" title="Link to this heading">#</a></h3>
+<p>From 75 PAM sites in the SCN2A promoter, we identified 18 candidates in the optimal CRISPRa window.</p>
+<p><strong>Initial Screening Results:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Total PAM sites</p></td>
+<td><p>75</p></td>
+</tr>
+<tr class="row-odd"><td><p>CRISPRa window candidates</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-even"><td><p>After quality filtering</p></td>
+<td><p>15</p></td>
+</tr>
+<tr class="row-odd"><td><p>GO classification rate</p></td>
+<td><p>100% (15/15)</p></td>
+</tr>
+<tr class="row-even"><td><p>Average coherence (R̄)</p></td>
+<td><p>0.944</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ibm-quantum-hardware-validation">
+<h3>3.2 IBM Quantum Hardware Validation<a class="headerlink" href="#ibm-quantum-hardware-validation" title="Link to this heading">#</a></h3>
+<p><strong>Run Details:</strong></p>
+<ul class="simple">
+<li><p>Date: December 10, 2025</p></li>
+<li><p>Backend: IBM Torino (133 qubits)</p></li>
+<li><p>Cost: FREE (IBM Quantum Open Plan)</p></li>
+</ul>
+<p><strong>Hardware Results:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Guide</p></th>
+<th class="head"><p>Sequence</p></th>
+<th class="head"><p>Position</p></th>
+<th class="head"><p>Simulator R̄</p></th>
+<th class="head"><p>Hardware R̄</p></th>
+<th class="head"><p>Δ</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTCCACTTTTGACCAGGAGA</span></code></p></td>
+<td><p>-64 bp</p></td>
+<td><p>0.944</p></td>
+<td><p>0.971</p></td>
+<td><p>2.9%</p></td>
+<td><p><strong>GO</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AGATGGTTCCACTTTTGACC</span></code></p></td>
+<td><p>-70 bp</p></td>
+<td><p>0.945</p></td>
+<td><p>0.970</p></td>
+<td><p>2.6%</p></td>
+<td><p><strong>GO</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GCTGACTGCTACATAGCCAA</span></code></p></td>
+<td><p>-104 bp</p></td>
+<td><p>0.945</p></td>
+<td><p><strong>0.970</strong></p></td>
+<td><p>2.7%</p></td>
+<td><p><strong>GO</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Average simulator-hardware agreement: 2.7%</strong></p>
+<p><strong>IBM Quantum Job IDs:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">d4t29p7t3pms7399q6ag</span></code> (Guide 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d4t29rkfitbs739jh28g</span></code> (Guide 2)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d4t29ts5fjns73d313ag</span></code> (Guide 3)</p></li>
+</ul>
+</section>
+<section id="crispor-genome-wide-validation">
+<h3>3.3 CRISPOR Genome-Wide Validation<a class="headerlink" href="#crispor-genome-wide-validation" title="Link to this heading">#</a></h3>
+<p><strong>Analysis Details:</strong></p>
+<ul class="simple">
+<li><p>Tool: CRISPOR v5.2 (crispor.tefor.net)</p></li>
+<li><p>Genome: Human GRCh38/hg38</p></li>
+<li><p>PAM: NGG (SpCas9)</p></li>
+</ul>
+<p><strong>CRISPOR Results:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Guide</p></th>
+<th class="head"><p>Sequence</p></th>
+<th class="head"><p>MIT</p></th>
+<th class="head"><p>CFD</p></th>
+<th class="head"><p>Off-targets (0-1-2-3-4 mm)</p></th>
+<th class="head"><p>Total OT</p></th>
+<th class="head"><p>Verdict</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TTCCACTTTTGACCAGGAGA</span></code></p></td>
+<td><p>67</p></td>
+<td><p>76</p></td>
+<td><p>0-0-1-25-217</p></td>
+<td><p>243</p></td>
+<td><p>Has 1 at 2mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AGATGGTTCCACTTTTGACC</span></code></p></td>
+<td><p>79</p></td>
+<td><p>89</p></td>
+<td><p>0-0-3-9-110</p></td>
+<td><p>122</p></td>
+<td><p>Has 3 at 2mm</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GCTGACTGCTACATAGCCAA</span></code></p></td>
+<td><p><strong>83</strong></p></td>
+<td><p><strong>89</strong></p></td>
+<td><p><strong>0-0-0-10-89</strong></p></td>
+<td><p>99</p></td>
+<td><p><strong>BEST</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Key Finding:</strong> Guide 3 has zero off-targets at ≤2 mismatches, making it the safest candidate.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="lead-candidate">
+<h2>4. Lead Candidate<a class="headerlink" href="#lead-candidate" title="Link to this heading">#</a></h2>
+<section id="primary-selection">
+<h3>4.1 Primary Selection<a class="headerlink" href="#primary-selection" title="Link to this heading">#</a></h3>
+<p>Based on combined quantum and CRISPOR validation:</p>
+<p><strong>Primary: Guide 3</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Sequence:    GCTGACTGCTACATAGCCAA
+PAM:         AGG
+Position:    -104 bp from TSS
+GC Content:  50%
+MIT Score:   83 (excellent)
+CFD Score:   89 (excellent)
+Off-targets: 0 at ≤2 mismatches
+Hardware R̄: 0.970
+Status:      GO
+</pre></div>
+</div>
+</section>
+<section id="selection-rationale">
+<h3>4.2 Selection Rationale<a class="headerlink" href="#selection-rationale" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Highest specificity:</strong> MIT 83 = excellent genome-wide specificity</p></li>
+<li><p><strong>Zero critical off-targets:</strong> No off-targets at ≤2 mismatches (safest)</p></li>
+<li><p><strong>Optimal GC:</strong> 50% GC content in ideal range</p></li>
+<li><p><strong>Open chromatin:</strong> Located in DNase hypersensitive region</p></li>
+<li><p><strong>Validated coherence:</strong> R̄ = 0.970 on IBM Torino</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparison-with-rai1-sms-e200">
+<h2>5. Comparison with RAI1/SMS (E200)<a class="headerlink" href="#comparison-with-rai1-sms-e200" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>E200 (RAI1/SMS)</p></th>
+<th class="head"><p>E201 (SCN2A/Autism)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Disease</p></td>
+<td><p>Smith-Magenis Syndrome</p></td>
+<td><p>Autism-linked NDD</p></td>
+</tr>
+<tr class="row-odd"><td><p>Haploinsufficiency</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>CRISPRa mouse model</p></td>
+<td><p>Yes (PMC9762195)</p></td>
+<td><p>Yes (Nature 2025)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total PAM sites</p></td>
+<td><p>274</p></td>
+<td><p>75</p></td>
+</tr>
+<tr class="row-even"><td><p>CRISPRa candidates</p></td>
+<td><p>91</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Lead guide MIT</strong></p></td>
+<td><p>83</p></td>
+<td><p>83</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Lead guide CFD</strong></p></td>
+<td><p>93</p></td>
+<td><p>89</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Off-targets ≤2mm</strong></p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Hardware R̄</strong></p></td>
+<td><p>0.839</p></td>
+<td><p>0.970</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hardware platform</p></td>
+<td><p>IBM Torino</p></td>
+<td><p>IBM Torino</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Key observation:</strong> Both targets yielded lead candidates with:</p>
+<ul class="simple">
+<li><p>MIT specificity scores of 83 (identical)</p></li>
+<li><p>Zero off-targets at ≤2 mismatches</p></li>
+<li><p>Confirmed GO classification on IBM hardware</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="discussion">
+<h2>6. Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<section id="framework-generalization">
+<h3>6.1 Framework Generalization<a class="headerlink" href="#framework-generalization" title="Link to this heading">#</a></h3>
+<p>This study demonstrates that the PhaseLab/IR framework generalizes across:</p>
+<ol class="arabic simple">
+<li><p><strong>Different genes</strong> (RAI1 → SCN2A)</p></li>
+<li><p><strong>Different chromosomes</strong> (chr17 → chr2)</p></li>
+<li><p><strong>Different diseases</strong> (SMS → Autism-linked NDD)</p></li>
+</ol>
+<p>The consistent performance (100% GO rate, similar MIT scores, excellent hardware agreement) suggests the framework captures fundamental properties of gRNA-DNA binding.</p>
+</section>
+<section id="hardware-coherence">
+<h3>6.2 Hardware Coherence<a class="headerlink" href="#hardware-coherence" title="Link to this heading">#</a></h3>
+<p>The SCN2A guides achieved higher hardware coherence (0.970) than RAI1 guides (0.839). This may reflect:</p>
+<ul class="simple">
+<li><p>Different sequence composition</p></li>
+<li><p>Position within promoter architecture</p></li>
+<li><p>Thermodynamic stability differences</p></li>
+</ul>
+<p>Importantly, both are well above the GO threshold (e⁻² ≈ 0.135).</p>
+</section>
+<section id="clinical-relevance">
+<h3>6.3 Clinical Relevance<a class="headerlink" href="#clinical-relevance" title="Link to this heading">#</a></h3>
+<p>The Nature 2025 paper establishing CRISPRa efficacy for Scn2a used AAV delivery to mouse brain. Our lead candidate provides a human-optimized guide for:</p>
+<ul class="simple">
+<li><p>iPSC-derived neuron testing</p></li>
+<li><p>Human clinical trial design</p></li>
+<li><p>Companion diagnostic development</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="recommended-next-steps">
+<h2>7. Recommended Next Steps<a class="headerlink" href="#recommended-next-steps" title="Link to this heading">#</a></h2>
+<section id="wet-lab-validation">
+<h3>7.1 Wet Lab Validation<a class="headerlink" href="#wet-lab-validation" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Order Synthesis</strong></p>
+<ul class="simple">
+<li><p>Primary: <code class="docutils literal notranslate"><span class="pre">GCTGACTGCTACATAGCCAA</span></code> (Guide 3)</p></li>
+<li><p>Source: IDT, Synthego, or similar</p></li>
+</ul>
+</li>
+<li><p><strong>Clone into Vector</strong></p>
+<ul class="simple">
+<li><p>dCas9-VP64 system (e.g., Addgene #135338)</p></li>
+<li><p>Alternative: dCas9-VPR for stronger activation</p></li>
+</ul>
+</li>
+<li><p><strong>Cell Culture Testing</strong></p>
+<ul class="simple">
+<li><p>Initial: HEK293T (high transfection efficiency)</p></li>
+<li><p>Disease-relevant: iPSC-derived neurons from SCN2A patients</p></li>
+</ul>
+</li>
+<li><p><strong>Readouts</strong></p>
+<ul class="simple">
+<li><p>qPCR for SCN2A mRNA (48-72h post-transfection)</p></li>
+<li><p>Western blot for NaV1.2 protein</p></li>
+<li><p>Patch clamp electrophysiology (functional validation)</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="research-partnerships">
+<h3>7.2 Research Partnerships<a class="headerlink" href="#research-partnerships" title="Link to this heading">#</a></h3>
+<p>We recommend contacting:</p>
+<ul class="simple">
+<li><p><strong>SFARI</strong> (Simons Foundation Autism Research Initiative)</p></li>
+<li><p>The lab that published the Nature 2025 paper</p></li>
+<li><p>AAV/gene therapy companies with CNS programs</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="limitations">
+<h2>8. Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Computational only</strong> - No wet lab validation yet</p></li>
+<li><p><strong>Chromatin model</strong> - Brain-specific but not patient-derived</p></li>
+<li><p><strong>Off-target prediction</strong> - Algorithmic, not empirical GUIDE-seq</p></li>
+<li><p><strong>Binding ≠ Activation</strong> - Strong binding doesn’t guarantee efficient activation</p></li>
+<li><p><strong>Delivery</strong> - In vivo CNS delivery remains challenging</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>9. Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>We have identified and validated a lead CRISPRa guide RNA candidate for SCN2A upregulation in autism-linked neurodevelopmental disorders:</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">GCTGACTGCTACATAGCCAA</span> <span class="pre">AGG</span></code></strong></p>
+<p>This candidate was validated through:</p>
+<ul class="simple">
+<li><p>Quantum coherence R̄ = 0.970 on IBM Torino</p></li>
+<li><p>CRISPOR specificity (MIT 83, CFD 89)</p></li>
+<li><p>Zero off-targets with ≤2 mismatches</p></li>
+<li><p>Optimal position (-104 bp) and GC content (50%)</p></li>
+</ul>
+<p>The PhaseLab/IR coherence framework successfully generalized from RAI1/SMS to SCN2A/Autism, demonstrating its utility as a cross-target gRNA reliability metric. This is the second haploinsufficiency disorder for which we have provided quantum-validated CRISPRa guide designs.</p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Nature 2025 - CRISPR activation for SCN2A-related neurodevelopmental disorders</p>
+<ul class="simple">
+<li><p>DOI: 10.1038/s41586-025-09522-w</p></li>
+</ul>
+</li>
+<li><p>SFARI - Development of CRISPR activation therapeutics to rescue SCN2A function</p>
+<ul class="simple">
+<li><p>https://www.sfari.org/funded-project/development-of-crispr-activation-therapeutics-to-rescue-scn2a-function/</p></li>
+</ul>
+</li>
+<li><p>Hsu et al. (2013) - MIT specificity score</p></li>
+<li><p>Doench et al. (2016) - CFD score methodology</p></li>
+<li><p>SantaLucia (1998) - Nearest-neighbor thermodynamic parameters</p></li>
+<li><p>CRISPOR - https://crispor.tefor.net/</p></li>
+<li><p>IBM Quantum - https://quantum.ibm.com/</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="appendix-a-data-availability">
+<h2>Appendix A: Data Availability<a class="headerlink" href="#appendix-a-data-availability" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Resource</p></th>
+<th class="head"><p>Location</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Quantum results</p></td>
+<td><p>IBM Quantum Jobs: <code class="docutils literal notranslate"><span class="pre">d4t29p7t3pms7399q6ag</span></code>, <code class="docutils literal notranslate"><span class="pre">d4t29rkfitbs739jh28g</span></code>, <code class="docutils literal notranslate"><span class="pre">d4t29ts5fjns73d313ag</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>CRISPOR analysis</p></td>
+<td><p>http://crispor.tefor.net/ (GRCh38, SCN2A promoter)</p></td>
+</tr>
+<tr class="row-even"><td><p>PhaseLab package</p></td>
+<td><p>https://github.com/followthesapper/phaselab</p></td>
+</tr>
+<tr class="row-odd"><td><p>Experiment data</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experiments/E201_SCN2A_CRISPRa/Data/</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="appendix-b-code-availability">
+<h2>Appendix B: Code Availability<a class="headerlink" href="#appendix-b-code-availability" title="Link to this heading">#</a></h2>
+<p>All code is available in the PhaseLab Python package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>phaselab<span class="o">[</span>quantum<span class="o">]</span>
+</pre></div>
+</div>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.targets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_target_config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.crispr</span><span class="w"> </span><span class="kn">import</span> <span class="n">design_guides</span>
+
+<span class="c1"># Load SCN2A configuration</span>
+<span class="n">scn2a</span> <span class="o">=</span> <span class="n">load_target_config</span><span class="p">(</span><span class="s2">&quot;SCN2A&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gene: </span><span class="si">{</span><span class="n">scn2a</span><span class="o">.</span><span class="n">gene_symbol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TSS: chr</span><span class="si">{</span><span class="n">scn2a</span><span class="o">.</span><span class="n">chrom</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">scn2a</span><span class="o">.</span><span class="n">tss_genomic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Design guides (with promoter sequence)</span>
+<span class="n">guides</span> <span class="o">=</span> <span class="n">design_guides</span><span class="p">(</span><span class="n">scn2a_promoter</span><span class="p">,</span> <span class="n">tss_index</span><span class="o">=</span><span class="n">scn2a</span><span class="o">.</span><span class="n">tss_index</span><span class="p">)</span>
+<span class="n">top_candidates</span> <span class="o">=</span> <span class="n">guides</span><span class="p">[</span><span class="n">guides</span><span class="p">[</span><span class="s1">&#39;go_no_go&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;GO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_candidates</span><span class="p">[[</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;coherence_R&#39;</span><span class="p">,</span> <span class="s1">&#39;go_no_go&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><em>This research was conducted as part of the Informational Relativity experimental series.</em></p>
+<p><em>Hardware validation: IBM Torino, December 2025</em></p>
+<p><em>Extends E200 (RAI1/SMS) methodology to a second therapeutic target.</em></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1. Background</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scn2a-and-autism">1.1 SCN2A and Autism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#therapeutic-evidence">1.2 Therapeutic Evidence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ir-coherence-framework">1.3 The IR Coherence Framework</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">2. Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genomic-data">2.1 Genomic Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grna-design-pipeline">2.2 gRNA Design Pipeline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-simulation">2.3 Quantum Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crispra-window">2.4 CRISPRa Window</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">3. Results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#candidate-identification">3.1 Candidate Identification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-quantum-hardware-validation">3.2 IBM Quantum Hardware Validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crispor-genome-wide-validation">3.3 CRISPOR Genome-Wide Validation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lead-candidate">4. Lead Candidate</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-selection">4.1 Primary Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-rationale">4.2 Selection Rationale</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-rai1-sms-e200">5. Comparison with RAI1/SMS (E200)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">6. Discussion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-generalization">6.1 Framework Generalization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-coherence">6.2 Hardware Coherence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clinical-relevance">6.3 Clinical Relevance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-next-steps">7. Recommended Next Steps</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wet-lab-validation">7.1 Wet Lab Validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-partnerships">7.2 Research Partnerships</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">8. Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-a-data-availability">Appendix A: Data Availability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-b-code-availability">Appendix B: Code Availability</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

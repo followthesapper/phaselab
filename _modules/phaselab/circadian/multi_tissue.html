@@ -1,0 +1,1106 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.circadian.multi_tissue &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/circadian/multi_tissue';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.circadian.multi_tissue</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.circadian.multi_tissue</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab Multi-Tissue Circadian: Inter-tissue clock coupling model.</span>
+
+<span class="sd">Models the circadian clock network across multiple tissues, including:</span>
+<span class="sd">- SCN (master pacemaker)</span>
+<span class="sd">- Liver (metabolic clock)</span>
+<span class="sd">- Muscle (peripheral clock)</span>
+<span class="sd">- Heart (cardiovascular rhythms)</span>
+<span class="sd">- Brain regions (cognitive performance)</span>
+
+<span class="sd">The model captures how peripheral clocks synchronize to the SCN and</span>
+<span class="sd">how this coupling is affected by disease or therapeutic interventions.</span>
+
+<span class="sd">Version: 0.3.0</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.coherence</span><span class="w"> </span><span class="kn">import</span> <span class="n">coherence_score</span><span class="p">,</span> <span class="n">go_no_go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">E_MINUS_2</span><span class="p">,</span> <span class="n">OMEGA_CIRCADIAN</span>
+
+
+<span class="c1"># Tissue-specific parameters</span>
+<span class="n">TISSUE_PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;SCN&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="n">OMEGA_CIRCADIAN</span><span class="p">,</span>  <span class="c1"># Master clock, defines rhythm</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>          <span class="c1"># Strongest oscillator</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>    <span class="c1"># Self-coupling N/A</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">24.0</span><span class="p">,</span>  <span class="c1"># hours</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;liver&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="n">OMEGA_CIRCADIAN</span> <span class="o">*</span> <span class="mf">0.98</span><span class="p">,</span>  <span class="c1"># Slight period difference</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">24.5</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;muscle&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="n">OMEGA_CIRCADIAN</span> <span class="o">*</span> <span class="mf">1.01</span><span class="p">,</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">23.8</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;heart&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="n">OMEGA_CIRCADIAN</span> <span class="o">*</span> <span class="mf">0.99</span><span class="p">,</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">24.2</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;brain_cortex&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="n">OMEGA_CIRCADIAN</span> <span class="o">*</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">,</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">24.0</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;adipose&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="n">OMEGA_CIRCADIAN</span> <span class="o">*</span> <span class="mf">0.97</span><span class="p">,</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">24.7</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="MultiTissueParams">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.circadian.MultiTissueParams">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MultiTissueParams</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parameters for multi-tissue circadian model.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Tissues to include</span>
+    <span class="n">tissues</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;SCN&quot;</span><span class="p">,</span> <span class="s2">&quot;liver&quot;</span><span class="p">,</span> <span class="s2">&quot;muscle&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Global coupling strength (scaled by tissue-specific values)</span>
+    <span class="n">K_global</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+    <span class="c1"># Inter-peripheral coupling (tissues can influence each other)</span>
+    <span class="n">K_peripheral</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+    <span class="c1"># Light input to SCN</span>
+    <span class="n">light_amplitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="n">light_phase</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Phase of light onset (0 = midnight)</span>
+
+    <span class="c1"># Feeding input to peripheral clocks</span>
+    <span class="n">feeding_amplitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span>
+    <span class="n">feeding_phase</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Phase of feeding (π/2 = 6am)</span>
+
+    <span class="c1"># Disease modulation</span>
+    <span class="n">disease_tissue</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disease_severity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># 0 = healthy, 1 = severe</span>
+
+    <span class="c1"># Noise</span>
+    <span class="n">noise_strength</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span></div>
+
+
+
+<div class="viewcode-block" id="MultiTissueResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.circadian.MultiTissueResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MultiTissueResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Results from multi-tissue simulation.&quot;&quot;&quot;</span>
+
+    <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">phases</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>  <span class="c1"># tissue -&gt; phase trajectory</span>
+    <span class="n">amplitudes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
+
+    <span class="c1"># Coherence metrics</span>
+    <span class="n">global_R_bar</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tissue_R_bars</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+    <span class="n">scn_peripheral_coherence</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="c1"># Phase relationships</span>
+    <span class="n">phase_delays</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>  <span class="c1"># Delay relative to SCN</span>
+
+    <span class="c1"># Classification</span>
+    <span class="n">go_no_go</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">classification</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="MultiTissueResult.to_dict">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.circadian.MultiTissueResult.to_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;global_R_bar&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_R_bar</span><span class="p">,</span>
+            <span class="s2">&quot;tissue_R_bars&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">tissue_R_bars</span><span class="p">,</span>
+            <span class="s2">&quot;scn_peripheral_coherence&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">scn_peripheral_coherence</span><span class="p">,</span>
+            <span class="s2">&quot;phase_delays&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">phase_delays</span><span class="p">,</span>
+            <span class="s2">&quot;go_no_go&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">go_no_go</span><span class="p">,</span>
+            <span class="s2">&quot;classification&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">classification</span><span class="p">,</span>
+        <span class="p">}</span></div>
+</div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_multi_tissue_ode</span><span class="p">(</span>
+    <span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="n">MultiTissueParams</span><span class="p">,</span>
+    <span class="n">tissue_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multi-tissue circadian ODE.</span>
+
+<span class="sd">    State: [phase_tissue1, phase_tissue2, ..., amp_tissue1, amp_tissue2, ...]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tissue_list</span><span class="p">)</span>
+    <span class="n">phases</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
+    <span class="n">amps</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span>
+
+    <span class="n">dydt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="c1"># Get SCN index if present</span>
+    <span class="n">scn_idx</span> <span class="o">=</span> <span class="n">tissue_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;SCN&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;SCN&quot;</span> <span class="ow">in</span> <span class="n">tissue_list</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">scn_phase</span> <span class="o">=</span> <span class="n">phases</span><span class="p">[</span><span class="n">scn_idx</span><span class="p">]</span> <span class="k">if</span> <span class="n">scn_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tissue_list</span><span class="p">):</span>
+        <span class="n">tp</span> <span class="o">=</span> <span class="n">TISSUE_PARAMS</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span>
+        <span class="n">omega</span> <span class="o">=</span> <span class="n">tp</span><span class="p">[</span><span class="s2">&quot;omega&quot;</span><span class="p">]</span>
+        <span class="n">coupling_to_scn</span> <span class="o">=</span> <span class="n">tp</span><span class="p">[</span><span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Base frequency</span>
+        <span class="n">dphase</span> <span class="o">=</span> <span class="n">omega</span>
+
+        <span class="c1"># Coupling to SCN (for peripheral clocks)</span>
+        <span class="k">if</span> <span class="n">tissue</span> <span class="o">!=</span> <span class="s2">&quot;SCN&quot;</span> <span class="ow">and</span> <span class="n">scn_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">K_scn</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">K_global</span> <span class="o">*</span> <span class="n">coupling_to_scn</span>
+            <span class="n">dphase</span> <span class="o">+=</span> <span class="n">K_scn</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">scn_phase</span> <span class="o">-</span> <span class="n">phases</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># Inter-peripheral coupling</span>
+        <span class="k">if</span> <span class="n">tissue</span> <span class="o">!=</span> <span class="s2">&quot;SCN&quot;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">other_tissue</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tissue_list</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">other_tissue</span> <span class="o">!=</span> <span class="s2">&quot;SCN&quot;</span><span class="p">:</span>
+                    <span class="n">dphase</span> <span class="o">+=</span> <span class="n">params</span><span class="o">.</span><span class="n">K_peripheral</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phases</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">phases</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># Light input to SCN</span>
+        <span class="k">if</span> <span class="n">tissue</span> <span class="o">==</span> <span class="s2">&quot;SCN&quot;</span><span class="p">:</span>
+            <span class="n">light_signal</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">light_amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span>
+                <span class="n">OMEGA_CIRCADIAN</span> <span class="o">*</span> <span class="n">t</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">light_phase</span>
+            <span class="p">)</span>
+            <span class="n">dphase</span> <span class="o">+=</span> <span class="n">light_signal</span>
+
+        <span class="c1"># Feeding input to peripheral clocks</span>
+        <span class="k">if</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;liver&quot;</span><span class="p">,</span> <span class="s2">&quot;muscle&quot;</span><span class="p">,</span> <span class="s2">&quot;adipose&quot;</span><span class="p">]:</span>
+            <span class="n">feeding_signal</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">feeding_amplitude</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span>
+                <span class="n">OMEGA_CIRCADIAN</span> <span class="o">*</span> <span class="n">t</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">feeding_phase</span>
+            <span class="p">)</span>
+            <span class="n">dphase</span> <span class="o">+=</span> <span class="n">feeding_signal</span>
+
+        <span class="c1"># Disease modulation</span>
+        <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">disease_tissue</span> <span class="o">==</span> <span class="n">tissue</span><span class="p">:</span>
+            <span class="c1"># Reduce coupling strength</span>
+            <span class="n">dphase</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">disease_severity</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="c1"># Add noise</span>
+        <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">noise_strength</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dphase</span> <span class="o">+=</span> <span class="n">params</span><span class="o">.</span><span class="n">noise_strength</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
+
+        <span class="n">dydt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dphase</span>
+
+        <span class="c1"># Amplitude dynamics (slow relaxation to intrinsic amplitude)</span>
+        <span class="n">target_amp</span> <span class="o">=</span> <span class="n">tp</span><span class="p">[</span><span class="s2">&quot;amplitude&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">disease_tissue</span> <span class="o">==</span> <span class="n">tissue</span><span class="p">:</span>
+            <span class="n">target_amp</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">disease_severity</span> <span class="o">*</span> <span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">dydt</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="p">(</span><span class="n">target_amp</span> <span class="o">-</span> <span class="n">amps</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">dydt</span>
+
+
+<div class="viewcode-block" id="simulate_multi_tissue">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.circadian.simulate_multi_tissue">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_multi_tissue</span><span class="p">(</span>
+    <span class="n">params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MultiTissueParams</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">t_end</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">240.0</span><span class="p">,</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">random_seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MultiTissueResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulate multi-tissue circadian clock.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        params: MultiTissueParams (uses defaults if None)</span>
+<span class="sd">        t_end: Simulation duration in hours</span>
+<span class="sd">        dt: Output time step</span>
+<span class="sd">        random_seed: For reproducible results</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        MultiTissueResult with trajectories and coherence metrics</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">MultiTissueParams</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">random_seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+
+    <span class="n">tissues</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">tissues</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tissues</span><span class="p">)</span>
+
+    <span class="c1"># Initial conditions</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tissues</span><span class="p">):</span>
+        <span class="n">y0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>  <span class="c1"># Random initial phase</span>
+        <span class="n">y0</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">TISSUE_PARAMS</span><span class="p">[</span><span class="n">tissue</span><span class="p">][</span><span class="s2">&quot;amplitude&quot;</span><span class="p">]</span>
+
+    <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">_multi_tissue_ode</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">tissues</span><span class="p">),</span>
+        <span class="n">t_span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="p">),</span>
+        <span class="n">y0</span><span class="o">=</span><span class="n">y0</span><span class="p">,</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span>
+        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Extract results</span>
+    <span class="n">phases</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">amplitudes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tissues</span><span class="p">):</span>
+        <span class="n">phases</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="n">amplitudes</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span>
+
+    <span class="c1"># Compute coherence metrics</span>
+    <span class="c1"># Use last 25% for steady-state</span>
+    <span class="n">steady_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.75</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">))</span>
+
+    <span class="c1"># Global coherence (all tissues)</span>
+    <span class="n">all_phases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">phases</span><span class="p">[</span><span class="n">t</span><span class="p">][</span><span class="n">steady_idx</span><span class="p">:]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tissues</span><span class="p">])</span>
+    <span class="n">z_global</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">all_phases</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">global_R_bar</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z_global</span><span class="p">)))</span>
+
+    <span class="c1"># Per-tissue coherence (stability)</span>
+    <span class="n">tissue_R_bars</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="n">tissues</span><span class="p">:</span>
+        <span class="n">ph</span> <span class="o">=</span> <span class="n">phases</span><span class="p">[</span><span class="n">tissue</span><span class="p">][</span><span class="n">steady_idx</span><span class="p">:]</span>
+        <span class="c1"># Phase stability as coherence</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">ph</span><span class="p">)</span>
+        <span class="n">tissue_R_bars</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span>
+
+    <span class="c1"># SCN-peripheral coherence</span>
+    <span class="k">if</span> <span class="s2">&quot;SCN&quot;</span> <span class="ow">in</span> <span class="n">tissues</span><span class="p">:</span>
+        <span class="n">peripheral_tissues</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tissues</span> <span class="k">if</span> <span class="n">t</span> <span class="o">!=</span> <span class="s2">&quot;SCN&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">peripheral_tissues</span><span class="p">:</span>
+            <span class="n">scn_ph</span> <span class="o">=</span> <span class="n">phases</span><span class="p">[</span><span class="s2">&quot;SCN&quot;</span><span class="p">][</span><span class="n">steady_idx</span><span class="p">:]</span>
+            <span class="n">periph_phases</span> <span class="o">=</span> <span class="p">[</span><span class="n">phases</span><span class="p">[</span><span class="n">t</span><span class="p">][</span><span class="n">steady_idx</span><span class="p">:]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">peripheral_tissues</span><span class="p">]</span>
+            <span class="c1"># Mean phase relationship</span>
+            <span class="n">phase_diffs</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="p">(</span><span class="n">scn_ph</span> <span class="o">-</span> <span class="n">pp</span><span class="p">)))</span> <span class="k">for</span> <span class="n">pp</span> <span class="ow">in</span> <span class="n">periph_phases</span><span class="p">]</span>
+            <span class="n">scn_peripheral_coherence</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">phase_diffs</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">scn_peripheral_coherence</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">scn_peripheral_coherence</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Phase delays relative to SCN</span>
+    <span class="n">phase_delays</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="s2">&quot;SCN&quot;</span> <span class="ow">in</span> <span class="n">tissues</span><span class="p">:</span>
+        <span class="n">scn_mean_phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">phases</span><span class="p">[</span><span class="s2">&quot;SCN&quot;</span><span class="p">][</span><span class="n">steady_idx</span><span class="p">:])</span>
+        <span class="k">for</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="n">tissues</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">tissue</span> <span class="o">!=</span> <span class="s2">&quot;SCN&quot;</span><span class="p">:</span>
+                <span class="n">tissue_mean_phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">phases</span><span class="p">[</span><span class="n">tissue</span><span class="p">][</span><span class="n">steady_idx</span><span class="p">:])</span>
+                <span class="n">delay</span> <span class="o">=</span> <span class="n">tissue_mean_phase</span> <span class="o">-</span> <span class="n">scn_mean_phase</span>
+                <span class="n">delay_hours</span> <span class="o">=</span> <span class="p">(</span><span class="n">delay</span> <span class="o">/</span> <span class="n">OMEGA_CIRCADIAN</span><span class="p">)</span> <span class="o">%</span> <span class="mi">24</span>
+                <span class="n">phase_delays</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">delay_hours</span><span class="p">)</span>
+
+    <span class="c1"># Classification</span>
+    <span class="k">if</span> <span class="n">global_R_bar</span> <span class="o">&gt;=</span> <span class="mf">0.9</span><span class="p">:</span>
+        <span class="n">classification</span> <span class="o">=</span> <span class="s2">&quot;SYNCHRONIZED&quot;</span>
+    <span class="k">elif</span> <span class="n">global_R_bar</span> <span class="o">&gt;=</span> <span class="mf">0.7</span><span class="p">:</span>
+        <span class="n">classification</span> <span class="o">=</span> <span class="s2">&quot;PARTIALLY_SYNCHRONIZED&quot;</span>
+    <span class="k">elif</span> <span class="n">global_R_bar</span> <span class="o">&gt;=</span> <span class="n">E_MINUS_2</span><span class="p">:</span>
+        <span class="n">classification</span> <span class="o">=</span> <span class="s2">&quot;WEAKLY_SYNCHRONIZED&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">classification</span> <span class="o">=</span> <span class="s2">&quot;DESYNCHRONIZED&quot;</span>
+
+    <span class="k">return</span> <span class="n">MultiTissueResult</span><span class="p">(</span>
+        <span class="n">t</span><span class="o">=</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span>
+        <span class="n">phases</span><span class="o">=</span><span class="n">phases</span><span class="p">,</span>
+        <span class="n">amplitudes</span><span class="o">=</span><span class="n">amplitudes</span><span class="p">,</span>
+        <span class="n">global_R_bar</span><span class="o">=</span><span class="n">global_R_bar</span><span class="p">,</span>
+        <span class="n">tissue_R_bars</span><span class="o">=</span><span class="n">tissue_R_bars</span><span class="p">,</span>
+        <span class="n">scn_peripheral_coherence</span><span class="o">=</span><span class="n">scn_peripheral_coherence</span><span class="p">,</span>
+        <span class="n">phase_delays</span><span class="o">=</span><span class="n">phase_delays</span><span class="p">,</span>
+        <span class="n">go_no_go</span><span class="o">=</span><span class="n">go_no_go</span><span class="p">(</span><span class="n">global_R_bar</span><span class="p">),</span>
+        <span class="n">classification</span><span class="o">=</span><span class="n">classification</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="jet_lag_simulation">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.circadian.jet_lag_simulation">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">jet_lag_simulation</span><span class="p">(</span>
+    <span class="n">time_shift</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">,</span>  <span class="c1"># hours</span>
+    <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;east&quot;</span><span class="p">,</span>  <span class="c1"># &quot;east&quot; or &quot;west&quot;</span>
+    <span class="n">tissues</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">t_end</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">336.0</span><span class="p">,</span>  <span class="c1"># 14 days</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulate jet lag recovery across tissues.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        time_shift: Number of hours shifted</span>
+<span class="sd">        direction: &quot;east&quot; (phase advance) or &quot;west&quot; (phase delay)</span>
+<span class="sd">        tissues: Tissues to simulate</span>
+<span class="sd">        t_end: Simulation duration</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary with recovery trajectories and times</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">tissues</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tissues</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SCN&quot;</span><span class="p">,</span> <span class="s2">&quot;liver&quot;</span><span class="p">,</span> <span class="s2">&quot;muscle&quot;</span><span class="p">,</span> <span class="s2">&quot;heart&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Initial simulation (pre-travel, synchronized)</span>
+    <span class="n">params_pre</span> <span class="o">=</span> <span class="n">MultiTissueParams</span><span class="p">(</span><span class="n">tissues</span><span class="o">=</span><span class="n">tissues</span><span class="p">,</span> <span class="n">K_global</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">result_pre</span> <span class="o">=</span> <span class="n">simulate_multi_tissue</span><span class="p">(</span><span class="n">params_pre</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="mi">72</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+    <span class="c1"># Get final phases as new initial conditions with shift</span>
+    <span class="n">shift_radians</span> <span class="o">=</span> <span class="n">time_shift</span> <span class="o">*</span> <span class="n">OMEGA_CIRCADIAN</span>
+    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;east&quot;</span><span class="p">:</span>
+        <span class="n">shift_radians</span> <span class="o">=</span> <span class="o">-</span><span class="n">shift_radians</span>  <span class="c1"># Phase advance</span>
+
+    <span class="c1"># Shift peripheral clocks (SCN adapts faster)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tissues</span><span class="p">)</span>
+    <span class="n">y0_shifted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">scn_idx</span> <span class="o">=</span> <span class="n">tissues</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;SCN&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="s2">&quot;SCN&quot;</span> <span class="ow">in</span> <span class="n">tissues</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tissues</span><span class="p">):</span>
+        <span class="n">final_phase</span> <span class="o">=</span> <span class="n">result_pre</span><span class="o">.</span><span class="n">phases</span><span class="p">[</span><span class="n">tissue</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">tissue</span> <span class="o">==</span> <span class="s2">&quot;SCN&quot;</span><span class="p">:</span>
+            <span class="c1"># SCN adapts faster</span>
+            <span class="n">y0_shifted</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">final_phase</span> <span class="o">+</span> <span class="n">shift_radians</span> <span class="o">*</span> <span class="mf">0.3</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Peripheral clocks shift fully</span>
+            <span class="n">y0_shifted</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">final_phase</span> <span class="o">+</span> <span class="n">shift_radians</span>
+        <span class="n">y0_shifted</span><span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">result_pre</span><span class="o">.</span><span class="n">amplitudes</span><span class="p">[</span><span class="n">tissue</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Post-travel simulation</span>
+    <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">params_post</span> <span class="o">=</span> <span class="n">MultiTissueParams</span><span class="p">(</span><span class="n">tissues</span><span class="o">=</span><span class="n">tissues</span><span class="p">,</span> <span class="n">K_global</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+        <span class="n">fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">_multi_tissue_ode</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">params_post</span><span class="p">,</span> <span class="n">tissues</span><span class="p">),</span>
+        <span class="n">t_span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="p">),</span>
+        <span class="n">y0</span><span class="o">=</span><span class="n">y0_shifted</span><span class="p">,</span>
+        <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">,</span>
+        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Track phase alignment over time</span>
+    <span class="n">phases</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tissues</span><span class="p">):</span>
+        <span class="n">phases</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+    <span class="c1"># Calculate recovery time for each tissue</span>
+    <span class="n">recovery_times</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">scn_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scn_ph</span> <span class="o">=</span> <span class="n">phases</span><span class="p">[</span><span class="s2">&quot;SCN&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">tissue</span> <span class="ow">in</span> <span class="n">tissues</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">tissue</span> <span class="o">!=</span> <span class="s2">&quot;SCN&quot;</span><span class="p">:</span>
+                <span class="n">tissue_ph</span> <span class="o">=</span> <span class="n">phases</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span>
+                <span class="n">phase_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">tissue_ph</span> <span class="o">-</span> <span class="n">scn_ph</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+                <span class="c1"># Find when phase difference stabilizes &lt; 0.5 rad (~2h)</span>
+                <span class="n">aligned</span> <span class="o">=</span> <span class="n">phase_diff</span> <span class="o">&lt;</span> <span class="mf">0.5</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aligned</span><span class="p">)</span> <span class="o">-</span> <span class="mi">24</span><span class="p">):</span>  <span class="c1"># Need 24 consecutive hours</span>
+                    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">aligned</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">48</span><span class="p">]):</span>  <span class="c1"># 24 hours at dt=0.5</span>
+                        <span class="n">recovery_times</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+                        <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">recovery_times</span><span class="p">[</span><span class="n">tissue</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">t_end</span><span class="p">)</span>  <span class="c1"># Didn&#39;t recover</span>
+
+    <span class="c1"># Calculate global coherence over time</span>
+    <span class="n">coherence_trajectory</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">)):</span>
+        <span class="n">ph_j</span> <span class="o">=</span> <span class="p">[</span><span class="n">phases</span><span class="p">[</span><span class="n">t</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tissues</span><span class="p">]</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ph_j</span><span class="p">)))</span>
+        <span class="n">coherence_trajectory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span>
+        <span class="s2">&quot;phases&quot;</span><span class="p">:</span> <span class="n">phases</span><span class="p">,</span>
+        <span class="s2">&quot;coherence_trajectory&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coherence_trajectory</span><span class="p">),</span>
+        <span class="s2">&quot;recovery_times&quot;</span><span class="p">:</span> <span class="n">recovery_times</span><span class="p">,</span>
+        <span class="s2">&quot;time_shift&quot;</span><span class="p">:</span> <span class="n">time_shift</span><span class="p">,</span>
+        <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="n">direction</span><span class="p">,</span>
+        <span class="s2">&quot;mean_recovery_time&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">recovery_times</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="k">if</span> <span class="n">recovery_times</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="shift_work_simulation">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.circadian.shift_work_simulation">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">shift_work_simulation</span><span class="p">(</span>
+    <span class="n">shift_schedule</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;rotating&quot;</span><span class="p">,</span>  <span class="c1"># &quot;rotating&quot;, &quot;night&quot;, &quot;day&quot;</span>
+    <span class="n">shift_duration_days</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="n">tissues</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulate circadian disruption from shift work.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        shift_schedule: Type of shift work pattern</span>
+<span class="sd">        shift_duration_days: Days per shift rotation</span>
+<span class="sd">        tissues: Tissues to simulate</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary with chronic disruption metrics</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">tissues</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tissues</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SCN&quot;</span><span class="p">,</span> <span class="s2">&quot;liver&quot;</span><span class="p">,</span> <span class="s2">&quot;muscle&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Define light/feeding schedules for different shifts</span>
+    <span class="n">schedules</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;day&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;light_phase&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># Normal</span>
+            <span class="s2">&quot;feeding_phase&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;night&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;light_phase&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span>  <span class="c1"># Inverted</span>
+            <span class="s2">&quot;feeding_phase&quot;</span><span class="p">:</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;rotating&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># Will alternate</span>
+    <span class="p">}</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">total_days</span> <span class="o">=</span> <span class="n">shift_duration_days</span> <span class="o">*</span> <span class="mi">4</span>  <span class="c1"># 4 rotations</span>
+
+    <span class="k">if</span> <span class="n">shift_schedule</span> <span class="o">==</span> <span class="s2">&quot;rotating&quot;</span><span class="p">:</span>
+        <span class="c1"># Alternate between day and night</span>
+        <span class="k">for</span> <span class="n">rotation</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">is_night</span> <span class="o">=</span> <span class="n">rotation</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span>
+            <span class="n">schedule</span> <span class="o">=</span> <span class="n">schedules</span><span class="p">[</span><span class="s2">&quot;night&quot;</span> <span class="k">if</span> <span class="n">is_night</span> <span class="k">else</span> <span class="s2">&quot;day&quot;</span><span class="p">]</span>
+
+            <span class="n">params</span> <span class="o">=</span> <span class="n">MultiTissueParams</span><span class="p">(</span>
+                <span class="n">tissues</span><span class="o">=</span><span class="n">tissues</span><span class="p">,</span>
+                <span class="n">light_phase</span><span class="o">=</span><span class="n">schedule</span><span class="p">[</span><span class="s2">&quot;light_phase&quot;</span><span class="p">],</span>
+                <span class="n">feeding_phase</span><span class="o">=</span><span class="n">schedule</span><span class="p">[</span><span class="s2">&quot;feeding_phase&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="n">simulate_multi_tissue</span><span class="p">(</span>
+                <span class="n">params</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="n">shift_duration_days</span> <span class="o">*</span> <span class="mi">24</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">42</span> <span class="o">+</span> <span class="n">rotation</span>
+            <span class="p">)</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s2">&quot;rotation&quot;</span><span class="p">:</span> <span class="n">rotation</span><span class="p">,</span>
+                <span class="s2">&quot;shift_type&quot;</span><span class="p">:</span> <span class="s2">&quot;night&quot;</span> <span class="k">if</span> <span class="n">is_night</span> <span class="k">else</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;global_R_bar&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">global_R_bar</span><span class="p">,</span>
+                <span class="s2">&quot;classification&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">classification</span><span class="p">,</span>
+            <span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">schedule</span> <span class="o">=</span> <span class="n">schedules</span><span class="p">[</span><span class="n">shift_schedule</span><span class="p">]</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">MultiTissueParams</span><span class="p">(</span>
+            <span class="n">tissues</span><span class="o">=</span><span class="n">tissues</span><span class="p">,</span>
+            <span class="n">light_phase</span><span class="o">=</span><span class="n">schedule</span><span class="p">[</span><span class="s2">&quot;light_phase&quot;</span><span class="p">],</span>
+            <span class="n">feeding_phase</span><span class="o">=</span><span class="n">schedule</span><span class="p">[</span><span class="s2">&quot;feeding_phase&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">simulate_multi_tissue</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="n">total_days</span> <span class="o">*</span> <span class="mi">24</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">&quot;shift_type&quot;</span><span class="p">:</span> <span class="n">shift_schedule</span><span class="p">,</span>
+            <span class="s2">&quot;global_R_bar&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">global_R_bar</span><span class="p">,</span>
+            <span class="s2">&quot;classification&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">classification</span><span class="p">,</span>
+        <span class="p">})</span>
+
+    <span class="c1"># Summary metrics</span>
+    <span class="n">R_bars</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;global_R_bar&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+    <span class="n">mean_R_bar</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">R_bars</span><span class="p">))</span>
+    <span class="n">min_R_bar</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">R_bars</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;schedule&quot;</span><span class="p">:</span> <span class="n">shift_schedule</span><span class="p">,</span>
+        <span class="s2">&quot;rotations&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+        <span class="s2">&quot;mean_R_bar&quot;</span><span class="p">:</span> <span class="n">mean_R_bar</span><span class="p">,</span>
+        <span class="s2">&quot;min_R_bar&quot;</span><span class="p">:</span> <span class="n">min_R_bar</span><span class="p">,</span>
+        <span class="s2">&quot;chronic_disruption&quot;</span><span class="p">:</span> <span class="n">mean_R_bar</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">,</span>
+        <span class="s2">&quot;go_no_go&quot;</span><span class="p">:</span> <span class="n">go_no_go</span><span class="p">(</span><span class="n">mean_R_bar</span><span class="p">),</span>
+    <span class="p">}</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

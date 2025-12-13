@@ -1,0 +1,2058 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.scoring &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/scoring';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.scoring</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.scoring</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab CRISPR Scoring: Guide RNA quality metrics.</span>
+
+<span class="sd">Implements:</span>
+<span class="sd">- GC content calculation</span>
+<span class="sd">- Homopolymer run detection</span>
+<span class="sd">- SantaLucia thermodynamic ΔG</span>
+<span class="sd">- MIT specificity algorithm</span>
+<span class="sd">- CFD (Cutting Frequency Determination) score</span>
+<span class="sd">- Chromatin accessibility modeling</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+
+<span class="c1"># SantaLucia nearest-neighbor parameters (kcal/mol)</span>
+<span class="c1"># From: SantaLucia &amp; Hicks (2004) Annu. Rev. Biophys. Biomol. Struct.</span>
+<span class="n">NN_PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;AA&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0027</span><span class="p">),</span>  <span class="c1"># (ΔH, ΔS)</span>
+    <span class="s1">&#39;TT&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0027</span><span class="p">),</span>
+    <span class="s1">&#39;AT&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.88</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0024</span><span class="p">),</span>
+    <span class="s1">&#39;TA&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.58</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0015</span><span class="p">),</span>
+    <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.45</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0039</span><span class="p">),</span>
+    <span class="s1">&#39;TG&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.45</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0039</span><span class="p">),</span>
+    <span class="s1">&#39;GT&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.44</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0037</span><span class="p">),</span>
+    <span class="s1">&#39;AC&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.44</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0037</span><span class="p">),</span>
+    <span class="s1">&#39;CT&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.28</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0033</span><span class="p">),</span>
+    <span class="s1">&#39;AG&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.28</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0033</span><span class="p">),</span>
+    <span class="s1">&#39;GA&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.30</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0032</span><span class="p">),</span>
+    <span class="s1">&#39;TC&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.30</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0032</span><span class="p">),</span>
+    <span class="s1">&#39;CG&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">2.17</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0055</span><span class="p">),</span>
+    <span class="s1">&#39;GC&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">2.24</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0056</span><span class="p">),</span>
+    <span class="s1">&#39;GG&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.84</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0046</span><span class="p">),</span>
+    <span class="s1">&#39;CC&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.84</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0046</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="c1"># Initiation parameters</span>
+<span class="n">NN_INIT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.98</span><span class="p">,</span> <span class="mf">0.0024</span><span class="p">),</span>
+    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.98</span><span class="p">,</span> <span class="mf">0.0024</span><span class="p">),</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.03</span><span class="p">,</span> <span class="mf">0.0027</span><span class="p">),</span>
+    <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.03</span><span class="p">,</span> <span class="mf">0.0027</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="c1"># MIT position weights for off-target scoring</span>
+<span class="c1"># Higher weight = more important for specificity</span>
+<span class="n">MIT_POSITION_WEIGHTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.014</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>       <span class="c1"># positions 1-5 (PAM-distal)</span>
+    <span class="mf">0.395</span><span class="p">,</span> <span class="mf">0.317</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.389</span><span class="p">,</span> <span class="mf">0.079</span><span class="p">,</span>  <span class="c1"># positions 6-10</span>
+    <span class="mf">0.445</span><span class="p">,</span> <span class="mf">0.508</span><span class="p">,</span> <span class="mf">0.613</span><span class="p">,</span> <span class="mf">0.851</span><span class="p">,</span> <span class="mf">0.732</span><span class="p">,</span>  <span class="c1"># positions 11-15</span>
+    <span class="mf">0.828</span><span class="p">,</span> <span class="mf">0.615</span><span class="p">,</span> <span class="mf">0.804</span><span class="p">,</span> <span class="mf">0.685</span><span class="p">,</span> <span class="mf">0.583</span><span class="p">,</span>  <span class="c1"># positions 16-20 (PAM-proximal)</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="gc_content">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.gc_content">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">gc_content</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate GC content of a sequence.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: DNA/RNA sequence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        GC fraction (0.0 to 1.0).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">sequence</span> <span class="k">if</span> <span class="n">b</span> <span class="ow">in</span> <span class="s1">&#39;GC&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gc</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="k">if</span> <span class="n">sequence</span> <span class="k">else</span> <span class="mf">0.0</span></div>
+
+
+
+<div class="viewcode-block" id="max_homopolymer_run">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.max_homopolymer_run">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">max_homopolymer_run</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find the longest homopolymer run in a sequence.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: DNA/RNA sequence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Length of longest single-nucleotide repeat.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">max_run</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">current_run</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">current_run</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">max_run</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_run</span><span class="p">,</span> <span class="n">current_run</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">current_run</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">max_run</span></div>
+
+
+
+<div class="viewcode-block" id="delta_g_santalucia">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.delta_g_santalucia">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">delta_g_santalucia</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">37.0</span><span class="p">,</span>
+    <span class="n">na_conc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate ΔG of hybridization using SantaLucia nearest-neighbor model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: DNA/RNA sequence (assumes binding to perfect complement).</span>
+<span class="sd">        temperature: Temperature in Celsius.</span>
+<span class="sd">        na_conc: Na+ concentration in M.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ΔG in kcal/mol (negative = favorable binding).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span>
+    <span class="n">T_kelvin</span> <span class="o">=</span> <span class="n">temperature</span> <span class="o">+</span> <span class="mf">273.15</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Sum nearest-neighbor contributions</span>
+    <span class="n">delta_H</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">delta_S</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">dinuc</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">dinuc</span> <span class="ow">in</span> <span class="n">NN_PARAMS</span><span class="p">:</span>
+            <span class="n">dH</span><span class="p">,</span> <span class="n">dS</span> <span class="o">=</span> <span class="n">NN_PARAMS</span><span class="p">[</span><span class="n">dinuc</span><span class="p">]</span>
+            <span class="n">delta_H</span> <span class="o">+=</span> <span class="n">dH</span>
+            <span class="n">delta_S</span> <span class="o">+=</span> <span class="n">dS</span>
+
+    <span class="c1"># Initiation</span>
+    <span class="n">first_base</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">last_base</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">first_base</span> <span class="ow">in</span> <span class="n">NN_INIT</span><span class="p">:</span>
+        <span class="n">dH</span><span class="p">,</span> <span class="n">dS</span> <span class="o">=</span> <span class="n">NN_INIT</span><span class="p">[</span><span class="n">first_base</span><span class="p">]</span>
+        <span class="n">delta_H</span> <span class="o">+=</span> <span class="n">dH</span>
+        <span class="n">delta_S</span> <span class="o">+=</span> <span class="n">dS</span>
+    <span class="k">if</span> <span class="n">last_base</span> <span class="ow">in</span> <span class="n">NN_INIT</span><span class="p">:</span>
+        <span class="n">dH</span><span class="p">,</span> <span class="n">dS</span> <span class="o">=</span> <span class="n">NN_INIT</span><span class="p">[</span><span class="n">last_base</span><span class="p">]</span>
+        <span class="n">delta_H</span> <span class="o">+=</span> <span class="n">dH</span>
+        <span class="n">delta_S</span> <span class="o">+=</span> <span class="n">dS</span>
+
+    <span class="c1"># Salt correction (simplified)</span>
+    <span class="n">delta_S_corrected</span> <span class="o">=</span> <span class="n">delta_S</span> <span class="o">+</span> <span class="mf">0.368</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">na_conc</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+
+    <span class="c1"># ΔG = ΔH - TΔS</span>
+    <span class="n">delta_G</span> <span class="o">=</span> <span class="n">delta_H</span> <span class="o">-</span> <span class="n">T_kelvin</span> <span class="o">*</span> <span class="n">delta_S_corrected</span>
+
+    <span class="k">return</span> <span class="n">delta_G</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sequence_complexity</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate sequence complexity (0 = repetitive, 1 = complex).</span>
+
+<span class="sd">    Uses linguistic complexity based on unique k-mers.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: DNA sequence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Complexity score (0.0 to 1.0).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Count unique k-mers for k=1,2,3</span>
+    <span class="n">total_possible</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_unique</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+        <span class="n">kmers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">kmers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">])</span>
+        <span class="n">possible</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="o">**</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">total_possible</span> <span class="o">+=</span> <span class="n">possible</span>
+        <span class="n">total_unique</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">kmers</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">total_unique</span> <span class="o">/</span> <span class="n">total_possible</span> <span class="k">if</span> <span class="n">total_possible</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
+
+
+<div class="viewcode-block" id="mit_specificity_score">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.mit_specificity_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">mit_specificity_score</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">off_target_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">avg_mismatches</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate MIT specificity score (simplified).</span>
+
+<span class="sd">    The full MIT algorithm requires genome-wide alignment.</span>
+<span class="sd">    This provides an estimate based on guide sequence properties.</span>
+
+<span class="sd">    Higher score = more specific (fewer predicted off-targets).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: 20bp guide sequence.</span>
+<span class="sd">        off_target_count: Number of known off-targets (if available).</span>
+<span class="sd">        avg_mismatches: Average mismatches to off-targets.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        MIT specificity score (0-100).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Base score from sequence complexity</span>
+    <span class="n">complexity</span> <span class="o">=</span> <span class="n">sequence_complexity</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+
+    <span class="c1"># Penalize low GC or very high GC</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+    <span class="n">gc_penalty</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="mf">0.4</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">:</span>
+        <span class="n">gc_penalty</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">gc</span> <span class="o">-</span> <span class="mf">0.55</span><span class="p">)</span>
+
+    <span class="c1"># Penalize homopolymers</span>
+    <span class="n">max_homo</span> <span class="o">=</span> <span class="n">max_homopolymer_run</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+    <span class="n">homo_penalty</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">max_homo</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+
+    <span class="c1"># Seed region (PAM-proximal 12nt) importance</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:]</span>
+    <span class="n">seed_complexity</span> <span class="o">=</span> <span class="n">sequence_complexity</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="c1"># Estimate score</span>
+    <span class="n">base_score</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">complexity</span> <span class="o">*</span> <span class="n">seed_complexity</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">base_score</span> <span class="o">-</span> <span class="n">gc_penalty</span> <span class="o">-</span> <span class="n">homo_penalty</span>
+
+    <span class="c1"># Adjust for known off-targets</span>
+    <span class="k">if</span> <span class="n">off_target_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">-=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">off_target_count</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="cfd_score">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.cfd_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">cfd_score</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">target_seq</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate CFD (Cutting Frequency Determination) score.</span>
+
+<span class="sd">    CFD predicts how likely an off-target site will be cut.</span>
+<span class="sd">    For on-target (no mismatches), returns 100.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: 20bp guide sequence.</span>
+<span class="sd">        target_seq: Target sequence (if different from perfect match).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        CFD score (0-100, higher = more cutting).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">target_seq</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># On-target: perfect match</span>
+        <span class="k">return</span> <span class="mf">100.0</span>
+
+    <span class="n">target_seq</span> <span class="o">=</span> <span class="n">target_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_seq</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Count mismatches and their positions</span>
+    <span class="n">mismatches</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="n">target_seq</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">g</span> <span class="o">!=</span> <span class="n">t</span><span class="p">:</span>
+            <span class="n">mismatches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">mismatches</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">100.0</span>
+
+    <span class="c1"># CFD penalty increases with mismatches and seed region location</span>
+    <span class="n">cfd</span> <span class="o">=</span> <span class="mf">100.0</span>
+    <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">mismatches</span><span class="p">:</span>
+        <span class="c1"># Higher penalty for PAM-proximal (seed) mismatches</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">:</span>  <span class="c1"># Seed region</span>
+            <span class="n">cfd</span> <span class="o">*=</span> <span class="mf">0.5</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cfd</span> <span class="o">*=</span> <span class="mf">0.7</span>
+
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cfd</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="poly_t_penalty">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.poly_t_penalty">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">poly_t_penalty</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check for poly-T runs that cause U6/U3 Pol III termination.</span>
+
+<span class="sd">    Pol III promoters (U6, U3) terminate at poly-T runs, making guides</span>
+<span class="sd">    starting with TTTT or containing long T-runs incompatible with</span>
+<span class="sd">    standard expression systems.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: Guide sequence.</span>
+<span class="sd">        threshold: Minimum T-run length to flag (default: 4 = TTTT).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (is_problematic, reason)</span>
+<span class="sd">        is_problematic: True if guide has poly-T issue</span>
+<span class="sd">        reason: Description of the issue (empty if none)</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; poly_t_penalty(&quot;TTTTAATGGCCGGCGATGCC&quot;)</span>
+<span class="sd">        (True, &quot;TTTT at 5&#39; end - incompatible with U6/U3 promoters&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Check for TTTT at 5&#39; end (most critical)</span>
+    <span class="k">if</span> <span class="n">sequence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;T&#39;</span> <span class="o">*</span> <span class="n">threshold</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;T&#39;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">threshold</span><span class="si">}</span><span class="s2"> at 5&#39; end - incompatible with U6/U3 promoters&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check for internal poly-T runs</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">-</span> <span class="n">threshold</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">threshold</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;T&#39;</span> <span class="o">*</span> <span class="n">threshold</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Internal poly-T run at position </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> - may cause premature termination&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_repeat_region">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.is_repeat_region">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_repeat_region</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">min_repeat_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detect if guide is in a repetitive/low-complexity region.</span>
+
+<span class="sd">    Guides in repeat regions often have:</span>
+<span class="sd">    - Multiple identical off-targets</span>
+<span class="sd">    - Mapping ambiguity</span>
+<span class="sd">    - Reduced specificity</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: Guide sequence.</span>
+<span class="sd">        min_repeat_length: Minimum unit length for repeat detection.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (is_repeat, reason)</span>
+<span class="sd">        is_repeat: True if sequence is repetitive</span>
+<span class="sd">        reason: Description of repeat type</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; is_repeat_region(&quot;CAGCAGCAGCAGCAGCAGCA&quot;)</span>
+<span class="sd">        (True, &quot;Tandem repeat: CAG repeated 6+ times&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+
+    <span class="c1"># Check for tandem repeats (same unit repeated)</span>
+    <span class="k">for</span> <span class="n">unit_len</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">min_repeat_length</span><span class="p">,</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">unit</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[:</span><span class="n">unit_len</span><span class="p">]</span>
+        <span class="n">repeat_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">unit_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">unit_len</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">unit_len</span><span class="p">]</span> <span class="o">==</span> <span class="n">unit</span><span class="p">:</span>
+                <span class="n">repeat_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+
+        <span class="k">if</span> <span class="n">repeat_count</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># At least 3 repeats</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Tandem repeat: </span><span class="si">{</span><span class="n">unit</span><span class="si">}</span><span class="s2"> repeated </span><span class="si">{</span><span class="n">repeat_count</span><span class="si">}</span><span class="s2">+ times&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check overall complexity</span>
+    <span class="n">complexity</span> <span class="o">=</span> <span class="n">sequence_complexity</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">complexity</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Low complexity region (score=</span><span class="si">{</span><span class="n">complexity</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check for dinucleotide repeats (e.g., ATATAT, CGCGCG)</span>
+    <span class="k">for</span> <span class="n">dinuc</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;AT&#39;</span><span class="p">,</span> <span class="s1">&#39;TA&#39;</span><span class="p">,</span> <span class="s1">&#39;CG&#39;</span><span class="p">,</span> <span class="s1">&#39;GC&#39;</span><span class="p">,</span> <span class="s1">&#39;AC&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;GT&#39;</span><span class="p">,</span> <span class="s1">&#39;TG&#39;</span><span class="p">,</span> <span class="s1">&#39;AG&#39;</span><span class="p">,</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">,</span> <span class="s1">&#39;TC&#39;</span><span class="p">]:</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="p">(</span><span class="n">dinuc</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))[:</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">matches</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">matches</span> <span class="o">&gt;=</span> <span class="n">n</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">:</span>  <span class="c1"># 80% match to dinucleotide repeat</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Dinucleotide repeat pattern: </span><span class="si">{</span><span class="n">dinuc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="u6_compatibility_check">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.u6_compatibility_check">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">u6_compatibility_check</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Comprehensive U6/Pol III compatibility check.</span>
+
+<span class="sd">    Checks for all known issues with Pol III-driven expression:</span>
+<span class="sd">    - Poly-T termination signals</span>
+<span class="sd">    - G at position 1 preferred for U6</span>
+<span class="sd">    - Internal TTTT runs</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: Guide sequence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (is_compatible, warnings)</span>
+<span class="sd">        is_compatible: True if guide can be expressed from U6</span>
+<span class="sd">        warnings: List of compatibility warnings</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; u6_compatibility_check(&quot;GAAGTGACGGCTAGGGCTCC&quot;)</span>
+<span class="sd">        (True, [])</span>
+<span class="sd">        &gt;&gt;&gt; u6_compatibility_check(&quot;TTTTAATGGCCGGCGATGCC&quot;)</span>
+<span class="sd">        (False, [&quot;TTTT at 5&#39; - will cause Pol III termination&quot;])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">warnings</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Check poly-T</span>
+    <span class="n">is_poly_t</span><span class="p">,</span> <span class="n">poly_t_reason</span> <span class="o">=</span> <span class="n">poly_t_penalty</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_poly_t</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">poly_t_reason</span><span class="p">)</span>
+
+    <span class="c1"># U6 prefers G at position 1 (not critical but suboptimal)</span>
+    <span class="k">if</span> <span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span>
+        <span class="c1"># This is a soft warning, not disqualifying</span>
+        <span class="k">pass</span>  <span class="c1"># Don&#39;t add warning for this - too minor</span>
+
+    <span class="c1"># Check for TTTTT (5 Ts) anywhere - almost always problematic</span>
+    <span class="k">if</span> <span class="s1">&#39;TTTTT&#39;</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Contains TTTTT - strong termination signal&quot;</span><span class="p">)</span>
+
+    <span class="n">is_compatible</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">warnings</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">is_compatible</span><span class="p">,</span> <span class="n">warnings</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="chromatin_accessibility_score">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.chromatin_accessibility_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">chromatin_accessibility_score</span><span class="p">(</span>
+    <span class="n">position</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">tss_position</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">dnase_peaks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Estimate chromatin accessibility at a genomic position.</span>
+
+<span class="sd">    Without experimental data, uses heuristic based on TSS proximity.</span>
+<span class="sd">    Near TSS = more likely to be open chromatin.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        position: Genomic position.</span>
+<span class="sd">        tss_position: Transcription start site position.</span>
+<span class="sd">        dnase_peaks: Optional list of (start, end) DNase HS peaks.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (state, accessibility_score)</span>
+<span class="sd">        state: &quot;OPEN&quot;, &quot;MODERATE&quot;, or &quot;CLOSED&quot;</span>
+<span class="sd">        accessibility_score: 0.0 to 1.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rel_pos</span> <span class="o">=</span> <span class="n">position</span> <span class="o">-</span> <span class="n">tss_position</span>
+
+    <span class="c1"># Check if in provided DNase peaks</span>
+    <span class="k">if</span> <span class="n">dnase_peaks</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">dnase_peaks</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">position</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;OPEN&quot;</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+
+    <span class="c1"># Heuristic based on TSS proximity</span>
+    <span class="n">abs_dist</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rel_pos</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">abs_dist</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="c1"># Very close to TSS - likely open</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="o">-</span> <span class="mf">0.001</span> <span class="o">*</span> <span class="n">abs_dist</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;OPEN&quot;</span>
+    <span class="k">elif</span> <span class="n">abs_dist</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="o">-</span> <span class="mf">0.0005</span> <span class="o">*</span> <span class="p">(</span><span class="n">abs_dist</span> <span class="o">-</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;MODERATE&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.0002</span> <span class="o">*</span> <span class="p">(</span><span class="n">abs_dist</span> <span class="o">-</span> <span class="mi">500</span><span class="p">))</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="s2">&quot;MODERATE&quot;</span> <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mf">0.35</span> <span class="k">else</span> <span class="s2">&quot;CLOSED&quot;</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># RANKING POLICY SYSTEM (v0.9.2+)</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#</span>
+<span class="c1"># Key insight: &quot;Best guide&quot; is not absolute - it&#39;s &quot;best under a stated policy&quot;.</span>
+<span class="c1"># This system makes policy explicit and reproducible.</span>
+<span class="c1">#</span>
+<span class="c1"># DOMINANCE PRINCIPLE (all policies):</span>
+<span class="c1"># - Ranking is LEXICOGRAPHIC on (0mm, 1mm, 2mm) - these are SAFETY-CRITICAL</span>
+<span class="c1"># - A guide with 0/0/0 ALWAYS beats 0/0/1, regardless of 3-4mm counts</span>
+<span class="c1"># - 3-4mm off-targets are tie-breakers only, not primary ranking criteria</span>
+<span class="c1">#</span>
+<span class="c1"># POLICY-DRIVEN RISK PREFERENCE (not universal biology):</span>
+<span class="c1"># The fold-change estimates below are order-of-magnitude guides, not guarantees.</span>
+<span class="c1"># Actual off-target cutting depends on mismatch position (seed vs distal),</span>
+<span class="c1"># PAM context, nuclease variant, and experimental conditions.</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+
+<div class="viewcode-block" id="RankingPolicy">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.RankingPolicy">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">RankingPolicy</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Named ranking policies for different use cases.</span>
+
+<span class="sd">    Each policy defines:</span>
+<span class="sd">    - Hard gates (what disqualifies a guide entirely)</span>
+<span class="sd">    - Dominance order for safety-critical mismatches</span>
+<span class="sd">    - Tie-breaker weights for lower-priority factors</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Default for gene knockout - maximum safety</span>
+    <span class="n">CUTTING_STRICT</span> <span class="o">=</span> <span class="s2">&quot;cutting_strict&quot;</span>
+
+    <span class="c1"># For CRISPRa/CRISPRi - binding matters more than cutting</span>
+    <span class="n">BINDING_STRICT</span> <span class="o">=</span> <span class="s2">&quot;binding_strict&quot;</span>
+
+    <span class="c1"># Exploratory - relaxed constraints, requires explicit flag</span>
+    <span class="c1"># WARNING: Not for therapeutic use</span>
+    <span class="n">EXPLORATORY</span> <span class="o">=</span> <span class="s2">&quot;exploratory&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="PolicyConfig">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.PolicyConfig">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PolicyConfig</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for a ranking policy.&quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1"># Hard gates - guides failing these are EXCLUDED (not just penalized)</span>
+    <span class="n">gate_unscorable</span><span class="p">:</span> <span class="nb">bool</span>  <span class="c1"># Exclude guides CRISPOR couldn&#39;t score</span>
+    <span class="n">gate_0mm</span><span class="p">:</span> <span class="nb">bool</span>         <span class="c1"># Exclude guides with any 0mm off-targets</span>
+    <span class="n">gate_1mm</span><span class="p">:</span> <span class="nb">bool</span>         <span class="c1"># Exclude guides with any 1mm off-targets</span>
+    <span class="n">gate_u6_incompatible</span><span class="p">:</span> <span class="nb">bool</span>  <span class="c1"># Exclude U6/Pol III incompatible</span>
+    <span class="n">gate_repeats</span><span class="p">:</span> <span class="nb">bool</span>     <span class="c1"># Exclude guides in repeat regions</span>
+
+    <span class="c1"># Max allowed off-targets before exclusion (None = no limit)</span>
+    <span class="n">max_0mm</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">max_1mm</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">max_2mm</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1"># Tie-breaker weights (used AFTER dominance sorting)</span>
+    <span class="c1"># These are SMALL - dominance handles the main ranking</span>
+    <span class="n">weight_3mm</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">weight_4mm</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">weight_mit</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># Bonus per MIT point</span>
+    <span class="n">weight_cfd</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># Bonus per CFD point</span></div>
+
+
+
+<span class="c1"># Pre-defined policies</span>
+<span class="n">POLICY_CONFIGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">RankingPolicy</span><span class="o">.</span><span class="n">CUTTING_STRICT</span><span class="p">:</span> <span class="n">PolicyConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;cutting_strict&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Maximum safety for gene knockout. Hard gates on 0-1mm.&quot;</span><span class="p">,</span>
+        <span class="n">gate_unscorable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">gate_0mm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">gate_1mm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Even 1 hit at 1mm is concerning for knockout</span>
+        <span class="n">gate_u6_incompatible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">gate_repeats</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">max_0mm</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">max_1mm</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">max_2mm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># 2mm used for dominance ranking, not gating</span>
+        <span class="n">weight_3mm</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">weight_4mm</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+        <span class="n">weight_mit</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">weight_cfd</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">RankingPolicy</span><span class="o">.</span><span class="n">BINDING_STRICT</span><span class="p">:</span> <span class="n">PolicyConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;binding_strict&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;For CRISPRa/CRISPRi. Prioritizes binding specificity.&quot;</span><span class="p">,</span>
+        <span class="n">gate_unscorable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">gate_0mm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">gate_1mm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># 1mm less critical for activation/interference</span>
+        <span class="n">gate_u6_incompatible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">gate_repeats</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">max_0mm</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">max_1mm</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>  <span class="c1"># Allow up to 2 sites at 1mm</span>
+        <span class="n">max_2mm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">weight_3mm</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>  <span class="c1"># Care more about far off-targets for binding</span>
+        <span class="n">weight_4mm</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">weight_mit</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
+        <span class="n">weight_cfd</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># CFD less relevant for non-cutting</span>
+    <span class="p">),</span>
+    <span class="n">RankingPolicy</span><span class="o">.</span><span class="n">EXPLORATORY</span><span class="p">:</span> <span class="n">PolicyConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;exploratory&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Relaxed constraints for research. NOT for therapeutic use.&quot;</span><span class="p">,</span>
+        <span class="n">gate_unscorable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># Allow unscorable (with warning)</span>
+        <span class="n">gate_0mm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Still gate perfect matches</span>
+        <span class="n">gate_1mm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">gate_u6_incompatible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># May use alternative promoters</span>
+        <span class="n">gate_repeats</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">max_0mm</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">max_1mm</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">max_2mm</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">weight_3mm</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">weight_4mm</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">weight_mit</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">weight_cfd</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">}</span>
+
+
+<span class="c1"># Legacy weights (kept for backward compatibility with crispor_composite_score)</span>
+<span class="n">OFFTARGET_MISMATCH_WEIGHTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="mf">10000.0</span><span class="p">,</span>  <span class="c1"># Perfect off-target - DISQUALIFYING</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="mf">1000.0</span><span class="p">,</span>   <span class="c1"># 1 mismatch - very dangerous</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>    <span class="c1"># 2 mismatches - concerning</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>      <span class="c1"># 3 mismatches - negligible (policy-dependent)</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>     <span class="c1"># 4 mismatches - essentially zero (policy-dependent)</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="CRISPORMetrics">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.CRISPORMetrics">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CRISPORMetrics</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Container for CRISPOR-style guide metrics.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        mit_score: MIT specificity score (0-100)</span>
+<span class="sd">        cfd_score: CFD cutting frequency score (0-100)</span>
+<span class="sd">        off_targets: Dict mapping mismatch count to number of off-targets</span>
+<span class="sd">        u6_compatible: Whether compatible with U6/Pol III</span>
+<span class="sd">        is_repeat: Whether in genomic repeat region</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mit_score</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">cfd_score</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">off_targets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>  <span class="c1"># {mm_count: num_OTs}</span>
+    <span class="n">u6_compatible</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">is_repeat</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># HARD GATES (v0.9.2+)</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="GateResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.GateResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GateResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Result of applying hard gates to a guide.&quot;&quot;&quot;</span>
+    <span class="n">passed</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">excluded_by</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">reason</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="apply_hard_gates">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.apply_hard_gates">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_hard_gates</span><span class="p">(</span>
+    <span class="n">guide</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">policy</span><span class="p">:</span> <span class="n">RankingPolicy</span> <span class="o">=</span> <span class="n">RankingPolicy</span><span class="o">.</span><span class="n">CUTTING_STRICT</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GateResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply hard gates to a guide based on the ranking policy.</span>
+
+<span class="sd">    Hard gates are EXCLUSION criteria - guides failing any gate are removed</span>
+<span class="sd">    from consideration entirely, not just penalized.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide: Guide dict with CRISPOR metrics.</span>
+<span class="sd">        policy: Ranking policy to use.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        GateResult with passed=True if guide passes all gates.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; result = apply_hard_gates(guide, RankingPolicy.CUTTING_STRICT)</span>
+<span class="sd">        &gt;&gt;&gt; if not result.passed:</span>
+<span class="sd">        ...     print(f&quot;Excluded: {result.reason}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">POLICY_CONFIGS</span><span class="p">[</span><span class="n">policy</span><span class="p">]</span>
+    <span class="n">ot</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;off_targets&#39;</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="c1"># Gate: Unscorable</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_unscorable</span> <span class="ow">and</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;is_unscorable&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">GateResult</span><span class="p">(</span>
+            <span class="n">passed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">excluded_by</span><span class="o">=</span><span class="s2">&quot;UNSCORABLE&quot;</span><span class="p">,</span>
+            <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;CRISPOR could not validate this guide (no safety data)&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Gate: 0mm off-targets</span>
+    <span class="n">ot_0mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_0mm</span> <span class="ow">and</span> <span class="n">ot_0mm</span> <span class="o">&gt;</span> <span class="n">config</span><span class="o">.</span><span class="n">max_0mm</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GateResult</span><span class="p">(</span>
+            <span class="n">passed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">excluded_by</span><span class="o">=</span><span class="s2">&quot;0MM_OFFTARGET&quot;</span><span class="p">,</span>
+            <span class="n">reason</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Has </span><span class="si">{</span><span class="n">ot_0mm</span><span class="si">}</span><span class="s2"> perfect off-target(s) - guaranteed off-target cutting&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Gate: 1mm off-targets</span>
+    <span class="n">ot_1mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_1mm</span> <span class="ow">and</span> <span class="n">ot_1mm</span> <span class="o">&gt;</span> <span class="n">config</span><span class="o">.</span><span class="n">max_1mm</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GateResult</span><span class="p">(</span>
+            <span class="n">passed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">excluded_by</span><span class="o">=</span><span class="s2">&quot;1MM_OFFTARGET&quot;</span><span class="p">,</span>
+            <span class="n">reason</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Has </span><span class="si">{</span><span class="n">ot_1mm</span><span class="si">}</span><span class="s2"> 1-mismatch off-target(s) - high risk of cutting&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Gate: 2mm off-targets (if max set)</span>
+    <span class="n">ot_2mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">max_2mm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ot_2mm</span> <span class="o">&gt;</span> <span class="n">config</span><span class="o">.</span><span class="n">max_2mm</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GateResult</span><span class="p">(</span>
+            <span class="n">passed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">excluded_by</span><span class="o">=</span><span class="s2">&quot;2MM_OFFTARGET&quot;</span><span class="p">,</span>
+            <span class="n">reason</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Has </span><span class="si">{</span><span class="n">ot_2mm</span><span class="si">}</span><span class="s2"> 2-mismatch off-target(s) - exceeds policy limit&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Gate: U6 incompatible</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_u6_incompatible</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;u6_compatible&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">GateResult</span><span class="p">(</span>
+            <span class="n">passed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">excluded_by</span><span class="o">=</span><span class="s2">&quot;U6_INCOMPATIBLE&quot;</span><span class="p">,</span>
+            <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Contains poly-T - incompatible with U6/Pol III promoters&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Gate: Repeat region</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_repeats</span> <span class="ow">and</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;is_repeat&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">GateResult</span><span class="p">(</span>
+            <span class="n">passed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">excluded_by</span><span class="o">=</span><span class="s2">&quot;REPEAT_REGION&quot;</span><span class="p">,</span>
+            <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Guide is in a genomic repeat region&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">GateResult</span><span class="p">(</span><span class="n">passed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># DOMINANCE-BASED RANKING (v0.9.2+)</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="GuideTier">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.GuideTier">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GuideTier</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tiers for guide categorization.&quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>  <span class="c1"># Best: 0/0/0 (no 0-2mm off-targets)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="s2">&quot;B&quot;</span>  <span class="c1"># Good: 0/0/1-2 (1-2 off-targets at 2mm only)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>  <span class="c1"># Acceptable: 0/0/3+ or 0/1+/any</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span>  <span class="c1"># Excluded: Failed hard gates</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_dominance_key</span><span class="p">(</span><span class="n">guide</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">config</span><span class="p">:</span> <span class="n">PolicyConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create lexicographic sorting key for dominance-based ranking.</span>
+
+<span class="sd">    Sort order (ascending = worse):</span>
+<span class="sd">    1. 0mm count (primary)</span>
+<span class="sd">    2. 1mm count</span>
+<span class="sd">    3. 2mm count</span>
+<span class="sd">    4. tie-breaker score (descending = better, so negated)</span>
+
+<span class="sd">    The tie-breaker incorporates 3-4mm counts and MIT/CFD.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ot</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;off_targets&#39;</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="c1"># Primary: safety-critical (0, 1, 2mm) - ASCENDING (fewer = better)</span>
+    <span class="n">ot_0mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ot_1mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ot_2mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Tie-breaker: weighted combination of 3-4mm and specificity scores</span>
+    <span class="c1"># DESCENDING (higher = better), so negate</span>
+    <span class="n">ot_3mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ot_4mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">mit</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crispor_mit&#39;</span><span class="p">,</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mit_score&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+    <span class="n">cfd</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crispor_cfd&#39;</span><span class="p">,</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cfd_score&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+
+    <span class="n">tie_breaker</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">weight_mit</span> <span class="o">*</span> <span class="n">mit</span> <span class="o">+</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">weight_cfd</span> <span class="o">*</span> <span class="n">cfd</span> <span class="o">-</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">weight_3mm</span> <span class="o">*</span> <span class="n">ot_3mm</span> <span class="o">-</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">weight_4mm</span> <span class="o">*</span> <span class="n">ot_4mm</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">ot_0mm</span><span class="p">,</span> <span class="n">ot_1mm</span><span class="p">,</span> <span class="n">ot_2mm</span><span class="p">,</span> <span class="o">-</span><span class="n">tie_breaker</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_assign_tier</span><span class="p">(</span><span class="n">guide</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">GuideTier</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Assign a tier based on off-target profile.&quot;&quot;&quot;</span>
+    <span class="n">ot</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;off_targets&#39;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">ot_0mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ot_1mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ot_2mm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ot_0mm</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">ot_1mm</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">ot_2mm</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GuideTier</span><span class="o">.</span><span class="n">A</span>
+    <span class="k">elif</span> <span class="n">ot_0mm</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">ot_1mm</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">ot_2mm</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GuideTier</span><span class="o">.</span><span class="n">B</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GuideTier</span><span class="o">.</span><span class="n">C</span>
+
+
+<div class="viewcode-block" id="rank_guides">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.rank_guides">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rank_guides</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">policy</span><span class="p">:</span> <span class="n">RankingPolicy</span> <span class="o">=</span> <span class="n">RankingPolicy</span><span class="o">.</span><span class="n">CUTTING_STRICT</span><span class="p">,</span>
+    <span class="n">return_excluded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rank guides using dominance-based lexicographic sorting.</span>
+
+<span class="sd">    This is the v0.9.2+ replacement for composite scoring. Key features:</span>
+<span class="sd">    - Hard gates exclude guides entirely (not just penalized)</span>
+<span class="sd">    - Lexicographic sort on (0mm, 1mm, 2mm) - safety-critical</span>
+<span class="sd">    - Tie-breaker uses MIT/CFD and 3-4mm counts</span>
+<span class="sd">    - Output includes tier assignments for wet lab convenience</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: List of guide dicts with CRISPOR metrics.</span>
+<span class="sd">        policy: Ranking policy to use.</span>
+<span class="sd">        return_excluded: Include excluded guides in output.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict with:</span>
+<span class="sd">        - ranked: List of ranked guides (passing hard gates)</span>
+<span class="sd">        - excluded: List of excluded guides (if return_excluded=True)</span>
+<span class="sd">        - tiers: Dict mapping tier to list of guides</span>
+<span class="sd">        - policy: Policy used</span>
+<span class="sd">        - manifest: Run manifest for reproducibility</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; result = rank_guides(guides, RankingPolicy.CUTTING_STRICT)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Top guide: {result[&#39;ranked&#39;][0][&#39;sequence&#39;]}&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Tier A guides: {len(result[&#39;tiers&#39;][&#39;A&#39;])}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">POLICY_CONFIGS</span><span class="p">[</span><span class="n">policy</span><span class="p">]</span>
+
+    <span class="c1"># Apply hard gates</span>
+    <span class="n">passed</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">excluded</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">:</span>
+        <span class="n">gate_result</span> <span class="o">=</span> <span class="n">apply_hard_gates</span><span class="p">(</span><span class="n">guide</span><span class="p">,</span> <span class="n">policy</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">gate_result</span><span class="o">.</span><span class="n">passed</span><span class="p">:</span>
+            <span class="n">guide_copy</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">guide</span><span class="p">}</span>
+            <span class="n">guide_copy</span><span class="p">[</span><span class="s1">&#39;tier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_assign_tier</span><span class="p">(</span><span class="n">guide</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">passed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">guide_copy</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">guide_copy</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">guide</span><span class="p">}</span>
+            <span class="n">guide_copy</span><span class="p">[</span><span class="s1">&#39;tier&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">GuideTier</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">guide_copy</span><span class="p">[</span><span class="s1">&#39;excluded_by&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gate_result</span><span class="o">.</span><span class="n">excluded_by</span>
+            <span class="n">guide_copy</span><span class="p">[</span><span class="s1">&#39;exclusion_reason&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gate_result</span><span class="o">.</span><span class="n">reason</span>
+            <span class="n">excluded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">guide_copy</span><span class="p">)</span>
+
+    <span class="c1"># Sort by dominance key</span>
+    <span class="n">passed</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">_dominance_key</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">config</span><span class="p">))</span>
+
+    <span class="c1"># Add ranks</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">guide</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">passed</span><span class="p">):</span>
+        <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="c1"># Group by tier</span>
+    <span class="n">tiers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">passed</span><span class="p">:</span>
+        <span class="n">tier</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tier&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tier</span> <span class="ow">in</span> <span class="n">tiers</span><span class="p">:</span>
+            <span class="n">tiers</span><span class="p">[</span><span class="n">tier</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">guide</span><span class="p">)</span>
+
+    <span class="c1"># Build result</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;ranked&#39;</span><span class="p">:</span> <span class="n">passed</span><span class="p">,</span>
+        <span class="s1">&#39;tiers&#39;</span><span class="p">:</span> <span class="n">tiers</span><span class="p">,</span>
+        <span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="n">policy</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="s1">&#39;policy_description&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+        <span class="s1">&#39;summary&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;total_input&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">guides</span><span class="p">),</span>
+            <span class="s1">&#39;passed_gates&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">passed</span><span class="p">),</span>
+            <span class="s1">&#39;excluded&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">excluded</span><span class="p">),</span>
+            <span class="s1">&#39;tier_A&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;tier_B&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;tier_C&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]),</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">return_excluded</span><span class="p">:</span>
+        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;excluded_guides&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">excluded</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># RUN MANIFEST (v0.9.2+)</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="emit_manifest">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.emit_manifest">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">emit_manifest</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">policy</span><span class="p">:</span> <span class="n">RankingPolicy</span><span class="p">,</span>
+    <span class="n">sequence_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span>
+    <span class="n">genome</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hg38&quot;</span><span class="p">,</span>
+    <span class="n">crispor_version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">tss_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a reproducibility manifest for a ranking run.</span>
+
+<span class="sd">    Every ranking run should emit this manifest to enable:</span>
+<span class="sd">    - Reproducibility of results</span>
+<span class="sd">    - Audit trail for validation</span>
+<span class="sd">    - Debugging of &quot;why did the winner change&quot; issues</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: The ranked guides.</span>
+<span class="sd">        policy: Ranking policy used.</span>
+<span class="sd">        sequence_name: Name of the target sequence/gene.</span>
+<span class="sd">        genome: Genome build (e.g., &quot;hg38&quot;).</span>
+<span class="sd">        crispor_version: CRISPOR version/commit if known.</span>
+<span class="sd">        tss_index: TSS position in the input sequence.</span>
+<span class="sd">        window: CRISPRa/i window used (e.g., (-400, -50)).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Manifest dict suitable for JSON serialization.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; result = rank_guides(guides, RankingPolicy.CUTTING_STRICT)</span>
+<span class="sd">        &gt;&gt;&gt; manifest = emit_manifest(</span>
+<span class="sd">        ...     result[&#39;ranked&#39;],</span>
+<span class="sd">        ...     RankingPolicy.CUTTING_STRICT,</span>
+<span class="sd">        ...     sequence_name=&quot;RAI1&quot;,</span>
+<span class="sd">        ...     genome=&quot;hg38&quot;,</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &gt;&gt;&gt; with open(&#39;rai1_manifest.json&#39;, &#39;w&#39;) as f:</span>
+<span class="sd">        ...     json.dump(manifest, f, indent=2)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">POLICY_CONFIGS</span><span class="p">[</span><span class="n">policy</span><span class="p">]</span>
+
+    <span class="c1"># Create content hash for reproducibility</span>
+    <span class="n">guide_data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;off_targets&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;off_targets&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;rank&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rank&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;tier&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tier&#39;</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>  <span class="c1"># Top 20 for hash</span>
+    <span class="p">]</span>
+    <span class="n">content_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">guide_data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">content_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">content_str</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">16</span><span class="p">]</span>
+
+    <span class="n">manifest</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;0.9.2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+        <span class="s1">&#39;content_hash&#39;</span><span class="p">:</span> <span class="n">content_hash</span><span class="p">,</span>
+
+        <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">sequence_name</span><span class="p">,</span>
+            <span class="s1">&#39;genome&#39;</span><span class="p">:</span> <span class="n">genome</span><span class="p">,</span>
+            <span class="s1">&#39;tss_index&#39;</span><span class="p">:</span> <span class="n">tss_index</span><span class="p">,</span>
+            <span class="s1">&#39;window&#39;</span><span class="p">:</span> <span class="n">window</span><span class="p">,</span>
+        <span class="p">},</span>
+
+        <span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">policy</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
+            <span class="s1">&#39;gates&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;unscorable&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_unscorable</span><span class="p">,</span>
+                <span class="s1">&#39;0mm&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_0mm</span><span class="p">,</span>
+                <span class="s1">&#39;1mm&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_1mm</span><span class="p">,</span>
+                <span class="s1">&#39;u6_incompatible&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_u6_incompatible</span><span class="p">,</span>
+                <span class="s1">&#39;repeats&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">gate_repeats</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;limits&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;max_0mm&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">max_0mm</span><span class="p">,</span>
+                <span class="s1">&#39;max_1mm&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">max_1mm</span><span class="p">,</span>
+                <span class="s1">&#39;max_2mm&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">max_2mm</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;weights&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;3mm&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_3mm</span><span class="p">,</span>
+                <span class="s1">&#39;4mm&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_4mm</span><span class="p">,</span>
+                <span class="s1">&#39;mit&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_mit</span><span class="p">,</span>
+                <span class="s1">&#39;cfd&#39;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_cfd</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+
+        <span class="s1">&#39;crispor&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="n">crispor_version</span> <span class="ow">or</span> <span class="s1">&#39;unknown&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+
+        <span class="s1">&#39;results&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;total_guides&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">guides</span><span class="p">),</span>
+            <span class="s1">&#39;top_5&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s1">&#39;rank&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rank&#39;</span><span class="p">),</span>
+                    <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">),</span>
+                    <span class="s1">&#39;tier&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tier&#39;</span><span class="p">),</span>
+                    <span class="s1">&#39;off_targets&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;off_targets&#39;</span><span class="p">),</span>
+                    <span class="s1">&#39;mit&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crispor_mit&#39;</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mit_score&#39;</span><span class="p">)),</span>
+                    <span class="s1">&#39;cfd&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crispor_cfd&#39;</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cfd_score&#39;</span><span class="p">)),</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+            <span class="p">],</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">manifest</span></div>
+
+
+
+<div class="viewcode-block" id="print_ranking_report">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.print_ranking_report">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">print_ranking_report</span><span class="p">(</span>
+    <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">max_guides</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Print a formatted ranking report to stdout.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        result: Output from rank_guides().</span>
+<span class="sd">        max_guides: Maximum guides to show.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">90</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GUIDE RANKING - Policy: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;policy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;policy_description&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">90</span><span class="p">)</span>
+
+    <span class="n">summary</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;summary&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Summary: </span><span class="si">{</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;total_input&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> input → &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;passed_gates&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> passed gates, </span><span class="si">{</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;excluded&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> excluded&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tiers: A=</span><span class="si">{</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;tier_A&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (0/0/0) | &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;B=</span><span class="si">{</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;tier_B&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (0/0/1-2) | &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;C=</span><span class="si">{</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;tier_C&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (other)&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;Rank&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Tier&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Sequence&#39;</span><span class="si">:</span><span class="s2">&lt;22</span><span class="si">}</span><span class="s2"> &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;0mm&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;1mm&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;2mm&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;3mm&#39;</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;4mm&#39;</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;MIT&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;CFD&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">90</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;ranked&#39;</span><span class="p">][:</span><span class="n">max_guides</span><span class="p">]:</span>
+        <span class="n">ot</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;off_targets&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">mit</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crispor_mit&#39;</span><span class="p">,</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mit_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">cfd</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crispor_cfd&#39;</span><span class="p">,</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cfd_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">guide</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">guide</span><span class="p">[</span><span class="s1">&#39;tier&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;22</span><span class="si">}</span><span class="s2"> &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mit</span><span class="si">:</span><span class="s2">&lt;5.0f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">cfd</span><span class="si">:</span><span class="s2">&lt;5.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">90</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tier A = Zero 0-2mm off-targets (safest)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tier B = Zero 0-1mm, 1-2 at 2mm (good)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tier C = Other passing guides&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="c1"># Recommendation</span>
+    <span class="n">tiers</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;tiers&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ RECOMMENDATION: Choose from </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> Tier A guide(s)&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Top Tier A: </span><span class="si">{</span><span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠ No Tier A guides. Choose from </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> Tier B guide(s)&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Top Tier B: </span><span class="si">{</span><span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠ No Tier A/B guides. </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tiers</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> Tier C guide(s) available&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✗ No guides passed hard gates under this policy&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="crispor_composite_score">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.crispor_composite_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">crispor_composite_score</span><span class="p">(</span>
+    <span class="n">mit_score</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">cfd_score</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">off_targets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">u6_compatible</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">is_repeat</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate CRISPOR-style composite score with mismatch distance weighting.</span>
+
+<span class="sd">    Formula:</span>
+<span class="sd">        COMPOSITE = (MIT + CFD) - Σ(weight[mm] × count[mm]) - U6_penalty - repeat_penalty</span>
+
+<span class="sd">    Where:</span>
+<span class="sd">        - weight[0-1mm] = 50-100 (critical)</span>
+<span class="sd">        - weight[2mm] = 25 (important)</span>
+<span class="sd">        - weight[3mm] = 5 (minor)</span>
+<span class="sd">        - weight[4mm] = 1 (minimal)</span>
+<span class="sd">        - U6_penalty = 100 if incompatible</span>
+<span class="sd">        - repeat_penalty = 1000 if in repeat region</span>
+
+<span class="sd">    This correctly handles the &quot;MIT 98 / CFD 98 trap&quot; where high raw scores</span>
+<span class="sd">    are misleading due to many off-targets or U6 incompatibility.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mit_score: MIT specificity score (0-100).</span>
+<span class="sd">        cfd_score: CFD cutting frequency score (0-100).</span>
+<span class="sd">        off_targets: Dict mapping mismatch count to off-target count.</span>
+<span class="sd">                     e.g., {0: 0, 1: 0, 2: 1, 3: 5, 4: 23}</span>
+<span class="sd">        u6_compatible: True if compatible with U6/Pol III promoters.</span>
+<span class="sd">        is_repeat: True if guide is in genomic repeat region.</span>
+<span class="sd">        weights: Custom mismatch weights (default: OFFTARGET_MISMATCH_WEIGHTS).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (composite_score, breakdown)</span>
+<span class="sd">        composite_score: Final score (higher is better, can be negative)</span>
+<span class="sd">        breakdown: Dict with component contributions</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; # Guide #1: MIT=93, CFD=95, 0 dangerous OTs</span>
+<span class="sd">        &gt;&gt;&gt; score, _ = crispor_composite_score(93, 95, {0:0, 1:0, 2:0, 3:5, 4:15})</span>
+<span class="sd">        &gt;&gt;&gt; score</span>
+<span class="sd">        160.0  # (93+95) - (5*5 + 15*1) = 188 - 25 - 15 = 148</span>
+
+<span class="sd">        &gt;&gt;&gt; # Guide #7: MIT=98, CFD=98, TTTT start</span>
+<span class="sd">        &gt;&gt;&gt; score, _ = crispor_composite_score(98, 98, {0:0, 1:0, 2:1, 3:6, 4:22},</span>
+<span class="sd">        ...                                     u6_compatible=False)</span>
+<span class="sd">        &gt;&gt;&gt; score</span>
+<span class="sd">        41.0  # (98+98) - (25 + 30 + 22) - 100 = 196 - 77 - 100 = 19</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">OFFTARGET_MISMATCH_WEIGHTS</span>
+
+    <span class="k">if</span> <span class="n">off_targets</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">off_targets</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Base score from MIT + CFD</span>
+    <span class="n">base_score</span> <span class="o">=</span> <span class="n">mit_score</span> <span class="o">+</span> <span class="n">cfd_score</span>
+
+    <span class="c1"># Off-target penalties by mismatch distance</span>
+    <span class="n">ot_penalties</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">total_ot_penalty</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">for</span> <span class="n">mm_count</span><span class="p">,</span> <span class="n">num_ots</span> <span class="ow">in</span> <span class="n">off_targets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">mm_count</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Default small weight for mm&gt;4</span>
+        <span class="n">penalty</span> <span class="o">=</span> <span class="n">weight</span> <span class="o">*</span> <span class="n">num_ots</span>
+        <span class="n">ot_penalties</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ot_</span><span class="si">{</span><span class="n">mm_count</span><span class="si">}</span><span class="s2">mm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">penalty</span>
+        <span class="n">total_ot_penalty</span> <span class="o">+=</span> <span class="n">penalty</span>
+
+    <span class="c1"># U6 incompatibility penalty (100 points)</span>
+    <span class="n">u6_penalty</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">u6_compatible</span> <span class="k">else</span> <span class="mf">100.0</span>
+
+    <span class="c1"># Repeat region penalty (1000 points - effectively disqualifying)</span>
+    <span class="n">repeat_penalty</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">is_repeat</span> <span class="k">else</span> <span class="mf">1000.0</span>
+
+    <span class="c1"># Final composite</span>
+    <span class="n">composite</span> <span class="o">=</span> <span class="n">base_score</span> <span class="o">-</span> <span class="n">total_ot_penalty</span> <span class="o">-</span> <span class="n">u6_penalty</span> <span class="o">-</span> <span class="n">repeat_penalty</span>
+
+    <span class="n">breakdown</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;base_score&quot;</span><span class="p">:</span> <span class="n">base_score</span><span class="p">,</span>
+        <span class="s2">&quot;mit_contribution&quot;</span><span class="p">:</span> <span class="n">mit_score</span><span class="p">,</span>
+        <span class="s2">&quot;cfd_contribution&quot;</span><span class="p">:</span> <span class="n">cfd_score</span><span class="p">,</span>
+        <span class="s2">&quot;total_ot_penalty&quot;</span><span class="p">:</span> <span class="n">total_ot_penalty</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">ot_penalties</span><span class="p">,</span>
+        <span class="s2">&quot;u6_penalty&quot;</span><span class="p">:</span> <span class="n">u6_penalty</span><span class="p">,</span>
+        <span class="s2">&quot;repeat_penalty&quot;</span><span class="p">:</span> <span class="n">repeat_penalty</span><span class="p">,</span>
+        <span class="s2">&quot;composite&quot;</span><span class="p">:</span> <span class="n">composite</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">composite</span><span class="p">,</span> <span class="n">breakdown</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="rank_guides_crispor_style">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.rank_guides_crispor_style">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rank_guides_crispor_style</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">require_u6_compatible</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">exclude_repeats</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rank guides using CRISPOR-style composite scoring.</span>
+
+<span class="sd">    This function takes guide dictionaries with CRISPOR metrics and</span>
+<span class="sd">    returns them sorted by composite score (highest first).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: List of guide dicts, each containing:</span>
+<span class="sd">            - sequence: Guide sequence</span>
+<span class="sd">            - mit_score: MIT specificity (0-100)</span>
+<span class="sd">            - cfd_score: CFD score (0-100)</span>
+<span class="sd">            - off_targets: Dict {mismatch_count: num_off_targets}</span>
+<span class="sd">            - u6_compatible: bool (optional, default True)</span>
+<span class="sd">            - is_repeat: bool (optional, default False)</span>
+<span class="sd">        require_u6_compatible: Exclude U6-incompatible guides entirely.</span>
+<span class="sd">        exclude_repeats: Exclude guides in repeat regions entirely.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Sorted list of guides with &#39;crispor_composite&#39; and &#39;crispor_rank&#39; added.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; guides = [</span>
+<span class="sd">        ...     {&quot;sequence&quot;: &quot;TTCGATGAATGGTTGCTACC&quot;, &quot;mit_score&quot;: 93, &quot;cfd_score&quot;: 95,</span>
+<span class="sd">        ...      &quot;off_targets&quot;: {0:0, 1:0, 2:0, 3:5, 4:15}},</span>
+<span class="sd">        ...     {&quot;sequence&quot;: &quot;TTTTAATGGCCGGCGATGCC&quot;, &quot;mit_score&quot;: 98, &quot;cfd_score&quot;: 98,</span>
+<span class="sd">        ...      &quot;off_targets&quot;: {0:0, 1:0, 2:1, 3:6, 4:22}, &quot;u6_compatible&quot;: False},</span>
+<span class="sd">        ... ]</span>
+<span class="sd">        &gt;&gt;&gt; ranked = rank_guides_crispor_style(guides)</span>
+<span class="sd">        &gt;&gt;&gt; ranked[0][&quot;sequence&quot;]</span>
+<span class="sd">        &#39;TTCGATGAATGGTTGCTACC&#39;  # Guide #1 wins despite lower MIT/CFD</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">scored_guides</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">:</span>
+        <span class="n">u6_ok</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;u6_compatible&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">is_repeat</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_repeat&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># Hard exclusions</span>
+        <span class="k">if</span> <span class="n">require_u6_compatible</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">u6_ok</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">exclude_repeats</span> <span class="ow">and</span> <span class="n">is_repeat</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Compute composite score</span>
+        <span class="n">composite</span><span class="p">,</span> <span class="n">breakdown</span> <span class="o">=</span> <span class="n">crispor_composite_score</span><span class="p">(</span>
+            <span class="n">mit_score</span><span class="o">=</span><span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mit_score&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+            <span class="n">cfd_score</span><span class="o">=</span><span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cfd_score&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+            <span class="n">off_targets</span><span class="o">=</span><span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;off_targets&quot;</span><span class="p">,</span> <span class="p">{}),</span>
+            <span class="n">u6_compatible</span><span class="o">=</span><span class="n">u6_ok</span><span class="p">,</span>
+            <span class="n">is_repeat</span><span class="o">=</span><span class="n">is_repeat</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">scored_guide</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">guide</span><span class="p">}</span>
+        <span class="n">scored_guide</span><span class="p">[</span><span class="s2">&quot;crispor_composite&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">composite</span>
+        <span class="n">scored_guide</span><span class="p">[</span><span class="s2">&quot;crispor_breakdown&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">breakdown</span>
+        <span class="n">scored_guides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scored_guide</span><span class="p">)</span>
+
+    <span class="c1"># Sort by composite score (highest first)</span>
+    <span class="n">scored_guides</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="p">[</span><span class="s2">&quot;crispor_composite&quot;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Add rank</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">guide</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scored_guides</span><span class="p">):</span>
+        <span class="n">guide</span><span class="p">[</span><span class="s2">&quot;crispor_rank&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">scored_guides</span></div>
+
+
+
+<div class="viewcode-block" id="validate_and_rerank_with_crispor">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.validate_and_rerank_with_crispor">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_and_rerank_with_crispor</span><span class="p">(</span>
+    <span class="n">phaselab_guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">crispor_data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validate PhaseLab guides against CRISPOR data and re-rank using v0.9.1 composite scoring.</span>
+
+<span class="sd">    This function bridges PhaseLab&#39;s design_guides() output with CRISPOR validation,</span>
+<span class="sd">    applying proper off-target mismatch distance weighting per ChatGPT&#39;s recommendations.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        phaselab_guides: Output from design_guides() - list of guide dicts with:</span>
+<span class="sd">            - sequence: 20bp guide</span>
+<span class="sd">            - position: relative to TSS</span>
+<span class="sd">            - gc: GC content</span>
+<span class="sd">            - coherence_R: IR coherence score</span>
+<span class="sd">            - go_no_go: &quot;GO&quot; or &quot;NO-GO&quot;</span>
+<span class="sd">            - mit_score: PhaseLab&#39;s MIT estimate</span>
+<span class="sd">            - cfd_score: PhaseLab&#39;s CFD estimate</span>
+<span class="sd">            - combined_score: PhaseLab&#39;s original ranking score</span>
+
+<span class="sd">        crispor_data: CRISPOR output - list of dicts with:</span>
+<span class="sd">            - sequence: Guide sequence (matching key)</span>
+<span class="sd">            - mit_specificity: Real MIT score from CRISPOR</span>
+<span class="sd">            - cfd_specificity: Real CFD score from CRISPOR</span>
+<span class="sd">            - ot_0mm, ot_1mm, ot_2mm, ot_3mm, ot_4mm: Off-target counts</span>
+
+<span class="sd">        verbose: Print comparison table.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Merged and re-ranked guides with CRISPOR validation, including:</span>
+<span class="sd">        - crispor_mit: Validated MIT score</span>
+<span class="sd">        - crispor_cfd: Validated CFD score</span>
+<span class="sd">        - off_targets: Dict of {mm: count}</span>
+<span class="sd">        - crispor_composite: CRISPOR composite score</span>
+<span class="sd">        - crispor_rank: New rank based on composite score</span>
+<span class="sd">        - phaselab_rank: Original PhaseLab rank</span>
+<span class="sd">        - rank_delta: Change in rank (positive = improved)</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from phaselab.crispr import design_guides</span>
+<span class="sd">        &gt;&gt;&gt; guides_df = design_guides(sequence, tss_index=500)</span>
+<span class="sd">        &gt;&gt;&gt; phaselab_guides = guides_df.to_dict(&#39;records&#39;)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; # After running CRISPOR (web or local)</span>
+<span class="sd">        &gt;&gt;&gt; crispor_data = parse_crispor_results(crispor_output)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; validated = validate_and_rerank_with_crispor(phaselab_guides, crispor_data)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Top guide changed: {validated[0][&#39;sequence&#39;]}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Index CRISPOR data by sequence</span>
+    <span class="n">crispor_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">g</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span> <span class="n">g</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">crispor_data</span> <span class="k">if</span> <span class="s1">&#39;sequence&#39;</span> <span class="ow">in</span> <span class="n">g</span><span class="p">}</span>
+
+    <span class="n">merged</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">guide</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">phaselab_guides</span><span class="p">):</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="n">phaselab_rank</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Original rank</span>
+
+        <span class="n">merged_guide</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="o">**</span><span class="n">guide</span><span class="p">,</span>
+            <span class="s1">&#39;phaselab_rank&#39;</span><span class="p">:</span> <span class="n">phaselab_rank</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Look up CRISPOR data</span>
+        <span class="k">if</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">crispor_index</span><span class="p">:</span>
+            <span class="n">cg</span> <span class="o">=</span> <span class="n">crispor_index</span><span class="p">[</span><span class="n">seq</span><span class="p">]</span>
+
+            <span class="c1"># Extract validated metrics (handle 0 as valid value, None as missing)</span>
+            <span class="n">mit_raw</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mit_specificity&#39;</span><span class="p">)</span>
+            <span class="n">cfd_raw</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cfd_specificity&#39;</span><span class="p">)</span>
+
+            <span class="c1"># MIT/CFD of 0 with 0 off-targets means unmappable - treat as unvalidated</span>
+            <span class="c1"># MIT/CFD of 0 with &gt;0 off-targets means many perfect matches - very bad</span>
+            <span class="n">total_ots</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span>
+                <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_0mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_1mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_2mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_3mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_4mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">])</span>
+
+            <span class="c1"># Also check for explicit is_unscorable flag from CrisporValidator</span>
+            <span class="n">is_unscorable</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;is_unscorable&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">is_unscorable</span> <span class="ow">or</span> <span class="p">(</span><span class="n">mit_raw</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">cfd_raw</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">total_ots</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="c1"># INVALID/UNSCORABLE: CRISPOR couldn&#39;t score this guide</span>
+                <span class="c1"># Possible causes: NotEnoughFlankSeq, unmappable region, genome gap</span>
+                <span class="c1"># This is a RED FLAG - we have NO safety data for this guide</span>
+                <span class="c1"># Hard-demote these guides below all validated guides</span>
+                <span class="n">mit</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">cfd</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_validated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;is_unscorable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;unscorable_reason&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;unscorable_reason&#39;</span><span class="p">,</span>
+                    <span class="s2">&quot;CRISPOR returned MIT=0, CFD=0, OTs=0 (invalid/unmappable)&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Valid CRISPOR data (0 is valid if there are off-targets)</span>
+                <span class="n">mit</span> <span class="o">=</span> <span class="n">mit_raw</span> <span class="k">if</span> <span class="n">mit_raw</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mit_score&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+                <span class="n">cfd</span> <span class="o">=</span> <span class="n">cfd_raw</span> <span class="k">if</span> <span class="n">cfd_raw</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cfd_score&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+                <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_validated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;is_unscorable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+            <span class="n">off_targets</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="mi">0</span><span class="p">:</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_0mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="mi">1</span><span class="p">:</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_1mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="mi">2</span><span class="p">:</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_2mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="mi">3</span><span class="p">:</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_3mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="mi">4</span><span class="p">:</span> <span class="n">cg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ot_4mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="p">}</span>
+
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_mit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mit</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_cfd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cfd</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;off_targets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">off_targets</span>
+
+            <span class="c1"># Check U6 compatibility</span>
+            <span class="n">is_poly_t</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">poly_t_penalty</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+            <span class="n">is_repeat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">is_repeat_region</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;u6_compatible&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">is_poly_t</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;is_repeat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_repeat</span>
+
+            <span class="c1"># Compute composite score</span>
+            <span class="n">composite</span><span class="p">,</span> <span class="n">breakdown</span> <span class="o">=</span> <span class="n">crispor_composite_score</span><span class="p">(</span>
+                <span class="n">mit_score</span><span class="o">=</span><span class="n">mit</span><span class="p">,</span>
+                <span class="n">cfd_score</span><span class="o">=</span><span class="n">cfd</span><span class="p">,</span>
+                <span class="n">off_targets</span><span class="o">=</span><span class="n">off_targets</span><span class="p">,</span>
+                <span class="n">u6_compatible</span><span class="o">=</span><span class="ow">not</span> <span class="n">is_poly_t</span><span class="p">,</span>
+                <span class="n">is_repeat</span><span class="o">=</span><span class="n">is_repeat</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Apply HARD penalty for unscorable guides - no safety data = high risk</span>
+            <span class="c1"># These should rank BELOW all validated guides</span>
+            <span class="k">if</span> <span class="n">merged_guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;is_unscorable&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="n">unscorable_penalty</span> <span class="o">=</span> <span class="mf">500.0</span>  <span class="c1"># Severe penalty - we have NO safety data</span>
+                <span class="n">composite</span> <span class="o">-=</span> <span class="n">unscorable_penalty</span>
+                <span class="n">breakdown</span><span class="p">[</span><span class="s1">&#39;unscorable_penalty&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unscorable_penalty</span>
+
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_composite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">composite</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_breakdown&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">breakdown</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># No CRISPOR match - guide not in CRISPOR output at all</span>
+            <span class="c1"># This is INVALID - we have zero off-target data</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_validated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;is_unscorable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;unscorable_reason&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Guide not found in CRISPOR output&quot;</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_mit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_cfd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;off_targets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="c1"># Compute composite with SEVERE penalty for unscorable guides</span>
+            <span class="n">composite</span><span class="p">,</span> <span class="n">breakdown</span> <span class="o">=</span> <span class="n">crispor_composite_score</span><span class="p">(</span>
+                <span class="n">mit_score</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">cfd_score</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">off_targets</span><span class="o">=</span><span class="p">{},</span>
+                <span class="n">u6_compatible</span><span class="o">=</span><span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;u6_compatible&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+                <span class="n">is_repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="c1"># Hard penalty - rank below all validated guides</span>
+            <span class="n">unscorable_penalty</span> <span class="o">=</span> <span class="mf">500.0</span>
+            <span class="n">composite</span> <span class="o">-=</span> <span class="n">unscorable_penalty</span>
+            <span class="n">breakdown</span><span class="p">[</span><span class="s1">&#39;unscorable_penalty&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unscorable_penalty</span>
+
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_composite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">composite</span>
+            <span class="n">merged_guide</span><span class="p">[</span><span class="s1">&#39;crispor_breakdown&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">breakdown</span>
+
+        <span class="n">merged</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">merged_guide</span><span class="p">)</span>
+
+    <span class="c1"># Sort by CRISPOR composite score</span>
+    <span class="n">merged</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="p">[</span><span class="s1">&#39;crispor_composite&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Add new ranks and deltas</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">guide</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">merged</span><span class="p">):</span>
+        <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;crispor_rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;rank_delta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;phaselab_rank&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;crispor_rank&#39;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CRISPOR-VALIDATED RANKING (v0.9.1 Composite Scoring)&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Rank&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;PL#&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Δ&#39;</span><span class="si">:</span><span class="s2">&lt;4</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Sequence&#39;</span><span class="si">:</span><span class="s2">&lt;22</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;MIT&#39;</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;CFD&#39;</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;0mm&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;1mm&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;2mm&#39;</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Composite&#39;</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;R̄&#39;</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Status&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">merged</span><span class="p">[:</span><span class="mi">15</span><span class="p">]:</span>  <span class="c1"># Top 15</span>
+            <span class="n">delta_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;+</span><span class="si">{</span><span class="n">guide</span><span class="p">[</span><span class="s1">&#39;rank_delta&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;rank_delta&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">guide</span><span class="p">[</span><span class="s1">&#39;rank_delta&#39;</span><span class="p">])</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;GO&quot;</span> <span class="k">if</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;go_no_go&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;GO&#39;</span> <span class="k">else</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;go_no_go&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">)</span>
+            <span class="n">r_bar</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coherence_R&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="n">ot</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;off_targets&#39;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="n">validated</span> <span class="o">=</span> <span class="s2">&quot;✓&quot;</span> <span class="k">if</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crispor_validated&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;~&quot;</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">guide</span><span class="p">[</span><span class="s1">&#39;crispor_rank&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">guide</span><span class="p">[</span><span class="s1">&#39;phaselab_rank&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">delta_str</span><span class="si">:</span><span class="s2">&lt;4</span><span class="si">}</span><span class="s2"> &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;22</span><span class="si">}</span><span class="s2"> &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crispor_mit&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;6.0f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;crispor_cfd&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;6.0f</span><span class="si">}</span><span class="s2"> &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;5</span><span class="si">}</span><span class="s2"> &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">guide</span><span class="p">[</span><span class="s1">&#39;crispor_composite&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;10.1f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">r_bar</span><span class="si">:</span><span class="s2">&lt;6.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">validated</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ = CRISPOR validated, ~ = PhaseLab estimates&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Composite = (MIT+CFD) - Σ(weight × OT_count) - penalties&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Weights: 0mm=100, 1mm=50, 2mm=25, 3mm=5, 4mm=1&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Show rank changes</span>
+        <span class="n">improved</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">merged</span> <span class="k">if</span> <span class="n">g</span><span class="p">[</span><span class="s1">&#39;rank_delta&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">declined</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">merged</span> <span class="k">if</span> <span class="n">g</span><span class="p">[</span><span class="s1">&#39;rank_delta&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Rank changes: </span><span class="si">{</span><span class="n">improved</span><span class="si">}</span><span class="s2"> improved, </span><span class="si">{</span><span class="n">declined</span><span class="si">}</span><span class="s2"> declined, &quot;</span>
+              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">merged</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">improved</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">declined</span><span class="si">}</span><span class="s2"> unchanged&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">merged</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

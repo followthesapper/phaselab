@@ -1,0 +1,1311 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.enhanced_pipeline &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/enhanced_pipeline';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.enhanced_pipeline</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.enhanced_pipeline</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab Enhanced CRISPR Pipeline v0.7.0</span>
+
+<span class="sd">Integrates the Virtual Assay Stack components for improved guide accuracy:</span>
+<span class="sd">- Biological context (chromatin, methylation, histones)</span>
+<span class="sd">- ML outcome predictors (DeepCRISPR, DeepSpCas9, etc.)</span>
+<span class="sd">- Evidence fusion with uncertainty quantification</span>
+
+<span class="sd">This pipeline replaces the basic combined_score with a multi-layer</span>
+<span class="sd">evidence fusion approach that:</span>
+<span class="sd">1. Applies hard safety gates (off-targets, GC bounds)</span>
+<span class="sd">2. Combines soft scores with confidence weighting</span>
+<span class="sd">3. Uses ML predictions when available</span>
+<span class="sd">4. Overlays IR coherence as robustness indicator</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.pam_scan</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_pam_sites</span><span class="p">,</span> <span class="n">filter_by_window</span><span class="p">,</span> <span class="n">PAMHit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.scoring</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">gc_content</span><span class="p">,</span>
+    <span class="n">delta_g_santalucia</span><span class="p">,</span>
+    <span class="n">mit_specificity_score</span><span class="p">,</span>
+    <span class="n">cfd_score</span><span class="p">,</span>
+    <span class="n">max_homopolymer_run</span><span class="p">,</span>
+    <span class="n">sequence_complexity</span><span class="p">,</span>
+    <span class="n">chromatin_accessibility_score</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.coherence_utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CoherenceMode</span><span class="p">,</span>
+    <span class="n">compute_guide_coherence</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.coherence</span><span class="w"> </span><span class="kn">import</span> <span class="n">go_no_go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">E_MINUS_2</span>
+
+<span class="c1"># v0.7.0 imports</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..context</span><span class="w"> </span><span class="kn">import</span> <span class="n">ContextStack</span><span class="p">,</span> <span class="n">CellType</span><span class="p">,</span> <span class="n">BiologicalContext</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..predictors</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">PredictorStack</span><span class="p">,</span>
+    <span class="n">RuleBasedPredictor</span><span class="p">,</span>
+    <span class="n">EnsemblePrediction</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..fusion</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">EvidenceFusion</span><span class="p">,</span>
+    <span class="n">Evidence</span><span class="p">,</span>
+    <span class="n">EvidenceSource</span><span class="p">,</span>
+    <span class="n">EvidenceType</span><span class="p">,</span>
+    <span class="n">FusedResult</span><span class="p">,</span>
+    <span class="n">FusionConfig</span><span class="p">,</span>
+    <span class="n">ClaimLevel</span><span class="p">,</span>  <span class="c1"># v0.8.0</span>
+    <span class="n">LayerDisagreement</span><span class="p">,</span>  <span class="c1"># v0.8.0</span>
+<span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Modality">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.Modality">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Modality</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;CRISPR modality.&quot;&quot;&quot;</span>
+    <span class="n">CRISPRA</span> <span class="o">=</span> <span class="s2">&quot;CRISPRa&quot;</span>
+    <span class="n">CRISPRI</span> <span class="o">=</span> <span class="s2">&quot;CRISPRi&quot;</span>
+    <span class="n">KNOCKOUT</span> <span class="o">=</span> <span class="s2">&quot;Knockout&quot;</span>
+    <span class="n">BASE_EDITING</span> <span class="o">=</span> <span class="s2">&quot;BaseEditing&quot;</span>
+    <span class="n">PRIME_EDITING</span> <span class="o">=</span> <span class="s2">&quot;PrimeEditing&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="EnhancedGuideConfig">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.EnhancedGuideConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EnhancedGuideConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Configuration for enhanced guide RNA design pipeline.</span>
+
+<span class="sd">    Extends basic config with v0.7.0 Virtual Assay Stack options.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Basic settings</span>
+    <span class="n">pam</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;NGG&quot;</span>
+    <span class="n">guide_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">modality</span><span class="p">:</span> <span class="n">Modality</span> <span class="o">=</span> <span class="n">Modality</span><span class="o">.</span><span class="n">CRISPRA</span>
+
+    <span class="c1"># Window settings (relative to TSS)</span>
+    <span class="n">crispra_window</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">400</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">crispri_window</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="n">knockout_window</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>  <span class="c1"># First exon</span>
+
+    <span class="c1"># Quality filters (hard gates)</span>
+    <span class="n">min_gc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.35</span>
+    <span class="n">max_gc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span>
+    <span class="n">max_homopolymer</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">min_complexity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.4</span>
+    <span class="n">max_offtargets</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="c1"># Coherence settings</span>
+    <span class="n">coherence_mode</span><span class="p">:</span> <span class="n">CoherenceMode</span> <span class="o">=</span> <span class="n">CoherenceMode</span><span class="o">.</span><span class="n">HEURISTIC</span>
+    <span class="n">go_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">E_MINUS_2</span>
+
+    <span class="c1"># v0.7.0: Biological context</span>
+    <span class="n">use_biological_context</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">cell_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">CellType</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">CellType</span><span class="o">.</span><span class="n">K562</span>
+
+    <span class="c1"># v0.7.0: ML predictors</span>
+    <span class="n">use_ml_predictors</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">ml_min_confidence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+    <span class="c1"># v0.7.0: Evidence fusion</span>
+    <span class="n">fusion_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FusionConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Output</span>
+    <span class="n">top_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">include_nogo</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Include NO-GO guides in output</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">window</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get window for current modality.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">modality</span> <span class="o">==</span> <span class="n">Modality</span><span class="o">.</span><span class="n">CRISPRA</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crispra_window</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">modality</span> <span class="o">==</span> <span class="n">Modality</span><span class="o">.</span><span class="n">CRISPRI</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crispri_window</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">knockout_window</span></div>
+
+
+
+<div class="viewcode-block" id="EnhancedGuide">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.EnhancedGuide">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EnhancedGuide</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enhanced guide result with full evidence breakdown.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Basic info</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">pam</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">position</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># Relative to TSS</span>
+    <span class="n">strand</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">chrom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">abs_start</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">abs_end</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Sequence scores</span>
+    <span class="n">gc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">delta_g</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">complexity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">homopolymer</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Specificity scores</span>
+    <span class="n">mit_score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">cfd_score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">offtarget_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Biological context (v0.7.0)</span>
+    <span class="n">accessibility</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">methylation</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">histone_activity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">chromatin_state</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Unknown&quot;</span>
+    <span class="n">context_confidence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># ML predictions (v0.7.0)</span>
+    <span class="n">ml_efficiency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">ml_confidence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">ml_predictors_used</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># IR coherence</span>
+    <span class="n">coherence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">coherence_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;heuristic&quot;</span>
+
+    <span class="c1"># Fused result (v0.7.0)</span>
+    <span class="n">fused_score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">fused_confidence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">go_status</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;NO-GO&quot;</span>
+    <span class="n">go_reason</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">passes_gates</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">failed_gates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="c1"># Evidence level</span>
+    <span class="n">evidence_level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>  <span class="c1"># A/B/C</span>
+
+    <span class="c1"># v0.8.0: Claim level and diagnostics</span>
+    <span class="n">claim_level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;unknown&quot;</span>  <span class="c1"># strong_computational, context_dependent, exploratory, unknown</span>
+    <span class="n">claim_description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">is_unknown</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">layer_disagreements</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">has_critical_disagreement</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_go</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">go_status</span> <span class="o">==</span> <span class="s2">&quot;GO&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_viable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">passes_gates</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_go</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">claim_level_enum</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ClaimLevel</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return ClaimLevel enum.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ClaimLevel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">claim_level</span><span class="p">)</span>
+
+<div class="viewcode-block" id="EnhancedGuide.to_dict">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.EnhancedGuide.to_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert to dictionary.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;sequence&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span><span class="p">,</span>
+            <span class="s2">&quot;pam&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pam</span><span class="p">,</span>
+            <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span>
+            <span class="s2">&quot;strand&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">strand</span><span class="p">,</span>
+            <span class="s2">&quot;gc&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gc</span><span class="p">,</span>
+            <span class="s2">&quot;delta_g&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta_g</span><span class="p">,</span>
+            <span class="s2">&quot;mit_score&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mit_score</span><span class="p">,</span>
+            <span class="s2">&quot;cfd_score&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cfd_score</span><span class="p">,</span>
+            <span class="s2">&quot;accessibility&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">accessibility</span><span class="p">,</span>
+            <span class="s2">&quot;methylation&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">methylation</span><span class="p">,</span>
+            <span class="s2">&quot;chromatin_state&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">chromatin_state</span><span class="p">,</span>
+            <span class="s2">&quot;ml_efficiency&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ml_efficiency</span><span class="p">,</span>
+            <span class="s2">&quot;ml_confidence&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ml_confidence</span><span class="p">,</span>
+            <span class="s2">&quot;coherence&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">coherence</span><span class="p">,</span>
+            <span class="s2">&quot;coherence_mode&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">coherence_mode</span><span class="p">,</span>
+            <span class="s2">&quot;fused_score&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">fused_score</span><span class="p">,</span>
+            <span class="s2">&quot;fused_confidence&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">fused_confidence</span><span class="p">,</span>
+            <span class="s2">&quot;go_status&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">go_status</span><span class="p">,</span>
+            <span class="s2">&quot;passes_gates&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">passes_gates</span><span class="p">,</span>
+            <span class="s2">&quot;evidence_level&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">evidence_level</span><span class="p">,</span>
+            <span class="s2">&quot;is_viable&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_viable</span><span class="p">,</span>
+            <span class="c1"># v0.8.0 additions</span>
+            <span class="s2">&quot;claim_level&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">claim_level</span><span class="p">,</span>
+            <span class="s2">&quot;claim_description&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">claim_description</span><span class="p">,</span>
+            <span class="s2">&quot;is_unknown&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_unknown</span><span class="p">,</span>
+            <span class="s2">&quot;layer_disagreements&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_disagreements</span><span class="p">,</span>
+            <span class="s2">&quot;has_critical_disagreement&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_critical_disagreement</span><span class="p">,</span>
+        <span class="p">}</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="EnhancedDesignResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.EnhancedDesignResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EnhancedDesignResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Result container for enhanced guide design.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">EnhancedGuide</span><span class="p">]</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">EnhancedGuideConfig</span>
+    <span class="n">target_gene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">total_candidates</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">filtered_by_gates</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">filtered_by_coherence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="EnhancedDesignResult.to_dataframe">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.EnhancedDesignResult.to_dataframe">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert to pandas DataFrame.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">g</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">guides</span><span class="p">])</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">go_guides</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">EnhancedGuide</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return only GO guides.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">g</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">guides</span> <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">is_go</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">viable_guides</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">EnhancedGuide</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return only viable guides (pass gates + GO).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">g</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">guides</span> <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">is_viable</span><span class="p">]</span>
+
+<div class="viewcode-block" id="EnhancedDesignResult.summary">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.EnhancedDesignResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get design summary.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;total_candidates&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_candidates</span><span class="p">,</span>
+            <span class="s2">&quot;passed_gates&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">guides</span><span class="p">),</span>
+            <span class="s2">&quot;go_guides&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">go_guides</span><span class="p">),</span>
+            <span class="s2">&quot;viable_guides&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">viable_guides</span><span class="p">),</span>
+            <span class="s2">&quot;filtered_by_gates&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtered_by_gates</span><span class="p">,</span>
+            <span class="s2">&quot;filtered_by_coherence&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filtered_by_coherence</span><span class="p">,</span>
+            <span class="s2">&quot;modality&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">modality</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">cell_type</span><span class="p">),</span>
+        <span class="p">}</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="design_enhanced_guides">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.design_enhanced_guides">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_enhanced_guides</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">tss_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">EnhancedGuideConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">target_gene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">chrom</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">chrom_offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EnhancedDesignResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Design guide RNAs using the full Virtual Assay Stack.</span>
+
+<span class="sd">    This enhanced pipeline integrates:</span>
+<span class="sd">    1. Sequence-based scoring (GC, thermodynamics, specificity)</span>
+<span class="sd">    2. Biological context (chromatin state, methylation, histones)</span>
+<span class="sd">    3. ML efficiency predictions (DeepCRISPR, DeepSpCas9)</span>
+<span class="sd">    4. IR coherence (heuristic or quantum)</span>
+<span class="sd">    5. Evidence fusion with uncertainty quantification</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sequence : str</span>
+<span class="sd">        Promoter/target DNA sequence (5&#39;-&gt;3&#39;)</span>
+<span class="sd">    tss_index : int</span>
+<span class="sd">        Position of TSS in sequence (0-based)</span>
+<span class="sd">    config : EnhancedGuideConfig, optional</span>
+<span class="sd">        Pipeline configuration</span>
+<span class="sd">    target_gene : str, optional</span>
+<span class="sd">        Gene symbol for ML predictors</span>
+<span class="sd">    chrom : str, optional</span>
+<span class="sd">        Chromosome for context lookup (e.g., &quot;chr4&quot;)</span>
+<span class="sd">    chrom_offset : int</span>
+<span class="sd">        Genomic offset of sequence start</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        Print progress messages</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    EnhancedDesignResult</span>
+<span class="sd">        Ranked guides with full evidence breakdown</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; from phaselab.crispr import design_enhanced_guides, EnhancedGuideConfig, Modality</span>
+<span class="sd">    &gt;&gt;&gt; from phaselab.context import CellType</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; config = EnhancedGuideConfig(</span>
+<span class="sd">    ...     modality=Modality.CRISPRA,</span>
+<span class="sd">    ...     cell_type=CellType.K562,</span>
+<span class="sd">    ...     coherence_mode=CoherenceMode.HEURISTIC,</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; result = design_enhanced_guides(</span>
+<span class="sd">    ...     sequence=scn2a_promoter,</span>
+<span class="sd">    ...     tss_index=500,</span>
+<span class="sd">    ...     config=config,</span>
+<span class="sd">    ...     target_gene=&quot;SCN2A&quot;,</span>
+<span class="sd">    ...     chrom=&quot;chr2&quot;,</span>
+<span class="sd">    ...     chrom_offset=165000000,</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;Found {len(result.viable_guides)} viable guides&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; for g in result.viable_guides[:5]:</span>
+<span class="sd">    ...     print(f&quot;  {g.sequence} Score={g.fused_score:.3f} {g.go_status}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">EnhancedGuideConfig</span><span class="p">()</span>
+
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Enhanced pipeline: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span><span class="si">}</span><span class="s2">bp, modality=</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">modality</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Initialize context and predictors if enabled</span>
+    <span class="n">context_stack</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">predictor_stack</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">use_biological_context</span> <span class="ow">and</span> <span class="n">chrom</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">context_stack</span> <span class="o">=</span> <span class="n">ContextStack</span><span class="p">(</span><span class="n">cell_type</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">cell_type</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded biological context for </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">cell_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not load biological context: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">use_ml_predictors</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">predictor_stack</span> <span class="o">=</span> <span class="n">PredictorStack</span><span class="p">(</span>
+                <span class="n">aggregation</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">,</span>
+                <span class="n">min_confidence</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">ml_min_confidence</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">predictor_stack</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">RuleBasedPredictor</span><span class="p">())</span>
+            <span class="c1"># Would register DeepCRISPR, DeepSpCas9 if available</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ML predictors: </span><span class="si">{</span><span class="n">predictor_stack</span><span class="o">.</span><span class="n">available_predictors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not initialize ML predictors: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Step 1: Find PAM sites</span>
+    <span class="n">all_hits</span> <span class="o">=</span> <span class="n">find_pam_sites</span><span class="p">(</span>
+        <span class="n">sequence</span><span class="p">,</span>
+        <span class="n">pam</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">pam</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">guide_length</span><span class="p">,</span>
+        <span class="n">both_strands</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_hits</span><span class="p">)</span><span class="si">}</span><span class="s2"> PAM sites&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Step 2: Filter to modality-specific window</span>
+    <span class="n">window_hits</span> <span class="o">=</span> <span class="n">filter_by_window</span><span class="p">(</span>
+        <span class="n">all_hits</span><span class="p">,</span>
+        <span class="n">tss_position</span><span class="o">=</span><span class="n">tss_index</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">window</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">total_candidates</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">window_hits</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filtered to </span><span class="si">{</span><span class="n">total_candidates</span><span class="si">}</span><span class="s2"> in window </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">window</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">window_hits</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">EnhancedDesignResult</span><span class="p">(</span>
+            <span class="n">guides</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+            <span class="n">target_gene</span><span class="o">=</span><span class="n">target_gene</span><span class="p">,</span>
+            <span class="n">total_candidates</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Step 3: Process each candidate through Virtual Assay Stack</span>
+    <span class="n">fusion_config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">fusion_config</span> <span class="ow">or</span> <span class="n">FusionConfig</span><span class="o">.</span><span class="n">default</span><span class="p">()</span>
+    <span class="n">guides</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">filtered_by_gates</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">filtered_by_coherence</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">hit</span> <span class="ow">in</span> <span class="n">window_hits</span><span class="p">:</span>
+        <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">hit</span><span class="o">.</span><span class="n">guide</span>
+        <span class="n">rel_pos</span> <span class="o">=</span> <span class="p">((</span><span class="n">hit</span><span class="o">.</span><span class="n">guide_start</span> <span class="o">+</span> <span class="n">hit</span><span class="o">.</span><span class="n">guide_end</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">tss_index</span>
+
+        <span class="c1"># Calculate genomic coordinates if available</span>
+        <span class="n">abs_start</span> <span class="o">=</span> <span class="n">chrom_offset</span> <span class="o">+</span> <span class="n">hit</span><span class="o">.</span><span class="n">guide_start</span> <span class="k">if</span> <span class="n">chrom_offset</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">abs_end</span> <span class="o">=</span> <span class="n">chrom_offset</span> <span class="o">+</span> <span class="n">hit</span><span class="o">.</span><span class="n">guide_end</span> <span class="k">if</span> <span class="n">chrom_offset</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="c1"># === SEQUENCE SCORING ===</span>
+        <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">homo</span> <span class="o">=</span> <span class="n">max_homopolymer_run</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">complexity</span> <span class="o">=</span> <span class="n">sequence_complexity</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">delta_g</span> <span class="o">=</span> <span class="n">delta_g_santalucia</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">mit</span> <span class="o">=</span> <span class="n">mit_specificity_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">cfd</span> <span class="o">=</span> <span class="n">cfd_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+
+        <span class="c1"># === EVIDENCE FUSION ===</span>
+        <span class="n">fusion</span> <span class="o">=</span> <span class="n">EvidenceFusion</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">fusion_config</span><span class="p">)</span>
+
+        <span class="c1"># Hard gates</span>
+        <span class="n">gc_passes</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">min_gc</span> <span class="o">&lt;=</span> <span class="n">gc</span> <span class="o">&lt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">max_gc</span>
+        <span class="n">homo_passes</span> <span class="o">=</span> <span class="n">homo</span> <span class="o">&lt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">max_homopolymer</span>
+        <span class="n">complexity_passes</span> <span class="o">=</span> <span class="n">complexity</span> <span class="o">&gt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">min_complexity</span>
+
+        <span class="n">fusion</span><span class="o">.</span><span class="n">add_hard_gate</span><span class="p">(</span><span class="n">EvidenceSource</span><span class="o">.</span><span class="n">GC_CONTENT</span><span class="p">,</span> <span class="n">gc_passes</span><span class="p">)</span>
+        <span class="n">fusion</span><span class="o">.</span><span class="n">add_hard_gate</span><span class="p">(</span><span class="n">EvidenceSource</span><span class="o">.</span><span class="n">HOMOPOLYMER</span><span class="p">,</span> <span class="n">homo_passes</span><span class="p">)</span>
+
+        <span class="c1"># Soft sequence scores</span>
+        <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">gc</span> <span class="o">-</span> <span class="mf">0.55</span><span class="p">)</span>  <span class="c1"># Optimal around 55%</span>
+        <span class="n">fusion</span><span class="o">.</span><span class="n">add_sequence_score</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">gc_score</span><span class="p">),</span> <span class="n">source</span><span class="o">=</span><span class="n">EvidenceSource</span><span class="o">.</span><span class="n">GC_CONTENT</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
+
+        <span class="c1"># Thermodynamics (normalize delta_g)</span>
+        <span class="n">thermo_score</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">delta_g</span><span class="p">)</span> <span class="o">/</span> <span class="mf">25.0</span><span class="p">))</span>
+        <span class="n">fusion</span><span class="o">.</span><span class="n">add_sequence_score</span><span class="p">(</span><span class="n">thermo_score</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">EvidenceSource</span><span class="o">.</span><span class="n">THERMODYNAMICS</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+
+        <span class="c1"># Specificity</span>
+        <span class="n">fusion</span><span class="o">.</span><span class="n">add_specificity_score</span><span class="p">(</span><span class="n">mit</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">EvidenceSource</span><span class="o">.</span><span class="n">OFF_TARGET_CFD</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+
+        <span class="c1"># === BIOLOGICAL CONTEXT (v0.7.0) ===</span>
+        <span class="n">accessibility</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="n">methylation</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="n">histone_activity</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="n">chromatin_state</span> <span class="o">=</span> <span class="s2">&quot;Unknown&quot;</span>
+        <span class="n">context_confidence</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">if</span> <span class="n">context_stack</span> <span class="ow">and</span> <span class="n">chrom</span> <span class="ow">and</span> <span class="n">abs_start</span> <span class="ow">and</span> <span class="n">abs_end</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">bio_ctx</span> <span class="o">=</span> <span class="n">context_stack</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="n">chrom</span><span class="p">,</span> <span class="n">abs_start</span><span class="p">,</span> <span class="n">abs_end</span><span class="p">)</span>
+                <span class="n">accessibility</span> <span class="o">=</span> <span class="n">bio_ctx</span><span class="o">.</span><span class="n">accessibility</span><span class="o">.</span><span class="n">score</span>
+                <span class="n">methylation</span> <span class="o">=</span> <span class="n">bio_ctx</span><span class="o">.</span><span class="n">methylation</span><span class="o">.</span><span class="n">mean_methylation</span>
+                <span class="n">histone_activity</span> <span class="o">=</span> <span class="n">bio_ctx</span><span class="o">.</span><span class="n">histones</span><span class="o">.</span><span class="n">activity_score</span>
+                <span class="n">chromatin_state</span> <span class="o">=</span> <span class="n">bio_ctx</span><span class="o">.</span><span class="n">chromatin_state</span><span class="o">.</span><span class="n">value</span>
+                <span class="n">context_confidence</span> <span class="o">=</span> <span class="n">bio_ctx</span><span class="o">.</span><span class="n">confidence</span>
+
+                <span class="n">fusion</span><span class="o">.</span><span class="n">add_context_score</span><span class="p">(</span>
+                    <span class="n">accessibility</span><span class="p">,</span>
+                    <span class="n">source</span><span class="o">=</span><span class="n">EvidenceSource</span><span class="o">.</span><span class="n">ACCESSIBILITY</span><span class="p">,</span>
+                    <span class="n">confidence</span><span class="o">=</span><span class="n">bio_ctx</span><span class="o">.</span><span class="n">accessibility</span><span class="o">.</span><span class="n">confidence</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">fusion</span><span class="o">.</span><span class="n">add_context_score</span><span class="p">(</span>
+                    <span class="mf">1.0</span> <span class="o">-</span> <span class="n">methylation</span><span class="p">,</span>  <span class="c1"># Low methylation is good</span>
+                    <span class="n">source</span><span class="o">=</span><span class="n">EvidenceSource</span><span class="o">.</span><span class="n">METHYLATION</span><span class="p">,</span>
+                    <span class="n">confidence</span><span class="o">=</span><span class="n">bio_ctx</span><span class="o">.</span><span class="n">methylation</span><span class="o">.</span><span class="n">confidence</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">fusion</span><span class="o">.</span><span class="n">add_context_score</span><span class="p">(</span>
+                    <span class="n">histone_activity</span><span class="p">,</span>
+                    <span class="n">source</span><span class="o">=</span><span class="n">EvidenceSource</span><span class="o">.</span><span class="n">HISTONE</span><span class="p">,</span>
+                    <span class="n">confidence</span><span class="o">=</span><span class="n">bio_ctx</span><span class="o">.</span><span class="n">histones</span><span class="o">.</span><span class="n">confidence</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Context lookup failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># === ML PREDICTIONS (v0.7.0) ===</span>
+        <span class="n">ml_efficiency</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="n">ml_confidence</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">ml_predictors_used</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="n">predictor_stack</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">full_seq</span> <span class="o">=</span> <span class="n">guide_seq</span> <span class="o">+</span> <span class="n">hit</span><span class="o">.</span><span class="n">pam</span>  <span class="c1"># Include PAM</span>
+                <span class="n">ml_result</span> <span class="o">=</span> <span class="n">predictor_stack</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+                    <span class="n">sequence</span><span class="o">=</span><span class="n">full_seq</span><span class="p">,</span>
+                    <span class="n">target_gene</span><span class="o">=</span><span class="n">target_gene</span><span class="p">,</span>
+                    <span class="n">cell_type</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">cell_type</span><span class="p">)</span> <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">cell_type</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">ml_efficiency</span> <span class="o">=</span> <span class="n">ml_result</span><span class="o">.</span><span class="n">score</span>
+                <span class="n">ml_confidence</span> <span class="o">=</span> <span class="n">ml_result</span><span class="o">.</span><span class="n">confidence</span>
+                <span class="n">ml_predictors_used</span> <span class="o">=</span> <span class="n">ml_result</span><span class="o">.</span><span class="n">n_predictors</span>
+
+                <span class="k">if</span> <span class="n">ml_confidence</span> <span class="o">&gt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">ml_min_confidence</span><span class="p">:</span>
+                    <span class="n">fusion</span><span class="o">.</span><span class="n">add_ml_prediction</span><span class="p">(</span>
+                        <span class="n">ml_efficiency</span><span class="p">,</span>
+                        <span class="n">source</span><span class="o">=</span><span class="n">EvidenceSource</span><span class="o">.</span><span class="n">DEEPCRISPR</span><span class="p">,</span>
+                        <span class="n">confidence</span><span class="o">=</span><span class="n">ml_confidence</span><span class="p">,</span>
+                    <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ML prediction failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># === IR COHERENCE ===</span>
+        <span class="n">coherence</span> <span class="o">=</span> <span class="n">compute_guide_coherence</span><span class="p">(</span>
+            <span class="n">guide_seq</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">coherence_mode</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Map CoherenceMode to string for fusion</span>
+        <span class="n">coherence_mode_str</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">CoherenceMode</span><span class="o">.</span><span class="n">HEURISTIC</span><span class="p">:</span> <span class="s2">&quot;heuristic&quot;</span><span class="p">,</span>
+            <span class="n">CoherenceMode</span><span class="o">.</span><span class="n">QUANTUM</span><span class="p">:</span> <span class="s2">&quot;quantum&quot;</span><span class="p">,</span>
+        <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">coherence_mode</span><span class="p">,</span> <span class="s2">&quot;heuristic&quot;</span><span class="p">)</span>
+
+        <span class="n">fusion</span><span class="o">.</span><span class="n">add_coherence</span><span class="p">(</span>
+            <span class="n">coherence</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="n">coherence_mode_str</span><span class="p">,</span>
+            <span class="n">confidence</span><span class="o">=</span><span class="mf">0.8</span> <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">coherence_mode</span> <span class="o">==</span> <span class="n">CoherenceMode</span><span class="o">.</span><span class="n">QUANTUM</span> <span class="k">else</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># === FUSE ALL EVIDENCE ===</span>
+        <span class="n">fused</span> <span class="o">=</span> <span class="n">fusion</span><span class="o">.</span><span class="n">fuse</span><span class="p">()</span>
+
+        <span class="c1"># Skip if failed hard gates (unless config says include)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fused</span><span class="o">.</span><span class="n">passes_gates</span><span class="p">:</span>
+            <span class="n">filtered_by_gates</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">config</span><span class="o">.</span><span class="n">include_nogo</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+        <span class="c1"># Skip NO-GO guides (unless config says include)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fused</span><span class="o">.</span><span class="n">is_go</span><span class="p">:</span>
+            <span class="n">filtered_by_coherence</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">config</span><span class="o">.</span><span class="n">include_nogo</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+        <span class="c1"># Determine evidence level</span>
+        <span class="c1"># A = hardware validated (not available in current modes)</span>
+        <span class="c1"># B = quantum VQE simulation</span>
+        <span class="c1"># C = heuristic</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">coherence_mode</span> <span class="o">==</span> <span class="n">CoherenceMode</span><span class="o">.</span><span class="n">QUANTUM</span><span class="p">:</span>
+            <span class="n">evidence_level</span> <span class="o">=</span> <span class="s2">&quot;B&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">evidence_level</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>
+
+        <span class="c1"># v0.8.0: Extract claim level and disagreements from fused result</span>
+        <span class="n">claim_level</span> <span class="o">=</span> <span class="n">fused</span><span class="o">.</span><span class="n">claim_level</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">claim_description</span> <span class="o">=</span> <span class="n">fused</span><span class="o">.</span><span class="n">claim_level</span><span class="o">.</span><span class="n">description</span>
+        <span class="n">is_unknown</span> <span class="o">=</span> <span class="n">fused</span><span class="o">.</span><span class="n">is_unknown</span>
+        <span class="n">layer_disagreements</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;layers&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">layer1</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">layer2</span><span class="p">),</span>
+                <span class="s2">&quot;scores&quot;</span><span class="p">:</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">score1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">score2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">delta</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                <span class="s2">&quot;is_critical&quot;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">is_critical</span><span class="p">,</span>
+                <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">message</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">fused</span><span class="o">.</span><span class="n">disagreements</span>
+        <span class="p">]</span>
+        <span class="n">has_critical_disagreement</span> <span class="o">=</span> <span class="n">fused</span><span class="o">.</span><span class="n">has_critical_disagreement</span>
+
+        <span class="c1"># Create enhanced guide</span>
+        <span class="n">guide</span> <span class="o">=</span> <span class="n">EnhancedGuide</span><span class="p">(</span>
+            <span class="n">sequence</span><span class="o">=</span><span class="n">guide_seq</span><span class="p">,</span>
+            <span class="n">pam</span><span class="o">=</span><span class="n">hit</span><span class="o">.</span><span class="n">pam</span><span class="p">,</span>
+            <span class="n">position</span><span class="o">=</span><span class="n">rel_pos</span><span class="p">,</span>
+            <span class="n">strand</span><span class="o">=</span><span class="n">hit</span><span class="o">.</span><span class="n">strand</span><span class="p">,</span>
+            <span class="n">chrom</span><span class="o">=</span><span class="n">chrom</span><span class="p">,</span>
+            <span class="n">abs_start</span><span class="o">=</span><span class="n">abs_start</span><span class="p">,</span>
+            <span class="n">abs_end</span><span class="o">=</span><span class="n">abs_end</span><span class="p">,</span>
+            <span class="n">gc</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="n">delta_g</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">delta_g</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">complexity</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">complexity</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="n">homopolymer</span><span class="o">=</span><span class="n">homo</span><span class="p">,</span>
+            <span class="n">mit_score</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">mit</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">cfd_score</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">cfd</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">accessibility</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accessibility</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="n">methylation</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">methylation</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="n">histone_activity</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">histone_activity</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="n">chromatin_state</span><span class="o">=</span><span class="n">chromatin_state</span><span class="p">,</span>
+            <span class="n">context_confidence</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">context_confidence</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">ml_efficiency</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">ml_efficiency</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="n">ml_confidence</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">ml_confidence</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">ml_predictors_used</span><span class="o">=</span><span class="n">ml_predictors_used</span><span class="p">,</span>
+            <span class="n">coherence</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">coherence</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+            <span class="n">coherence_mode</span><span class="o">=</span><span class="n">coherence_mode_str</span><span class="p">,</span>
+            <span class="n">fused_score</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">fused</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="n">fused_confidence</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">fused</span><span class="o">.</span><span class="n">confidence</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">go_status</span><span class="o">=</span><span class="n">fused</span><span class="o">.</span><span class="n">go_status</span><span class="p">,</span>
+            <span class="n">go_reason</span><span class="o">=</span><span class="n">fused</span><span class="o">.</span><span class="n">go_reason</span><span class="p">,</span>
+            <span class="n">passes_gates</span><span class="o">=</span><span class="n">fused</span><span class="o">.</span><span class="n">passes_gates</span><span class="p">,</span>
+            <span class="n">failed_gates</span><span class="o">=</span><span class="n">fused</span><span class="o">.</span><span class="n">failed_gates</span><span class="p">,</span>
+            <span class="n">evidence_level</span><span class="o">=</span><span class="n">evidence_level</span><span class="p">,</span>
+            <span class="c1"># v0.8.0 additions</span>
+            <span class="n">claim_level</span><span class="o">=</span><span class="n">claim_level</span><span class="p">,</span>
+            <span class="n">claim_description</span><span class="o">=</span><span class="n">claim_description</span><span class="p">,</span>
+            <span class="n">is_unknown</span><span class="o">=</span><span class="n">is_unknown</span><span class="p">,</span>
+            <span class="n">layer_disagreements</span><span class="o">=</span><span class="n">layer_disagreements</span><span class="p">,</span>
+            <span class="n">has_critical_disagreement</span><span class="o">=</span><span class="n">has_critical_disagreement</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">guides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">guide</span><span class="p">)</span>
+
+    <span class="c1"># Step 4: Sort by fused score</span>
+    <span class="n">guides</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">fused_score</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Step 5: Return top N</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Returning </span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">guides</span><span class="p">),</span><span class="w"> </span><span class="n">config</span><span class="o">.</span><span class="n">top_n</span><span class="p">)</span><span class="si">}</span><span class="s2"> guides&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Close context if we opened it</span>
+    <span class="k">if</span> <span class="n">context_stack</span><span class="p">:</span>
+        <span class="n">context_stack</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">EnhancedDesignResult</span><span class="p">(</span>
+        <span class="n">guides</span><span class="o">=</span><span class="n">guides</span><span class="p">[:</span><span class="n">config</span><span class="o">.</span><span class="n">top_n</span><span class="p">],</span>
+        <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+        <span class="n">target_gene</span><span class="o">=</span><span class="n">target_gene</span><span class="p">,</span>
+        <span class="n">total_candidates</span><span class="o">=</span><span class="n">total_candidates</span><span class="p">,</span>
+        <span class="n">filtered_by_gates</span><span class="o">=</span><span class="n">filtered_by_gates</span><span class="p">,</span>
+        <span class="n">filtered_by_coherence</span><span class="o">=</span><span class="n">filtered_by_coherence</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="compare_guides_with_without_context">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.compare_guides_with_without_context">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compare_guides_with_without_context</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">tss_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">chrom</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">chrom_offset</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">cell_type</span><span class="p">:</span> <span class="n">CellType</span> <span class="o">=</span> <span class="n">CellType</span><span class="o">.</span><span class="n">K562</span><span class="p">,</span>
+    <span class="n">target_gene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compare guide rankings with and without biological context.</span>
+
+<span class="sd">    Useful for demonstrating the value of the Virtual Assay Stack.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Dict with &#39;basic&#39;, &#39;enhanced&#39;, and &#39;rank_changes&#39; DataFrames</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Basic config (no context, no ML)</span>
+    <span class="n">basic_config</span> <span class="o">=</span> <span class="n">EnhancedGuideConfig</span><span class="p">(</span>
+        <span class="n">use_biological_context</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">use_ml_predictors</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">coherence_mode</span><span class="o">=</span><span class="n">CoherenceMode</span><span class="o">.</span><span class="n">HEURISTIC</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Enhanced config (full stack)</span>
+    <span class="n">enhanced_config</span> <span class="o">=</span> <span class="n">EnhancedGuideConfig</span><span class="p">(</span>
+        <span class="n">use_biological_context</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">use_ml_predictors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">cell_type</span><span class="o">=</span><span class="n">cell_type</span><span class="p">,</span>
+        <span class="n">coherence_mode</span><span class="o">=</span><span class="n">CoherenceMode</span><span class="o">.</span><span class="n">HEURISTIC</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">basic_result</span> <span class="o">=</span> <span class="n">design_enhanced_guides</span><span class="p">(</span>
+        <span class="n">sequence</span><span class="p">,</span> <span class="n">tss_index</span><span class="p">,</span> <span class="n">basic_config</span><span class="p">,</span> <span class="n">target_gene</span>
+    <span class="p">)</span>
+
+    <span class="n">enhanced_result</span> <span class="o">=</span> <span class="n">design_enhanced_guides</span><span class="p">(</span>
+        <span class="n">sequence</span><span class="p">,</span> <span class="n">tss_index</span><span class="p">,</span> <span class="n">enhanced_config</span><span class="p">,</span> <span class="n">target_gene</span><span class="p">,</span> <span class="n">chrom</span><span class="p">,</span> <span class="n">chrom_offset</span>
+    <span class="p">)</span>
+
+    <span class="n">basic_df</span> <span class="o">=</span> <span class="n">basic_result</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+    <span class="n">enhanced_df</span> <span class="o">=</span> <span class="n">enhanced_result</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+
+    <span class="c1"># Calculate rank changes</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">basic_df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">enhanced_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">basic_ranks</span> <span class="o">=</span> <span class="p">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">basic_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()}</span>
+        <span class="n">enhanced_ranks</span> <span class="o">=</span> <span class="p">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">enhanced_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()}</span>
+
+        <span class="n">changes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">enhanced_ranks</span><span class="p">:</span>
+            <span class="n">basic_rank</span> <span class="o">=</span> <span class="n">basic_ranks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+            <span class="n">enhanced_rank</span> <span class="o">=</span> <span class="n">enhanced_ranks</span><span class="p">[</span><span class="n">seq</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">basic_rank</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">change</span> <span class="o">=</span> <span class="n">basic_rank</span> <span class="o">-</span> <span class="n">enhanced_rank</span>  <span class="c1"># Positive = improved</span>
+                <span class="n">changes</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">seq</span><span class="p">,</span>
+                    <span class="s1">&#39;basic_rank&#39;</span><span class="p">:</span> <span class="n">basic_rank</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s1">&#39;enhanced_rank&#39;</span><span class="p">:</span> <span class="n">enhanced_rank</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s1">&#39;rank_change&#39;</span><span class="p">:</span> <span class="n">change</span><span class="p">,</span>
+                <span class="p">})</span>
+
+        <span class="n">rank_changes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">changes</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">rank_changes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;basic&#39;</span><span class="p">:</span> <span class="n">basic_df</span><span class="p">,</span>
+        <span class="s1">&#39;enhanced&#39;</span><span class="p">:</span> <span class="n">enhanced_df</span><span class="p">,</span>
+        <span class="s1">&#39;rank_changes&#39;</span><span class="p">:</span> <span class="n">rank_changes</span><span class="p">,</span>
+        <span class="s1">&#39;basic_summary&#39;</span><span class="p">:</span> <span class="n">basic_result</span><span class="o">.</span><span class="n">summary</span><span class="p">(),</span>
+        <span class="s1">&#39;enhanced_summary&#39;</span><span class="p">:</span> <span class="n">enhanced_result</span><span class="o">.</span><span class="n">summary</span><span class="p">(),</span>
+    <span class="p">}</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

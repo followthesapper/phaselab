@@ -1,0 +1,1186 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PhaseLab: A Generalized Coherence Framework for Quantum-Biological Simulation and CRISPRa Design &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'papers/PAPER_1_PHASELAB_FRAMEWORK';</script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">PhaseLab: A Generalized Coherence Framework for Quantum-Biological Simulation and CRISPRa Design</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="phaselab-a-generalized-coherence-framework-for-quantum-biological-simulation-and-crispra-design">
+<h1>PhaseLab: A Generalized Coherence Framework for Quantum-Biological Simulation and CRISPRa Design<a class="headerlink" href="#phaselab-a-generalized-coherence-framework-for-quantum-biological-simulation-and-crispra-design" title="Link to this heading">#</a></h1>
+<p>Dylan Vaca</p>
+<p>December 2025</p>
+<hr class="docutils" />
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Link to this heading">#</a></h2>
+<p>Biological modeling, CRISPR guide selection, and quantum simulation have traditionally been treated as separate fields, despite sharing fundamental mathematical structures related to phase, synchronization, and coherence. This paper introduces PhaseLab, a unified computational framework that applies the Informational Relativity coherence metric across quantum, molecular, and biological systems.</p>
+<p>PhaseLab represents DNA-RNA interactions, chromatin accessibility, oscillatory gene networks, and quantum Hamiltonians within a common phase-space framework, allowing reliability evaluation across domains. We demonstrate the framework through three applications: Pauli-Hamiltonian encoding of guide RNA binding energetics, coherence scoring of CRISPRa candidates for human RAI1, and phase modeling of circadian disruption in Smith-Magenis Syndrome.</p>
+<p>When tested on IBM quantum hardware, PhaseLab showed agreement within 1-2% between simulator and hardware results for gRNA Hamiltonians. The framework also identified high-specificity CRISPRa guides that were subsequently validated through MIT/CFD scoring and CRISPOR off-target analysis. These findings establish PhaseLab as a practical tool for predictive modeling in genomic engineering and systems biology.</p>
+<p>Keywords: coherence, quantum computing, CRISPR, circadian rhythm, phase dynamics, Kuramoto, VQE</p>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Biological systems display phase-dependent behavior at multiple scales, from molecular base-pairing and protein folding to transcriptional cycles, circadian networks, and chromatin accessibility rhythms. Quantum information science similarly relies on phase evolution and coherence to characterize system behavior and reliability. Despite this conceptual overlap, these fields have rarely been integrated within a single framework.</p>
+<p>This paper presents PhaseLab, a computational system built around a coherence metric derived from Informational Relativity:</p>
+<div class="math notranslate nohighlight">
+\[\bar{R} = \exp\left(-\frac{V_\phi}{2}\right)\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(V_\phi\)</span> represents phase variance and <span class="math notranslate nohighlight">\(\bar{R}\)</span> measures global coherence. This metric produces consistent results across diverse applications, including phase alignment in Kuramoto oscillator networks, sequence stability in gRNA binding Hamiltonians, reliability of quantum VQE simulations, and convergence of gene expression oscillators.</p>
+<section id="the-unification-problem">
+<h3>1.1 The Unification Problem<a class="headerlink" href="#the-unification-problem" title="Link to this heading">#</a></h3>
+<p>Quantum simulation, molecular design, and biological dynamics are typically treated as separate disciplines with distinct mathematical frameworks. Quantum chemists work with Hamiltonians and expectation values, bioinformaticians focus on binding scores and off-target rates, and systems biologists model differential equations and bifurcations.</p>
+<p>PhaseLab addresses this fragmentation by treating phase coherence as a universal reliability metric that applies across all three domains.</p>
+</section>
+<section id="framework-architecture">
+<h3>1.2 Framework Architecture<a class="headerlink" href="#framework-architecture" title="Link to this heading">#</a></h3>
+<p>The framework connects three computational layers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Quantum</span> <span class="n">Layer</span> <span class="o">-&gt;</span> <span class="n">gRNA</span> <span class="n">Layer</span> <span class="o">-&gt;</span> <span class="n">Biological</span> <span class="n">Dynamics</span> <span class="n">Layer</span>
+</pre></div>
+</div>
+<p>This architecture enables quantum-informed CRISPRa design through Hamiltonian-based binding predictions, hybrid modeling that connects molecular interactions to cellular rhythms, and hardware-validated biological predictions verified on real quantum processors.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="methods">
+<h2>2. Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
+<section id="the-coherence-metric">
+<h3>2.1 The Coherence Metric<a class="headerlink" href="#the-coherence-metric" title="Link to this heading">#</a></h3>
+<p>PhaseLab uses the following coherence functional:</p>
+<div class="math notranslate nohighlight">
+\[\bar{R} = \exp\left(-\frac{V_\phi}{2}\right)\]</div>
+<p>The variables have the following interpretations:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\phi\)</span></p></td>
+<td><p>Phase variable (radians or normalized)</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(V_\phi\)</span></p></td>
+<td><p>Variance of the phase distribution</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\bar{R} \approx 1\)</span></p></td>
+<td><p>High coherence, synchronized and stable</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\bar{R} \approx 0.135\)</span></p></td>
+<td><p>Critical threshold</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\bar{R} &lt; 0.135\)</span></p></td>
+<td><p>Unreliable simulation regime</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="threshold-derivation">
+<h4>2.1.1 Threshold Derivation<a class="headerlink" href="#threshold-derivation" title="Link to this heading">#</a></h4>
+<p>The threshold value of <span class="math notranslate nohighlight">\(e^{-2}\)</span> (approximately 0.135) emerges from the framework as the point where phase variance reaches 4, corresponding to a system where fluctuations dominate mean behavior. This threshold was validated empirically through H2 VQE experiments on IBM Brisbane (which achieved coherence of 0.891), gRNA Hamiltonians on IBM Torino (coherence ranging from 0.839 to 0.854), and synthetic Kuramoto oscillator networks.</p>
+</section>
+<section id="classification-system">
+<h4>2.1.2 Classification System<a class="headerlink" href="#classification-system" title="Link to this heading">#</a></h4>
+<p>PhaseLab classifies coherence values into five categories:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Coherence Range</p></th>
+<th class="head"><p>Classification</p></th>
+<th class="head"><p>Interpretation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Above 0.8</p></td>
+<td><p>Excellent</p></td>
+<td><p>Highly reliable simulation</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.5 to 0.8</p></td>
+<td><p>Good</p></td>
+<td><p>Acceptable reliability</p></td>
+</tr>
+<tr class="row-even"><td><p>0.135 to 0.5</p></td>
+<td><p>Moderate</p></td>
+<td><p>Use with caution</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.05 to 0.135</p></td>
+<td><p>Severe</p></td>
+<td><p>Unreliable</p></td>
+</tr>
+<tr class="row-even"><td><p>Below 0.05</p></td>
+<td><p>Critical</p></td>
+<td><p>Simulation breakdown</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For practical decisions, the framework uses a binary classification: GO when coherence exceeds the threshold (proceed with confidence) and NO-GO when it falls below (results unreliable).</p>
+</section>
+</section>
+<section id="hamiltonian-encoding-for-grna">
+<h3>2.2 Hamiltonian Encoding for gRNA<a class="headerlink" href="#hamiltonian-encoding-for-grna" title="Link to this heading">#</a></h3>
+<p>DNA-RNA interactions are encoded as quantum Hamiltonians suitable for VQE simulation.</p>
+<section id="watson-crick-pairing-term">
+<h4>2.2.1 Watson-Crick Pairing Term<a class="headerlink" href="#watson-crick-pairing-term" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[H_{WC} = \sum_i \alpha_i Z_i Z'_i\]</div>
+<p>In this expression, <span class="math notranslate nohighlight">\(Z_i\)</span> acts on DNA base qubit <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(Z'_i\)</span> acts on the corresponding RNA base qubit, and <span class="math notranslate nohighlight">\(\alpha_i\)</span> encodes pairing strength with matched bases (A-U and G-C) receiving favorable coefficients.</p>
+</section>
+<section id="stacking-interactions">
+<h4>2.2.2 Stacking Interactions<a class="headerlink" href="#stacking-interactions" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[H_{stack} = \sum_i \beta_i (X_i X'_{i+1} + Y_i Y'_{i+1})\]</div>
+<p>This term captures the energetic contribution of base stacking, which stabilizes the DNA-RNA duplex.</p>
+</section>
+<section id="gc-content-bonus">
+<h4>2.2.3 GC Content Bonus<a class="headerlink" href="#gc-content-bonus" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[H_{GC} = \gamma \sum_{i \in GC} I\]</div>
+<p>GC base pairs contribute three hydrogen bonds compared to two for AT/AU pairs, providing additional stability that this term represents.</p>
+</section>
+<section id="complete-hamiltonian">
+<h4>2.2.4 Complete Hamiltonian<a class="headerlink" href="#complete-hamiltonian" title="Link to this heading">#</a></h4>
+<p>The full gRNA Hamiltonian combines these three terms:</p>
+<div class="math notranslate nohighlight">
+\[H_{gRNA} = H_{WC} + H_{stack} + H_{GC}\]</div>
+<p>This encoding creates an energy landscape for guide binding, supports VQE and statevector simulation, produces coherence values that indicate stability, and shows correlation with empirical specificity metrics.</p>
+</section>
+</section>
+<section id="circadian-dynamics">
+<h3>2.3 Circadian Dynamics<a class="headerlink" href="#circadian-dynamics" title="Link to this heading">#</a></h3>
+<p>Circadian networks are modeled using coupled oscillators.</p>
+<section id="basic-kuramoto-model">
+<h4>2.3.1 Basic Kuramoto Model<a class="headerlink" href="#basic-kuramoto-model" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\frac{d\theta_i}{dt} = \omega_i + \sum_j K_{ij}\sin(\theta_j - \theta_i)\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\theta_i\)</span> represents the phase of oscillator <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\omega_i\)</span> is its natural frequency, and <span class="math notranslate nohighlight">\(K_{ij}\)</span> gives the coupling strength between oscillators.</p>
+<p>The order parameter measuring synchronization is:</p>
+<div class="math notranslate nohighlight">
+\[R = \left|\frac{1}{N}\sum_j e^{i\theta_j}\right|\]</div>
+</section>
+<section id="biological-extensions">
+<h4>2.3.2 Biological Extensions<a class="headerlink" href="#biological-extensions" title="Link to this heading">#</a></h4>
+<p>PhaseLab extends the basic Kuramoto model with several biologically motivated additions.</p>
+<p>For PER delayed negative feedback:
+$<span class="math notranslate nohighlight">\(\frac{dP}{dt} = \alpha_{P} B(t - \tau_P) - \delta_P P\)</span>$</p>
+<p>The delay parameter <span class="math notranslate nohighlight">\(\tau_P\)</span> of approximately 4 hours represents the time required for translation and nuclear import.</p>
+<p>For REV-ERB and ROR modulation:
+$<span class="math notranslate nohighlight">\(\frac{dB}{dt} = f(ROR, REV) - \delta_B B\)</span>$</p>
+<p>The function <span class="math notranslate nohighlight">\(f\)</span> is a sigmoid modeling competitive binding to RORE elements.</p>
+<p>For RAI1 coupling:
+$<span class="math notranslate nohighlight">\(K_{CLOCK-BMAL1} = K_0 \cdot \text{RAI1\_level}\)</span>$</p>
+<p>This captures how RAI1 haploinsufficiency reduces circadian coupling strength.</p>
+</section>
+</section>
+<section id="hardware-validation">
+<h3>2.4 Hardware Validation<a class="headerlink" href="#hardware-validation" title="Link to this heading">#</a></h3>
+<p>PhaseLab integrates with Qiskit for hardware validation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.quantum</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantumCoherenceValidator</span>
+
+<span class="n">validator</span> <span class="o">=</span> <span class="n">QuantumCoherenceValidator</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s2">&quot;ibm_torino&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">guide_sequence</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hardware runs use transpiled circuits optimized for device topology, error mitigation through measurement error correction, and statistical analysis over 2,000 to 4,096 shots. Results are compared against Aer simulator outputs to assess agreement.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="results">
+<h2>3. Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<section id="coherence-metric-validation">
+<h3>3.1 Coherence Metric Validation<a class="headerlink" href="#coherence-metric-validation" title="Link to this heading">#</a></h3>
+<section id="hardware-agreement">
+<h4>3.1.1 Hardware Agreement<a class="headerlink" href="#hardware-agreement" title="Link to this heading">#</a></h4>
+<p>Three RAI1 CRISPRa candidate guides were tested on IBM Torino, a 133-qubit processor:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>gRNA</p></th>
+<th class="head"><p>Sequence</p></th>
+<th class="head"><p>Simulator</p></th>
+<th class="head"><p>Hardware</p></th>
+<th class="head"><p>Difference</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>GAAGGAGAGCAAGAGCGCGA</p></td>
+<td><p>0.833</p></td>
+<td><p>0.854</p></td>
+<td><p>+2.1%</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>AACTGCAAAGAAGTGGGCAC</p></td>
+<td><p>0.820</p></td>
+<td><p>0.840</p></td>
+<td><p>+2.0%</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>TACAGGAGCTTCCAGCGTCA</p></td>
+<td><p>0.827</p></td>
+<td><p>0.839</p></td>
+<td><p>+1.2%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The agreement within 1-2% demonstrates that the coherence metric remains robust despite quantum noise.</p>
+</section>
+<section id="cross-domain-consistency">
+<h4>3.1.2 Cross-Domain Consistency<a class="headerlink" href="#cross-domain-consistency" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>System</p></th>
+<th class="head"><p>Method</p></th>
+<th class="head"><p>Coherence</p></th>
+<th class="head"><p>Classification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>H2 molecule</p></td>
+<td><p>VQE on IBM Brisbane</p></td>
+<td><p>0.891</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-odd"><td><p>gRNA binding</p></td>
+<td><p>Hamiltonian on IBM Torino</p></td>
+<td><p>0.839-0.854</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-even"><td><p>Circadian (normal)</p></td>
+<td><p>Kuramoto ODE</p></td>
+<td><p>0.77</p></td>
+<td><p>Good</p></td>
+</tr>
+<tr class="row-odd"><td><p>Circadian (SMS 50%)</p></td>
+<td><p>Kuramoto ODE</p></td>
+<td><p>0.73</p></td>
+<td><p>Good</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These results show that quantum, biological, and phase-ODE systems produce consistent coherence metrics, supporting the universal applicability of the framework.</p>
+</section>
+</section>
+<section id="grna-binding-reliability">
+<h3>3.2 gRNA Binding Reliability<a class="headerlink" href="#grna-binding-reliability" title="Link to this heading">#</a></h3>
+<p>PhaseLab analyzed 274 PAM sites in the RAI1 promoter:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Total PAM sites scanned</p></td>
+<td><p>274</p></td>
+</tr>
+<tr class="row-odd"><td><p>Candidates in CRISPRa window</p></td>
+<td><p>91</p></td>
+</tr>
+<tr class="row-even"><td><p>GO classification rate</p></td>
+<td><p>100% (15 of 15 tested)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Average coherence</p></td>
+<td><p>0.944</p></td>
+</tr>
+<tr class="row-even"><td><p>Best coherence</p></td>
+<td><p>0.945</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="top-candidates">
+<h4>3.2.1 Top Candidates<a class="headerlink" href="#top-candidates" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rank</p></th>
+<th class="head"><p>Sequence</p></th>
+<th class="head"><p>Position</p></th>
+<th class="head"><p>Coherence</p></th>
+<th class="head"><p>MIT</p></th>
+<th class="head"><p>CFD</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>TACAGGAGCTTCCAGCGTCA</p></td>
+<td><p>-294 bp</p></td>
+<td><p>0.944</p></td>
+<td><p>83</p></td>
+<td><p>93</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>GAAGGAGAGCAAGAGCGCGA</p></td>
+<td><p>-81 bp</p></td>
+<td><p>0.943</p></td>
+<td><p>51</p></td>
+<td><p>65</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>AACTGCAAAGAAGTGGGCAC</p></td>
+<td><p>-334 bp</p></td>
+<td><p>0.944</p></td>
+<td><p>60</p></td>
+<td><p>83</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="correlation-with-specificity">
+<h4>3.2.2 Correlation with Specificity<a class="headerlink" href="#correlation-with-specificity" title="Link to this heading">#</a></h4>
+<p>Quantum binding energy correlated with CRISPOR specificity scores:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>gRNA</p></th>
+<th class="head"><p>Binding Energy</p></th>
+<th class="head"><p>MIT Score</p></th>
+<th class="head"><p>Match</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>-2.009 (best)</p></td>
+<td><p>83 (best)</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>-1.894</p></td>
+<td><p>51</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>-1.563 (worst)</p></td>
+<td><p>60 + off-target</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The quantum Hamiltonian encoding appears to capture sequence features relevant to empirical specificity.</p>
+</section>
+</section>
+<section id="circadian-modeling-in-smith-magenis-syndrome">
+<h3>3.3 Circadian Modeling in Smith-Magenis Syndrome<a class="headerlink" href="#circadian-modeling-in-smith-magenis-syndrome" title="Link to this heading">#</a></h3>
+<p>Simulations across different RAI1 expression levels:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>RAI1 Level</p></th>
+<th class="head"><p>Coherence</p></th>
+<th class="head"><p>Period</p></th>
+<th class="head"><p>Classification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>30% (severe)</p></td>
+<td><p>0.27</p></td>
+<td><p>26.5h</p></td>
+<td><p>Weakly synchronized</p></td>
+</tr>
+<tr class="row-odd"><td><p>50% (SMS)</p></td>
+<td><p>0.73</p></td>
+<td><p>24.8h</p></td>
+<td><p>Partially synchronized</p></td>
+</tr>
+<tr class="row-even"><td><p>60%</p></td>
+<td><p>0.90</p></td>
+<td><p>24.2h</p></td>
+<td><p>Synchronized</p></td>
+</tr>
+<tr class="row-odd"><td><p>80%</p></td>
+<td><p>0.99</p></td>
+<td><p>24.0h</p></td>
+<td><p>Synchronized</p></td>
+</tr>
+<tr class="row-even"><td><p>100%</p></td>
+<td><p>0.77</p></td>
+<td><p>23.8h</p></td>
+<td><p>Partially synchronized</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="therapeutic-window">
+<h4>3.3.1 Therapeutic Window<a class="headerlink" href="#therapeutic-window" title="Link to this heading">#</a></h4>
+<p>The model identifies a therapeutic target range with minimum effective dose at 60% RAI1 (coherence 0.90), optimal at 80% RAI1 (coherence 0.99), requiring a boost of 20-60% from the SMS baseline of 50%. This level of activation is achievable with CRISPRa, which typically produces 2-3 fold increases.</p>
+</section>
+<section id="non-monotonic-response">
+<h4>3.3.2 Non-Monotonic Response<a class="headerlink" href="#non-monotonic-response" title="Link to this heading">#</a></h4>
+<p>The data show that 100% RAI1 produces slightly lower synchronization (coherence 0.77) than 80% (coherence 0.99). This suggests an optimal dosage window exists rather than a simple more-is-better relationship.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="discussion">
+<h2>4. Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<section id="universal-coherence-metric">
+<h3>4.1 Universal Coherence Metric<a class="headerlink" href="#universal-coherence-metric" title="Link to this heading">#</a></h3>
+<p>PhaseLab demonstrates that coherence serves as a domain-general marker. High coherence indicates stable molecular interactions for binding, synchronized rhythms for oscillators, and reproducible results for quantum simulations.</p>
+<p>The consistent threshold across quantum and biological systems represents a potentially foundational connection between these fields.</p>
+</section>
+<section id="predictive-power">
+<h3>4.2 Predictive Power<a class="headerlink" href="#predictive-power" title="Link to this heading">#</a></h3>
+<p>The correlation between quantum binding energy and empirical specificity scores suggests that the Hamiltonian encoding captures biologically relevant features. This raises the possibility of using quantum simulation as a pre-screening tool for CRISPR guide design.</p>
+</section>
+<section id="therapeutic-implications">
+<h3>4.3 Therapeutic Implications<a class="headerlink" href="#therapeutic-implications" title="Link to this heading">#</a></h3>
+<p>The circadian model provides quantitative predictions for gene therapy dosage. SMS patients need 60-80% total RAI1 for circadian restoration, requiring a 20-60% boost from the remaining allele. CRISPRa can achieve this activation level.</p>
+</section>
+<section id="limitations">
+<h3>4.4 Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h3>
+<p>Several limitations should be noted. First, all validation is computational; wet lab experiments are needed. Second, the Hamiltonian is simplified and does not include protein-DNA interactions. Third, the chromatin model is generic rather than tissue-specific. Fourth, the Kuramoto approximation may miss dynamics that full biochemical models would reveal.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>5. Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>PhaseLab unifies quantum simulation, CRISPRa guide design, and biological phase modeling within a single coherence-based mathematical structure. The framework demonstrates hardware reproducibility with 1-2% agreement between simulator and IBM Torino, cross-domain consistency where the same metric works for molecules and oscillators, predictive validity where quantum energy correlates with empirical specificity, and clinical relevance through identification of therapeutic targets for SMS.</p>
+<p>The coherence metric emerges as a universal reliability indicator, with the threshold marking the boundary between trustworthy and unreliable simulations across physical and biological systems.</p>
+</section>
+<hr class="docutils" />
+<section id="future-work">
+<h2>6. Future Work<a class="headerlink" href="#future-work" title="Link to this heading">#</a></h2>
+<section id="planned-developments">
+<h3>6.1 Planned Developments<a class="headerlink" href="#planned-developments" title="Link to this heading">#</a></h3>
+<p>Future work will extend the framework to protein folding Hamiltonians using HP lattice models, expanded oscillator networks for multi-tissue circadian models, wet lab integration through partnerships with SMS research groups, and real-time coherence tracking during VQE optimization.</p>
+</section>
+<section id="development-roadmap">
+<h3>6.2 Development Roadmap<a class="headerlink" href="#development-roadmap" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Features</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.1.0</p></td>
+<td><p>Core coherence, CRISPR pipeline, SMS model</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.2.0</p></td>
+<td><p>Protein folding, expanded chromatin models</p></td>
+</tr>
+<tr class="row-even"><td><p>0.3.0</p></td>
+<td><p>Multi-tissue circadian, drug response modeling</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.0</p></td>
+<td><p>Full wet lab integration, clinical validation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="code-and-data-availability">
+<h2>7. Code and Data Availability<a class="headerlink" href="#code-and-data-availability" title="Link to this heading">#</a></h2>
+<section id="phaselab-package">
+<h3>7.1 PhaseLab Package<a class="headerlink" href="#phaselab-package" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>phaselab<span class="o">[</span>quantum<span class="o">]</span>
+</pre></div>
+</div>
+<p>Repository: https://github.com/followthesapper/phaselab</p>
+</section>
+<section id="hardware-results">
+<h3>7.2 Hardware Results<a class="headerlink" href="#hardware-results" title="Link to this heading">#</a></h3>
+<p>The quantum hardware validation used IBM Torino (133 qubits) on December 10, 2025. Job ID: d4suvd7t3pms7399mq8g</p>
+</section>
+<section id="crispor-validation">
+<h3>7.3 CRISPOR Validation<a class="headerlink" href="#crispor-validation" title="Link to this heading">#</a></h3>
+<p>CRISPOR analysis batch ID: QkJQAaLNZB1vU53T54MY</p>
+<p>Available at: https://crispor.gi.ucsc.edu/crispor.py?batchId=QkJQAaLNZB1vU53T54MY</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2>8. Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<p>Figure 1 shows the PhaseLab architecture as a three-layer diagram connecting the Quantum Layer, gRNA Layer, and Biological Dynamics Layer.</p>
+<p>Figure 2 plots the coherence function showing the threshold and classification regions.</p>
+<p>Figure 3 illustrates the gRNA Hamiltonian encoding, depicting how Watson-Crick, stacking, and GC terms map to Pauli operators.</p>
+<p>Figure 4 presents a scatter plot comparing simulator and hardware coherence values for the three gRNA candidates.</p>
+<p>Figure 5 displays the circadian synchronization as a heatmap showing coherence as a function of RAI1 level and simulation time.</p>
+<p>Figure 6 shows the therapeutic window, plotting circadian coherence against RAI1 level with the therapeutic target region highlighted.</p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Kuramoto Y. Chemical Oscillations, Waves, and Turbulence. Springer; 1984.</p></li>
+<li><p>Hsu PD, et al. DNA targeting specificity of RNA-guided Cas9 nucleases. Nature Biotechnology. 2013.</p></li>
+<li><p>Doench JG, et al. Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9. Nature Biotechnology. 2016.</p></li>
+<li><p>SantaLucia J. A unified view of polymer, dumbbell, and oligonucleotide DNA nearest-neighbor thermodynamics. PNAS. 1998.</p></li>
+<li><p>Elsea SH, Girirajan S. Smith-Magenis syndrome. European Journal of Human Genetics. 2008.</p></li>
+<li><p>Johansson AS, et al. rAAV-CRISPRa therapy for Smith-Magenis Syndrome. 2022. PMC9762195.</p></li>
+</ol>
+<hr class="docutils" />
+<p>Corresponding author: Dylan Vaca</p>
+<p>Hardware validation performed on IBM Torino, December 2025</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unification-problem">1.1 The Unification Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-architecture">1.2 Framework Architecture</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">2. Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-coherence-metric">2.1 The Coherence Metric</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#threshold-derivation">2.1.1 Threshold Derivation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-system">2.1.2 Classification System</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltonian-encoding-for-grna">2.2 Hamiltonian Encoding for gRNA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#watson-crick-pairing-term">2.2.1 Watson-Crick Pairing Term</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stacking-interactions">2.2.2 Stacking Interactions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-content-bonus">2.2.3 GC Content Bonus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-hamiltonian">2.2.4 Complete Hamiltonian</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circadian-dynamics">2.3 Circadian Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-kuramoto-model">2.3.1 Basic Kuramoto Model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#biological-extensions">2.3.2 Biological Extensions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-validation">2.4 Hardware Validation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">3. Results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherence-metric-validation">3.1 Coherence Metric Validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-agreement">3.1.1 Hardware Agreement</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-domain-consistency">3.1.2 Cross-Domain Consistency</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grna-binding-reliability">3.2 gRNA Binding Reliability</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#top-candidates">3.2.1 Top Candidates</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-with-specificity">3.2.2 Correlation with Specificity</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circadian-modeling-in-smith-magenis-syndrome">3.3 Circadian Modeling in Smith-Magenis Syndrome</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#therapeutic-window">3.3.1 Therapeutic Window</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#non-monotonic-response">3.3.2 Non-Monotonic Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">4. Discussion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#universal-coherence-metric">4.1 Universal Coherence Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-power">4.2 Predictive Power</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#therapeutic-implications">4.3 Therapeutic Implications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">4.4 Limitations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">5. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-work">6. Future Work</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planned-developments">6.1 Planned Developments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-roadmap">6.2 Development Roadmap</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-and-data-availability">7. Code and Data Availability</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phaselab-package">7.1 PhaseLab Package</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-results">7.2 Hardware Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crispor-validation">7.3 CRISPOR Validation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">8. Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

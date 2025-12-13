@@ -1,0 +1,1089 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.knockout &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/knockout';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.knockout</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.knockout</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab CRISPR Knockout: Cas9 cutting guide design for gene disruption.</span>
+
+<span class="sd">Implements:</span>
+<span class="sd">- Cut efficiency prediction (Rule Set 2 / Doench 2016)</span>
+<span class="sd">- Repair pathway likelihood (NHEJ vs HDR)</span>
+<span class="sd">- Off-target editing risk</span>
+<span class="sd">- Frameshift probability</span>
+<span class="sd">- IR coherence validation for simulation reliability</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.pam_scan</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_pam_sites</span><span class="p">,</span> <span class="n">filter_by_window</span><span class="p">,</span> <span class="n">PAMHit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.scoring</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">gc_content</span><span class="p">,</span>
+    <span class="n">delta_g_santalucia</span><span class="p">,</span>
+    <span class="n">mit_specificity_score</span><span class="p">,</span>
+    <span class="n">cfd_score</span><span class="p">,</span>
+    <span class="n">max_homopolymer_run</span><span class="p">,</span>
+    <span class="n">sequence_complexity</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.coherence</span><span class="w"> </span><span class="kn">import</span> <span class="n">coherence_score</span><span class="p">,</span> <span class="n">go_no_go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.hamiltonians</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_grna_hamiltonian</span>
+
+
+<span class="c1"># Position-specific weights for cutting efficiency (Rule Set 2 approximation)</span>
+<span class="c1"># PAM-distal (5&#39;) positions 1-10, PAM-proximal (3&#39;) positions 11-20</span>
+<span class="n">CUTTING_POSITION_WEIGHTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># Disfavored nucleotides at each position (penalty)</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">},</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">},</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">},</span>  <span class="c1"># A slightly favored</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="c1"># Seed region (positions 11-20) - more important</span>
+    <span class="mi">11</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="mi">13</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>  <span class="c1"># G favored</span>
+    <span class="mi">14</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">},</span>
+    <span class="mi">15</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+    <span class="mi">16</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>  <span class="c1"># G strongly favored</span>
+    <span class="mi">17</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+    <span class="mi">18</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">},</span>
+    <span class="mi">19</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span>
+    <span class="mi">20</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">},</span>  <span class="c1"># G at position 20 (adjacent to PAM) very important</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="KnockoutConfig">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.KnockoutConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">KnockoutConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for CRISPR knockout guide design.&quot;&quot;&quot;</span>
+
+    <span class="c1"># PAM settings</span>
+    <span class="n">pam</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;NGG&quot;</span>
+    <span class="n">guide_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+
+    <span class="c1"># Target window (relative to TSS or coding start)</span>
+    <span class="c1"># For knockout, typically want early exons</span>
+    <span class="n">target_window</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>  <span class="c1"># First 500bp of CDS</span>
+
+    <span class="c1"># Filtering thresholds</span>
+    <span class="n">min_gc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.35</span>
+    <span class="n">max_gc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span>
+    <span class="n">max_homopolymer</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">min_complexity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+    <span class="c1"># Cut efficiency thresholds</span>
+    <span class="n">min_cut_efficiency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># 30% minimum</span>
+
+    <span class="c1"># Scoring weights</span>
+    <span class="n">weight_mit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">weight_cfd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">weight_cut_efficiency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># Higher weight for cutting</span>
+    <span class="n">weight_delta_g</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="n">weight_coherence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Coherence settings</span>
+    <span class="n">compute_coherence</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">coherence_shots</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2000</span>
+
+    <span class="c1"># Output</span>
+    <span class="n">top_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span></div>
+
+
+
+<div class="viewcode-block" id="cut_efficiency_score">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.cut_efficiency_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">cut_efficiency_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Predict cutting efficiency using Rule Set 2-like model.</span>
+
+<span class="sd">    Based on Doench et al. 2016 on-target scoring.</span>
+<span class="sd">    Higher score = more efficient cutting.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: 20bp guide sequence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Cut efficiency score (0.0 to 1.0).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.5</span>  <span class="c1"># Default for non-standard length</span>
+
+    <span class="n">score</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Base score</span>
+
+    <span class="c1"># Position-specific preferences</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">base</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">):</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 1-indexed</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">CUTTING_POSITION_WEIGHTS</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+=</span> <span class="n">CUTTING_POSITION_WEIGHTS</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># GC content preference (optimal around 50-60%)</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mf">0.45</span> <span class="o">&lt;=</span> <span class="n">gc</span> <span class="o">&lt;=</span> <span class="mf">0.65</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mf">0.1</span>
+    <span class="k">elif</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="mf">0.30</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.80</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">-=</span> <span class="mf">0.15</span>
+
+    <span class="c1"># Penalize poly-T (termination signal)</span>
+    <span class="k">if</span> <span class="s1">&#39;TTTT&#39;</span> <span class="ow">in</span> <span class="n">guide_seq</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">-=</span> <span class="mf">0.2</span>
+
+    <span class="c1"># Reward G at position 20 (adjacent to PAM)</span>
+    <span class="k">if</span> <span class="n">guide_seq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mf">0.1</span>
+
+    <span class="c1"># Penalize low complexity</span>
+    <span class="n">complexity</span> <span class="o">=</span> <span class="n">sequence_complexity</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">complexity</span> <span class="o">&lt;</span> <span class="mf">0.6</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">-=</span> <span class="mf">0.1</span>
+
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="frameshift_probability">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.frameshift_probability">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">frameshift_probability</span><span class="p">(</span>
+    <span class="n">guide_position</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">exon_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">cds_position</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Estimate probability of frameshift from indel at cut site.</span>
+
+<span class="sd">    Cuts earlier in CDS have higher chance of causing functional knockouts.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_position: Position of guide in genomic coordinates.</span>
+<span class="sd">        exon_length: Length of the exon.</span>
+<span class="sd">        cds_position: Position within the coding sequence (0-based).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Frameshift probability estimate (0.0 to 1.0).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Cuts in first half of CDS more likely to cause functional KO</span>
+    <span class="n">relative_pos</span> <span class="o">=</span> <span class="n">cds_position</span> <span class="o">/</span> <span class="n">exon_length</span> <span class="k">if</span> <span class="n">exon_length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.5</span>
+
+    <span class="c1"># Higher probability for early cuts</span>
+    <span class="k">if</span> <span class="n">relative_pos</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">:</span>
+        <span class="n">base_prob</span> <span class="o">=</span> <span class="mf">0.90</span>
+    <span class="k">elif</span> <span class="n">relative_pos</span> <span class="o">&lt;</span> <span class="mf">0.50</span><span class="p">:</span>
+        <span class="n">base_prob</span> <span class="o">=</span> <span class="mf">0.75</span>
+    <span class="k">elif</span> <span class="n">relative_pos</span> <span class="o">&lt;</span> <span class="mf">0.75</span><span class="p">:</span>
+        <span class="n">base_prob</span> <span class="o">=</span> <span class="mf">0.60</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">base_prob</span> <span class="o">=</span> <span class="mf">0.45</span>
+
+    <span class="c1"># NHEJ typically produces ~66% frameshift (1bp or 2bp indels)</span>
+    <span class="k">return</span> <span class="n">base_prob</span> <span class="o">*</span> <span class="mf">0.66</span></div>
+
+
+
+<div class="viewcode-block" id="repair_pathway_prediction">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.repair_pathway_prediction">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">repair_pathway_prediction</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">local_sequence</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Predict repair pathway preference (NHEJ vs HDR).</span>
+
+<span class="sd">    For knockout, NHEJ is preferred (causes indels).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: Guide RNA sequence.</span>
+<span class="sd">        local_sequence: Sequence context around cut site.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict with pathway probabilities.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Base rates (cell-type dependent, these are defaults)</span>
+    <span class="n">nhej_base</span> <span class="o">=</span> <span class="mf">0.85</span>  <span class="c1"># NHEJ dominant in most cells</span>
+    <span class="n">hdr_base</span> <span class="o">=</span> <span class="mf">0.10</span>
+    <span class="n">mmej_base</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Microhomology-mediated end joining</span>
+
+    <span class="c1"># GC content affects repair</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+
+    <span class="c1"># High GC slightly favors precise repair</span>
+    <span class="k">if</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">:</span>
+        <span class="n">nhej_base</span> <span class="o">-=</span> <span class="mf">0.05</span>
+        <span class="n">hdr_base</span> <span class="o">+=</span> <span class="mf">0.03</span>
+        <span class="n">mmej_base</span> <span class="o">+=</span> <span class="mf">0.02</span>
+
+    <span class="c1"># Check for microhomologies if context provided</span>
+    <span class="k">if</span> <span class="n">local_sequence</span><span class="p">:</span>
+        <span class="c1"># Simplified: check for short repeats near cut site</span>
+        <span class="n">local_seq</span> <span class="o">=</span> <span class="n">local_sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="n">microhomology_score</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">local_seq</span><span class="p">)</span> <span class="o">-</span> <span class="n">size</span><span class="p">):</span>
+                <span class="n">pattern</span> <span class="o">=</span> <span class="n">local_seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">size</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">local_seq</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]:</span>
+                    <span class="n">microhomology_score</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">microhomology_score</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">mmej_base</span> <span class="o">+=</span> <span class="mf">0.10</span>
+            <span class="n">nhej_base</span> <span class="o">-=</span> <span class="mf">0.10</span>
+
+    <span class="c1"># Normalize</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">nhej_base</span> <span class="o">+</span> <span class="n">hdr_base</span> <span class="o">+</span> <span class="n">mmej_base</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;NHEJ&#39;</span><span class="p">:</span> <span class="n">nhej_base</span> <span class="o">/</span> <span class="n">total</span><span class="p">,</span>
+        <span class="s1">&#39;HDR&#39;</span><span class="p">:</span> <span class="n">hdr_base</span> <span class="o">/</span> <span class="n">total</span><span class="p">,</span>
+        <span class="s1">&#39;MMEJ&#39;</span><span class="p">:</span> <span class="n">mmej_base</span> <span class="o">/</span> <span class="n">total</span><span class="p">,</span>
+        <span class="s1">&#39;preferred&#39;</span><span class="p">:</span> <span class="s1">&#39;NHEJ&#39;</span> <span class="k">if</span> <span class="n">nhej_base</span> <span class="o">&gt;</span> <span class="nb">max</span><span class="p">(</span><span class="n">hdr_base</span><span class="p">,</span> <span class="n">mmej_base</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;HDR/MMEJ&#39;</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="design_knockout_guides">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.design_knockout_guides">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_knockout_guides</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">cds_start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">KnockoutConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">exon_boundaries</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Design guide RNAs for CRISPR knockout.</span>
+
+<span class="sd">    This pipeline is optimized for gene disruption through frameshift</span>
+<span class="sd">    mutations caused by NHEJ repair of Cas9-induced DSBs.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: Gene/exon DNA sequence.</span>
+<span class="sd">        cds_start: Position of CDS start (ATG) in sequence.</span>
+<span class="sd">        config: KnockoutConfig with parameters.</span>
+<span class="sd">        exon_boundaries: Optional list of (start, end) for exon positions.</span>
+<span class="sd">        verbose: Print progress messages.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DataFrame with ranked knockout guide candidates.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from phaselab.crispr import design_knockout_guides</span>
+<span class="sd">        &gt;&gt;&gt; guides = design_knockout_guides(</span>
+<span class="sd">        ...     sequence=gene_sequence,</span>
+<span class="sd">        ...     cds_start=200,</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &gt;&gt;&gt; print(guides[[&#39;sequence&#39;, &#39;cut_efficiency&#39;, &#39;frameshift_prob&#39;]].head())</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">KnockoutConfig</span><span class="p">()</span>
+
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Designing knockout guides for </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span><span class="si">}</span><span class="s2"> bp sequence...&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Find PAM sites</span>
+    <span class="n">all_hits</span> <span class="o">=</span> <span class="n">find_pam_sites</span><span class="p">(</span>
+        <span class="n">sequence</span><span class="p">,</span>
+        <span class="n">pam</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">pam</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">guide_length</span><span class="p">,</span>
+        <span class="n">both_strands</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_hits</span><span class="p">)</span><span class="si">}</span><span class="s2"> total PAM sites&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Filter to target window (relative to CDS start)</span>
+    <span class="n">window_hits</span> <span class="o">=</span> <span class="n">filter_by_window</span><span class="p">(</span>
+        <span class="n">all_hits</span><span class="p">,</span>
+        <span class="n">tss_position</span><span class="o">=</span><span class="n">cds_start</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">target_window</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filtered to </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">window_hits</span><span class="p">)</span><span class="si">}</span><span class="s2"> in target window&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">window_hits</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_empty_knockout_df</span><span class="p">()</span>
+
+    <span class="c1"># Score candidates</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">exon_len</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="n">cds_start</span><span class="p">:</span><span class="n">cds_start</span> <span class="o">+</span> <span class="n">config</span><span class="o">.</span><span class="n">target_window</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">exon_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">exon_len</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">hit</span> <span class="ow">in</span> <span class="n">window_hits</span><span class="p">:</span>
+        <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">hit</span><span class="o">.</span><span class="n">guide</span>
+
+        <span class="c1"># Quality filters</span>
+        <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">min_gc</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="n">config</span><span class="o">.</span><span class="n">max_gc</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">homo</span> <span class="o">=</span> <span class="n">max_homopolymer_run</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">homo</span> <span class="o">&gt;</span> <span class="n">config</span><span class="o">.</span><span class="n">max_homopolymer</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">complexity</span> <span class="o">=</span> <span class="n">sequence_complexity</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">complexity</span> <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">min_complexity</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Cutting efficiency</span>
+        <span class="n">cut_eff</span> <span class="o">=</span> <span class="n">cut_efficiency_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cut_eff</span> <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">min_cut_efficiency</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Scores</span>
+        <span class="n">delta_g</span> <span class="o">=</span> <span class="n">delta_g_santalucia</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">mit</span> <span class="o">=</span> <span class="n">mit_specificity_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">cfd</span> <span class="o">=</span> <span class="n">cfd_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+
+        <span class="c1"># Position relative to CDS start</span>
+        <span class="n">cds_pos</span> <span class="o">=</span> <span class="p">((</span><span class="n">hit</span><span class="o">.</span><span class="n">guide_start</span> <span class="o">+</span> <span class="n">hit</span><span class="o">.</span><span class="n">guide_end</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">cds_start</span>
+
+        <span class="c1"># Frameshift probability</span>
+        <span class="n">fs_prob</span> <span class="o">=</span> <span class="n">frameshift_probability</span><span class="p">(</span>
+            <span class="n">guide_position</span><span class="o">=</span><span class="n">hit</span><span class="o">.</span><span class="n">guide_start</span><span class="p">,</span>
+            <span class="n">exon_length</span><span class="o">=</span><span class="n">exon_length</span><span class="p">,</span>
+            <span class="n">cds_position</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cds_pos</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Repair pathway</span>
+        <span class="n">repair</span> <span class="o">=</span> <span class="n">repair_pathway_prediction</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+
+        <span class="c1"># IR coherence</span>
+        <span class="n">R_bar</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">go_status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">compute_coherence</span><span class="p">:</span>
+            <span class="n">R_bar</span> <span class="o">=</span> <span class="n">_compute_guide_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+            <span class="n">go_status</span> <span class="o">=</span> <span class="n">go_no_go</span><span class="p">(</span><span class="n">R_bar</span><span class="p">)</span>
+
+        <span class="c1"># Combined score (knockout-optimized)</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="n">_compute_knockout_score</span><span class="p">(</span>
+            <span class="n">cut_efficiency</span><span class="o">=</span><span class="n">cut_eff</span><span class="p">,</span>
+            <span class="n">frameshift_prob</span><span class="o">=</span><span class="n">fs_prob</span><span class="p">,</span>
+            <span class="n">mit</span><span class="o">=</span><span class="n">mit</span><span class="p">,</span>
+            <span class="n">cfd</span><span class="o">=</span><span class="n">cfd</span><span class="p">,</span>
+            <span class="n">delta_g</span><span class="o">=</span><span class="n">delta_g</span><span class="p">,</span>
+            <span class="n">R_bar</span><span class="o">=</span><span class="n">R_bar</span><span class="p">,</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">guide_seq</span><span class="p">,</span>
+            <span class="s1">&#39;pam&#39;</span><span class="p">:</span> <span class="n">hit</span><span class="o">.</span><span class="n">pam</span><span class="p">,</span>
+            <span class="s1">&#39;cds_position&#39;</span><span class="p">:</span> <span class="n">cds_pos</span><span class="p">,</span>
+            <span class="s1">&#39;strand&#39;</span><span class="p">:</span> <span class="n">hit</span><span class="o">.</span><span class="n">strand</span><span class="p">,</span>
+            <span class="s1">&#39;gc&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s1">&#39;cut_efficiency&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">cut_eff</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s1">&#39;frameshift_prob&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">fs_prob</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s1">&#39;repair_pathway&#39;</span><span class="p">:</span> <span class="n">repair</span><span class="p">[</span><span class="s1">&#39;preferred&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;nhej_prob&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">repair</span><span class="p">[</span><span class="s1">&#39;NHEJ&#39;</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s1">&#39;delta_g&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">delta_g</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s1">&#39;mit_score&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">mit</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;cfd_score&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">cfd</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;coherence_R&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">R_bar</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">R_bar</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;go_no_go&#39;</span><span class="p">:</span> <span class="n">go_status</span><span class="p">,</span>
+            <span class="s1">&#39;combined_score&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">})</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_empty_knockout_df</span><span class="p">()</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;combined_score&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Returning </span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span><span class="w"> </span><span class="n">config</span><span class="o">.</span><span class="n">top_n</span><span class="p">)</span><span class="si">}</span><span class="s2"> top candidates&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">top_n</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_empty_knockout_df</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return empty DataFrame with knockout columns.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;pam&#39;</span><span class="p">,</span> <span class="s1">&#39;cds_position&#39;</span><span class="p">,</span> <span class="s1">&#39;strand&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;gc&#39;</span><span class="p">,</span> <span class="s1">&#39;cut_efficiency&#39;</span><span class="p">,</span> <span class="s1">&#39;frameshift_prob&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;repair_pathway&#39;</span><span class="p">,</span> <span class="s1">&#39;nhej_prob&#39;</span><span class="p">,</span> <span class="s1">&#39;delta_g&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;mit_score&#39;</span><span class="p">,</span> <span class="s1">&#39;cfd_score&#39;</span><span class="p">,</span> <span class="s1">&#39;coherence_R&#39;</span><span class="p">,</span> <span class="s1">&#39;go_no_go&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;combined_score&#39;</span><span class="p">,</span>
+    <span class="p">])</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_guide_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute IR coherence using ATLAS-Q enhanced backend (v0.6.0+).&quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.coherence_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_guide_coherence</span>
+    <span class="k">return</span> <span class="n">compute_guide_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="n">use_atlas_q</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_knockout_score</span><span class="p">(</span>
+    <span class="n">cut_efficiency</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">frameshift_prob</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">mit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">cfd</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">delta_g</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">R_bar</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">KnockoutConfig</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute combined score optimized for knockout.&quot;&quot;&quot;</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Cutting efficiency is paramount</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_cut_efficiency</span> <span class="o">*</span> <span class="n">cut_efficiency</span>
+
+    <span class="c1"># Frameshift probability</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">frameshift_prob</span>
+
+    <span class="c1"># Specificity</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_mit</span> <span class="o">*</span> <span class="p">(</span><span class="n">mit</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_cfd</span> <span class="o">*</span> <span class="p">(</span><span class="n">cfd</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+
+    <span class="c1"># Binding energy</span>
+    <span class="n">dg_score</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">delta_g</span><span class="p">)</span> <span class="o">/</span> <span class="mf">25.0</span><span class="p">))</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_delta_g</span> <span class="o">*</span> <span class="n">dg_score</span>
+
+    <span class="c1"># Coherence</span>
+    <span class="k">if</span> <span class="n">R_bar</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_coherence</span> <span class="o">*</span> <span class="n">R_bar</span>
+
+    <span class="k">return</span> <span class="n">score</span>
+
+
+<div class="viewcode-block" id="validate_knockout_guide">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.validate_knockout_guide">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_knockout_guide</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validate a single guide for knockout application.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: Guide sequence to validate.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Validation results dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+    <span class="n">cut_eff</span> <span class="o">=</span> <span class="n">cut_efficiency_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+    <span class="n">mit</span> <span class="o">=</span> <span class="n">mit_specificity_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+    <span class="n">R_bar</span> <span class="o">=</span> <span class="n">_compute_guide_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+    <span class="n">repair</span> <span class="o">=</span> <span class="n">repair_pathway_prediction</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+
+    <span class="n">warnings</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="mf">0.35</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.75</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Non-optimal GC content (</span><span class="si">{</span><span class="n">gc</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cut_eff</span> <span class="o">&lt;</span> <span class="mf">0.3</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Low cutting efficiency (</span><span class="si">{</span><span class="n">cut_eff</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mit</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Low specificity (MIT=</span><span class="si">{</span><span class="n">mit</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;TTTT&#39;</span> <span class="ow">in</span> <span class="n">guide_seq</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Contains poly-T (termination risk)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">repair</span><span class="p">[</span><span class="s1">&#39;NHEJ&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Low NHEJ probability (knockout less efficient)&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">guide_seq</span><span class="p">,</span>
+        <span class="s1">&#39;gc&#39;</span><span class="p">:</span> <span class="n">gc</span><span class="p">,</span>
+        <span class="s1">&#39;cut_efficiency&#39;</span><span class="p">:</span> <span class="n">cut_eff</span><span class="p">,</span>
+        <span class="s1">&#39;mit_score&#39;</span><span class="p">:</span> <span class="n">mit</span><span class="p">,</span>
+        <span class="s1">&#39;repair_pathway&#39;</span><span class="p">:</span> <span class="n">repair</span><span class="p">,</span>
+        <span class="s1">&#39;coherence_R&#39;</span><span class="p">:</span> <span class="n">R_bar</span><span class="p">,</span>
+        <span class="s1">&#39;go_no_go&#39;</span><span class="p">:</span> <span class="n">go_no_go</span><span class="p">(</span><span class="n">R_bar</span><span class="p">),</span>
+        <span class="s1">&#39;warnings&#39;</span><span class="p">:</span> <span class="n">warnings</span><span class="p">,</span>
+        <span class="s1">&#39;suitable_for_knockout&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">warnings</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

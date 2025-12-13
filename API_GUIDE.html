@@ -1,0 +1,1389 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PhaseLab API Guide &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'API_GUIDE';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">PhaseLab API Guide</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="phaselab-api-guide">
+<h1>PhaseLab API Guide<a class="headerlink" href="#phaselab-api-guide" title="Link to this heading">#</a></h1>
+<p><strong>Phase-coherence analysis framework for quantum, biological, and dynamical systems</strong></p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#installation">Installation</a></p></li>
+<li><p><a class="reference internal" href="#quick-start">Quick Start</a></p></li>
+<li><p><a class="reference internal" href="#core-module">Core Module</a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#coherence-score">Coherence Score</a></p></li>
+<li><p><a class="reference internal" href="#phase-variance">Phase Variance</a></p></li>
+<li><p><a class="reference internal" href="#go-no-go-classification">GO/NO-GO Classification</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#crispr-module">CRISPR Module</a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pam-scanning">PAM Scanning</a></p></li>
+<li><p><a class="reference internal" href="#guide-scoring">Guide Scoring</a></p></li>
+<li><p><a class="reference internal" href="#design-pipeline">Design Pipeline</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#circadian-module">Circadian Module</a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sms-clock-model">SMS Clock Model</a></p></li>
+<li><p><a class="reference internal" href="#kuramoto-oscillators">Kuramoto Oscillators</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#quantum-integration">Quantum Integration</a></p></li>
+<li><p><a class="reference internal" href="#complete-examples">Complete Examples</a></p></li>
+<li><p><a class="reference internal" href="#api-reference">API Reference</a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<section id="basic-installation">
+<h3>Basic Installation<a class="headerlink" href="#basic-installation" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>phaselab
+</pre></div>
+</div>
+</section>
+<section id="with-quantum-support-ibm-quantum">
+<h3>With Quantum Support (IBM Quantum)<a class="headerlink" href="#with-quantum-support-ibm-quantum" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>phaselab<span class="o">[</span>quantum<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="with-plotting-support">
+<h3>With Plotting Support<a class="headerlink" href="#with-plotting-support" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>phaselab<span class="o">[</span>plotting<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="full-installation">
+<h3>Full Installation<a class="headerlink" href="#full-installation" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>phaselab<span class="o">[</span>all<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="development-installation">
+<h3>Development Installation<a class="headerlink" href="#development-installation" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/followthesapper/phaselab.git
+<span class="nb">cd</span><span class="w"> </span>phaselab
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">phaselab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># Compute coherence from phase data</span>
+<span class="n">phases</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">]</span>
+<span class="n">R_bar</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">coherence_score</span><span class="p">(</span><span class="n">phases</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coherence: </span><span class="si">{</span><span class="n">R_bar</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># GO/NO-GO classification</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">go_no_go</span><span class="p">(</span><span class="n">R_bar</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Design CRISPR guides</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.crispr</span><span class="w"> </span><span class="kn">import</span> <span class="n">design_guides</span>
+
+<span class="n">sequence</span> <span class="o">=</span> <span class="s2">&quot;ATGCGATCGATCGATCGATCGATCGATCGATCGATCGATCG...&quot;</span>
+<span class="n">guides</span> <span class="o">=</span> <span class="n">design_guides</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">tss_index</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">guides</span><span class="p">[[</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;gc_content&#39;</span><span class="p">,</span> <span class="s1">&#39;combined_score&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="core-module">
+<h2>Core Module<a class="headerlink" href="#core-module" title="Link to this heading">#</a></h2>
+<p>The core module implements the Informational Relativity coherence framework.</p>
+<section id="coherence-score">
+<h3>Coherence Score<a class="headerlink" href="#coherence-score" title="Link to this heading">#</a></h3>
+<p>The coherence score R̄ quantifies phase synchronization:</p>
+<div class="math notranslate nohighlight">
+\[\bar{R} = e^{-V_\phi / 2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(V_\phi\)</span> is the phase variance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab</span><span class="w"> </span><span class="kn">import</span> <span class="n">coherence_score</span>
+
+<span class="c1"># From raw phase values (radians)</span>
+<span class="n">phases</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">]</span>
+<span class="n">R_bar</span> <span class="o">=</span> <span class="n">coherence_score</span><span class="p">(</span><span class="n">phases</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;phases&#39;</span><span class="p">)</span>
+<span class="c1"># Returns: 0.9995</span>
+
+<span class="c1"># From quantum expectation values</span>
+<span class="n">expectations</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="mf">0.79</span><span class="p">]</span>
+<span class="n">R_bar</span> <span class="o">=</span> <span class="n">coherence_score</span><span class="p">(</span><span class="n">expectations</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;expectations&#39;</span><span class="p">)</span>
+<span class="c1"># Returns: 0.9823</span>
+
+<span class="c1"># From direct variance value</span>
+<span class="n">R_bar</span> <span class="o">=</span> <span class="n">coherence_score</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;variance&#39;</span><span class="p">)</span>
+<span class="c1"># Returns: 0.9753</span>
+
+<span class="c1"># Auto-detect mode (default)</span>
+<span class="n">R_bar</span> <span class="o">=</span> <span class="n">coherence_score</span><span class="p">(</span><span class="n">phases</span><span class="p">)</span>  <span class="c1"># Automatically detects list of phases</span>
+</pre></div>
+</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Input data (phases, expectations, or variance)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: One of <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, <code class="docutils literal notranslate"><span class="pre">'phases'</span></code>, <code class="docutils literal notranslate"><span class="pre">'expectations'</span></code>, <code class="docutils literal notranslate"><span class="pre">'variance'</span></code></p></li>
+</ul>
+<p><strong>Returns:</strong> Float between 0 and 1</p>
+</section>
+<section id="phase-variance">
+<h3>Phase Variance<a class="headerlink" href="#phase-variance" title="Link to this heading">#</a></h3>
+<p>Compute phase variance directly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab</span><span class="w"> </span><span class="kn">import</span> <span class="n">phase_variance</span>
+
+<span class="n">phases</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">]</span>
+<span class="n">V_phi</span> <span class="o">=</span> <span class="n">phase_variance</span><span class="p">(</span><span class="n">phases</span><span class="p">)</span>
+<span class="c1"># Returns: 0.00052</span>
+</pre></div>
+</div>
+</section>
+<section id="go-no-go-classification">
+<h3>GO/NO-GO Classification<a class="headerlink" href="#go-no-go-classification" title="Link to this heading">#</a></h3>
+<p>Binary classification based on the e⁻² threshold (≈0.1353):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab</span><span class="w"> </span><span class="kn">import</span> <span class="n">go_no_go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.core.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">E_MINUS_2</span>
+
+<span class="c1"># Basic classification</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">go_no_go</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span>  <span class="c1"># Returns: &quot;GO&quot;</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">go_no_go</span><span class="p">(</span><span class="mf">0.10</span><span class="p">)</span>  <span class="c1"># Returns: &quot;NO-GO&quot;</span>
+
+<span class="c1"># Custom threshold</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">go_no_go</span><span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># Returns: &quot;NO-GO&quot;</span>
+
+<span class="c1"># Get detailed classification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.core.coherence</span><span class="w"> </span><span class="kn">import</span> <span class="n">classify_coherence</span>
+
+<span class="n">category</span> <span class="o">=</span> <span class="n">classify_coherence</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span>  <span class="c1"># Returns: &quot;EXCELLENT&quot;</span>
+<span class="n">category</span> <span class="o">=</span> <span class="n">classify_coherence</span><span class="p">(</span><span class="mf">0.45</span><span class="p">)</span>  <span class="c1"># Returns: &quot;MODERATE&quot;</span>
+<span class="n">category</span> <span class="o">=</span> <span class="n">classify_coherence</span><span class="p">(</span><span class="mf">0.10</span><span class="p">)</span>  <span class="c1"># Returns: &quot;CRITICAL&quot;</span>
+</pre></div>
+</div>
+<p><strong>Classification Thresholds:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>R̄ Range</p></th>
+<th class="head"><p>Category</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt; 0.8</p></td>
+<td><p>EXCELLENT</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.5 - 0.8</p></td>
+<td><p>GOOD</p></td>
+</tr>
+<tr class="row-even"><td><p>e⁻² - 0.5</p></td>
+<td><p>MODERATE</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.05 - e⁻²</p></td>
+<td><p>SEVERE</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt; 0.05</p></td>
+<td><p>CRITICAL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="crispr-module">
+<h2>CRISPR Module<a class="headerlink" href="#crispr-module" title="Link to this heading">#</a></h2>
+<p>The CRISPR module provides tools for CRISPRa guide RNA design with phase-coherence validation.</p>
+<section id="pam-scanning">
+<h3>PAM Scanning<a class="headerlink" href="#pam-scanning" title="Link to this heading">#</a></h3>
+<p>Find all PAM sites in a sequence:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.crispr</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_pam_sites</span>
+
+<span class="n">sequence</span> <span class="o">=</span> <span class="s2">&quot;ATGCGATCGATCGAGGCGATCGATCGATCGATCGATCGATCG&quot;</span>
+
+<span class="c1"># Find NGG PAM sites (default for SpCas9)</span>
+<span class="n">sites</span> <span class="o">=</span> <span class="n">find_pam_sites</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">pam</span><span class="o">=</span><span class="s2">&quot;NGG&quot;</span><span class="p">)</span>
+<span class="c1"># Returns: [(position, strand, guide_sequence), ...]</span>
+
+<span class="c1"># Find multiple PAM types</span>
+<span class="n">sites_ngg</span> <span class="o">=</span> <span class="n">find_pam_sites</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">pam</span><span class="o">=</span><span class="s2">&quot;NGG&quot;</span><span class="p">)</span>   <span class="c1"># SpCas9</span>
+<span class="n">sites_nag</span> <span class="o">=</span> <span class="n">find_pam_sites</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">pam</span><span class="o">=</span><span class="s2">&quot;NAG&quot;</span><span class="p">)</span>   <span class="c1"># SpCas9 alternate</span>
+<span class="n">sites_tttn</span> <span class="o">=</span> <span class="n">find_pam_sites</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">pam</span><span class="o">=</span><span class="s2">&quot;TTTN&quot;</span><span class="p">)</span> <span class="c1"># Cas12a</span>
+</pre></div>
+</div>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sequence</span></code>: DNA sequence string</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pam</span></code>: PAM sequence pattern (default: <code class="docutils literal notranslate"><span class="pre">&quot;NGG&quot;</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guide_length</span></code>: Length of guide sequence (default: <code class="docutils literal notranslate"><span class="pre">20</span></code>)</p></li>
+</ul>
+</section>
+<section id="guide-scoring">
+<h3>Guide Scoring<a class="headerlink" href="#guide-scoring" title="Link to this heading">#</a></h3>
+<p>Score individual guide sequences:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.crispr</span><span class="w"> </span><span class="kn">import</span> <span class="n">score_guide</span><span class="p">,</span> <span class="n">gc_content</span><span class="p">,</span> <span class="n">santalucia_delta_g</span>
+
+<span class="n">guide</span> <span class="o">=</span> <span class="s2">&quot;GAAGGAGAGCAAGAGCGCGA&quot;</span>
+
+<span class="c1"># GC content (optimal: 40-70%)</span>
+<span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">guide</span><span class="p">)</span>
+<span class="c1"># Returns: 0.60</span>
+
+<span class="c1"># Thermodynamic stability (SantaLucia ΔG)</span>
+<span class="n">delta_g</span> <span class="o">=</span> <span class="n">santalucia_delta_g</span><span class="p">(</span><span class="n">guide</span><span class="p">)</span>
+<span class="c1"># Returns: -45.2 (kcal/mol)</span>
+
+<span class="c1"># Combined scoring</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">score_guide</span><span class="p">(</span>
+    <span class="n">guide</span><span class="p">,</span>
+    <span class="n">gc_weight</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">thermo_weight</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">position_weight</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">accessibility_weight</span><span class="o">=</span><span class="mf">0.2</span>
+<span class="p">)</span>
+<span class="c1"># Returns: 0.78</span>
+</pre></div>
+</div>
+</section>
+<section id="design-pipeline">
+<h3>Design Pipeline<a class="headerlink" href="#design-pipeline" title="Link to this heading">#</a></h3>
+<p>The high-level pipeline for guide RNA design:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.crispr</span><span class="w"> </span><span class="kn">import</span> <span class="n">design_guides</span>
+
+<span class="c1"># Basic usage</span>
+<span class="n">sequence</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">ATGCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG</span>
+<span class="s2">AGGCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">tss_index</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># Transcription start site position</span>
+
+<span class="n">guides</span> <span class="o">=</span> <span class="n">design_guides</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">tss_index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">guides</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>Output DataFrame columns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sequence</span></code>: 20bp guide sequence</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code>: Distance from TSS (negative = upstream)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strand</span></code>: <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gc_content</span></code>: GC fraction (0-1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta_g</span></code>: Thermodynamic stability</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">combined_score</span></code>: Weighted composite score</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">go_no_go</span></code>: Classification status</p></li>
+</ul>
+<p><strong>Advanced usage with custom configuration:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.crispr</span><span class="w"> </span><span class="kn">import</span> <span class="n">design_guides</span><span class="p">,</span> <span class="n">CRISPRConfig</span>
+
+<span class="c1"># Custom configuration</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">CRISPRConfig</span><span class="p">(</span>
+    <span class="n">pam</span><span class="o">=</span><span class="s2">&quot;NGG&quot;</span><span class="p">,</span>
+    <span class="n">guide_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">window_upstream</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>    <span class="c1"># Search 500bp upstream of TSS</span>
+    <span class="n">window_downstream</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># Search 100bp downstream</span>
+    <span class="n">min_gc</span><span class="o">=</span><span class="mf">0.40</span><span class="p">,</span>
+    <span class="n">max_gc</span><span class="o">=</span><span class="mf">0.70</span><span class="p">,</span>
+    <span class="n">weights</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;gc&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+        <span class="s1">&#39;thermo&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+        <span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+        <span class="s1">&#39;accessibility&#39;</span><span class="p">:</span> <span class="mf">0.25</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># With DNase accessibility peaks</span>
+<span class="n">dnase_peaks</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">85</span><span class="p">),</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">180</span><span class="p">)]</span>  <span class="c1"># Accessible regions</span>
+
+<span class="n">guides</span> <span class="o">=</span> <span class="n">design_guides</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="p">,</span>
+    <span class="n">tss_index</span><span class="p">,</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+    <span class="n">dnase_peaks</span><span class="o">=</span><span class="n">dnase_peaks</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Filter top candidates</span>
+<span class="n">top_guides</span> <span class="o">=</span> <span class="n">guides</span><span class="p">[</span><span class="n">guides</span><span class="p">[</span><span class="s1">&#39;go_no_go&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;GO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="circadian-module">
+<h2>Circadian Module<a class="headerlink" href="#circadian-module" title="Link to this heading">#</a></h2>
+<p>The circadian module models biological clock systems for Smith-Magenis Syndrome research.</p>
+<section id="sms-clock-model">
+<h3>SMS Clock Model<a class="headerlink" href="#sms-clock-model" title="Link to this heading">#</a></h3>
+<p>Simulate the SMS circadian clock with RAI1 haploinsufficiency:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.circadian</span><span class="w"> </span><span class="kn">import</span> <span class="n">simulate_sms_clock</span><span class="p">,</span> <span class="n">SMSClockParams</span>
+
+<span class="c1"># Basic simulation with 50% RAI1 (SMS condition)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">simulate_sms_clock</span><span class="p">(</span><span class="n">rai1_level</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Period: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> hours&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Amplitude: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;amplitude&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Phase shift: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;phase_shift&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> hours&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coherence R̄: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Period</span><span class="p">:</span> <span class="mf">23.45</span> <span class="n">hours</span>
+<span class="n">Amplitude</span><span class="p">:</span> <span class="mf">0.6234</span>
+<span class="n">Phase</span> <span class="n">shift</span><span class="p">:</span> <span class="mf">2.15</span> <span class="n">hours</span>
+<span class="n">Coherence</span> <span class="n">R̄</span><span class="p">:</span> <span class="mf">0.7823</span>
+<span class="n">Status</span><span class="p">:</span> <span class="n">GO</span>
+</pre></div>
+</div>
+<p><strong>Custom parameters:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.circadian</span><span class="w"> </span><span class="kn">import</span> <span class="n">simulate_sms_clock</span><span class="p">,</span> <span class="n">SMSClockParams</span>
+
+<span class="c1"># Custom clock parameters</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">SMSClockParams</span><span class="p">(</span>
+    <span class="n">tau_P</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>      <span class="c1"># PER delay time constant (hours)</span>
+    <span class="n">alpha_P</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>    <span class="c1"># PER suppression strength</span>
+    <span class="n">beta_R</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>     <span class="c1"># RORα effect on BMAL1</span>
+    <span class="n">beta_V</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>     <span class="c1"># REV-ERBα effect on BMAL1</span>
+    <span class="n">K_light</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>    <span class="c1"># Light sensitivity</span>
+    <span class="n">omega_0</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">24</span>  <span class="c1"># Base angular frequency</span>
+<span class="p">)</span>
+
+<span class="c1"># Simulate with intervention (CRISPRa restoring RAI1)</span>
+<span class="n">results_baseline</span> <span class="o">=</span> <span class="n">simulate_sms_clock</span><span class="p">(</span><span class="n">rai1_level</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<span class="n">results_treated</span> <span class="o">=</span> <span class="n">simulate_sms_clock</span><span class="p">(</span><span class="n">rai1_level</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Baseline coherence: </span><span class="si">{</span><span class="n">results_baseline</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Treated coherence: </span><span class="si">{</span><span class="n">results_treated</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Full time series output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">simulate_sms_clock</span><span class="p">(</span>
+    <span class="n">rai1_level</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">t_end</span><span class="o">=</span><span class="mf">240.0</span><span class="p">,</span>      <span class="c1"># 10 days</span>
+    <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>           <span class="c1"># Time step (hours)</span>
+    <span class="n">return_timeseries</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Access time series</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+<span class="n">bmal1</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;BMAL1&#39;</span><span class="p">]</span>
+<span class="n">per</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;PER&#39;</span><span class="p">]</span>
+<span class="n">rev_erb</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;REV_ERB&#39;</span><span class="p">]</span>
+<span class="n">ror</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;ROR&#39;</span><span class="p">]</span>
+
+<span class="c1"># Plot</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">bmal1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;BMAL1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">per</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PER&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (hours)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Expression level&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="kuramoto-oscillators">
+<h3>Kuramoto Oscillators<a class="headerlink" href="#kuramoto-oscillators" title="Link to this heading">#</a></h3>
+<p>Model coupled oscillator networks:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.circadian</span><span class="w"> </span><span class="kn">import</span> <span class="n">KuramotoNetwork</span>
+
+<span class="c1"># Create network of 100 oscillators</span>
+<span class="n">network</span> <span class="o">=</span> <span class="n">KuramotoNetwork</span><span class="p">(</span>
+    <span class="n">n_oscillators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">coupling_strength</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">natural_frequency_spread</span><span class="o">=</span><span class="mf">0.1</span>
+<span class="p">)</span>
+
+<span class="c1"># Simulate</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">t_end</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Order parameter R: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;order_parameter&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Synchronization: </span><span class="si">{</span><span class="s1">&#39;Yes&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;synchronized&#39;</span><span class="p">]</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;No&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Heterogeneous network:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.circadian</span><span class="w"> </span><span class="kn">import</span> <span class="n">KuramotoNetwork</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Custom frequency distribution (bimodal)</span>
+<span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">network</span> <span class="o">=</span> <span class="n">KuramotoNetwork</span><span class="p">(</span>
+    <span class="n">n_oscillators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">coupling_strength</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">natural_frequencies</span><span class="o">=</span><span class="n">frequencies</span>
+<span class="p">)</span>
+
+<span class="c1"># With external forcing (light-dark cycle)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">light_forcing</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="mi">24</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span>
+    <span class="n">t_end</span><span class="o">=</span><span class="mf">240.0</span><span class="p">,</span>
+    <span class="n">external_forcing</span><span class="o">=</span><span class="n">light_forcing</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="quantum-integration">
+<h2>Quantum Integration<a class="headerlink" href="#quantum-integration" title="Link to this heading">#</a></h2>
+<p>PhaseLab integrates with IBM Quantum for hardware validation.</p>
+<section id="setting-up-ibm-quantum">
+<h3>Setting Up IBM Quantum<a class="headerlink" href="#setting-up-ibm-quantum" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;IBM_QUANTUM_TOKEN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;your-token-here&#39;</span>
+
+<span class="c1"># Or use .env file</span>
+<span class="c1"># IBM_QUANTUM_TOKEN=your-token-here</span>
+</pre></div>
+</div>
+</section>
+<section id="running-on-quantum-hardware">
+<h3>Running on Quantum Hardware<a class="headerlink" href="#running-on-quantum-hardware" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.quantum</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantumCoherenceValidator</span>
+
+<span class="c1"># Initialize validator</span>
+<span class="n">validator</span> <span class="o">=</span> <span class="n">QuantumCoherenceValidator</span><span class="p">(</span>
+    <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;ibm_torino&#39;</span><span class="p">,</span>  <span class="c1"># or &#39;ibm_brisbane&#39;, &#39;ibm_kyoto&#39;</span>
+    <span class="n">shots</span><span class="o">=</span><span class="mi">4096</span>
+<span class="p">)</span>
+
+<span class="c1"># Validate a guide RNA</span>
+<span class="n">guide</span> <span class="o">=</span> <span class="s2">&quot;GAAGGAGAGCAAGAGCGCGA&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">guide</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hardware R̄: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Job ID: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;job_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="simulator-testing">
+<h3>Simulator Testing<a class="headerlink" href="#simulator-testing" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.quantum</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantumCoherenceValidator</span>
+
+<span class="c1"># Use Aer simulator</span>
+<span class="n">validator</span> <span class="o">=</span> <span class="n">QuantumCoherenceValidator</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s1">&#39;aer_simulator&#39;</span><span class="p">)</span>
+
+<span class="n">guides</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;GAAGGAGAGCAAGAGCGCGA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AACTGCAAAGAAGTGGGCAC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TACAGGAGCTTCCAGCGTCA&quot;</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">guide</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">guide</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">... R̄=</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="complete-examples">
+<h2>Complete Examples<a class="headerlink" href="#complete-examples" title="Link to this heading">#</a></h2>
+<section id="example-1-sms-gene-therapy-pipeline">
+<h3>Example 1: SMS Gene Therapy Pipeline<a class="headerlink" href="#example-1-sms-gene-therapy-pipeline" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Complete SMS gene therapy gRNA design pipeline.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">phaselab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.crispr</span><span class="w"> </span><span class="kn">import</span> <span class="n">design_guides</span><span class="p">,</span> <span class="n">CRISPRConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.circadian</span><span class="w"> </span><span class="kn">import</span> <span class="n">simulate_sms_clock</span>
+
+<span class="c1"># RAI1 promoter sequence (truncated for example)</span>
+<span class="n">rai1_promoter</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">GCGCGCTCGCGCGCTCGCGCGAAGGAGAGCAAGAGCGCGACGGCTAGCTAGCT</span>
+<span class="s2">AGCTAGCTAGCTACAGGAGCTTCCAGCGTCAGGGCTAGCTAGCTAGCTAGCTA</span>
+<span class="s2">GCTAGCTAGCTAACTGCAAAGAAGTGGGCACGCGCTAGCTAGCTAGCTAGCT</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># TSS position</span>
+<span class="n">tss_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rai1_promoter</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+<span class="c1"># Configure pipeline</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">CRISPRConfig</span><span class="p">(</span>
+    <span class="n">pam</span><span class="o">=</span><span class="s2">&quot;NGG&quot;</span><span class="p">,</span>
+    <span class="n">window_upstream</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+    <span class="n">window_downstream</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">min_gc</span><span class="o">=</span><span class="mf">0.40</span><span class="p">,</span>
+    <span class="n">max_gc</span><span class="o">=</span><span class="mf">0.70</span>
+<span class="p">)</span>
+
+<span class="c1"># Design guides</span>
+<span class="n">guides</span> <span class="o">=</span> <span class="n">design_guides</span><span class="p">(</span><span class="n">rai1_promoter</span><span class="p">,</span> <span class="n">tss_index</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Filter GO candidates</span>
+<span class="n">go_candidates</span> <span class="o">=</span> <span class="n">guides</span><span class="p">[</span><span class="n">guides</span><span class="p">[</span><span class="s1">&#39;go_no_go&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;GO&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">go_candidates</span><span class="p">)</span><span class="si">}</span><span class="s2"> GO candidates&quot;</span><span class="p">)</span>
+
+<span class="c1"># Simulate therapeutic effect</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">go_candidates</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Position: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> bp from TSS&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Score: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;combined_score&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Simulate with restored RAI1 (hypothetical 80% restoration)</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">simulate_sms_clock</span><span class="p">(</span><span class="n">rai1_level</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Predicted period: </span><span class="si">{</span><span class="n">sim</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">h&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Predicted coherence: </span><span class="si">{</span><span class="n">sim</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="example-2-comparative-analysis">
+<h3>Example 2: Comparative Analysis<a class="headerlink" href="#example-2-comparative-analysis" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Compare coherence across multiple conditions.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">phaselab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.circadian</span><span class="w"> </span><span class="kn">import</span> <span class="n">simulate_sms_clock</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># RAI1 levels to test</span>
+<span class="n">rai1_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">rai1_levels</span><span class="p">:</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">simulate_sms_clock</span><span class="p">(</span><span class="n">rai1_level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;rai1_level&#39;</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span>
+        <span class="s1">&#39;period&#39;</span><span class="p">:</span> <span class="n">sim</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;coherence&#39;</span><span class="p">:</span> <span class="n">sim</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">sim</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+    <span class="p">})</span>
+
+<span class="c1"># Find therapeutic threshold</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="n">go_threshold</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;GO&#39;</span><span class="p">][</span><span class="s1">&#39;rai1_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Minimum RAI1 for GO status: </span><span class="si">{</span><span class="n">go_threshold</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Visualize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rai1_level&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">],</span> <span class="s1">&#39;bo-&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">E_MINUS_2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GO threshold&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;RAI1 Level&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Coherence R̄&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rai1_level&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">],</span> <span class="s1">&#39;go-&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;24h&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;RAI1 Level&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Period (hours)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="example-3-batch-processing">
+<h3>Example 3: Batch Processing<a class="headerlink" href="#example-3-batch-processing" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Batch process multiple sequences.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.crispr</span><span class="w"> </span><span class="kn">import</span> <span class="n">design_guides</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Multiple target genes</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;RAI1&#39;</span><span class="p">:</span> <span class="s1">&#39;ATGCGATCG...&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CLOCK&#39;</span><span class="p">:</span> <span class="s1">&#39;GCTAGCTAG...&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BMAL1&#39;</span><span class="p">:</span> <span class="s1">&#39;TAGCTAGCT...&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">all_guides</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">gene</span><span class="p">,</span> <span class="n">sequence</span> <span class="ow">in</span> <span class="n">targets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">guides</span> <span class="o">=</span> <span class="n">design_guides</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">tss_index</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">guides</span><span class="p">[</span><span class="s1">&#39;target_gene&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gene</span>
+    <span class="n">all_guides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">guides</span><span class="p">)</span>
+
+<span class="n">combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_guides</span><span class="p">)</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;combined_score&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Top guide per gene</span>
+<span class="n">top_per_gene</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;target_gene&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_per_gene</span><span class="p">[[</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;combined_score&#39;</span><span class="p">,</span> <span class="s1">&#39;go_no_go&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h2>
+<section id="core-functions">
+<h3>Core Functions<a class="headerlink" href="#core-functions" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">coherence_score(data,</span> <span class="pre">mode='auto')</span></code></p></td>
+<td><p>Compute R̄ coherence score</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phase_variance(phases)</span></code></p></td>
+<td><p>Compute phase variance V_φ</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">go_no_go(R_bar,</span> <span class="pre">threshold=E_MINUS_2)</span></code></p></td>
+<td><p>Binary GO/NO-GO classification</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">classify_coherence(R_bar)</span></code></p></td>
+<td><p>Detailed category classification</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="crispr-functions">
+<h3>CRISPR Functions<a class="headerlink" href="#crispr-functions" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">design_guides(seq,</span> <span class="pre">tss,</span> <span class="pre">config,</span> <span class="pre">dnase_peaks)</span></code></p></td>
+<td><p>High-level guide design pipeline</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">find_pam_sites(seq,</span> <span class="pre">pam,</span> <span class="pre">guide_length)</span></code></p></td>
+<td><p>Find PAM sites in sequence</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">score_guide(guide,</span> <span class="pre">weights)</span></code></p></td>
+<td><p>Score individual guide</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">gc_content(seq)</span></code></p></td>
+<td><p>Calculate GC fraction</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">santalucia_delta_g(seq)</span></code></p></td>
+<td><p>Calculate thermodynamic ΔG</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="circadian-functions">
+<h3>Circadian Functions<a class="headerlink" href="#circadian-functions" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">simulate_sms_clock(rai1_level,</span> <span class="pre">params,</span> <span class="pre">t_end)</span></code></p></td>
+<td><p>Simulate SMS clock model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">KuramotoNetwork(n,</span> <span class="pre">coupling,</span> <span class="pre">frequencies)</span></code></p></td>
+<td><p>Create Kuramoto oscillator network</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="constants">
+<h3>Constants<a class="headerlink" href="#constants" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Constant</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">E_MINUS_2</span></code></p></td>
+<td><p>0.1353…</p></td>
+<td><p>e⁻² GO/NO-GO threshold</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FOUR_PI_SQUARED</span></code></p></td>
+<td><p>39.478…</p></td>
+<td><p>4π² universal constant</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Link to this heading">#</a></h2>
+<p>If you use PhaseLab in your research, please cite:</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@software</span><span class="p">{</span><span class="nl">phaselab</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Vaca, Dylan}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{PhaseLab: Phase-coherence analysis framework}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2024}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/followthesapper/phaselab}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h2>
+<p>MIT License - see <a class="reference internal" href="#LICENSE"><span class="xref myst">LICENSE</span></a> for details.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-installation">Basic Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-quantum-support-ibm-quantum">With Quantum Support (IBM Quantum)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-plotting-support">With Plotting Support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-installation">Full Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-installation">Development Installation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-module">Core Module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherence-score">Coherence Score</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-variance">Phase Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#go-no-go-classification">GO/NO-GO Classification</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crispr-module">CRISPR Module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pam-scanning">PAM Scanning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guide-scoring">Guide Scoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-pipeline">Design Pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circadian-module">Circadian Module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sms-clock-model">SMS Clock Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kuramoto-oscillators">Kuramoto Oscillators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-integration">Quantum Integration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-ibm-quantum">Setting Up IBM Quantum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-quantum-hardware">Running on Quantum Hardware</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulator-testing">Simulator Testing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-examples">Complete Examples</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-sms-gene-therapy-pipeline">Example 1: SMS Gene Therapy Pipeline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-comparative-analysis">Example 2: Comparative Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-batch-processing">Example 3: Batch Processing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-functions">Core Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crispr-functions">CRISPR Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circadian-functions">Circadian Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

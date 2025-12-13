@@ -1,0 +1,1130 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PhaseLab Target Library &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TARGETS';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">PhaseLab Target Library</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="phaselab-target-library">
+<h1>PhaseLab Target Library<a class="headerlink" href="#phaselab-target-library" title="Link to this heading">#</a></h1>
+<p>PhaseLab supports gene target configurations for CRISPRa/CRISPRi experiments. Each target is defined by a YAML configuration file containing genomic coordinates, CRISPRa parameters, and metadata.</p>
+<section id="hardware-validated-modules-v0-3-0">
+<h2>Hardware-Validated Modules (v0.3.0)<a class="headerlink" href="#hardware-validated-modules-v0-3-0" title="Link to this heading">#</a></h2>
+<p>PhaseLab now extends beyond CRISPR to multiple domains, all validated on IBM Quantum hardware:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Application</p></th>
+<th class="head"><p>Hardware R̄</p></th>
+<th class="head"><p>Experiment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.crispr</span></code></p></td>
+<td><p>Guide RNA design</p></td>
+<td><p>0.839-0.970</p></td>
+<td><p>E200, E201</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.protein</span></code></p></td>
+<td><p>Protein folding coherence</p></td>
+<td><p>0.9948-0.9992</p></td>
+<td><p>E202</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.circadian.multi_tissue</span></code></p></td>
+<td><p>Multi-tissue synchronization</p></td>
+<td><p>0.9990-0.9999</p></td>
+<td><p>E203</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.drug</span></code></p></td>
+<td><p>Chronotherapy optimization</p></td>
+<td><p>0.9820-1.0000</p></td>
+<td><p>E204</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="available-gene-targets">
+<h2>Available Gene Targets<a class="headerlink" href="#available-gene-targets" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Target</p></th>
+<th class="head"><p>Disease</p></th>
+<th class="head"><p>Mode</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>RAI1</strong></p></td>
+<td><p>Smith-Magenis Syndrome</p></td>
+<td><p>Haploinsufficiency</p></td>
+<td><p>Hardware validated (IBM Torino)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SCN2A</strong></p></td>
+<td><p>Autism-linked NDD</p></td>
+<td><p>Haploinsufficiency</p></td>
+<td><p>Hardware validated (IBM Torino)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="validated-guide-candidates">
+<h3>Validated Guide Candidates<a class="headerlink" href="#validated-guide-candidates" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Target</p></th>
+<th class="head"><p>Lead Candidate</p></th>
+<th class="head"><p>MIT</p></th>
+<th class="head"><p>CFD</p></th>
+<th class="head"><p>Off-targets ≤2mm</p></th>
+<th class="head"><p>Hardware R̄</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RAI1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TACAGGAGCTTCCAGCGTCA</span></code></p></td>
+<td><p>83</p></td>
+<td><p>93</p></td>
+<td><p>0</p></td>
+<td><p>0.839</p></td>
+</tr>
+<tr class="row-odd"><td><p>SCN2A</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GCTGACTGCTACATAGCCAA</span></code></p></td>
+<td><p>83</p></td>
+<td><p>89</p></td>
+<td><p>0</p></td>
+<td><p>0.970</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="protein-structure-assessment-e202">
+<h2>Protein Structure Assessment (E202)<a class="headerlink" href="#protein-structure-assessment-e202" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Structure Type</p></th>
+<th class="head"><p>Classical R̄</p></th>
+<th class="head"><p>Hardware R̄</p></th>
+<th class="head"><p>Classification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alpha helix</p></td>
+<td><p>0.9977</p></td>
+<td><p>0.9974</p></td>
+<td><p>GO</p></td>
+</tr>
+<tr class="row-odd"><td><p>Beta sheet</p></td>
+<td><p>0.9952</p></td>
+<td><p>0.9948</p></td>
+<td><p>GO</p></td>
+</tr>
+<tr class="row-even"><td><p>Random coil</p></td>
+<td><p>0.1705</p></td>
+<td><p>0.9992</p></td>
+<td><p>GO*</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mixed structure</p></td>
+<td><p>0.5118</p></td>
+<td><p>0.9958</p></td>
+<td><p>GO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="multi-tissue-circadian-e203">
+<h2>Multi-Tissue Circadian (E203)<a class="headerlink" href="#multi-tissue-circadian-e203" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario</p></th>
+<th class="head"><p>Classical R̄</p></th>
+<th class="head"><p>Hardware R̄</p></th>
+<th class="head"><p>Classification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Healthy synchronized</p></td>
+<td><p>0.9999</p></td>
+<td><p>0.9990</p></td>
+<td><p>SYNCHRONIZED</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jet lag acute</p></td>
+<td><p>0.7930</p></td>
+<td><p>0.9992</p></td>
+<td><p>PARTIALLY_SYNCHRONIZED</p></td>
+</tr>
+<tr class="row-even"><td><p>Chronic shift work</p></td>
+<td><p>0.9974</p></td>
+<td><p>0.9997</p></td>
+<td><p>SYNCHRONIZED</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="chronotherapy-optimization-e204">
+<h2>Chronotherapy Optimization (E204)<a class="headerlink" href="#chronotherapy-optimization-e204" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Drug</p></th>
+<th class="head"><p>Optimal Time</p></th>
+<th class="head"><p>Hardware R̄</p></th>
+<th class="head"><p>Efficacy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Melatonin</p></td>
+<td><p>21:00</p></td>
+<td><p>1.0000</p></td>
+<td><p>1.00x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prednisone</p></td>
+<td><p>07:00</p></td>
+<td><p>1.0000</p></td>
+<td><p>1.30x</p></td>
+</tr>
+<tr class="row-even"><td><p>Amlodipine</p></td>
+<td><p>22:00</p></td>
+<td><p>1.0000</p></td>
+<td><p>1.39x (shift worker)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tacrolimus</p></td>
+<td><p>BID</p></td>
+<td><p>0.9929</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Clinical Insight:</strong> Aligned dosing shows 32.8% coherence improvement and 55.7% efficacy improvement over misaligned dosing.</p>
+</section>
+<section id="adding-a-new-target">
+<h2>Adding a New Target<a class="headerlink" href="#adding-a-new-target" title="Link to this heading">#</a></h2>
+<section id="step-1-find-genomic-coordinates">
+<h3>Step 1: Find Genomic Coordinates<a class="headerlink" href="#step-1-find-genomic-coordinates" title="Link to this heading">#</a></h3>
+<p>Use Ensembl, NCBI, or UCSC Genome Browser to identify:</p>
+<ul class="simple">
+<li><p>Canonical transcript and TSS</p></li>
+<li><p>Chromosome and coordinates</p></li>
+<li><p>Promoter region (~1000bp upstream, ~500bp downstream of TSS)</p></li>
+</ul>
+</section>
+<section id="step-2-create-yaml-configuration">
+<h3>Step 2: Create YAML Configuration<a class="headerlink" href="#step-2-create-yaml-configuration" title="Link to this heading">#</a></h3>
+<p>Create a file in <code class="docutils literal notranslate"><span class="pre">src/phaselab/targets/GENE_NAME.yaml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">gene_symbol</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GENE_NAME&quot;</span>
+<span class="nt">genome_build</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GRCh38&quot;</span>
+
+<span class="c1"># Gene identifiers</span>
+<span class="nt">gene_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ENSG...&quot;</span>
+<span class="nt">refseq_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NM_...&quot;</span>
+
+<span class="nt">promoter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">chrom</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;chrN&quot;</span>
+<span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">123456789</span><span class="w">     </span><span class="c1"># TSS - 1000 bp</span>
+<span class="w">  </span><span class="nt">end</span><span class="p">:</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">123458289</span><span class="w">     </span><span class="c1"># TSS + 500 bp</span>
+<span class="w">  </span><span class="nt">tss</span><span class="p">:</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">123457789</span><span class="w">     </span><span class="c1"># Transcription start site</span>
+
+<span class="nt">crispr</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">system</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;SpCas9&quot;</span>
+<span class="w">  </span><span class="nt">pam</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NGG&quot;</span>
+<span class="w">  </span><span class="nt">window</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">start_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-400</span>
+<span class="w">    </span><span class="nt">end_offset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-50</span>
+
+<span class="nt">filters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gc_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.40</span>
+<span class="w">  </span><span class="nt">gc_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.70</span>
+<span class="w">  </span><span class="nt">max_homopolymer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+
+<span class="nt">scoring</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">coherence_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.135</span>
+
+<span class="nt">chromatin</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PsychENCODE&quot;</span><span class="w">  </span><span class="c1"># or &quot;ENCODE&quot;, &quot;None&quot;</span>
+<span class="w">  </span><span class="nt">tissue</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;human_cortex&quot;</span>
+<span class="w">  </span><span class="nt">cell_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;neurons&quot;</span>
+
+<span class="nt">notes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">disease</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Disease</span><span class="nv"> </span><span class="s">name&quot;</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;haploinsufficiency&quot;</span>
+<span class="w">  </span><span class="nt">therapeutic_goal</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Description</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">therapeutic</span><span class="nv"> </span><span class="s">goal&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-load-and-use">
+<h3>Step 3: Load and Use<a class="headerlink" href="#step-3-load-and-use" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.targets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_target_config</span>
+
+<span class="c1"># Load configuration</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">load_target_config</span><span class="p">(</span><span class="s2">&quot;GENE_NAME&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gene: </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">gene_symbol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chromosome: </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">chrom</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TSS: </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">tss_genomic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TSS index in promoter: </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">tss_index</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRISPRa window: </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">crispr_window</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="target-configuration-schema">
+<h2>Target Configuration Schema<a class="headerlink" href="#target-configuration-schema" title="Link to this heading">#</a></h2>
+<section id="required-fields">
+<h3>Required Fields<a class="headerlink" href="#required-fields" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gene_symbol</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Gene symbol (e.g., “SCN2A”)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genome_build</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Genome assembly (e.g., “GRCh38”)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">promoter.chrom</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Chromosome (e.g., “chr2”)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">promoter.start</span></code></p></td>
+<td><p>int</p></td>
+<td><p>Promoter start coordinate</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">promoter.end</span></code></p></td>
+<td><p>int</p></td>
+<td><p>Promoter end coordinate</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">promoter.tss</span></code></p></td>
+<td><p>int</p></td>
+<td><p>TSS genomic coordinate</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="optional-fields">
+<h3>Optional Fields<a class="headerlink" href="#optional-fields" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gene_id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>None</p></td>
+<td><p>Ensembl gene ID</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">refseq_id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>None</p></td>
+<td><p>RefSeq transcript ID</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">crispr.system</span></code></p></td>
+<td><p>string</p></td>
+<td><p>“SpCas9”</p></td>
+<td><p>CRISPR system</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">crispr.pam</span></code></p></td>
+<td><p>string</p></td>
+<td><p>“NGG”</p></td>
+<td><p>PAM sequence</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">crispr.window.start_offset</span></code></p></td>
+<td><p>int</p></td>
+<td><p>-400</p></td>
+<td><p>Window start (relative to TSS)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">crispr.window.end_offset</span></code></p></td>
+<td><p>int</p></td>
+<td><p>-50</p></td>
+<td><p>Window end (relative to TSS)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">filters.gc_min</span></code></p></td>
+<td><p>float</p></td>
+<td><p>0.40</p></td>
+<td><p>Minimum GC content</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">filters.gc_max</span></code></p></td>
+<td><p>float</p></td>
+<td><p>0.70</p></td>
+<td><p>Maximum GC content</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">filters.max_homopolymer</span></code></p></td>
+<td><p>int</p></td>
+<td><p>4</p></td>
+<td><p>Max homopolymer run</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scoring.coherence_threshold</span></code></p></td>
+<td><p>float</p></td>
+<td><p>0.135</p></td>
+<td><p>IR coherence threshold</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">chromatin.source</span></code></p></td>
+<td><p>string</p></td>
+<td><p>None</p></td>
+<td><p>Chromatin data source</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h2>
+<section id="load-target-config-name-str-targetconfig">
+<h3><code class="docutils literal notranslate"><span class="pre">load_target_config(name:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">TargetConfig</span></code><a class="headerlink" href="#load-target-config-name-str-targetconfig" title="Link to this heading">#</a></h3>
+<p>Load a target configuration from YAML.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.targets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_target_config</span>
+
+<span class="n">scn2a</span> <span class="o">=</span> <span class="n">load_target_config</span><span class="p">(</span><span class="s2">&quot;SCN2A&quot;</span><span class="p">)</span>
+<span class="n">rai1</span> <span class="o">=</span> <span class="n">load_target_config</span><span class="p">(</span><span class="s2">&quot;RAI1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="list-available-targets-list-str">
+<h3><code class="docutils literal notranslate"><span class="pre">list_available_targets()</span> <span class="pre">-&gt;</span> <span class="pre">List[str]</span></code><a class="headerlink" href="#list-available-targets-list-str" title="Link to this heading">#</a></h3>
+<p>List all available target configurations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.targets</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_available_targets</span>
+
+<span class="n">targets</span> <span class="o">=</span> <span class="n">list_available_targets</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>  <span class="c1"># [&#39;RAI1&#39;, &#39;SCN2A&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="targetconfig">
+<h3><code class="docutils literal notranslate"><span class="pre">TargetConfig</span></code><a class="headerlink" href="#targetconfig" title="Link to this heading">#</a></h3>
+<p>Dataclass containing all target configuration.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TargetConfig</span><span class="p">:</span>
+    <span class="n">gene_symbol</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">genome_build</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">chrom</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">promoter_start</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">promoter_end</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">tss_genomic</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">crispr_pam</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">crispr_window</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="c1"># ... and more</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tss_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;TSS position as 0-based index within promoter.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tss_genomic</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">promoter_start</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="example-full-workflow">
+<h2>Example: Full Workflow<a class="headerlink" href="#example-full-workflow" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.targets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_target_config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.crispr</span><span class="w"> </span><span class="kn">import</span> <span class="n">design_guides</span><span class="p">,</span> <span class="n">GuideDesignConfig</span>
+
+<span class="c1"># 1. Load target</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">load_target_config</span><span class="p">(</span><span class="s2">&quot;SCN2A&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2. Fetch promoter sequence (your implementation)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">your_genome_lib</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_sequence</span>
+<span class="n">promoter_seq</span> <span class="o">=</span> <span class="n">fetch_sequence</span><span class="p">(</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">genome_build</span><span class="p">,</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">chrom</span><span class="p">,</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">promoter_start</span><span class="p">,</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">promoter_end</span>
+<span class="p">)</span>
+
+<span class="c1"># 3. Configure pipeline</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">GuideDesignConfig</span><span class="p">(</span>
+    <span class="n">pam</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">crispr_pam</span><span class="p">,</span>
+    <span class="n">crispr_window</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">crispr_window</span><span class="p">,</span>
+    <span class="n">min_gc</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">gc_min</span><span class="p">,</span>
+    <span class="n">max_gc</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">gc_max</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># 4. Design guides</span>
+<span class="n">guides</span> <span class="o">=</span> <span class="n">design_guides</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="o">=</span><span class="n">promoter_seq</span><span class="p">,</span>
+    <span class="n">tss_index</span><span class="o">=</span><span class="n">target</span><span class="o">.</span><span class="n">tss_index</span><span class="p">,</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">config</span>
+<span class="p">)</span>
+
+<span class="c1"># 5. View results</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">guides</span><span class="p">[[</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;coherence_R&#39;</span><span class="p">,</span> <span class="s1">&#39;go_no_go&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</section>
+<section id="supported-diseases">
+<h2>Supported Diseases<a class="headerlink" href="#supported-diseases" title="Link to this heading">#</a></h2>
+<section id="haploinsufficiency-disorders">
+<h3>Haploinsufficiency Disorders<a class="headerlink" href="#haploinsufficiency-disorders" title="Link to this heading">#</a></h3>
+<p>PhaseLab is particularly suited for disorders where:</p>
+<ul class="simple">
+<li><p>One gene copy is non-functional</p></li>
+<li><p>Boosting expression from the remaining allele is therapeutic</p></li>
+<li><p>CRISPRa can provide 50-200% increase in expression</p></li>
+</ul>
+<p>Current targets:</p>
+<ul class="simple">
+<li><p><strong>RAI1</strong> → Smith-Magenis Syndrome</p></li>
+<li><p><strong>SCN2A</strong> → Autism-linked NDD, epilepsy</p></li>
+</ul>
+</section>
+<section id="future-targets">
+<h3>Future Targets<a class="headerlink" href="#future-targets" title="Link to this heading">#</a></h3>
+<p>Candidates for future PhaseLab targets:</p>
+<ul class="simple">
+<li><p><strong>CHD8</strong> → Autism (SINEUP upregulation validated)</p></li>
+<li><p><strong>ASH1L</strong> → Autism-like phenotypes</p></li>
+<li><p><strong>SHANK3</strong> → Phelan-McDermid Syndrome</p></li>
+<li><p><strong>NRXN1</strong> → Autism, schizophrenia</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>See individual target YAML files in <code class="docutils literal notranslate"><span class="pre">src/phaselab/targets/</span></code> for complete configurations.</em></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-validated-modules-v0-3-0">Hardware-Validated Modules (v0.3.0)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-gene-targets">Available Gene Targets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validated-guide-candidates">Validated Guide Candidates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protein-structure-assessment-e202">Protein Structure Assessment (E202)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-tissue-circadian-e203">Multi-Tissue Circadian (E203)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chronotherapy-optimization-e204">Chronotherapy Optimization (E204)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-target">Adding a New Target</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-find-genomic-coordinates">Step 1: Find Genomic Coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-yaml-configuration">Step 2: Create YAML Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-load-and-use">Step 3: Load and Use</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-configuration-schema">Target Configuration Schema</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-fields">Required Fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-fields">Optional Fields</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-target-config-name-str-targetconfig"><code class="docutils literal notranslate"><span class="pre">load_target_config(name:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">TargetConfig</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-available-targets-list-str"><code class="docutils literal notranslate"><span class="pre">list_available_targets()</span> <span class="pre">-&gt;</span> <span class="pre">List[str]</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targetconfig"><code class="docutils literal notranslate"><span class="pre">TargetConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-full-workflow">Example: Full Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-diseases">Supported Diseases</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haploinsufficiency-disorders">Haploinsufficiency Disorders</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#future-targets">Future Targets</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
