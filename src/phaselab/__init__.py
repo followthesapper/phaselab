@@ -42,11 +42,37 @@ NEW in v0.6.1:
 - Evidence levels: A/B/C classification for validation status
 - Score capping: unvalidated guides capped to prevent misleading rankings
 
+NEW in v0.7.0 - Virtual Assay Stack:
+- Biological context layer: ATAC-seq, methylation, histone marks from ENCODE/Roadmap
+- ML outcome predictor protocol: adapters for DeepCRISPR, DeepSpCas9, Enformer
+- Evidence fusion system: hierarchical score combination with uncertainty
+- Score calibration: Platt/isotonic calibration for ML predictions
+- Enhanced GO/NO-GO: context-aware coherence thresholds
+
+NEW in v0.8.0 - Claim Levels and Diagnostics:
+- ClaimLevel classification: STRONG_COMPUTATIONAL, CONTEXT_DEPENDENT, EXPLORATORY, UNKNOWN
+- Layer disagreement detection: diagnostic warnings when ML and context disagree
+- Explicit unknown bucket: predictions with insufficient evidence marked as UNKNOWN
+- Human-readable claim descriptions for user communication
+- Critical disagreement flagging for conflicting evidence
+
+NEW in v0.9.0 - SMS Trials Module (Preclinical Decision Engine):
+- CRISPRa RAI1 activation trial for SMS therapeutic development
+- CRISPRi modifier gene suppression trials (PER1, CRY1, CLOCK)
+- Knockout model validation trials
+- Base editing trials for RAI1 variant correction
+- Prime editing trials for regulatory motif repair
+- Circadian rescue simulation with therapeutic window prediction
+- AAV delivery feasibility assessment for CNS targeting
+- Complete SMS pipeline orchestrator with GO/NO-GO decisions
+- Falsification test framework for validation studies
+- Wet lab recommendations and validation priorities
+
 Author: Dylan Vaca
 License: MIT
 """
 
-__version__ = "0.6.1"
+__version__ = "0.9.0"
 __author__ = "Dylan Vaca"
 
 from .core.coherence import coherence_score, go_no_go, phase_variance
@@ -79,6 +105,15 @@ from .integrations.crispor.offtarget_ir import (
     compute_ir_enhanced_score,
 )
 
+# Evidence fusion (v0.7.0) and claim levels (v0.8.0)
+from .fusion import (
+    ClaimLevel,
+    LayerDisagreement,
+    EvidenceFusion,
+    FusedResult,
+    FusionConfig,
+)
+
 __all__ = [
     # Core coherence
     "coherence_score",
@@ -108,4 +143,11 @@ __all__ = [
     "OffTargetIRAnalysis",
     "analyze_offtarget_landscape",
     "compute_ir_enhanced_score",
+
+    # Evidence fusion and claim levels (v0.7.0, v0.8.0)
+    "ClaimLevel",
+    "LayerDisagreement",
+    "EvidenceFusion",
+    "FusedResult",
+    "FusionConfig",
 ]
