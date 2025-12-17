@@ -8,7 +8,7 @@ into a single interface for CRISPR guide scoring.
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
-from typing import Optional, Dict, List, Any
+from typing import Optional, Dict, List, Any, Union
 import logging
 
 import numpy as np
@@ -222,7 +222,7 @@ class ContextStack:
 
     def __init__(
         self,
-        cell_type: CellType | str = CellType.K562,
+        cell_type: Union[CellType, str] = CellType.K562,
         cache_dir: Optional[Path] = None,
         lazy_load: bool = True,
     ):
