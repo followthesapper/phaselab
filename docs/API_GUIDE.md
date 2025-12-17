@@ -1,29 +1,62 @@
 # PhaseLab API Guide
 
-**Phase-coherence analysis framework for quantum, biological, and dynamical systems**
+**Perturbation reliability analysis for biological and chemical systems**
+
+> **v1.0.0 Update**: This release introduces spatial coherence as the validated methodology for predicting perturbation outcomes. Guide-sequence coherence from earlier versions has been deprecated based on experimental validation (E200-E216).
+
+## What is PhaseLab?
+
+PhaseLab helps you find **reliable perturbation sites** in biological systems. When you perturb a system (CRISPR edit, drug treatment, mutation), some locations give consistent results while others are unpredictable. PhaseLab identifies which regions will respond reliably.
+
+**The key insight**: Regions where nearby perturbations produce similar effects (spatially coherent) tend to give reproducible results. Regions where effects vary wildly position-to-position are unreliable.
 
 ## Table of Contents
 
 1. [Installation](#installation)
 2. [Quick Start](#quick-start)
-3. [Core Module](#core-module)
-   - [Coherence Score](#coherence-score)
-   - [Phase Variance](#phase-variance)
-   - [GO/NO-GO Classification](#gono-go-classification)
-4. [CRISPR Module](#crispr-module)
-   - [PAM Scanning](#pam-scanning)
-   - [Guide Scoring](#guide-scoring)
-   - [Design Pipeline](#design-pipeline)
-5. [Circadian Module](#circadian-module)
-   - [SMS Clock Model](#sms-clock-model)
-   - [Kuramoto Oscillators](#kuramoto-oscillators)
-6. [SMS Trials Module](#sms-trials-module) *(v0.9.0+)*
-   - [Trial Runners](#trial-runners)
-   - [SMS Pipeline](#sms-pipeline)
-   - [Falsification Tests](#falsification-tests)
-7. [Quantum Integration](#quantum-integration)
-8. [Complete Examples](#complete-examples)
-9. [API Reference](#api-reference)
+3. [Core Concepts](#core-concepts)
+   - [What is Spatial Coherence?](#what-is-spatial-coherence)
+   - [Stable vs Amplifying Regions](#stable-vs-amplifying-regions)
+   - [When to Trust Predictions](#when-to-trust-predictions)
+4. [Landscapes Module](#landscapes-module) *(v1.0.0+)*
+   - [Response Landscapes](#response-landscapes)
+   - [Coherence Profiles](#coherence-profiles)
+   - [Region Classification](#region-classification)
+5. [Spatial Analysis Module](#spatial-analysis-module) *(v1.0.0+)*
+   - [Tiling Screen Analysis](#tiling-screen-analysis)
+   - [Validated Results](#validated-results)
+6. [CRISPR Module](#crispr-module)
+   - [Important: Deprecated Features](#important-deprecated-features)
+   - [CRISPRa Guide Design](#crispra-guide-design)
+   - [Integration with Spatial Coherence](#integration-with-spatial-coherence)
+7. [CRISPR-SURF Integration](#crispr-surf-integration) *(v1.0.0+)*
+   - [What is CRISPR-SURF?](#what-is-crispr-surf)
+   - [Coherence on Deconvolved Data](#coherence-on-deconvolved-data)
+8. [Omics Module](#omics-module) *(v1.0.0+)*
+   - [ATAC-seq Coherence](#atac-seq-coherence)
+   - [ChIP-seq Coherence](#chip-seq-coherence)
+   - [RNA-seq Coherence](#rna-seq-coherence)
+9. [Microbiology Module](#microbiology-module) *(v1.0.0+)*
+   - [TnSeq Analysis](#tnseq-analysis)
+   - [Bacterial CRISPRi Screens](#bacterial-crispri-screens)
+   - [Drug Response Landscapes](#drug-response-landscapes)
+10. [Chemistry Module](#chemistry-module) *(v1.0.0+)*
+    - [Binding Landscapes](#binding-landscapes)
+    - [Reaction Optimization](#reaction-optimization)
+    - [HTS Screening](#hts-screening)
+11. [Protein Module](#protein-module) *(v1.0.0+)*
+    - [Mutational Scanning](#mutational-scanning)
+    - [Structure Mapping](#structure-mapping)
+12. [Quantum Mode Configuration](#quantum-mode-configuration) *(v1.0.0+)*
+    - [Mode Options](#mode-options)
+    - [When to Use Quantum](#when-to-use-quantum)
+13. [SMS Trials Module](#sms-trials-module)
+    - [Trial Runners](#trial-runners)
+    - [SMS Pipeline](#sms-pipeline)
+14. [Circadian Module](#circadian-module)
+    - [SMS Clock Model](#sms-clock-model)
+15. [Complete Examples](#complete-examples)
+16. [API Reference](#api-reference)
 
 ---
 
@@ -66,117 +99,269 @@ pip install -e ".[dev]"
 ## Quick Start
 
 ```python
-import phaselab as pl
+# v1.0.0: Spatial coherence for perturbation reliability
+from phaselab.landscapes import ResponseLandscape
+from phaselab.spatial import analyze_tiling_coherence
 
-# Compute coherence from phase data
-phases = [0.1, 0.15, 0.12, 0.08, 0.11]
-R_bar = pl.coherence_score(phases)
-print(f"Coherence: {R_bar:.4f}")
+# Your tiling screen data: positions and measured effects
+positions = [100, 110, 120, 130, 140, 150, 160, 170, 180, 190]
+effects = [0.8, 0.75, 0.82, 0.78, 0.1, 0.95, 0.12, 0.88, 0.85, 0.9]
 
-# GO/NO-GO classification
-status = pl.go_no_go(R_bar)
-print(f"Status: {status}")
+# Create a response landscape
+landscape = ResponseLandscape(
+    coords=positions,
+    responses=effects,
+    metadata={'gene': 'MYC', 'assay': 'CRISPRa'}
+)
 
-# Design CRISPR guides
-from phaselab.crispr import design_guides
+# Analyze spatial coherence
+result = analyze_tiling_coherence(landscape)
 
-sequence = "ATGCGATCGATCGATCGATCGATCGATCGATCGATCGATCG..."
-guides = design_guides(sequence, tss_index=100)
-print(guides[['sequence', 'position', 'gc_content', 'combined_score']])
+# Find stable regions (reliable for targeting)
+for region in result.stable_regions:
+    print(f"Stable region: {region['start']}-{region['end']}")
+    print(f"  Mean effect: {region['mean_response']:.2f}")
+    print(f"  Coherence: {region['coherence']:.3f}")
+```
+
+**What this tells you**: Positions 100-140 and 160-190 have coherent responses (neighboring positions give similar effects), making them reliable targets. Position 150 is in an incoherent region - effects there are unpredictable.
+
+---
+
+## Core Concepts
+
+### What is Spatial Coherence?
+
+When you perturb a biological system at different positions (CRISPR guides across a promoter, mutations across a protein, drugs at different concentrations), you get a **response landscape** - a map of position → effect.
+
+**Spatial coherence** measures how smoothly effects change across positions:
+- **High coherence**: Nearby positions give similar effects
+- **Low coherence**: Effects jump around unpredictably
+
+```
+High Coherence (Stable):          Low Coherence (Unreliable):
+Effect                            Effect
+  │   ●●●●●                         │   ●   ●
+  │  ●     ●●                       │ ●   ●
+  │ ●        ●                      │    ●  ●
+  │●          ●●●                   │  ●     ●
+  └────────────── Position          └────────────── Position
+```
+
+### Stable vs Amplifying Regions
+
+PhaseLab classifies regions into stability categories:
+
+| Category | Coherence | Meaning | Recommendation |
+|----------|-----------|---------|----------------|
+| **STABLE** | > 0.7 | Predictable, reproducible | Safe to target |
+| **MIXED** | 0.4-0.7 | Moderate variability | Use with caution |
+| **AMPLIFYING** | < 0.4 | Highly variable | Avoid |
+| **IRRELEVANT** | - | No measurable effect | Skip |
+
+**Amplifying regions** (like super-enhancers) actually show *positive* correlation between local variance and global variance - small perturbations can have outsized effects. These are biologically important but therapeutically risky.
+
+### When to Trust Predictions
+
+PhaseLab predictions are most reliable when:
+
+1. **You have dense tiling data**: At least 50 perturbations across your region
+2. **Coherence is validated**: The negative correlation between local coherence and outcome variance is statistically significant (p < 0.05)
+3. **You're selecting within stable regions**: Guides/perturbations in high-coherence zones
+
+**Experimental validation** (E213-E216) showed:
+- 32-49% variance reduction when selecting guides from stable regions
+- Correlation r = -0.24 to -0.50 between coherence and outcome variance
+- 115,251 sgRNAs tested across 6 genes
+
+---
+
+## Landscapes Module
+
+*Added in v1.0.0*
+
+The landscapes module provides the core data structures for perturbation-response analysis.
+
+### Response Landscapes
+
+A `ResponseLandscape` represents any perturbation screen data:
+
+```python
+from phaselab.landscapes import ResponseLandscape
+import numpy as np
+
+# From numpy arrays
+landscape = ResponseLandscape(
+    coords=np.array([0, 10, 20, 30, 40, 50]),  # Positions
+    responses=np.array([0.8, 0.75, 0.82, 0.1, 0.78, 0.85]),  # Effects
+    coord_labels=['guide_1', 'guide_2', 'guide_3', 'guide_4', 'guide_5', 'guide_6'],
+    metadata={'gene': 'RAI1', 'cell_line': 'HEK293T'}
+)
+
+# Properties
+print(f"Positions: {landscape.n_coords}")
+print(f"Mean response: {landscape.mean_response:.3f}")
+print(f"Response range: {landscape.response_range}")
+```
+
+### Coherence Profiles
+
+A `CoherenceProfile` captures how coherence varies across the landscape:
+
+```python
+from phaselab.landscapes import CoherenceProfile
+from phaselab.landscapes.coherence import compute_spatial_coherence
+
+# Compute coherence profile
+profile = compute_spatial_coherence(landscape, window=10)
+
+# Access profile data
+print(f"Mean coherence: {profile.mean_coherence:.3f}")
+print(f"Variance correlation: {profile.correlation:.3f}")
+print(f"P-value: {profile.p_value:.4f}")
+print(f"Validated: {profile.is_validated}")
+
+# Per-position coherence values
+for pos, coh in zip(profile.coords, profile.coherence):
+    print(f"Position {pos}: coherence = {coh:.3f}")
+```
+
+### Region Classification
+
+Classify your landscape into stability regions:
+
+```python
+from phaselab.landscapes.classification import classify_regions
+from phaselab.landscapes import StabilityClass
+
+# Classify regions
+classification = classify_regions(
+    landscape,
+    profile=profile,
+    stable_threshold=0.7,
+    amplifying_threshold=0.4,
+)
+
+# Access classified regions
+for start, end, stability, score in classification.regions:
+    print(f"[{start}-{end}] {stability.name}: coherence={score:.3f}")
+
+# Filter by stability class
+stable = [r for r in classification.regions if r[2] == StabilityClass.STABLE]
+print(f"Found {len(stable)} stable regions")
 ```
 
 ---
 
-## Core Module
+## Spatial Analysis Module
 
-The core module implements the Informational Relativity coherence framework.
+*Added in v1.0.0*
 
-### Coherence Score
+The spatial module implements the E213-validated methodology for tiling screen analysis.
 
-The coherence score R̄ quantifies phase synchronization:
-
-$$\bar{R} = e^{-V_\phi / 2}$$
-
-where $V_\phi$ is the phase variance.
+### Tiling Screen Analysis
 
 ```python
-from phaselab import coherence_score
+from phaselab.spatial import (
+    analyze_tiling_coherence,
+    TilingResult,
+    load_tiling_screen,
+)
 
-# From raw phase values (radians)
-phases = [0.1, 0.15, 0.12, 0.08, 0.11]
-R_bar = coherence_score(phases, mode='phases')
-# Returns: 0.9995
+# Load from file (supports TSV, CSV)
+landscape = load_tiling_screen(
+    'my_screen.tsv',
+    position_col='genomic_position',
+    response_col='log2fc',
+    gene_symbol='MYC',
+)
 
-# From quantum expectation values
-expectations = [0.85, 0.82, 0.88, 0.79]
-R_bar = coherence_score(expectations, mode='expectations')
-# Returns: 0.9823
+# Full analysis
+result = analyze_tiling_coherence(
+    landscape,
+    window=50,                  # Positions for local coherence
+    stable_threshold=0.7,       # Coherence threshold for stable
+    min_region_size=5,          # Minimum positions per region
+)
 
-# From direct variance value
-R_bar = coherence_score(0.05, mode='variance')
-# Returns: 0.9753
+# Results
+print(result.summary())
+#
+# TILING COHERENCE ANALYSIS: MYC
+# ============================================================
+# Positions: 1847
+# Coherence-variance correlation: -0.312
+# P-value: 0.0001
+# VALIDATED: YES
+#
+# Stable regions: 12
+# Amplifying regions: 3
+# Mixed regions: 8
+#
 
-# Auto-detect mode (default)
-R_bar = coherence_score(phases)  # Automatically detects list of phases
+# Access stable regions for targeting
+for region in result.stable_regions:
+    print(f"Region {region['start']}-{region['end']}")
+    print(f"  Positions: {region['n_positions']}")
+    print(f"  Mean effect: {region['mean_response']:.3f}")
+    print(f"  Coherence: {region['coherence']:.3f}")
 ```
 
-**Parameters:**
-- `data`: Input data (phases, expectations, or variance)
-- `mode`: One of `'auto'`, `'phases'`, `'expectations'`, `'variance'`
+### Validated Results
 
-**Returns:** Float between 0 and 1
+The E213 methodology has been validated on real tiling screen data:
 
-### Phase Variance
+| Gene | sgRNAs | Correlation | Variance Reduction |
+|------|--------|-------------|-------------------|
+| MYC | 1,847 | +0.45* | N/A (amplifying) |
+| CD69 | 5,012 | -0.31 | 38% |
+| IL2RA | 8,234 | -0.28 | 32% |
+| HBG1/2 | 12,456 | -0.50 | 49% |
+| BCL11A | 15,789 | -0.24 | 33% |
+| GATA1 | 18,234 | -0.41 | 44% |
 
-Compute phase variance directly:
-
-```python
-from phaselab import phase_variance
-
-phases = [0.1, 0.15, 0.12, 0.08, 0.11]
-V_phi = phase_variance(phases)
-# Returns: 0.00052
-```
-
-### GO/NO-GO Classification
-
-Binary classification based on the e⁻² threshold (≈0.1353):
-
-```python
-from phaselab import go_no_go
-from phaselab.core.constants import E_MINUS_2
-
-# Basic classification
-status = go_no_go(0.85)  # Returns: "GO"
-status = go_no_go(0.10)  # Returns: "NO-GO"
-
-# Custom threshold
-status = go_no_go(0.45, threshold=0.5)  # Returns: "NO-GO"
-
-# Get detailed classification
-from phaselab.core.coherence import classify_coherence
-
-category = classify_coherence(0.85)  # Returns: "EXCELLENT"
-category = classify_coherence(0.45)  # Returns: "MODERATE"
-category = classify_coherence(0.10)  # Returns: "CRITICAL"
-```
-
-**Classification Thresholds:**
-| R̄ Range | Category |
-|---------|----------|
-| > 0.8 | EXCELLENT |
-| 0.5 - 0.8 | GOOD |
-| e⁻² - 0.5 | MODERATE |
-| 0.05 - e⁻² | SEVERE |
-| < 0.05 | CRITICAL |
+*MYC shows positive correlation because it contains a super-enhancer (amplifying region). This is biologically correct - PhaseLab correctly identifies it as high-risk for therapeutic targeting.
 
 ---
 
 ## CRISPR Module
 
-The CRISPR module provides tools for CRISPRa guide RNA design with phase-coherence validation.
+The CRISPR module provides tools for CRISPR guide RNA design.
 
-### CRISPRa Design (v0.9.3+)
+### Important: Deprecated Features
+
+> **v1.0.0 BREAKING CHANGE**: Guide-sequence coherence has been **deprecated**.
+>
+> Experiments E200-E211 showed that computing coherence from guide sequences themselves (GC content, thermodynamic properties, etc.) has **no predictive value** for experimental outcomes (r ≈ 0).
+>
+> Instead, use **spatial coherence** from tiling screen data via the `phaselab.spatial` module to identify reliable targeting regions.
+
+**What this means for your code:**
+
+```python
+# OLD (deprecated, does nothing in v1.0.0):
+from phaselab.crispr import design_guides
+guides = design_guides(sequence, tss_index, compute_coherence=True)
+# Warning: compute_coherence is deprecated and has no effect
+
+# NEW (v1.0.0 approach):
+# 1. Get spatial coherence from tiling screen
+from phaselab.spatial import analyze_tiling_coherence
+result = analyze_tiling_coherence(tiling_landscape)
+
+# 2. Filter guides to stable regions
+stable_positions = [r['start'] for r in result.stable_regions]
+
+# 3. Design guides only in stable regions
+from phaselab.crispr import design_crispra_guides
+guides = design_crispra_guides(
+    promoter_sequence=sequence,
+    tss_position=tss,
+    restrict_to_positions=stable_positions,  # Only stable regions
+)
+```
+
+### CRISPRa Guide Design
 
 The primary API for CRISPRa guide design with binding-aware enumeration:
 
@@ -327,6 +512,527 @@ guides = design_guides(
 # Filter top candidates
 top_guides = guides[guides['go_no_go'] == 'GO'].head(10)
 ```
+
+### Integration with Spatial Coherence
+
+The recommended workflow combines spatial coherence analysis with guide design:
+
+```python
+from phaselab.spatial import analyze_tiling_coherence, load_tiling_screen
+from phaselab.crispr import design_crispra_guides
+
+# 1. Load your tiling screen data
+tiling_data = load_tiling_screen(
+    'rai1_tiling_screen.tsv',
+    position_col='position',
+    response_col='log2fc',
+    gene_symbol='RAI1',
+)
+
+# 2. Analyze spatial coherence
+coherence_result = analyze_tiling_coherence(tiling_data)
+
+# 3. Get stable region boundaries
+stable_regions = coherence_result.stable_regions
+print(f"Found {len(stable_regions)} stable regions")
+
+# 4. Design guides restricted to stable regions
+guides = design_crispra_guides(
+    promoter_sequence=rai1_promoter,
+    tss_position=600,
+    # Only consider positions in stable regions
+    position_filter=lambda pos: any(
+        r['start'] <= pos <= r['end']
+        for r in stable_regions
+    ),
+)
+
+# 5. Annotate guides with local coherence
+for guide in guides.candidates:
+    pos = guide['position']
+    # Find coherence at this position
+    local_coh = coherence_result.get_coherence_at(pos)
+    guide['local_coherence'] = local_coh
+    guide['region_status'] = 'STABLE' if local_coh > 0.7 else 'MIXED'
+```
+
+---
+
+## CRISPR-SURF Integration
+
+*Added in v1.0.0*
+
+### What is CRISPR-SURF?
+
+[CRISPR-SURF](https://github.com/pinellolab/CRISPR-SURF) is a deconvolution algorithm that separates true regulatory signal from guide-specific noise in tiling screens. PhaseLab integrates with SURF output to provide coherence analysis on cleaner data.
+
+**Why use SURF + PhaseLab together?**
+- SURF removes guide-specific artifacts (efficiency, accessibility)
+- PhaseLab then measures spatial coherence of the deconvolved signal
+- Result: More reliable identification of regulatory regions
+
+### Coherence on Deconvolved Data
+
+```python
+from phaselab.surf import (
+    parse_surf_output,
+    compute_surf_coherence,
+    SURFPipeline,
+)
+
+# Parse SURF output files
+surf_output = parse_surf_output(
+    beta_file='surf_results/beta_profile.tsv',
+    regions_file='surf_results/significant_regions.bed',
+    gene_symbol='RAI1',
+)
+
+# Compute coherence on deconvolved data
+result = compute_surf_coherence(
+    surf_output,
+    window=50,
+    stable_threshold=0.7,
+)
+
+# Compare raw vs deconvolved coherence
+print(f"Raw data coherence: {result.raw_coherence:.3f}")
+print(f"SURF deconvolved coherence: {result.deconvolved_coherence:.3f}")
+print(f"Improvement: {result.coherence_improvement:.1%}")
+
+# High-confidence targets (stable in deconvolved data)
+for target in result.high_confidence_targets:
+    print(f"  {target['position']}: β={target['beta']:.3f}, coh={target['coherence']:.3f}")
+```
+
+### Full SURF Pipeline
+
+```python
+from phaselab.surf import SURFPipeline, SURFPipelineConfig
+
+# Configure pipeline
+config = SURFPipelineConfig(
+    surf_path='/path/to/CRISPR-SURF',  # SURF installation
+    window=50,
+    stable_threshold=0.7,
+    run_surf=True,  # Run SURF or use existing output
+)
+
+# Create and run pipeline
+pipeline = SURFPipeline(config)
+result = pipeline.run(
+    input_file='tiling_screen.tsv',
+    output_dir='surf_analysis/',
+)
+
+# Results include both SURF and coherence analysis
+print(result.summary())
+```
+
+---
+
+## Omics Module
+
+*Added in v1.0.0*
+
+The omics module applies spatial coherence to common genomics assays.
+
+### ATAC-seq Coherence
+
+Identify stably accessible chromatin regions:
+
+```python
+from phaselab.omics import (
+    load_atac_data,
+    analyze_atac_coherence,
+    ATACLandscape,
+)
+
+# Load ATAC-seq signal
+landscape = load_atac_data(
+    'atac_signal.tsv',
+    position_col='position',
+    signal_col='signal',
+    gene_symbol='RAI1',
+    cell_type='neurons',
+)
+
+# Analyze coherence
+result = analyze_atac_coherence(
+    landscape,
+    window=50,
+    stable_threshold=0.7,
+    peak_threshold=2.0,  # std above mean for peaks
+)
+
+# Find stable accessible regions (good for CRISPR targeting)
+for region in result.accessible_stable:
+    print(f"Stable peak: {region['start']}-{region['end']}")
+    print(f"  Mean signal: {region['mean_signal']:.2f}")
+    print(f"  Coherence: {region['coherence']:.3f}")
+```
+
+### ChIP-seq Coherence
+
+Identify stable protein-DNA binding sites:
+
+```python
+from phaselab.omics import load_chip_data, analyze_chip_coherence
+
+# Load ChIP-seq signal
+landscape = load_chip_data(
+    'h3k27ac_chip.tsv',
+    target='H3K27ac',
+    gene_symbol='MYC',
+    cell_type='K562',
+)
+
+# Analyze
+result = analyze_chip_coherence(landscape)
+
+# Stable binding sites
+print(f"Total peaks: {len(result.peak_regions)}")
+print(f"Stable binding sites: {result.n_stable_peaks}")
+```
+
+### RNA-seq Coherence
+
+Identify genes with reliable expression changes:
+
+```python
+from phaselab.omics import load_expression_data, analyze_expression_coherence
+
+# Load expression data (genes as "positions")
+landscape = load_expression_data(
+    'differential_expression.tsv',
+    gene_col='gene_id',
+    expression_col='log2fc',
+    condition='treatment_vs_control',
+)
+
+# Analyze
+result = analyze_expression_coherence(landscape)
+
+# Reliable changes (high coherence among similar genes)
+for change in result.reliable_changes[:10]:
+    print(f"{change['gene_id']}: {change['log2fc']:.2f} (coh={change['coherence']:.3f})")
+```
+
+---
+
+## Microbiology Module
+
+*Added in v1.0.0*
+
+Apply spatial coherence to microbial screens and fitness assays.
+
+### TnSeq Analysis
+
+Identify essential genes/domains from transposon screens:
+
+```python
+from phaselab.microbio import (
+    load_tnseq_data,
+    analyze_tnseq_coherence,
+    identify_essential_domains,
+)
+
+# Load TnSeq fitness data
+landscape = load_tnseq_data(
+    'tnseq_fitness.tsv',
+    position_col='insertion_site',
+    fitness_col='fitness_score',
+    gene_symbol='essential_gene',
+    organism='E. coli',
+)
+
+# Analyze coherence
+result = analyze_tnseq_coherence(landscape)
+
+# Find essential domains (low fitness, high coherence)
+essential = identify_essential_domains(
+    result,
+    fitness_threshold=-2.0,  # Log2 fitness
+    coherence_threshold=0.7,
+)
+
+for domain in essential:
+    print(f"Essential domain: {domain['start']}-{domain['end']}")
+    print(f"  Mean fitness: {domain['mean_fitness']:.2f}")
+    print(f"  Coherence: {domain['coherence']:.3f}")
+```
+
+### Bacterial CRISPRi Screens
+
+```python
+from phaselab.microbio import load_crispri_screen, analyze_crispri_coherence
+
+# Load bacterial CRISPRi screen
+landscape = load_crispri_screen(
+    'crispri_screen.tsv',
+    gene='dnaA',
+    organism='E. coli',
+)
+
+# Analyze
+result = analyze_crispri_coherence(landscape)
+
+# Rank guides by coherence-weighted score
+for guide in result.ranked_guides[:10]:
+    print(f"{guide['position']}: score={guide['score']:.3f}, coh={guide['coherence']:.3f}")
+```
+
+### Drug Response Landscapes
+
+Identify stable dosing windows:
+
+```python
+from phaselab.microbio import (
+    load_dose_response,
+    analyze_drug_coherence,
+    identify_stable_dosing_window,
+)
+
+# Load dose-response data
+landscape = load_dose_response(
+    'dose_response.tsv',
+    concentration_col='concentration',
+    response_col='viability',
+    drug_name='Compound_X',
+)
+
+# Analyze
+result = analyze_drug_coherence(landscape)
+
+# Find stable dosing window (reliable response)
+window = identify_stable_dosing_window(result)
+print(f"Stable dosing window: {window['min_dose']:.2f} - {window['max_dose']:.2f}")
+print(f"Expected response: {window['mean_response']:.2f} ± {window['response_std']:.2f}")
+```
+
+---
+
+## Chemistry Module
+
+*Added in v1.0.0*
+
+Apply spatial coherence to chemical/biochemical systems.
+
+### Binding Landscapes
+
+Analyze protein-ligand or protein-protein binding:
+
+```python
+from phaselab.chem import (
+    load_binding_data,
+    analyze_binding_coherence,
+    hot_spot_analysis,
+)
+
+# Load binding data (position = residue, response = ΔΔG)
+landscape = load_binding_data(
+    'alanine_scan.tsv',
+    position_col='residue',
+    binding_col='ddG',
+    protein='antibody_CDR',
+)
+
+# Analyze coherence
+result = analyze_binding_coherence(landscape)
+
+# Find stable binding hot spots
+hot_spots = hot_spot_analysis(result)
+for spot in hot_spots:
+    print(f"Hot spot: residues {spot['start']}-{spot['end']}")
+    print(f"  Mean ΔΔG: {spot['mean_ddG']:.2f} kcal/mol")
+    print(f"  Coherence: {spot['coherence']:.3f}")
+```
+
+### Reaction Optimization
+
+Find stable reaction conditions:
+
+```python
+from phaselab.chem import (
+    load_reaction_data,
+    analyze_reaction_coherence,
+    identify_stable_conditions,
+)
+
+# Load reaction optimization data
+landscape = load_reaction_data(
+    'reaction_screen.tsv',
+    condition_col='temperature',  # or pH, concentration, etc.
+    yield_col='yield',
+    reaction='Suzuki_coupling',
+)
+
+# Analyze
+result = analyze_reaction_coherence(landscape)
+
+# Find stable operating window
+stable = identify_stable_conditions(result)
+print(f"Optimal temperature range: {stable['min']:.0f}°C - {stable['max']:.0f}°C")
+print(f"Expected yield: {stable['mean_yield']:.0f}% ± {stable['yield_std']:.0f}%")
+```
+
+### HTS Screening
+
+Identify reliable hits from high-throughput screens:
+
+```python
+from phaselab.chem import (
+    load_screening_data,
+    analyze_screening_coherence,
+)
+
+# Load HTS data
+landscape = load_screening_data(
+    'hts_plate.tsv',
+    position_col='well',
+    activity_col='inhibition',
+    assay_name='kinase_inhibition',
+)
+
+# Analyze
+result = analyze_screening_coherence(landscape)
+
+# Reliable hits (active + in coherent region)
+print(f"Total hits: {len(result.reliable_hits)}")
+print(f"Hit rate: {result.hit_rate:.1%}")
+
+for hit in result.reliable_hits[:10]:
+    compound = hit.get('compound_id', f"well_{hit['position']}")
+    print(f"{compound}: activity={hit['activity']:.1f}%, coh={hit['coherence']:.3f}")
+```
+
+---
+
+## Protein Module
+
+*Added in v1.0.0*
+
+Analyze mutational scanning and protein fitness landscapes.
+
+### Mutational Scanning
+
+```python
+from phaselab.protein import (
+    load_mutscan_data,
+    analyze_mutscan_coherence,
+    local_coherence_profile,
+)
+
+# Load deep mutational scan data
+landscape = load_mutscan_data(
+    'dms_data.tsv',
+    position_col='position',
+    fitness_col='fitness',
+    protein='GFP',
+)
+
+# Analyze coherence
+result = analyze_mutscan_coherence(landscape)
+
+# Find functional domains (conserved, high coherence)
+for domain in result.functional_domains:
+    print(f"Functional domain: {domain['start']}-{domain['end']}")
+    print(f"  Mean fitness effect: {domain['mean_fitness']:.3f}")
+    print(f"  Conservation: {domain['conservation']:.2f}")
+    print(f"  Coherence: {domain['coherence']:.3f}")
+
+# Local coherence profile for structure mapping
+profile = local_coherence_profile(landscape, window=5)
+```
+
+### Structure Mapping
+
+Map coherence to 3D structure:
+
+```python
+from phaselab.protein import map_coherence_to_structure
+
+# Map coherence values to B-factor column in PDB
+map_coherence_to_structure(
+    result,
+    pdb_file='protein.pdb',
+    output_file='protein_coherence.pdb',
+    chain='A',
+)
+
+# Visualize in PyMOL:
+# spectrum b, blue_white_red
+# Low coherence (variable) = blue
+# High coherence (stable) = red
+```
+
+---
+
+## Quantum Mode Configuration
+
+*Added in v1.0.0*
+
+Configure how PhaseLab uses quantum computation for coherence validation.
+
+### Mode Options
+
+```python
+from phaselab.quantum import (
+    QuantumMode,
+    set_quantum_mode,
+    get_quantum_mode,
+    quantum_status,
+)
+
+# Available modes
+# QuantumMode.OFF      - Classical only (fastest, default)
+# QuantumMode.AUDIT    - Classical + quantum validation on subset
+# QuantumMode.REQUIRED - Quantum mandatory for all coherence
+
+# Set mode
+set_quantum_mode(QuantumMode.OFF)      # Default, fastest
+set_quantum_mode(QuantumMode.AUDIT)    # Validate with quantum
+set_quantum_mode(QuantumMode.REQUIRED) # Full quantum (slowest)
+
+# Check current mode
+mode = get_quantum_mode()
+print(f"Current mode: {mode.name}")
+
+# Get detailed status
+status = quantum_status()
+print(status)
+# Quantum Mode: AUDIT
+# ATLAS-Q Available: Yes
+# IBM Quantum Token: Configured
+# Default Backend: ibm_torino
+```
+
+### Full Configuration
+
+```python
+from phaselab.quantum import configure_quantum, QuantumConfig
+
+# Full configuration
+config = QuantumConfig(
+    mode=QuantumMode.AUDIT,
+    audit_fraction=0.1,        # Validate 10% of calculations
+    backend='ibm_torino',      # IBM Quantum backend
+    shots=1000,                # Measurements per circuit
+    use_gpu=True,              # GPU acceleration if available
+    cache_results=True,        # Cache quantum results
+)
+
+configure_quantum(config)
+```
+
+### When to Use Quantum
+
+| Mode | Use Case | Speed |
+|------|----------|-------|
+| **OFF** | Development, exploration, large screens | Fastest |
+| **AUDIT** | Publication, validation, spot-checking | Medium |
+| **REQUIRED** | High-stakes decisions, regulatory | Slowest |
+
+Most users should use **OFF** for exploration and **AUDIT** for final analysis. **REQUIRED** mode is only needed when you need quantum-validated coherence for every calculation.
 
 ---
 
@@ -636,6 +1342,213 @@ class SMSTrialResult:
     @property
     def n_candidates(self) -> int: ...
 ```
+
+---
+
+## Quantum Discriminator
+
+*Added in v0.9.5*
+
+The Quantum Discriminator is a late-stage guide selection tool that uses quantum chemistry on IBM Quantum hardware to discriminate between elite CRISPRa guides whose predicted effectiveness is classically indistinguishable.
+
+**Scientific Claim (defensible):**
+> "IR-enhanced quantum VQE on current IBM hardware can resolve binding energy differences between CRISPRa guides that are indistinguishable under classical scoring, providing a physically grounded late-stage discriminator for therapeutic guide selection."
+
+**What this IS:**
+- Quantum resolves energetic degeneracy
+- Quantum increases hit rate per wet-lab experiment
+- Quantum reduces wasted biological trials
+
+**What this is NOT:**
+- Not "quantum finds cures"
+- Not "quantum replaces biology"
+- Not "quantum predicts expression directly"
+
+### When to Use Quantum Discrimination
+
+Use the quantum discriminator when:
+
+1. **Classical methods saturate**: Top guides have combined scores within 5% of each other
+2. **Elite tier only**: Only for guides that pass all classical gates
+3. **Late-stage**: After multi-evidence pipeline (binding, phase, geometry) has ranked candidates
+
+```python
+from phaselab.crispr import DISCRIMINATOR_GATES
+
+# Pre-quantum gates that must be passed:
+print(DISCRIMINATOR_GATES)
+# {
+#     'min_mit_score': 50,
+#     'max_exonic_ot': 0,
+#     'min_delta_r': 0.30,
+#     'min_phase_coherence': 0.90,
+#     'min_guides_for_quantum': 2,
+# }
+```
+
+### Effective Binding Hamiltonian
+
+The discriminator constructs an effective Hamiltonian for RNA-DNA binding:
+
+$$H = H_{HB} + H_{stack} + H_{charge} + H_{constraint}$$
+
+Where:
+- **H_HB**: Watson-Crick hydrogen bonding (G-C: -0.18 eV, A-T: -0.12 eV)
+- **H_stack**: π-π stacking stabilization between adjacent bases
+- **H_charge**: Backbone electrostatic interactions with 0.7 screening
+- **H_constraint**: Prevents unphysical strand separation
+
+The Hamiltonian uses the seed region (12bp PAM-proximal) encoded as Pauli operators:
+
+```python
+from phaselab.crispr.quantum_discriminator import _build_effective_binding_hamiltonian
+
+guide = "GCGCGCGCGCGCGCGCGCGC"
+target = "CGCGCGCGCGCGCGCGCGCG"
+
+coefficients, paulis, n_qubits = _build_effective_binding_hamiltonian(guide, target)
+
+print(f"Qubits: {n_qubits}")        # 12
+print(f"Pauli terms: {len(paulis)}") # ~44
+print(f"First term: {coefficients[0]:.4f} * {paulis[0]}")  # -0.1800 * ZIIIIIIIIIII
+```
+
+### Running the Discriminator
+
+#### Basic Usage (Simulation)
+
+```python
+from phaselab.crispr import run_quantum_discriminator, DiscriminatorStatus
+
+# Elite guides from classical pipeline (scores are degenerate)
+guides = [
+    {'sequence': 'GCGCGCGCGCGCGCGCGCGC', 'combined_score': 0.92},
+    {'sequence': 'ATCGATCGATCGATCGATCG', 'combined_score': 0.91},
+    {'sequence': 'CCGGCCGGCCGGCCGGCCGG', 'combined_score': 0.90},
+]
+
+# DNA target context
+dna_context = "CGCGCGCGCGCGCGCGCGCG..."  # Promoter region
+
+# Run discriminator (simulation mode)
+result = run_quantum_discriminator(
+    guides=guides,
+    dna_context=dna_context,
+    backend_name="ibm_torino",
+    use_hardware=False,  # Simulation
+    shots=1000,
+    max_iterations=30,
+    degeneracy_threshold=0.05,
+)
+
+print(result.summary())
+# ======================================================================
+# QUANTUM DISCRIMINATOR RESULT
+# ======================================================================
+# Status: quantum_success
+# Guides evaluated: 3
+# Quantum advantage: YES
+#
+# Ranking by quantum binding energy:
+#   #1: CCGGCCGGCCGGCCG... E=-1.993470 Ha [GO]
+#   #2: ATCGATCGATCGATC... E=-1.681406 Ha [GO]
+#   #3: GCGCGCGCGCGCGCG... E=-0.556050 Ha [GO]
+```
+
+#### Running on IBM Quantum Hardware
+
+```python
+import os
+os.environ['IBM_QUANTUM_TOKEN'] = 'your-token-here'
+
+result = run_quantum_discriminator(
+    guides=guides,
+    dna_context=dna_context,
+    backend_name="ibm_torino",
+    use_hardware=True,  # Real hardware
+    shots=1000,
+    max_iterations=30,
+)
+
+# Check individual guide results
+for g in result.ranked_guides:
+    print(f"{g.guide_sequence[:15]}... E={g.binding_energy:.6f} Ha, "
+          f"R̄={g.coherence:.3f}, {'GO' if g.is_go else 'NO-GO'}")
+```
+
+#### Understanding Results
+
+```python
+# Result structure
+print(f"Status: {result.status}")              # DiscriminatorStatus.QUANTUM_SUCCESS
+print(f"Quantum advantage: {result.quantum_advantage}")  # True if ordering differs
+
+# Energy separations between guide pairs
+for pair, delta_e in result.energy_separations.items():
+    is_sig = result.significant_separations[pair]
+    print(f"{pair}: ΔE = {delta_e:.6f} Ha {'*' if is_sig else ''}")
+
+# Classical vs quantum comparison
+print(f"Classical scores: {result.classical_scores}")
+```
+
+### PhaseLab API Integration
+
+The high-level API integrates quantum discrimination into the full design pipeline:
+
+```python
+from phaselab.crispr import design_guides_with_quantum_discriminator
+
+# After running classical pipeline...
+result = design_guides_with_quantum_discriminator(
+    gene="RAI1",
+    guides=top_classical_guides,  # From multi-evidence pipeline
+    dna_context=rai1_promoter,
+    quantum_stage="late",          # Only use at end
+    quantum_backend="ibm_torino",
+    use_hardware=False,            # True for real hardware
+    max_quantum_guides=3,          # Limit quantum evaluations
+)
+
+print(f"Gene: {result['gene']}")
+print(f"Quantum advantage: {result['quantum_advantage']}")
+print(f"Recommendation: {result['recommendation']}")
+
+# Final ranking (quantum-ordered if advantage detected)
+for i, g in enumerate(result['final_ranking'], 1):
+    if g.get('ranking_source') == 'quantum':
+        print(f"#{i}: {g['sequence'][:15]}... E={g['quantum_energy']:.6f} Ha")
+    else:
+        print(f"#{i}: {g['sequence'][:15]}... score={g['classical_score']:.3f}")
+```
+
+### Discriminator Status Codes
+
+| Status | Meaning |
+|--------|---------|
+| `QUANTUM_SUCCESS` | VQE completed, results available |
+| `NO_DEGENERACY` | Classical scores differ enough, quantum not needed |
+| `INSUFFICIENT_GUIDES` | Need ≥2 guides to discriminate |
+| `QUANTUM_FAILED` | VQE failed, fell back to classical |
+
+### GO/NO-GO Threshold
+
+Quantum execution quality is validated using IR coherence:
+
+$$\text{GO if } \bar{R} > e^{-2} \approx 0.135$$
+
+Guides with coherence below this threshold during VQE execution are marked NO-GO and excluded from final ranking.
+
+### API Reference
+
+| Function | Description |
+|----------|-------------|
+| `run_quantum_discriminator(guides, dna_context, ...)` | Main discriminator entry point |
+| `design_guides_with_quantum_discriminator(gene, guides, ...)` | High-level PhaseLab API |
+| `DiscriminatorStatus` | Enum for result status |
+| `QuantumGuideResult` | Single guide quantum result |
+| `DiscriminatorResult` | Complete discriminator result |
+| `DISCRIMINATOR_GATES` | Pre-quantum gate thresholds |
 
 ---
 

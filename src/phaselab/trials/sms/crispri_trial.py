@@ -118,9 +118,7 @@ def run_sms_crispri_trial(
         if config.use_virtual_assay:
             guide_config = EnhancedGuideConfig(
                 modality=Modality.CRISPRI,
-                tissue="brain",
                 top_n=config.top_n_guides * 2,
-                coherence_mode=config.coherence_mode,
             )
 
             if config.verbose:

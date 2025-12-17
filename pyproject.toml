@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "phaselab"
-version = "0.7.0"
-description = "Phase-coherence analysis framework for quantum, biological, and dynamical systems"
+version = "1.0.0"
+description = "Reliability layer for perturbation science - spatial coherence analysis across CRISPR, protein, and chemical domains"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
@@ -15,30 +15,24 @@ maintainers = [
     {name = "Dylan Vaca", email = "dylan@phaselab.dev"}
 ]
 keywords = [
-    "quantum computing",
-    "coherence",
+    "perturbation biology",
+    "spatial coherence",
+    "reliability assessment",
     "CRISPR",
     "CRISPRa",
     "CRISPRi",
+    "deep mutational scanning",
+    "DMS",
+    "protein engineering",
+    "drug discovery",
     "gene therapy",
-    "prime editing",
-    "base editing",
-    "knockout",
-    "circadian rhythm",
-    "Kuramoto",
-    "VQE",
-    "informational relativity",
-    "therapeutic window",
-    "ATAC-seq",
-    "methylation",
-    "nucleosome",
-    "enhancer",
-    "AAV",
-    "immunogenicity",
-    "multi-guide",
+    "reproducibility",
+    "variance reduction",
+    "tiling screens",
+    "response landscapes",
 ]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -86,7 +80,7 @@ all = [
 
 [project.urls]
 Homepage = "https://github.com/followthesapper/phaselab"
-Documentation = "https://phaselab.readthedocs.io"
+Documentation = "https://followthesapper.github.io/phaselab/"
 Repository = "https://github.com/followthesapper/phaselab"
 Issues = "https://github.com/followthesapper/phaselab/issues"
 

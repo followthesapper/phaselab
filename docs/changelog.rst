@@ -1,6 +1,214 @@
 Changelog
 =========
 
+Version 1.0.0 (December 2025)
+-----------------------------
+
+**Spatial Coherence Paradigm - Major Methodology Shift**
+
+This release represents a fundamental paradigm shift based on experimental validation:
+
+**E200-E211 showed guide-sequence coherence DOES NOT WORK (r ≈ 0)**
+
+Computing coherence from guide sequences (GC content, thermodynamic properties,
+structural features) has no predictive value for experimental outcomes. This
+approach has been **deprecated** in v1.0.0.
+
+**E213-E216 validated SPATIAL coherence DOES WORK**
+
+Measuring spatial coherence of response landscapes predicts perturbation reliability:
+
+- Correlation: r = -0.24 to -0.50 with outcome variance
+- Variance reduction: 32-49% when selecting from stable regions
+- Validation scale: 115,251 sgRNAs across 6 genes
+
+**The key insight**: "The guide is the probe, not the structure." IR coherence
+measures the SYSTEM'S response consistency, not properties of the perturbation itself.
+
+**New Modules**
+
+1. **phaselab.landscapes** - Core perturbation-response data structures
+
+   - ``ResponseLandscape`` - Generic position → response mapping
+   - ``CoherenceProfile`` - Per-position coherence values with validation
+   - ``StabilityClass`` - STABLE, MIXED, AMPLIFYING, IRRELEVANT
+   - ``classify_regions()`` - Region classification algorithm
+
+2. **phaselab.spatial** - E213-validated tiling screen analysis
+
+   - ``analyze_tiling_coherence()`` - Full coherence analysis pipeline
+   - ``load_tiling_screen()`` - Data loading utilities
+   - ``TilingResult`` - Structured result with stable/amplifying regions
+
+3. **phaselab.surf** - CRISPR-SURF integration
+
+   - ``parse_surf_output()`` - Parse SURF deconvolution output
+   - ``compute_surf_coherence()`` - Coherence on deconvolved data
+   - ``SURFPipeline`` - End-to-end SURF + coherence pipeline
+   - ``compare_raw_vs_surf()`` - Raw vs deconvolved comparison
+
+4. **phaselab.omics** - Genomics assay coherence
+
+   - ``analyze_atac_coherence()`` - ATAC-seq stable accessibility
+   - ``analyze_chip_coherence()`` - ChIP-seq stable binding
+   - ``analyze_expression_coherence()`` - RNA-seq reliable changes
+
+5. **phaselab.microbio** - Microbial screen analysis
+
+   - ``analyze_tnseq_coherence()`` - TnSeq essential domains
+   - ``analyze_crispri_coherence()`` - Bacterial CRISPRi screens
+   - ``analyze_drug_coherence()`` - Drug dose-response stability
+
+6. **phaselab.chem** - Chemical/biochemical systems
+
+   - ``analyze_binding_coherence()`` - Stable binding hot spots
+   - ``analyze_reaction_coherence()`` - Stable reaction conditions
+   - ``analyze_screening_coherence()`` - HTS reliable hits
+
+7. **phaselab.protein.mutscan** - Mutational scanning analysis
+
+   - ``analyze_mutscan_coherence()`` - Functional domain identification
+   - ``local_coherence_profile()`` - Per-residue coherence
+   - ``map_coherence_to_structure()`` - PDB B-factor mapping
+
+**Quantum Mode Configuration**
+
+New quantum execution modes:
+
+.. code-block:: python
+
+    from phaselab.quantum import QuantumMode, set_quantum_mode
+
+    set_quantum_mode(QuantumMode.OFF)       # Classical only (fastest)
+    set_quantum_mode(QuantumMode.AUDIT)     # Classical + quantum validation
+    set_quantum_mode(QuantumMode.REQUIRED)  # Quantum mandatory (slowest)
+
+**Breaking Changes**
+
+- ``compute_coherence=True`` in CRISPR pipeline is **deprecated** (no effect)
+- ``weight_coherence`` defaults to 0.0 (was 1.0)
+- Guide-sequence coherence functions emit deprecation warnings
+- SMS trials config now uses spatial coherence by default
+
+**Upgrade Guide**
+
+Replace guide-sequence coherence:
+
+.. code-block:: python
+
+    # OLD (deprecated):
+    from phaselab.crispr import design_guides
+    guides = design_guides(seq, tss, compute_coherence=True)
+
+    # NEW (v1.0.0):
+    from phaselab.spatial import analyze_tiling_coherence
+    result = analyze_tiling_coherence(tiling_landscape)
+    stable_positions = [r['start'] for r in result.stable_regions]
+
+
+Version 0.9.5 (December 2025)
+-----------------------------
+
+**Quantum Discriminator for Late-Stage Guide Selection**
+
+This release adds a quantum chemistry module for discriminating between elite
+CRISPRa guides that are classically indistinguishable. Uses IBM Quantum hardware
+or simulation to resolve binding energy differences.
+
+**Core Claim**:
+
+    *IR-enhanced quantum VQE on current IBM hardware can resolve binding energy
+    differences between CRISPRa guides that are indistinguishable under classical
+    scoring, providing a physically grounded late-stage discriminator for
+    therapeutic guide selection.*
+
+**New Components**:
+
+1. **Effective Binding Hamiltonian**: H = H_HB + H_stack + H_charge + H_constraint
+
+   - Watson-Crick hydrogen bonding (G-C: -0.18 eV, A-T: -0.12 eV)
+   - π-π stacking stabilization
+   - Backbone electrostatics with screening
+   - 12-qubit seed region encoding
+
+2. **Quantum VQE Execution**:
+
+   - EfficientSU2 ansatz (2 reps, linear entanglement)
+   - COBYLA optimizer with 30 max iterations
+   - 1000 shots per measurement
+   - Hardware support: ibm_torino, ibm_brisbane, etc.
+
+3. **GO/NO-GO Threshold**: R̄ > e⁻² ≈ 0.135 for execution quality
+
+**New API**:
+
+.. code-block:: python
+
+    from phaselab.crispr import (
+        run_quantum_discriminator,
+        design_guides_with_quantum_discriminator,
+        DiscriminatorStatus,
+        DISCRIMINATOR_GATES,
+    )
+
+    # Run discriminator on degenerate guides
+    result = run_quantum_discriminator(
+        guides=elite_guides,
+        dna_context=promoter_sequence,
+        use_hardware=False,  # True for IBM Quantum
+    )
+
+    print(result.summary())
+    # Quantum-resolved ranking with energy separations
+
+**Pre-Quantum Gates**:
+
+- min_mit_score: 50
+- max_exonic_ot: 0
+- min_delta_r: 0.30
+- min_phase_coherence: 0.90
+
+**Status Codes**: QUANTUM_SUCCESS, NO_DEGENERACY, INSUFFICIENT_GUIDES, QUANTUM_FAILED
+
+
+Version 0.9.4 (December 2025)
+-----------------------------
+
+**Three Breakthrough Paths for CRISPRa Guide Ranking**
+
+This release adds three complementary scoring paths for CRISPRa guide selection:
+
+1. **Path A: Binding Energy Landscape** - Quantum chemistry for relative binding
+   energetics using effective Hamiltonians with Watson-Crick base pairing.
+
+2. **Path B: Transcriptional Phase Alignment** - IR dynamics for phase perturbation
+   modeling using vectorized Kuramoto oscillator simulation.
+
+3. **Path C: Off-Target Landscape Geometry** - Coherence contrast between on-target
+   and off-target binding for specificity scoring.
+
+**Multi-Evidence Fusion**: Combines all three paths using weighted geometric mean
+for unified guide ranking.
+
+.. code-block:: python
+
+    from phaselab.crispr import (
+        compute_binding_energy,
+        compute_phase_alignment,
+        compute_offtarget_geometry,
+        compute_multi_evidence_score,
+    )
+
+    # Combined scoring
+    result = compute_multi_evidence_score(
+        guide_sequence=guide,
+        promoter_sequence=promoter,
+        tss_position=tss,
+        guide_position=guide_pos,
+    )
+    print(f"Combined score: {result.combined_score:.3f}")
+
+
 Version 0.9.3 (December 2025)
 -----------------------------
 

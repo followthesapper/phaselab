@@ -207,6 +207,47 @@ from .design import (
     benchmark_against_published,
 )
 
+# v0.9.4: Three Breakthrough Paths for CRISPRa Guide Ranking
+# Path A: Binding Energy Landscape (quantum chemistry)
+from .binding_landscape import (
+    BindingEnergyResult,
+    compute_binding_energy,
+    compute_binding_landscape,
+    rank_guides_by_binding,
+)
+# Path B: Transcriptional Phase Alignment (IR dynamics)
+from .transcriptional_phase import (
+    PhaseAlignmentResult,
+    compute_phase_alignment,
+    compute_phase_landscape,
+    rank_guides_by_phase,
+    optimal_guide_position,
+)
+# Path C: Off-Target Landscape Geometry (coherence contrast)
+from .offtarget_geometry import (
+    OffTargetGeometryResult,
+    compute_offtarget_geometry,
+    compute_geometry_landscape,
+    rank_guides_by_geometry,
+    integrate_crispor_offtargets,
+)
+# Unified multi-evidence scorer
+from .multi_evidence import (
+    MultiEvidenceResult,
+    compute_multi_evidence_score,
+    rank_guides_multi_evidence,
+)
+
+# v0.9.5: Quantum Discriminator for Late-Stage Guide Selection
+from .quantum_discriminator import (
+    DiscriminatorStatus,
+    QuantumGuideResult,
+    DiscriminatorResult,
+    run_quantum_discriminator,
+    design_guides_with_quantum_discriminator,
+    DISCRIMINATOR_GATES,
+)
+
 __all__ = [
     # CRISPRa (activation)
     "design_guides",
@@ -361,4 +402,35 @@ __all__ = [
     "evaluate_candidate",
     "evaluate_candidates",
     "benchmark_against_published",
+
+    # v0.9.4: Three Breakthrough Paths for CRISPRa
+    # Path A: Binding Energy Landscape (quantum chemistry)
+    "BindingEnergyResult",
+    "compute_binding_energy",
+    "compute_binding_landscape",
+    "rank_guides_by_binding",
+    # Path B: Transcriptional Phase Alignment (IR dynamics)
+    "PhaseAlignmentResult",
+    "compute_phase_alignment",
+    "compute_phase_landscape",
+    "rank_guides_by_phase",
+    "optimal_guide_position",
+    # Path C: Off-Target Landscape Geometry (coherence contrast)
+    "OffTargetGeometryResult",
+    "compute_offtarget_geometry",
+    "compute_geometry_landscape",
+    "rank_guides_by_geometry",
+    "integrate_crispor_offtargets",
+    # Unified multi-evidence scorer
+    "MultiEvidenceResult",
+    "compute_multi_evidence_score",
+    "rank_guides_multi_evidence",
+
+    # v0.9.5: Quantum Discriminator for Late-Stage Guide Selection
+    "DiscriminatorStatus",
+    "QuantumGuideResult",
+    "DiscriminatorResult",
+    "run_quantum_discriminator",
+    "design_guides_with_quantum_discriminator",
+    "DISCRIMINATOR_GATES",
 ]

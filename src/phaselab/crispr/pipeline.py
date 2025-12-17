@@ -2,7 +2,20 @@
 PhaseLab CRISPR Pipeline: End-to-end guide RNA design.
 
 High-level API for designing CRISPRa/CRISPRi guide RNAs with
-multi-layer validation including IR coherence scoring.
+multi-layer validation.
+
+IMPORTANT (v1.0.0):
+Guide-sequence coherence has been DEPRECATED based on E200-E211 experimental
+validation showing r ≈ 0 correlation with outcomes. The validated approach
+from E213-E216 uses SPATIAL COHERENCE of the response landscape, not probe
+coherence.
+
+For spatial coherence analysis, use:
+- phaselab.spatial.regulatory for region classification
+- phaselab.spatial.targeting for guide placement within stable regions
+
+The guide-sequence coherence option is retained only for research comparison
+and should NOT be used for primary guide ranking.
 """
 
 import numpy as np
@@ -19,6 +32,9 @@ from .scoring import (
     max_homopolymer_run,
     sequence_complexity,
     chromatin_accessibility_score,
+    poly_t_penalty,
+    is_repeat_region,
+    u6_compatibility_check,
 )
 from ..core.coherence import coherence_score, go_no_go
 from ..core.hamiltonians import build_grna_hamiltonian
@@ -41,16 +57,27 @@ class GuideDesignConfig:
     max_homopolymer: int = 4
     min_complexity: float = 0.5
 
+    # U6/Pol III compatibility (v0.9.1+)
+    filter_poly_t: bool = True  # Exclude guides with TTTT start
+    filter_repeats: bool = True  # Exclude guides in repeat regions
+    poly_t_threshold: int = 4  # TTTT or longer triggers filter
+
     # Scoring weights for combined score
     weight_mit: float = 1.0
     weight_cfd: float = 1.0
     weight_gc: float = 0.5
     weight_chromatin: float = 0.8
-    weight_coherence: float = 1.0
     weight_delta_g: float = 0.3
 
-    # Coherence simulation settings
-    compute_coherence: bool = True
+    # DEPRECATED: Guide-sequence coherence (v1.0.0)
+    # E200-E211 showed r ≈ 0 correlation with outcomes.
+    # Use spatial coherence from phaselab.spatial instead.
+    # This option retained for research comparison only.
+    compute_guide_coherence: bool = False  # DEPRECATED - default OFF
+    weight_coherence: float = 0.0  # DEPRECATED - weight set to 0
+
+    # Legacy compatibility (maps to compute_guide_coherence)
+    compute_coherence: bool = False  # DEPRECATED alias
     coherence_shots: int = 2000
     hardware_backend: Optional[str] = None
 
@@ -130,6 +157,7 @@ def design_guides(
 
     for hit in window_hits:
         guide_seq = hit.guide
+        warnings = []
 
         # Basic quality filters
         gc = gc_content(guide_seq)
@@ -143,6 +171,26 @@ def design_guides(
         complexity = sequence_complexity(guide_seq)
         if complexity < config.min_complexity:
             continue
+
+        # U6/Pol III compatibility check (v0.9.1+)
+        is_poly_t, poly_t_reason = poly_t_penalty(guide_seq, threshold=config.poly_t_threshold)
+        if is_poly_t:
+            if config.filter_poly_t:
+                continue  # Hard filter
+            else:
+                warnings.append(poly_t_reason)
+
+        # Repeat region check (v0.9.1+)
+        is_repeat, repeat_reason = is_repeat_region(guide_seq)
+        if is_repeat:
+            if config.filter_repeats:
+                continue  # Hard filter
+            else:
+                warnings.append(repeat_reason)
+
+        # Full U6 compatibility check
+        u6_compat, u6_warnings = u6_compatibility_check(guide_seq)
+        warnings.extend(u6_warnings)
 
         # Compute scores
         delta_g = delta_g_santalucia(guide_seq)
@@ -159,10 +207,20 @@ def design_guides(
             dnase_peaks=dnase_peaks,
         )
 
-        # IR coherence (optional)
+        # DEPRECATED: Guide-sequence coherence (v1.0.0)
+        # E200-E211 showed this does NOT predict outcomes (r ≈ 0).
+        # Use phaselab.spatial for region-based coherence instead.
         R_bar = None
         go_status = None
-        if config.compute_coherence:
+        if config.compute_guide_coherence or config.compute_coherence:
+            import warnings
+            warnings.warn(
+                "Guide-sequence coherence is DEPRECATED (v1.0.0). "
+                "E200-E211 showed r ≈ 0 correlation with outcomes. "
+                "Use phaselab.spatial for region-based spatial coherence instead.",
+                DeprecationWarning,
+                stacklevel=2,
+            )
             R_bar = _compute_guide_coherence(guide_seq)
             go_status = go_no_go(R_bar)
 
@@ -192,6 +250,8 @@ def design_guides(
             'go_no_go': go_status,
             'complexity': round(complexity, 3),
             'homopolymer': homo,
+            'u6_compatible': u6_compat,
+            'warnings': warnings if warnings else None,
             'combined_score': round(combined, 3),
         })
 
@@ -216,22 +276,32 @@ def _empty_results_df() -> pd.DataFrame:
         'gc', 'delta_g', 'mit_score', 'cfd_score',
         'chromatin_state', 'chromatin_accessibility',
         'coherence_R', 'go_no_go', 'complexity', 'homopolymer',
-        'combined_score',
+        'u6_compatible', 'warnings', 'combined_score',
     ])
 
 
 def _compute_guide_coherence(guide_seq: str) -> float:
     """
-    Compute IR coherence for a guide sequence.
+    DEPRECATED: Compute IR coherence for a guide sequence.
 
-    Uses ATLAS-Q enhanced coherence via shared utility (v0.6.0+).
-    Falls back to native implementation if ATLAS-Q unavailable.
+    WARNING (v1.0.0): Guide-sequence coherence does NOT predict outcomes.
+    E200-E211 experiments showed r ≈ 0 correlation between guide-sequence
+    coherence and experimental results.
+
+    The validated approach from E213-E216 uses SPATIAL COHERENCE of the
+    response landscape. Use phaselab.spatial module instead:
+
+        from phaselab.spatial import classify_regulatory_regions
+        regions = classify_regulatory_regions(landscape)
+        stable_regions = [r for r in regions if r.is_safe]
+
+    This function is retained for research comparison only.
 
     Args:
         guide_seq: 20bp guide sequence.
 
     Returns:
-        Coherence R̄ value.
+        Coherence R̄ value (NOT predictive of outcomes).
     """
     from .coherence_utils import compute_guide_coherence
     return compute_guide_coherence(guide_seq, use_atlas_q=True)
@@ -276,12 +346,23 @@ def _compute_combined_score(
     return score
 
 
-def validate_guide(guide_seq: str) -> Dict[str, Any]:
+def validate_guide(
+    guide_seq: str,
+    compute_deprecated_coherence: bool = False,
+) -> Dict[str, Any]:
     """
     Quick validation of a single guide sequence.
 
+    Includes U6/Pol III compatibility and repeat region checks (v0.9.1+).
+
+    NOTE (v1.0.0): Guide-sequence coherence is now DEPRECATED.
+    Use phaselab.spatial for region-based spatial coherence instead.
+    The coherence_R field is only computed if compute_deprecated_coherence=True.
+
     Args:
         guide_seq: Guide sequence to validate.
+        compute_deprecated_coherence: If True, compute guide-sequence coherence
+            (DEPRECATED - does not predict outcomes).
 
     Returns:
         Dictionary with validation results.
@@ -293,9 +374,26 @@ def validate_guide(guide_seq: str) -> Dict[str, Any]:
     complexity = sequence_complexity(guide_seq)
     delta_g = delta_g_santalucia(guide_seq)
     mit = mit_specificity_score(guide_seq)
-    R_bar = _compute_guide_coherence(guide_seq)
+
+    # DEPRECATED: Guide-sequence coherence
+    R_bar = None
+    if compute_deprecated_coherence:
+        import warnings
+        warnings.warn(
+            "Guide-sequence coherence is DEPRECATED (v1.0.0). "
+            "Use phaselab.spatial for validated region-based coherence.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        R_bar = _compute_guide_coherence(guide_seq)
+
+    # U6/Pol III compatibility (v0.9.1+)
+    u6_compat, u6_warnings = u6_compatibility_check(guide_seq)
+    is_repeat, repeat_reason = is_repeat_region(guide_seq)
 
     warnings = []
+
+    # Sequence quality warnings
     if gc < 0.4:
         warnings.append("Low GC content (<40%)")
     if gc > 0.7:
@@ -307,6 +405,20 @@ def validate_guide(guide_seq: str) -> Dict[str, Any]:
     if R_bar and R_bar < 0.135:
         warnings.append("Low coherence (NO-GO)")
 
+    # U6 compatibility warnings (critical for standard delivery)
+    warnings.extend(u6_warnings)
+
+    # Repeat region warning
+    if is_repeat:
+        warnings.append(f"REPEAT REGION: {repeat_reason}")
+
+    # Determine exclusion status
+    exclusions = []
+    if not u6_compat:
+        exclusions.append("U6_INCOMPATIBLE")
+    if is_repeat:
+        exclusions.append("REPEAT_REGION")
+
     return {
         'sequence': guide_seq,
         'length': len(guide_seq),
@@ -315,8 +427,15 @@ def validate_guide(guide_seq: str) -> Dict[str, Any]:
         'complexity': complexity,
         'delta_g': delta_g,
         'mit_score': mit,
-        'coherence_R': R_bar,
-        'go_no_go': go_no_go(R_bar) if R_bar else 'UNKNOWN',
+        'coherence_R': R_bar,  # DEPRECATED: None unless compute_deprecated_coherence=True
+        'go_no_go': go_no_go(R_bar) if R_bar else 'N/A',  # DEPRECATED
+        'coherence_note': (
+            'Use phaselab.spatial for validated spatial coherence'
+            if R_bar is None else 'DEPRECATED - does not predict outcomes'
+        ),
+        'u6_compatible': u6_compat,
+        'is_repeat': is_repeat,
         'warnings': warnings,
-        'valid': len(warnings) == 0,
+        'exclusions': exclusions,
+        'valid': len(warnings) == 0 and len(exclusions) == 0,
     }

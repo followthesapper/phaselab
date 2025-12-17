@@ -229,7 +229,29 @@ Published CRISPRa studies report 2-3× activation, making this window achievable
 
 ## 5. Recommended Next Steps
 
-### 5.1 Wet Lab Validation
+### 5.1 Use SMS Trials Module (v0.9.0+)
+
+PhaseLab v0.9.0 introduces a complete SMS therapeutic trial framework:
+
+```python
+from phaselab.trials.sms import SMSPipeline, SMSTrialConfig
+
+# Configure and run full pipeline
+config = SMSTrialConfig(therapeutic_window=(0.70, 1.10))
+pipeline = SMSPipeline(config=config)
+result = pipeline.run_full_pipeline()
+
+# Get GO/NO-GO decision
+print(f"Overall: {result.overall_go_nogo}")
+print(f"Top guide: {result.crispra_result.best_candidate['sequence']}")
+print(f"Circadian rescue: {result.circadian_result.metrics['rescue_status']}")
+
+# Generate falsification tests for wet lab
+for test in result.falsification_tests:
+    print(f"Test {test['id']}: {test['failure_condition']}")
+```
+
+### 5.2 Wet Lab Validation
 
 1. **Order Synthesis**
    - Primary: `TACAGGAGCTTCCAGCGTCA` (gRNA_3)
@@ -250,7 +272,18 @@ Published CRISPRa studies report 2-3× activation, making this window achievable
    - Western blot for RAI1 protein
    - Target: 150-200% of baseline expression
 
-### 5.2 Research Partnerships
+### 5.3 Falsification Tests
+
+Run these validation experiments to confirm PhaseLab predictions:
+
+| Test | Experiment | Pass Criterion |
+|------|------------|----------------|
+| **A** | Compare PhaseLab top 10 vs random 10 guides | PhaseLab outperforms by ≥1.5σ |
+| **B** | Test CAUTION-labeled guides | Higher failure rate than GO guides |
+| **C** | Measure expression at predicted doses | Correlation r > 0.6 |
+| **D** | Test UNKNOWN-labeled guides | Random pass/fail rate |
+
+### 5.4 Research Partnerships
 
 We recommend contacting:
 - SMS Research Foundation

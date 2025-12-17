@@ -1,84 +1,94 @@
 PhaseLab Documentation
 ======================
 
-PhaseLab is a comprehensive phase-coherence analysis framework for quantum, biological, and dynamical systems. Built on the Informational Relativity (IR) framework, PhaseLab provides quantum coherence metrics, CRISPR guide RNA design pipelines, circadian clock modeling, and therapeutic dosage optimization.
+**A reliability layer for perturbation science.**
 
-Version 0.9.3 (December 2025)
+PhaseLab assesses whether experimental results from perturbation experiments (CRISPR, mutagenesis, chemical modification) will be reproducible—before you run the experiment.
 
-**Phase-Coherence Meets Precision Medicine**
+Version 1.0.0 (December 2025)
 
-PhaseLab bridges theoretical physics and biotechnology by applying IR coherence metrics to guide RNA design and gene therapy optimization. Every guide RNA candidate is validated using the universal GO/NO-GO threshold (R > e^-2), ensuring only reliable candidates proceed to experimental validation.
+The Core Insight
+----------------
+
+**Spatial coherence of response landscapes predicts perturbation reliability.**
+
+Validated across 115,251 sgRNAs (6 genes):
+
+- Correlation with outcome variance: r = -0.24 to -0.50
+- Variance reduction in stable regions: 32-49%
 
 Key Capabilities
 ----------------
 
-**CRISPRa Binding Register Model (v0.9.3)**
+**Spatial Coherence Paradigm (v1.0.0)**
 
-- **NucleaseRole enum**: Explicit ``BINDING`` vs ``CUTTING`` mode for PAM stringency
-- **Relaxed PAM patterns**: SaCas9 NNGRRN (binding) vs NNGRRT (cutting)
-- **Sliding binding register**: ±2bp enumeration captures guides rigid anchoring misses
-- **Configurable guide length**: Override defaults for literature reproduction
-- **Validated**: Chang et al. 2022 sg2 winner correctly recovered at TSS-80
+This release represents a fundamental paradigm shift based on experimental validation:
 
-**Guide Enumeration & Policy System (v0.9.2)**
+- **E200-E211**: Guide-sequence coherence does NOT work (r ≈ 0)
+- **E213-E216**: Spatial coherence of response landscapes DOES work
 
-- Region declaration with multi-TSS support
-- PAM scanning for SpCas9, SaCas9, Cas12a
-- Dominance-based ranking: lexicographic sort on (0mm, 1mm, 2mm) off-targets
-- Policy system: ``CUTTING_STRICT``, ``BINDING_STRICT``, ``EXPLORATORY``
-- Tier system: A (0/0/0), B (0/0/1-2), C (other)
-- Reproducibility manifests for audit trails
+The key insight: *"The guide is the probe, not the structure."* Coherence measures the system's response consistency, not properties of the perturbation itself.
 
-**SMS Trials Module (v0.9.0)**
+**New Domain Modules**
 
-- Complete therapeutic trial framework for Smith-Magenis Syndrome
-- CRISPRa RAI1 activation with therapeutic window validation (70-110%)
-- CRISPRi modifier gene suppression (PER1, CRY1, CLOCK)
-- Base/prime editing trials for mutation correction
-- GO/NO-GO decision system with claim level propagation
+- ``phaselab.landscapes`` - Core perturbation-response data structures
+- ``phaselab.spatial`` - E213-validated tiling screen analysis
+- ``phaselab.protein.mutscan`` - Deep mutational scanning coherence
+- ``phaselab.protein.folding`` - Structure prediction quality control
+- ``phaselab.chem`` - Binding landscape and reaction optimization
+- ``phaselab.omics`` - ATAC-seq, ChIP-seq, RNA-seq reliability
+- ``phaselab.microbio`` - TnSeq and bacterial CRISPRi essentiality
 
-**Complete CRISPR Toolkit**
+**Two-Stage Framework**
 
-- CRISPRa guide design for transcriptional activation
-- CRISPRi guide design for transcriptional interference
-- CRISPR knockout guide design for gene disruption
-- Prime editing pegRNA design for precise edits
-- Base editing guide design (ABE/CBE) for single-nucleotide changes
-- Multi-guide synergy modeling for combinatorial CRISPR
-- Enhancer targeting for CRISPRa
+- **Stage I**: Feasibility inference (pre-tiling) using structural priors
+- **Stage II**: Landscape resolution with minimum viable tiling (16-20 perturbations)
 
-**Biological Modeling**
+**Claim Levels**
 
-- Circadian clock modeling (SMS gene therapy research)
-- Multi-tissue circadian models with inter-tissue coupling
-- Drug response modeling and chronotherapy optimization
-- Protein folding coherence assessment
-- Tissue-specific chromatin accessibility models
+Honest uncertainty reporting:
+
+- ``UNKNOWN`` - Cannot assess reliability
+- ``EXPLORATORY`` - Structural priors only
+- ``CONTEXT_DEPENDENT`` - Single tiling dataset
+- ``STRONG_COMPUTATIONAL`` - Cross-validated
 
 Quick Example
 -------------
 
 .. code-block:: python
 
-   from phaselab.crispr import design_crispra_guides, Nuclease
+   from phaselab.spatial import analyze_tiling_coherence
+   from phaselab.landscapes import ResponseLandscape
 
-   # v0.9.3: Design CRISPRa guides with binding mode
-   result = design_crispra_guides(
-       gene_symbol="Rai1",
-       promoter_sequence=promoter_seq,
-       tss_position=600,
-       nuclease=Nuclease.SACAS9,
-       relaxed_pam=True,    # BINDING mode (default)
-       guide_length=20,     # Override default 21bp
+   # Your tiling screen data
+   landscape = ResponseLandscape(
+       coords=[100, 150, 200, 250, 300],
+       responses=[0.8, 0.75, 0.1, 0.82, 0.78],
    )
 
-   # Access ranked guides by tier
-   for guide in result.tier_a_guides[:5]:
-       print(f"{guide['sequence']} TSS{guide['tss_relative_position']:+d}")
+   # Analyze spatial coherence
+   result = analyze_tiling_coherence(landscape)
 
-   # Coherence validation
-   from phaselab.crispr import compute_guide_coherence
-   r_bar = compute_guide_coherence("ATCGATCGATCGATCGATCG", mode="quantum")
+   # Find stable regions
+   for region in result.stable_regions:
+       print(f"Stable: {region['start']}-{region['end']}")
+       print(f"  Coherence: {region['coherence']:.3f}")
+
+Quantum Mode
+------------
+
+For most use cases, quantum mode should be OFF (default):
+
+.. code-block:: python
+
+   from phaselab.quantum import set_quantum_mode, QuantumMode
+
+   set_quantum_mode(QuantumMode.OFF)       # Classical only (fastest)
+   set_quantum_mode(QuantumMode.AUDIT)     # Validation subset
+   set_quantum_mode(QuantumMode.REQUIRED)  # Research only
+
+**Rule:** If a classical experiment can falsify a claim, quantum is optional.
 
 .. toctree::
    :maxdepth: 2
@@ -138,11 +148,11 @@ Citation
 .. code-block:: bibtex
 
    @software{phaselab2025,
-     title={PhaseLab: Phase-Coherence Analysis Framework},
+     title={PhaseLab: A Reliability Layer for Perturbation Science},
      author={Vaca, Dylan},
      year={2025},
      url={https://github.com/followthesapper/phaselab},
-     version={0.9.3}
+     version={1.0.0}
    }
 
 Indices and tables

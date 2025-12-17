@@ -3,6 +3,11 @@ Core data structures for SMS trials.
 
 Defines trial types, results, and configuration shared across all
 SMS trial runners.
+
+v1.0.0 Update:
+- Coherence mode now refers to SPATIAL coherence (E213-validated), not guide-sequence
+- Guide-sequence coherence deprecated (E200-E211 showed r ≈ 0)
+- Added region_stability_mode for spatial coherence classification
 """
 
 from dataclasses import dataclass, field
@@ -40,8 +45,8 @@ class SMSTrialConfig:
         therapeutic_window: Target expression range (70-110% of normal).
         target_tissues: Primary tissues for delivery.
         use_virtual_assay: Whether to use v0.7.0+ Virtual Assay Stack.
-        coherence_mode: "heuristic" or "quantum" for IR coherence.
-        require_go_status: Require GO status for candidates.
+        use_spatial_coherence: Use E213-validated spatial coherence (v1.0.0+).
+        require_stable_region: Require guides in stable coherence regions.
         min_claim_level: Minimum claim level for results.
         verbose: Print progress messages.
     """
@@ -55,9 +60,20 @@ class SMSTrialConfig:
 
     # Analysis options
     use_virtual_assay: bool = True
-    coherence_mode: str = "heuristic"  # "heuristic" or "quantum"
-    require_go_status: bool = True
-    min_claim_level: str = "exploratory"  # "unknown", "exploratory", "context_dependent", "strong_computational"
+
+    # Spatial coherence (v1.0.0+, E213-validated)
+    use_spatial_coherence: bool = True  # Use region-based coherence
+    require_stable_region: bool = True  # Only select guides in stable regions
+    coherence_window: int = 50  # Window size for spatial coherence
+    stable_threshold: float = 0.7  # Coherence threshold for stable classification
+
+    # DEPRECATED: Guide-sequence coherence (E200-E211 showed r ≈ 0)
+    # These options retained for backward compatibility but do nothing
+    coherence_mode: str = "spatial"  # Ignored - always spatial
+    require_go_status: bool = False  # DEPRECATED - use require_stable_region
+
+    # Claim levels
+    min_claim_level: str = "unknown"  # "unknown", "exploratory", "context_dependent", "strong_computational"
 
     # Guide design
     top_n_guides: int = 10

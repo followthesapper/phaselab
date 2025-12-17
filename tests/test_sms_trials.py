@@ -35,7 +35,10 @@ class TestSMSTrialConfig:
         assert config.therapeutic_window == (0.70, 1.10)
         assert config.optimal_expression == 0.80
         assert config.baseline_expression == 0.50
-        assert config.coherence_mode in ["heuristic", "quantum"]
+        # v1.0.0: coherence_mode is now "spatial" (deprecated, ignored)
+        # Spatial coherence controlled by use_spatial_coherence flag
+        assert config.use_spatial_coherence == True
+        assert config.require_stable_region == True
 
     def test_custom_config(self):
         """Test custom configuration."""
