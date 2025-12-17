@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.design &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/design';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.design</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.design</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab Guide Design Pipeline (v0.9.2+).</span>
+
+<span class="sd">The complete pipeline for guide RNA design:</span>
+<span class="sd">1. Region Declaration - Define where to look (promoter hypothesis)</span>
+<span class="sd">2. Enumeration - Find all candidate protospacers</span>
+<span class="sd">3. Evaluation - Compute risk structure (off-targets, constraints)</span>
+<span class="sd">4. Policy Ranking - Tier and rank under explicit policy</span>
+
+<span class="sd">KEY PRINCIPLES:</span>
+<span class="sd">- Every assumption is declared, not guessed</span>
+<span class="sd">- Policies explain outcomes</span>
+<span class="sd">- Results are reproducible (manifest)</span>
+<span class="sd">- Biology is user-declared, not inferred</span>
+
+<span class="sd">Example:</span>
+<span class="sd">    &gt;&gt;&gt; from phaselab.crispr.design import design_crispra_guides</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; result = design_crispra_guides(</span>
+<span class="sd">    ...     gene_symbol=&quot;RAI1&quot;,</span>
+<span class="sd">    ...     promoter_sequence=promoter_seq,</span>
+<span class="sd">    ...     tss_position=500,</span>
+<span class="sd">    ...     policy=RankingPolicy.BINDING_STRICT,</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; print(result.summary())</span>
+<span class="sd">    &gt;&gt;&gt; print(result.top_tier_a_guides())</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.region</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Region</span><span class="p">,</span> <span class="n">RegionSet</span><span class="p">,</span> <span class="n">RegionBuilder</span><span class="p">,</span> <span class="n">Window</span><span class="p">,</span>
+    <span class="n">GenomeBuild</span><span class="p">,</span> <span class="n">Modality</span><span class="p">,</span> <span class="n">TSSSource</span><span class="p">,</span> <span class="n">TSSAnnotation</span><span class="p">,</span>
+    <span class="n">build_regions_for_gene</span><span class="p">,</span> <span class="n">get_tss_for_gene</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.enumerate</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Nuclease</span><span class="p">,</span> <span class="n">NucleaseRole</span><span class="p">,</span> <span class="n">NUCLEASE_CONFIGS</span><span class="p">,</span> <span class="n">CandidateGuide</span><span class="p">,</span>
+    <span class="n">EnumerationResult</span><span class="p">,</span> <span class="n">PAMScanner</span><span class="p">,</span>
+    <span class="n">enumerate_guides</span><span class="p">,</span> <span class="n">enumerate_from_sequence</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.scoring</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RankingPolicy</span><span class="p">,</span> <span class="n">POLICY_CONFIGS</span><span class="p">,</span> <span class="n">PolicyConfig</span><span class="p">,</span>
+    <span class="n">GuideTier</span><span class="p">,</span> <span class="n">GateResult</span><span class="p">,</span>
+    <span class="n">rank_guides</span><span class="p">,</span> <span class="n">apply_hard_gates</span><span class="p">,</span> <span class="n">emit_manifest</span><span class="p">,</span> <span class="n">print_ranking_report</span><span class="p">,</span>
+    <span class="n">gc_content</span><span class="p">,</span> <span class="n">max_homopolymer_run</span><span class="p">,</span> <span class="n">sequence_complexity</span><span class="p">,</span>
+    <span class="n">poly_t_penalty</span><span class="p">,</span> <span class="n">is_repeat_region</span><span class="p">,</span> <span class="n">u6_compatibility_check</span><span class="p">,</span>
+    <span class="n">delta_g_santalucia</span><span class="p">,</span> <span class="n">mit_specificity_score</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># DESIGN RESULT</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="DesignResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.DesignResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DesignResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Complete result of guide design pipeline.</span>
+
+<span class="sd">    Contains all intermediate outputs for transparency.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Core results</span>
+    <span class="n">ranked_guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
+    <span class="n">tiers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span>
+
+    <span class="c1"># Configuration</span>
+    <span class="n">gene_symbol</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">genome_build</span><span class="p">:</span> <span class="n">GenomeBuild</span>
+    <span class="n">modality</span><span class="p">:</span> <span class="n">Modality</span>
+    <span class="n">nuclease</span><span class="p">:</span> <span class="n">Nuclease</span>
+    <span class="n">policy</span><span class="p">:</span> <span class="n">RankingPolicy</span>
+
+    <span class="c1"># Intermediate data</span>
+    <span class="n">region_set</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">RegionSet</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">enumeration</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">EnumerationResult</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">total_enumerated</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_after_gates</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Manifest</span>
+    <span class="n">manifest</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tier_a_guides</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get Tier A guides (0/0/0 off-targets).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tiers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tier_b_guides</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get Tier B guides.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tiers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="p">[])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">top_guide</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the top-ranked guide.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranked_guides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ranked_guides</span> <span class="k">else</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="DesignResult.summary">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.DesignResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate human-readable summary.&quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;PHASELAB DESIGN RESULT: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_symbol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Genome: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">genome_build</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Modality: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modality</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Nuclease: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nuclease</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Policy: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Candidates enumerated: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_enumerated</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Passed hard gates: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_after_gates</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Tier A (0/0/0): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tier_a_guides</span><span class="p">)</span><span class="si">}</span><span class="s2"> guides&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Tier B (0/0/1-2): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tier_b_guides</span><span class="p">)</span><span class="si">}</span><span class="s2"> guides&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Tier C (other): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tiers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[]))</span><span class="si">}</span><span class="s2"> guides&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_guide</span><span class="p">:</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+                <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;TOP RECOMMENDATION:&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;  Sequence: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">top_guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;  Tier: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">top_guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tier&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;  Position: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">top_guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tss_relative_position&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> from TSS&quot;</span><span class="p">,</span>
+            <span class="p">])</span>
+
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DesignResult.to_dataframe">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.DesignResult.to_dataframe">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert ranked guides to pandas DataFrame (if pandas available).&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ranked_guides</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;pandas required for to_dataframe()&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># EVALUATION (sequence quality + basic scoring)</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="evaluate_candidate">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.evaluate_candidate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluate_candidate</span><span class="p">(</span>
+    <span class="n">candidate</span><span class="p">:</span> <span class="n">CandidateGuide</span><span class="p">,</span>
+    <span class="n">check_u6</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Evaluate a candidate guide for sequence quality.</span>
+
+<span class="sd">    This applies local heuristics. Full off-target evaluation</span>
+<span class="sd">    requires CRISPOR integration.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        candidate: CandidateGuide from enumeration.</span>
+<span class="sd">        check_u6: Check U6/Pol III compatibility.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict with evaluation metrics.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">candidate</span><span class="o">.</span><span class="n">sequence</span>
+
+    <span class="c1"># Basic metrics</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="n">homo</span> <span class="o">=</span> <span class="n">max_homopolymer_run</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="n">complexity</span> <span class="o">=</span> <span class="n">sequence_complexity</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="n">delta_g</span> <span class="o">=</span> <span class="n">delta_g_santalucia</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+
+    <span class="c1"># Heuristic specificity (not real off-target count)</span>
+    <span class="n">mit_estimate</span> <span class="o">=</span> <span class="n">mit_specificity_score</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+
+    <span class="c1"># U6 compatibility</span>
+    <span class="n">u6_compatible</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">u6_warnings</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">check_u6</span><span class="p">:</span>
+        <span class="n">u6_compatible</span><span class="p">,</span> <span class="n">u6_warnings</span> <span class="o">=</span> <span class="n">u6_compatibility_check</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+
+    <span class="c1"># Repeat region check</span>
+    <span class="n">is_repeat</span><span class="p">,</span> <span class="n">repeat_reason</span> <span class="o">=</span> <span class="n">is_repeat_region</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+
+    <span class="c1"># Build result</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">**</span><span class="n">candidate</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
+        <span class="s1">&#39;gc_content&#39;</span><span class="p">:</span> <span class="n">gc</span><span class="p">,</span>
+        <span class="s1">&#39;homopolymer_run&#39;</span><span class="p">:</span> <span class="n">homo</span><span class="p">,</span>
+        <span class="s1">&#39;complexity&#39;</span><span class="p">:</span> <span class="n">complexity</span><span class="p">,</span>
+        <span class="s1">&#39;delta_g&#39;</span><span class="p">:</span> <span class="n">delta_g</span><span class="p">,</span>
+        <span class="s1">&#39;mit_score_estimate&#39;</span><span class="p">:</span> <span class="n">mit_estimate</span><span class="p">,</span>
+        <span class="s1">&#39;u6_compatible&#39;</span><span class="p">:</span> <span class="n">u6_compatible</span><span class="p">,</span>
+        <span class="s1">&#39;u6_warnings&#39;</span><span class="p">:</span> <span class="n">u6_warnings</span><span class="p">,</span>
+        <span class="s1">&#39;is_repeat&#39;</span><span class="p">:</span> <span class="n">is_repeat</span><span class="p">,</span>
+        <span class="s1">&#39;repeat_reason&#39;</span><span class="p">:</span> <span class="n">repeat_reason</span> <span class="k">if</span> <span class="n">is_repeat</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+
+        <span class="c1"># Placeholder for CRISPOR data (to be filled by integration)</span>
+        <span class="s1">&#39;off_targets&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;crispor_validated&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;is_unscorable&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<div class="viewcode-block" id="evaluate_candidates">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.evaluate_candidates">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluate_candidates</span><span class="p">(</span>
+    <span class="n">candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">CandidateGuide</span><span class="p">],</span>
+    <span class="n">check_u6</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluate a list of candidates.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">evaluate_candidate</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">check_u6</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">]</span></div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># MAIN DESIGN FUNCTIONS</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="design_crispra_guides">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.design_crispra_guides">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_crispra_guides</span><span class="p">(</span>
+    <span class="n">gene_symbol</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">promoter_sequence</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">tss_position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">genome_build</span><span class="p">:</span> <span class="n">GenomeBuild</span> <span class="o">=</span> <span class="n">GenomeBuild</span><span class="o">.</span><span class="n">HG38</span><span class="p">,</span>
+    <span class="n">nuclease</span><span class="p">:</span> <span class="n">Nuclease</span> <span class="o">=</span> <span class="n">Nuclease</span><span class="o">.</span><span class="n">SPCAS9</span><span class="p">,</span>
+    <span class="n">policy</span><span class="p">:</span> <span class="n">RankingPolicy</span> <span class="o">=</span> <span class="n">RankingPolicy</span><span class="o">.</span><span class="n">BINDING_STRICT</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Window</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">check_u6</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">relaxed_pam</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># v0.9.3: Use relaxed PAM for CRISPRa by default</span>
+    <span class="n">guide_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># v0.9.3: Override guide length</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DesignResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Design CRISPRa guides for a target gene.</span>
+
+<span class="sd">    This is the main entry point for CRISPRa guide design.</span>
+
+<span class="sd">    v0.9.3: CRISPRa uses BINDING mode by default (relaxed PAM constraints).</span>
+<span class="sd">            This is experimentally validated - dCas9 binding tolerates</span>
+<span class="sd">            non-canonical PAMs that would never support cutting.</span>
+<span class="sd">            Guide length can be overridden (some papers use 20bp with SaCas9).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gene_symbol: Target gene name (e.g., &quot;RAI1&quot;).</span>
+<span class="sd">        promoter_sequence: Promoter DNA sequence (required).</span>
+<span class="sd">        tss_position: Position of TSS within promoter_sequence.</span>
+<span class="sd">        genome_build: Genome build for annotation lookup.</span>
+<span class="sd">        nuclease: CRISPR nuclease to use.</span>
+<span class="sd">        policy: Ranking policy (default: BINDING_STRICT for CRISPRa).</span>
+<span class="sd">        window: Custom window (uses default CRISPRa window if None).</span>
+<span class="sd">        check_u6: Check U6/Pol III compatibility.</span>
+<span class="sd">        relaxed_pam: Use binding-mode PAM (default True for CRISPRa).</span>
+<span class="sd">        guide_length: Override default guide length (e.g., 20bp with SaCas9).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DesignResult with ranked guides.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; # Match Chang et al. 2022 parameters</span>
+<span class="sd">        &gt;&gt;&gt; result = design_crispra_guides(</span>
+<span class="sd">        ...     gene_symbol=&quot;Rai1&quot;,</span>
+<span class="sd">        ...     promoter_sequence=rai1_promoter,</span>
+<span class="sd">        ...     tss_position=600,</span>
+<span class="sd">        ...     nuclease=Nuclease.SACAS9,</span>
+<span class="sd">        ...     guide_length=20,  # They used 20bp guides</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &gt;&gt;&gt; for guide in result.tier_a_guides[:5]:</span>
+<span class="sd">        ...     print(f&quot;{guide[&#39;sequence&#39;]} (Tier A)&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">promoter_sequence</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;promoter_sequence is required. &quot;</span>
+            <span class="s2">&quot;PhaseLab does not fetch sequences - provide the promoter DNA.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">tss_position</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;tss_position is required. &quot;</span>
+            <span class="s2">&quot;Specify the TSS position within your promoter_sequence.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># v0.9.3: CRISPRa uses BINDING mode (relaxed PAM)</span>
+    <span class="n">role</span> <span class="o">=</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">BINDING</span> <span class="k">if</span> <span class="n">relaxed_pam</span> <span class="k">else</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">CUTTING</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Designing CRISPRa guides for </span><span class="si">{</span><span class="n">gene_symbol</span><span class="si">}</span><span class="s2"> (PAM mode: </span><span class="si">{</span><span class="n">role</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">, guide_length: </span><span class="si">{</span><span class="n">guide_length</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;default&#39;</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Step 1: Enumerate candidates with appropriate PAM mode</span>
+    <span class="n">enumeration</span> <span class="o">=</span> <span class="n">enumerate_from_sequence</span><span class="p">(</span>
+        <span class="n">sequence</span><span class="o">=</span><span class="n">promoter_sequence</span><span class="p">,</span>
+        <span class="n">gene_symbol</span><span class="o">=</span><span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="n">tss_position</span><span class="o">=</span><span class="n">tss_position</span><span class="p">,</span>
+        <span class="n">nuclease</span><span class="o">=</span><span class="n">nuclease</span><span class="p">,</span>
+        <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span>  <span class="c1"># v0.9.3: Pass role for PAM selection</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="n">guide_length</span><span class="p">,</span>  <span class="c1"># v0.9.3: Allow guide length override</span>
+    <span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Enumerated </span><span class="si">{</span><span class="n">enumeration</span><span class="o">.</span><span class="n">total_candidates</span><span class="si">}</span><span class="s2"> candidates&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Step 2: Evaluate candidates</span>
+    <span class="n">evaluated</span> <span class="o">=</span> <span class="n">evaluate_candidates</span><span class="p">(</span><span class="n">enumeration</span><span class="o">.</span><span class="n">candidates</span><span class="p">,</span> <span class="n">check_u6</span><span class="o">=</span><span class="n">check_u6</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Evaluated </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">evaluated</span><span class="p">)</span><span class="si">}</span><span class="s2"> candidates&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Step 3: Apply policy ranking</span>
+    <span class="c1"># Note: Without CRISPOR, off_targets is empty, so all guides will pass OT gates</span>
+    <span class="c1"># This is a LIMITATION - for real ranking, integrate CRISPOR</span>
+    <span class="n">ranking_result</span> <span class="o">=</span> <span class="n">rank_guides</span><span class="p">(</span><span class="n">evaluated</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">return_excluded</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ranked </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;ranked&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> guides&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Build manifest</span>
+    <span class="n">manifest</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;0.9.3&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+        <span class="s1">&#39;gene_symbol&#39;</span><span class="p">:</span> <span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="s1">&#39;genome_build&#39;</span><span class="p">:</span> <span class="n">genome_build</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="s1">&#39;modality&#39;</span><span class="p">:</span> <span class="n">Modality</span><span class="o">.</span><span class="n">CRISPRA</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="s1">&#39;nuclease&#39;</span><span class="p">:</span> <span class="n">nuclease</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="s1">&#39;nuclease_role&#39;</span><span class="p">:</span> <span class="n">role</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>  <span class="c1"># v0.9.3: Track PAM mode</span>
+        <span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="n">policy</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="s1">&#39;tss_position&#39;</span><span class="p">:</span> <span class="n">tss_position</span><span class="p">,</span>
+        <span class="s1">&#39;sequence_length&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">promoter_sequence</span><span class="p">),</span>
+        <span class="s1">&#39;total_enumerated&#39;</span><span class="p">:</span> <span class="n">enumeration</span><span class="o">.</span><span class="n">total_candidates</span><span class="p">,</span>
+        <span class="s1">&#39;total_ranked&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;ranked&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;tier_counts&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;tiers&#39;</span><span class="p">][</span><span class="s1">&#39;A&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;tiers&#39;</span><span class="p">][</span><span class="s1">&#39;B&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;tiers&#39;</span><span class="p">][</span><span class="s1">&#39;C&#39;</span><span class="p">]),</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;crispor_validated&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># Mark that this lacks real OT data</span>
+        <span class="s1">&#39;relaxed_pam&#39;</span><span class="p">:</span> <span class="n">relaxed_pam</span><span class="p">,</span>
+        <span class="s1">&#39;guide_length&#39;</span><span class="p">:</span> <span class="n">guide_length</span><span class="p">,</span>  <span class="c1"># v0.9.3: Track guide length override</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">DesignResult</span><span class="p">(</span>
+        <span class="n">ranked_guides</span><span class="o">=</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;ranked&#39;</span><span class="p">],</span>
+        <span class="n">tiers</span><span class="o">=</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;tiers&#39;</span><span class="p">],</span>
+        <span class="n">gene_symbol</span><span class="o">=</span><span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="n">genome_build</span><span class="o">=</span><span class="n">genome_build</span><span class="p">,</span>
+        <span class="n">modality</span><span class="o">=</span><span class="n">Modality</span><span class="o">.</span><span class="n">CRISPRA</span><span class="p">,</span>
+        <span class="n">nuclease</span><span class="o">=</span><span class="n">nuclease</span><span class="p">,</span>
+        <span class="n">policy</span><span class="o">=</span><span class="n">policy</span><span class="p">,</span>
+        <span class="n">region_set</span><span class="o">=</span><span class="n">enumeration</span><span class="o">.</span><span class="n">region_set</span><span class="p">,</span>
+        <span class="n">enumeration</span><span class="o">=</span><span class="n">enumeration</span><span class="p">,</span>
+        <span class="n">total_enumerated</span><span class="o">=</span><span class="n">enumeration</span><span class="o">.</span><span class="n">total_candidates</span><span class="p">,</span>
+        <span class="n">total_after_gates</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;ranked&#39;</span><span class="p">]),</span>
+        <span class="n">manifest</span><span class="o">=</span><span class="n">manifest</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">design_knockout_guides</span><span class="p">(</span>
+    <span class="n">gene_symbol</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">exon_sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">nuclease</span><span class="p">:</span> <span class="n">Nuclease</span> <span class="o">=</span> <span class="n">Nuclease</span><span class="o">.</span><span class="n">SPCAS9</span><span class="p">,</span>
+    <span class="n">policy</span><span class="p">:</span> <span class="n">RankingPolicy</span> <span class="o">=</span> <span class="n">RankingPolicy</span><span class="o">.</span><span class="n">CUTTING_STRICT</span><span class="p">,</span>
+    <span class="n">check_u6</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DesignResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Design knockout guides for a target gene.</span>
+
+<span class="sd">    For knockout, we typically target early exons.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gene_symbol: Target gene name.</span>
+<span class="sd">        exon_sequence: Exon DNA sequence to target.</span>
+<span class="sd">        nuclease: CRISPR nuclease.</span>
+<span class="sd">        policy: Ranking policy (default: CUTTING_STRICT for safety).</span>
+<span class="sd">        check_u6: Check U6/Pol III compatibility.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DesignResult with ranked guides.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Designing knockout guides for </span><span class="si">{</span><span class="n">gene_symbol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Enumerate</span>
+    <span class="n">enumeration</span> <span class="o">=</span> <span class="n">enumerate_from_sequence</span><span class="p">(</span>
+        <span class="n">sequence</span><span class="o">=</span><span class="n">exon_sequence</span><span class="p">,</span>
+        <span class="n">gene_symbol</span><span class="o">=</span><span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="n">tss_position</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># No TSS concept for exon targeting</span>
+        <span class="n">nuclease</span><span class="o">=</span><span class="n">nuclease</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Evaluate</span>
+    <span class="n">evaluated</span> <span class="o">=</span> <span class="n">evaluate_candidates</span><span class="p">(</span><span class="n">enumeration</span><span class="o">.</span><span class="n">candidates</span><span class="p">,</span> <span class="n">check_u6</span><span class="o">=</span><span class="n">check_u6</span><span class="p">)</span>
+
+    <span class="c1"># Rank with strict policy</span>
+    <span class="n">ranking_result</span> <span class="o">=</span> <span class="n">rank_guides</span><span class="p">(</span><span class="n">evaluated</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">return_excluded</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">manifest</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;0.9.2&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+        <span class="s1">&#39;gene_symbol&#39;</span><span class="p">:</span> <span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="s1">&#39;modality&#39;</span><span class="p">:</span> <span class="n">Modality</span><span class="o">.</span><span class="n">KNOCKOUT</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="s1">&#39;nuclease&#39;</span><span class="p">:</span> <span class="n">nuclease</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="n">policy</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="s1">&#39;sequence_length&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">exon_sequence</span><span class="p">),</span>
+        <span class="s1">&#39;total_enumerated&#39;</span><span class="p">:</span> <span class="n">enumeration</span><span class="o">.</span><span class="n">total_candidates</span><span class="p">,</span>
+        <span class="s1">&#39;total_ranked&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;ranked&#39;</span><span class="p">]),</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">DesignResult</span><span class="p">(</span>
+        <span class="n">ranked_guides</span><span class="o">=</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;ranked&#39;</span><span class="p">],</span>
+        <span class="n">tiers</span><span class="o">=</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;tiers&#39;</span><span class="p">],</span>
+        <span class="n">gene_symbol</span><span class="o">=</span><span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="n">genome_build</span><span class="o">=</span><span class="n">GenomeBuild</span><span class="o">.</span><span class="n">HG38</span><span class="p">,</span>
+        <span class="n">modality</span><span class="o">=</span><span class="n">Modality</span><span class="o">.</span><span class="n">KNOCKOUT</span><span class="p">,</span>
+        <span class="n">nuclease</span><span class="o">=</span><span class="n">nuclease</span><span class="p">,</span>
+        <span class="n">policy</span><span class="o">=</span><span class="n">policy</span><span class="p">,</span>
+        <span class="n">enumeration</span><span class="o">=</span><span class="n">enumeration</span><span class="p">,</span>
+        <span class="n">total_enumerated</span><span class="o">=</span><span class="n">enumeration</span><span class="o">.</span><span class="n">total_candidates</span><span class="p">,</span>
+        <span class="n">total_after_gates</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">ranking_result</span><span class="p">[</span><span class="s1">&#39;ranked&#39;</span><span class="p">]),</span>
+        <span class="n">manifest</span><span class="o">=</span><span class="n">manifest</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># BENCHMARK MODE</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="BenchmarkResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.BenchmarkResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BenchmarkResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Result of benchmarking PhaseLab against published guides.&quot;&quot;&quot;</span>
+    <span class="n">gene_symbol</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">published_guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
+    <span class="n">phaselab_rankings</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
+
+    <span class="c1"># Pass/fail</span>
+    <span class="n">passed</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">pass_rate</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">details</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+<div class="viewcode-block" id="BenchmarkResult.summary">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.BenchmarkResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;BENCHMARK RESULT: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">gene_symbol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Published guides tested: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">published_guides</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Pass rate: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pass_rate</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Overall: </span><span class="si">{</span><span class="s1">&#39;PASS&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">passed</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;FAIL&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Details:&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">details</span><span class="p">:</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="benchmark_against_published">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.benchmark_against_published">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">benchmark_against_published</span><span class="p">(</span>
+    <span class="n">published_guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">design_result</span><span class="p">:</span> <span class="n">DesignResult</span><span class="p">,</span>
+    <span class="n">require_tier_a</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">require_top_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BenchmarkResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Benchmark PhaseLab rankings against published experimental results.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        published_guides: List of dicts with &#39;sequence&#39; and &#39;experimental_winner&#39;.</span>
+<span class="sd">        design_result: DesignResult from design_crispra_guides or similar.</span>
+<span class="sd">        require_tier_a: Require winners to be Tier A.</span>
+<span class="sd">        require_top_n: Require winners to be in top N.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        BenchmarkResult with pass/fail analysis.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; published = [</span>
+<span class="sd">        ...     {&#39;sequence&#39;: &#39;CCTGGCACCCGAGGCCACGA&#39;, &#39;experimental_winner&#39;: True},</span>
+<span class="sd">        ...     {&#39;sequence&#39;: &#39;GTCTAAGTCCAAAATCCTCA&#39;, &#39;experimental_winner&#39;: False},</span>
+<span class="sd">        ... ]</span>
+<span class="sd">        &gt;&gt;&gt; result = benchmark_against_published(published, design_result)</span>
+<span class="sd">        &gt;&gt;&gt; print(result.summary())</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">details</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">passes</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">total_winners</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Index PhaseLab results by sequence</span>
+    <span class="n">phaselab_index</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">g</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span> <span class="n">g</span>
+        <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">design_result</span><span class="o">.</span><span class="n">ranked_guides</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">pub</span> <span class="ow">in</span> <span class="n">published_guides</span><span class="p">:</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="n">pub</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="n">is_winner</span> <span class="o">=</span> <span class="n">pub</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;experimental_winner&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_winner</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">total_winners</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">seq</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">phaselab_index</span><span class="p">:</span>
+            <span class="n">details</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FAIL: </span><span class="si">{</span><span class="n">seq</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span><span class="si">}</span><span class="s2">... not found in PhaseLab output&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">pl_guide</span> <span class="o">=</span> <span class="n">phaselab_index</span><span class="p">[</span><span class="n">seq</span><span class="p">]</span>
+        <span class="n">rank</span> <span class="o">=</span> <span class="n">pl_guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rank&#39;</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
+        <span class="n">tier</span> <span class="o">=</span> <span class="n">pl_guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tier&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check criteria</span>
+        <span class="n">tier_ok</span> <span class="o">=</span> <span class="p">(</span><span class="n">tier</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">require_tier_a</span> <span class="k">else</span> <span class="p">(</span><span class="n">tier</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">])</span>
+        <span class="n">rank_ok</span> <span class="o">=</span> <span class="n">rank</span> <span class="o">&lt;=</span> <span class="n">require_top_n</span>
+
+        <span class="k">if</span> <span class="n">tier_ok</span> <span class="ow">and</span> <span class="n">rank_ok</span><span class="p">:</span>
+            <span class="n">passes</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">details</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PASS: </span><span class="si">{</span><span class="n">seq</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span><span class="si">}</span><span class="s2">... ranked #</span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">, Tier </span><span class="si">{</span><span class="n">tier</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">tier_ok</span><span class="p">:</span>
+            <span class="n">details</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FAIL: </span><span class="si">{</span><span class="n">seq</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span><span class="si">}</span><span class="s2">... Tier </span><span class="si">{</span><span class="n">tier</span><span class="si">}</span><span class="s2"> (expected A)&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">details</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARN: </span><span class="si">{</span><span class="n">seq</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span><span class="si">}</span><span class="s2">... ranked #</span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2"> &gt; top </span><span class="si">{</span><span class="n">require_top_n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">pass_rate</span> <span class="o">=</span> <span class="n">passes</span> <span class="o">/</span> <span class="n">total_winners</span> <span class="k">if</span> <span class="n">total_winners</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">passed</span> <span class="o">=</span> <span class="n">pass_rate</span> <span class="o">&gt;=</span> <span class="mf">0.8</span>  <span class="c1"># 80% threshold</span>
+
+    <span class="k">return</span> <span class="n">BenchmarkResult</span><span class="p">(</span>
+        <span class="n">gene_symbol</span><span class="o">=</span><span class="n">design_result</span><span class="o">.</span><span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="n">published_guides</span><span class="o">=</span><span class="n">published_guides</span><span class="p">,</span>
+        <span class="n">phaselab_rankings</span><span class="o">=</span><span class="n">design_result</span><span class="o">.</span><span class="n">ranked_guides</span><span class="p">,</span>
+        <span class="n">passed</span><span class="o">=</span><span class="n">passed</span><span class="p">,</span>
+        <span class="n">pass_rate</span><span class="o">=</span><span class="n">pass_rate</span><span class="p">,</span>
+        <span class="n">details</span><span class="o">=</span><span class="n">details</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># CONVENIENCE EXPORTS</span>
+<span class="c1"># =============================================================================</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Main design functions</span>
+    <span class="s1">&#39;design_crispra_guides&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;design_knockout_guides&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Results</span>
+    <span class="s1">&#39;DesignResult&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BenchmarkResult&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Evaluation</span>
+    <span class="s1">&#39;evaluate_candidate&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;evaluate_candidates&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Benchmarking</span>
+    <span class="s1">&#39;benchmark_against_published&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Re-exports from region</span>
+    <span class="s1">&#39;GenomeBuild&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Modality&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Window&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;TSSAnnotation&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RegionBuilder&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Re-exports from enumerate</span>
+    <span class="s1">&#39;Nuclease&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NucleaseRole&#39;</span><span class="p">,</span>  <span class="c1"># v0.9.3: BINDING vs CUTTING</span>
+    <span class="s1">&#39;CandidateGuide&#39;</span><span class="p">,</span>
+
+    <span class="c1"># Re-exports from scoring</span>
+    <span class="s1">&#39;RankingPolicy&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GuideTier&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

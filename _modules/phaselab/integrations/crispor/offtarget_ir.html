@@ -1,0 +1,1334 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.integrations.crispor.offtarget_ir &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/integrations/crispor/offtarget_ir';</script>
+    <link rel="icon" href="../../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.integrations.crispor.offtarget_ir</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.integrations.crispor.offtarget_ir</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Off-Target IR Analysis Module.</span>
+
+<span class="sd">Applies Informational Relativity metrics to CRISPOR off-target data</span>
+<span class="sd">to provide structure-aware risk assessment beyond simple counting.</span>
+
+<span class="sd">Key Metrics:</span>
+<span class="sd">1. Off-target entropy - Is risk concentrated or diffuse?</span>
+<span class="sd">2. Coherence contrast (ΔR̄) - Are off-targets &quot;too good&quot; physically?</span>
+<span class="sd">3. Phase clustering - Do off-targets form dangerous families?</span>
+<span class="sd">4. Energy spectrum - Tail-risk from favorable binding energies</span>
+
+<span class="sd">These metrics complement CRISPOR&#39;s MIT/CFD scores by asking</span>
+<span class="sd">&quot;how dangerous is the off-target *structure*?&quot; not just &quot;how many?&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="OffTargetSite">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.OffTargetSite">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OffTargetSite</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents a single off-target site with IR metrics.&quot;&quot;&quot;</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">mismatches</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">cfd_score</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">gene</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">region</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># exon, intron, intergenic</span>
+
+    <span class="c1"># IR metrics (computed)</span>
+    <span class="n">r_bar</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">binding_energy</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">phase_mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_exonic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="ow">and</span> <span class="s1">&#39;exon&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;0-2 mismatches are considered &#39;close&#39; and dangerous.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mismatches</span> <span class="o">&lt;=</span> <span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="OffTargetIRAnalysis">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OffTargetIRAnalysis</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Complete IR analysis of a guide&#39;s off-target landscape.</span>
+
+<span class="sd">    This provides structure-aware metrics that CRISPOR alone doesn&#39;t compute.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_sequence</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1"># Core IR metrics</span>
+    <span class="n">r_bar_on_target</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">r_bar_off_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Highest R̄ among off-targets</span>
+    <span class="n">delta_r_bar</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1"># R̄_on - R̄_off_max (coherence contrast)</span>
+
+    <span class="c1"># Off-target entropy (risk distribution)</span>
+    <span class="n">entropy</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Shannon entropy of risk weights</span>
+    <span class="n">entropy_normalized</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># 0-1 scale</span>
+
+    <span class="c1"># Energy spectrum</span>
+    <span class="n">energy_on_target</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">energy_off_mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">energy_off_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Most favorable off-target energy</span>
+    <span class="n">energy_tail_risk</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># 95th percentile</span>
+
+    <span class="c1"># Clustering (if computed)</span>
+    <span class="n">n_clusters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">largest_cluster_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">cluster_concentration</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Summary</span>
+    <span class="n">risk_concentrated</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Low entropy = few dangerous sites</span>
+    <span class="n">off_target_competitive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># ΔR̄ &lt; threshold</span>
+    <span class="n">has_exonic_risk</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">has_exonic_close_ot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Exonic off-targets with ≤2 mismatches</span>
+
+    <span class="c1"># IR-enhanced score (pre-computed for convenience)</span>
+    <span class="n">ir_enhanced_score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Score penalty/bonus from IR analysis</span>
+
+    <span class="c1"># Raw data</span>
+    <span class="n">n_offtargets_analyzed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">close_offtargets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+
+<div class="viewcode-block" id="OffTargetIRAnalysis.to_dict">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.to_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;guide_sequence&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">guide_sequence</span><span class="p">,</span>
+            <span class="s1">&#39;r_bar_on_target&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r_bar_on_target</span><span class="p">),</span>
+            <span class="s1">&#39;r_bar_off_max&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r_bar_off_max</span><span class="p">),</span>
+            <span class="s1">&#39;delta_r_bar&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delta_r_bar</span><span class="p">),</span>
+            <span class="s1">&#39;entropy&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entropy</span><span class="p">),</span>
+            <span class="s1">&#39;entropy_normalized&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entropy_normalized</span><span class="p">),</span>
+            <span class="s1">&#39;energy_on_target&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">energy_on_target</span><span class="p">),</span>
+            <span class="s1">&#39;energy_off_mean&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">energy_off_mean</span><span class="p">),</span>
+            <span class="s1">&#39;energy_tail_risk&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">energy_tail_risk</span><span class="p">),</span>
+            <span class="s1">&#39;n_clusters&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">,</span>
+            <span class="s1">&#39;risk_concentrated&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">risk_concentrated</span><span class="p">,</span>
+            <span class="s1">&#39;off_target_competitive&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">off_target_competitive</span><span class="p">,</span>
+            <span class="s1">&#39;has_exonic_risk&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_exonic_risk</span><span class="p">,</span>
+            <span class="s1">&#39;has_exonic_close_ot&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_exonic_close_ot</span><span class="p">,</span>
+            <span class="s1">&#39;ir_enhanced_score&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ir_enhanced_score</span><span class="p">),</span>
+            <span class="s1">&#39;n_offtargets_analyzed&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_offtargets_analyzed</span><span class="p">,</span>
+        <span class="p">}</span></div>
+</div>
+
+
+
+<span class="c1"># Thermodynamic parameters for binding energy estimation</span>
+<span class="n">NN_PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;AA&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.00</span><span class="p">,</span> <span class="s1">&#39;AT&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.88</span><span class="p">,</span> <span class="s1">&#39;AG&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.28</span><span class="p">,</span> <span class="s1">&#39;AC&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.44</span><span class="p">,</span>
+    <span class="s1">&#39;TA&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.58</span><span class="p">,</span> <span class="s1">&#39;TT&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.00</span><span class="p">,</span> <span class="s1">&#39;TG&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.45</span><span class="p">,</span> <span class="s1">&#39;TC&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.30</span><span class="p">,</span>
+    <span class="s1">&#39;GA&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.30</span><span class="p">,</span> <span class="s1">&#39;GT&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.44</span><span class="p">,</span> <span class="s1">&#39;GG&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.84</span><span class="p">,</span> <span class="s1">&#39;GC&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.24</span><span class="p">,</span>
+    <span class="s1">&#39;CA&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.45</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.28</span><span class="p">,</span> <span class="s1">&#39;CG&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.17</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.84</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_binding_energy</span><span class="p">(</span><span class="n">guide</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Estimate binding energy using nearest-neighbor thermodynamics.</span>
+
+<span class="sd">    More negative = more stable binding.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">guide</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="n">energy</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">complement</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">guide</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">dinuc</span> <span class="o">=</span> <span class="n">guide</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">base_energy</span> <span class="o">=</span> <span class="n">NN_PARAMS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">dinuc</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+
+        <span class="c1"># Perfect match contribution</span>
+        <span class="n">match_i</span> <span class="o">=</span> <span class="n">guide</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">complement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
+        <span class="n">match_j</span> <span class="o">=</span> <span class="n">guide</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">complement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">match_i</span> <span class="ow">and</span> <span class="n">match_j</span><span class="p">:</span>
+            <span class="n">energy</span> <span class="o">+=</span> <span class="n">base_energy</span>
+        <span class="k">elif</span> <span class="n">match_i</span> <span class="ow">or</span> <span class="n">match_j</span><span class="p">:</span>
+            <span class="n">energy</span> <span class="o">+=</span> <span class="n">base_energy</span> <span class="o">*</span> <span class="mf">0.3</span>  <span class="c1"># Partial match</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">energy</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">base_energy</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>  <span class="c1"># Mismatch penalty</span>
+
+    <span class="k">return</span> <span class="n">energy</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_coherence_simple</span><span class="p">(</span><span class="n">expectations</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute phase coherence R̄ from expectation values.</span>
+
+<span class="sd">    R̄ = |⟨e^(iφ)⟩| where φ = arccos(⟨O⟩)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">phases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">expectations</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">phases</span><span class="p">))))</span>
+
+
+<div class="viewcode-block" id="compute_offtarget_entropy">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.compute_offtarget_entropy">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_offtarget_entropy</span><span class="p">(</span>
+    <span class="n">offtargets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">],</span>
+    <span class="n">use_cfd_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute Shannon entropy of off-target risk distribution.</span>
+
+<span class="sd">    Low entropy = risk concentrated in few sites (dangerous)</span>
+<span class="sd">    High entropy = risk diffuse across many weak sites (safer)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        offtargets: List of off-target sites</span>
+<span class="sd">        use_cfd_weights: If True, weight by CFD score; otherwise by mismatches</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (entropy, normalized_entropy) where normalized is 0-1 scale</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span>  <span class="c1"># No off-targets = maximum &quot;safety&quot;</span>
+
+    <span class="c1"># Compute weights for each off-target</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">use_cfd_weights</span><span class="p">:</span>
+            <span class="c1"># CFD is 0-1, higher = more likely to cut</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">cfd_score</span> <span class="k">if</span> <span class="n">ot</span><span class="o">.</span><span class="n">cfd_score</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.01</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Weight inversely by mismatches (0mm = highest weight)</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">ot</span><span class="o">.</span><span class="n">mismatches</span><span class="p">)</span>
+
+        <span class="c1"># Boost weight for exonic off-targets</span>
+        <span class="k">if</span> <span class="n">ot</span><span class="o">.</span><span class="n">is_exonic</span><span class="p">:</span>
+            <span class="n">w</span> <span class="o">*=</span> <span class="mf">2.0</span>
+
+        <span class="n">weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+
+    <span class="c1"># Normalize to probability distribution</span>
+    <span class="k">if</span> <span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">weights</span> <span class="o">/</span> <span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="c1"># Shannon entropy</span>
+    <span class="c1"># H = -Σ p_i log(p_i)</span>
+    <span class="n">p_nonzero</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">p</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">entropy</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_nonzero</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p_nonzero</span><span class="p">))</span>
+
+    <span class="c1"># Normalize to 0-1 (max entropy = log(n))</span>
+    <span class="n">max_entropy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">offtargets</span><span class="p">))</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">offtargets</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mf">1.0</span>
+    <span class="n">normalized</span> <span class="o">=</span> <span class="n">entropy</span> <span class="o">/</span> <span class="n">max_entropy</span> <span class="k">if</span> <span class="n">max_entropy</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
+
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">entropy</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="compute_coherence_contrast">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.compute_coherence_contrast">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_coherence_contrast</span><span class="p">(</span>
+    <span class="n">guide_sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">on_target_r_bar</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">offtargets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">],</span>
+    <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute coherence contrast: ΔR̄ = R̄_on - max(R̄_off).</span>
+
+<span class="sd">    This measures whether off-targets are &quot;too good&quot; physically.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_sequence: The guide RNA sequence</span>
+<span class="sd">        on_target_r_bar: Pre-computed on-target coherence</span>
+<span class="sd">        offtargets: List of off-target sites</span>
+<span class="sd">        top_k: Only analyze top K most dangerous off-targets</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (r_bar_off_max, delta_r_bar)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">on_target_r_bar</span>
+
+    <span class="c1"># Sort by danger (low mismatches + high CFD)</span>
+    <span class="n">sorted_ots</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+        <span class="n">offtargets</span><span class="p">,</span>
+        <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mismatches</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">cfd_score</span><span class="p">)</span>
+    <span class="p">)[:</span><span class="n">top_k</span><span class="p">]</span>
+
+    <span class="n">r_bar_values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">sorted_ots</span><span class="p">:</span>
+        <span class="c1"># Simple coherence estimate based on sequence similarity</span>
+        <span class="c1"># In full implementation, would run quantum simulation</span>
+        <span class="n">mismatch_penalty</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="n">ot</span><span class="o">.</span><span class="n">mismatches</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># ~10% drop per mismatch</span>
+        <span class="n">estimated_r_bar</span> <span class="o">=</span> <span class="n">on_target_r_bar</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">mismatch_penalty</span><span class="p">)</span>
+
+        <span class="c1"># Adjust by CFD (higher CFD = closer to on-target behavior)</span>
+        <span class="n">estimated_r_bar</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">0.7</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">ot</span><span class="o">.</span><span class="n">cfd_score</span><span class="p">)</span>
+
+        <span class="n">r_bar_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">estimated_r_bar</span><span class="p">)</span>
+        <span class="n">ot</span><span class="o">.</span><span class="n">r_bar</span> <span class="o">=</span> <span class="n">estimated_r_bar</span>
+
+    <span class="n">r_bar_off_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">r_bar_values</span><span class="p">)</span> <span class="k">if</span> <span class="n">r_bar_values</span> <span class="k">else</span> <span class="mf">0.0</span>
+    <span class="n">delta_r_bar</span> <span class="o">=</span> <span class="n">on_target_r_bar</span> <span class="o">-</span> <span class="n">r_bar_off_max</span>
+
+    <span class="k">return</span> <span class="n">r_bar_off_max</span><span class="p">,</span> <span class="n">delta_r_bar</span></div>
+
+
+
+<div class="viewcode-block" id="compute_energy_spectrum">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.compute_energy_spectrum">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_energy_spectrum</span><span class="p">(</span>
+    <span class="n">guide_sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">offtargets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute energy spectrum of off-targets.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (mean_energy, max_energy, tail_risk_95)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+
+    <span class="n">energies</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="n">energy</span> <span class="o">=</span> <span class="n">compute_binding_energy</span><span class="p">(</span><span class="n">guide_sequence</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">sequence</span><span class="p">)</span>
+        <span class="n">ot</span><span class="o">.</span><span class="n">binding_energy</span> <span class="o">=</span> <span class="n">energy</span>
+        <span class="n">energies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+
+    <span class="n">energies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">energies</span><span class="p">)</span>
+
+    <span class="n">mean_energy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">energies</span><span class="p">))</span>
+    <span class="n">max_energy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">energies</span><span class="p">))</span>  <span class="c1"># Most negative = most stable</span>
+    <span class="n">tail_risk</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">energies</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 5th percentile (most stable)</span>
+
+    <span class="k">return</span> <span class="n">mean_energy</span><span class="p">,</span> <span class="n">max_energy</span><span class="p">,</span> <span class="n">tail_risk</span></div>
+
+
+
+<div class="viewcode-block" id="compute_offtarget_clustering">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.compute_offtarget_clustering">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_offtarget_clustering</span><span class="p">(</span>
+    <span class="n">offtargets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">],</span>
+    <span class="n">similarity_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cluster off-targets by sequence similarity to detect dangerous &quot;families&quot;.</span>
+
+<span class="sd">    Uses a simple hierarchical approach based on sequence identity.</span>
+<span class="sd">    Off-targets that are similar to each other may indicate a systematic</span>
+<span class="sd">    vulnerability (e.g., pseudogenes, gene families).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        offtargets: List of off-target sites</span>
+<span class="sd">        similarity_threshold: Minimum similarity to be in same cluster (0-1)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (n_clusters, largest_cluster_size, cluster_concentration)</span>
+<span class="sd">        - cluster_concentration: fraction of off-targets in largest cluster</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">offtargets</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">offtargets</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">offtargets</span><span class="p">),</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">offtargets</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Simple single-linkage clustering based on sequence similarity</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">offtargets</span><span class="p">)</span>
+    <span class="n">cluster_id</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>  <span class="c1"># Each off-target starts in its own cluster</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">sequence_similarity</span><span class="p">(</span><span class="n">seq1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">seq2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute fraction of matching positions.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">):</span>
+            <span class="n">min_len</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq2</span><span class="p">))</span>
+            <span class="n">seq1</span> <span class="o">=</span> <span class="n">seq1</span><span class="p">[:</span><span class="n">min_len</span><span class="p">]</span>
+            <span class="n">seq2</span> <span class="o">=</span> <span class="n">seq2</span><span class="p">[:</span><span class="n">min_len</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">seq1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="n">matches</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">seq1</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">seq2</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">matches</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq1</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_root</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Union-find: find cluster root.&quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="n">cluster_id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">cluster_id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_id</span><span class="p">[</span><span class="n">cluster_id</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>  <span class="c1"># Path compression</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">cluster_id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">i</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">union</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Union-find: merge clusters.&quot;&quot;&quot;</span>
+        <span class="n">root_i</span> <span class="o">=</span> <span class="n">find_root</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">root_j</span> <span class="o">=</span> <span class="n">find_root</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">root_i</span> <span class="o">!=</span> <span class="n">root_j</span><span class="p">:</span>
+            <span class="n">cluster_id</span><span class="p">[</span><span class="n">root_i</span><span class="p">]</span> <span class="o">=</span> <span class="n">root_j</span>
+
+    <span class="c1"># Cluster similar sequences</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">sim</span> <span class="o">=</span> <span class="n">sequence_similarity</span><span class="p">(</span><span class="n">offtargets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sequence</span><span class="p">,</span> <span class="n">offtargets</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">sequence</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sim</span> <span class="o">&gt;=</span> <span class="n">similarity_threshold</span><span class="p">:</span>
+                <span class="n">union</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+
+    <span class="c1"># Count cluster sizes</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[</span><span class="n">find_root</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">cluster_sizes</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
+
+    <span class="n">n_clusters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cluster_sizes</span><span class="p">)</span>
+    <span class="n">largest_cluster</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">cluster_sizes</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="n">concentration</span> <span class="o">=</span> <span class="n">largest_cluster</span> <span class="o">/</span> <span class="n">n</span>
+
+    <span class="k">return</span> <span class="n">n_clusters</span><span class="p">,</span> <span class="n">largest_cluster</span><span class="p">,</span> <span class="n">concentration</span></div>
+
+
+
+<div class="viewcode-block" id="compute_region_difficulty">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.compute_region_difficulty">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_region_difficulty</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute region difficulty metrics (&quot;soup index&quot;).</span>
+
+<span class="sd">    GC-rich and repetitive regions are inherently harder to design</span>
+<span class="sd">    specific guides for. This normalizes expectations.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: DNA sequence to analyze</span>
+<span class="sd">        k: k-mer size for entropy calculation</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict with difficulty metrics:</span>
+<span class="sd">        - gc_content: GC fraction</span>
+<span class="sd">        - kmer_entropy: k-mer Shannon entropy (higher = more complex)</span>
+<span class="sd">        - repeat_fraction: fraction of sequence in homopolymers</span>
+<span class="sd">        - difficulty_index: composite score (higher = harder)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;gc_content&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+            <span class="s1">&#39;kmer_entropy&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s1">&#39;repeat_fraction&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s1">&#39;difficulty_index&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="c1"># GC content</span>
+    <span class="n">gc_count</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">sequence</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+    <span class="n">gc_content</span> <span class="o">=</span> <span class="n">gc_count</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+
+    <span class="c1"># k-mer entropy</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+    <span class="n">kmers</span> <span class="o">=</span> <span class="p">[</span><span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">kmer_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">kmers</span><span class="p">)</span>
+    <span class="n">total_kmers</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">kmer_counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="n">kmer_entropy</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">kmer_counts</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">count</span> <span class="o">/</span> <span class="n">total_kmers</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">kmer_entropy</span> <span class="o">-=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+    <span class="c1"># Normalize by max possible entropy (all unique k-mers)</span>
+    <span class="n">max_entropy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="o">**</span><span class="n">k</span><span class="p">,</span> <span class="n">total_kmers</span><span class="p">))</span>
+    <span class="n">kmer_entropy_norm</span> <span class="o">=</span> <span class="n">kmer_entropy</span> <span class="o">/</span> <span class="n">max_entropy</span> <span class="k">if</span> <span class="n">max_entropy</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+
+    <span class="c1"># Repeat fraction (homopolymers of length &gt;= 4)</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+    <span class="n">homopolymers</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(.)\1{3,}&#39;</span><span class="p">,</span> <span class="n">sequence</span><span class="p">)</span>
+    <span class="n">repeat_length</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">homopolymers</span><span class="p">)</span>  <span class="c1"># +3 because findall returns just the char</span>
+    <span class="n">repeat_fraction</span> <span class="o">=</span> <span class="n">repeat_length</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+
+    <span class="c1"># Composite difficulty index</span>
+    <span class="c1"># High GC, low k-mer diversity, and repeats all make design harder</span>
+    <span class="n">gc_difficulty</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">gc_content</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>  <span class="c1"># 0 at 50% GC, 1 at 0% or 100%</span>
+    <span class="n">diversity_difficulty</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">kmer_entropy_norm</span>  <span class="c1"># Low entropy = repetitive = hard</span>
+    <span class="n">repeat_difficulty</span> <span class="o">=</span> <span class="n">repeat_fraction</span>
+
+    <span class="c1"># Weighted combination</span>
+    <span class="n">difficulty_index</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="mf">0.4</span> <span class="o">*</span> <span class="n">gc_difficulty</span> <span class="o">+</span>
+        <span class="mf">0.4</span> <span class="o">*</span> <span class="n">diversity_difficulty</span> <span class="o">+</span>
+        <span class="mf">0.2</span> <span class="o">*</span> <span class="n">repeat_difficulty</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;gc_content&#39;</span><span class="p">:</span> <span class="n">gc_content</span><span class="p">,</span>
+        <span class="s1">&#39;kmer_entropy&#39;</span><span class="p">:</span> <span class="n">kmer_entropy_norm</span><span class="p">,</span>
+        <span class="s1">&#39;repeat_fraction&#39;</span><span class="p">:</span> <span class="n">repeat_fraction</span><span class="p">,</span>
+        <span class="s1">&#39;difficulty_index&#39;</span><span class="p">:</span> <span class="n">difficulty_index</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="analyze_offtarget_landscape">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.analyze_offtarget_landscape">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze_offtarget_landscape</span><span class="p">(</span>
+    <span class="n">guide_sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">on_target_r_bar</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">offtargets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">],</span>
+    <span class="n">on_target_energy</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">delta_r_bar_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OffTargetIRAnalysis</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Comprehensive IR analysis of a guide&#39;s off-target landscape.</span>
+
+<span class="sd">    This is the main entry point that computes all IR-enhanced metrics.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_sequence: 20bp guide sequence</span>
+<span class="sd">        on_target_r_bar: Pre-computed on-target coherence</span>
+<span class="sd">        offtargets: List of OffTargetSite objects from CRISPOR</span>
+<span class="sd">        on_target_energy: Pre-computed on-target binding energy (optional)</span>
+<span class="sd">        delta_r_bar_threshold: Threshold below which off-targets are &quot;competitive&quot;</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        OffTargetIRAnalysis with all computed metrics</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">analysis</span> <span class="o">=</span> <span class="n">OffTargetIRAnalysis</span><span class="p">(</span>
+        <span class="n">guide_sequence</span><span class="o">=</span><span class="n">guide_sequence</span><span class="p">,</span>
+        <span class="n">r_bar_on_target</span><span class="o">=</span><span class="n">on_target_r_bar</span><span class="p">,</span>
+        <span class="n">n_offtargets_analyzed</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">offtargets</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">entropy_normalized</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># No off-targets = safe</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">delta_r_bar</span> <span class="o">=</span> <span class="n">on_target_r_bar</span>
+        <span class="k">return</span> <span class="n">analysis</span>
+
+    <span class="c1"># 1. Compute off-target entropy</span>
+    <span class="n">entropy</span><span class="p">,</span> <span class="n">entropy_norm</span> <span class="o">=</span> <span class="n">compute_offtarget_entropy</span><span class="p">(</span><span class="n">offtargets</span><span class="p">)</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">entropy</span> <span class="o">=</span> <span class="n">entropy</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">entropy_normalized</span> <span class="o">=</span> <span class="n">entropy_norm</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">risk_concentrated</span> <span class="o">=</span> <span class="n">entropy_norm</span> <span class="o">&lt;</span> <span class="mf">0.5</span>  <span class="c1"># Low entropy = concentrated risk</span>
+
+    <span class="c1"># 2. Compute coherence contrast</span>
+    <span class="n">r_bar_off_max</span><span class="p">,</span> <span class="n">delta_r_bar</span> <span class="o">=</span> <span class="n">compute_coherence_contrast</span><span class="p">(</span>
+        <span class="n">guide_sequence</span><span class="p">,</span> <span class="n">on_target_r_bar</span><span class="p">,</span> <span class="n">offtargets</span>
+    <span class="p">)</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">r_bar_off_max</span> <span class="o">=</span> <span class="n">r_bar_off_max</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">delta_r_bar</span> <span class="o">=</span> <span class="n">delta_r_bar</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">off_target_competitive</span> <span class="o">=</span> <span class="n">delta_r_bar</span> <span class="o">&lt;</span> <span class="n">delta_r_bar_threshold</span>
+
+    <span class="c1"># 3. Compute energy spectrum</span>
+    <span class="n">mean_e</span><span class="p">,</span> <span class="n">max_e</span><span class="p">,</span> <span class="n">tail_e</span> <span class="o">=</span> <span class="n">compute_energy_spectrum</span><span class="p">(</span><span class="n">guide_sequence</span><span class="p">,</span> <span class="n">offtargets</span><span class="p">)</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">energy_off_mean</span> <span class="o">=</span> <span class="n">mean_e</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">energy_off_max</span> <span class="o">=</span> <span class="n">max_e</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">energy_tail_risk</span> <span class="o">=</span> <span class="n">tail_e</span>
+
+    <span class="k">if</span> <span class="n">on_target_energy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">energy_on_target</span> <span class="o">=</span> <span class="n">on_target_energy</span>
+
+    <span class="c1"># 4. Check for exonic risk</span>
+    <span class="n">close_exonic</span> <span class="o">=</span> <span class="p">[</span><span class="n">ot</span> <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">offtargets</span> <span class="k">if</span> <span class="n">ot</span><span class="o">.</span><span class="n">is_close</span> <span class="ow">and</span> <span class="n">ot</span><span class="o">.</span><span class="n">is_exonic</span><span class="p">]</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">has_exonic_risk</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">close_exonic</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">has_exonic_close_ot</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">close_exonic</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>  <span class="c1"># Alias for clarity</span>
+
+    <span class="c1"># 5. Store close off-targets for inspection</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">close_offtargets</span> <span class="o">=</span> <span class="p">[</span><span class="n">ot</span> <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">offtargets</span> <span class="k">if</span> <span class="n">ot</span><span class="o">.</span><span class="n">is_close</span><span class="p">]</span>
+
+    <span class="c1"># 6. Compute off-target clustering (phase families)</span>
+    <span class="n">n_clusters</span><span class="p">,</span> <span class="n">largest_cluster</span><span class="p">,</span> <span class="n">concentration</span> <span class="o">=</span> <span class="n">compute_offtarget_clustering</span><span class="p">(</span><span class="n">offtargets</span><span class="p">)</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">n_clusters</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">largest_cluster_size</span> <span class="o">=</span> <span class="n">largest_cluster</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">cluster_concentration</span> <span class="o">=</span> <span class="n">concentration</span>
+
+    <span class="c1"># 7. Pre-compute IR enhanced score for convenience</span>
+    <span class="c1"># This gives the penalty/bonus that would be applied to a base score</span>
+    <span class="n">ir_score</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">compute_ir_enhanced_score</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">analysis</span><span class="p">)</span>
+    <span class="n">analysis</span><span class="o">.</span><span class="n">ir_enhanced_score</span> <span class="o">=</span> <span class="n">ir_score</span>
+
+    <span class="k">return</span> <span class="n">analysis</span></div>
+
+
+
+<div class="viewcode-block" id="compute_risk_mass">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.compute_risk_mass">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_risk_mass</span><span class="p">(</span>
+    <span class="n">offtargets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute risk mass metrics: sum(CFD) by mismatch bucket and annotation.</span>
+
+<span class="sd">    Risk mass is more informative than off-target counts because it weights</span>
+<span class="sd">    by actual cutting probability (CFD score).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        offtargets: List of off-target sites</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict with:</span>
+<span class="sd">        - risk_mass_close: sum(CFD) for 0-2mm off-targets</span>
+<span class="sd">        - risk_mass_distant: sum(CFD) for 3-4mm off-targets</span>
+<span class="sd">        - risk_mass_exonic: sum(CFD) for exonic off-targets</span>
+<span class="sd">        - risk_mass_by_mm: {0: sum, 1: sum, 2: sum, 3: sum, 4: sum}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">risk_mass_by_mm</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)}</span>
+    <span class="n">risk_mass_exonic</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="n">mm</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">ot</span><span class="o">.</span><span class="n">mismatches</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># Cap at 4</span>
+        <span class="n">risk_mass_by_mm</span><span class="p">[</span><span class="n">mm</span><span class="p">]</span> <span class="o">+=</span> <span class="n">ot</span><span class="o">.</span><span class="n">cfd_score</span>
+
+        <span class="k">if</span> <span class="n">ot</span><span class="o">.</span><span class="n">is_exonic</span><span class="p">:</span>
+            <span class="n">risk_mass_exonic</span> <span class="o">+=</span> <span class="n">ot</span><span class="o">.</span><span class="n">cfd_score</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;risk_mass_close&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">risk_mass_by_mm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span>  <span class="c1"># 0-2mm</span>
+        <span class="s1">&#39;risk_mass_distant&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">risk_mass_by_mm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>  <span class="c1"># 3-4mm</span>
+        <span class="s1">&#39;risk_mass_exonic&#39;</span><span class="p">:</span> <span class="n">risk_mass_exonic</span><span class="p">,</span>
+        <span class="s1">&#39;risk_mass_by_mm&#39;</span><span class="p">:</span> <span class="n">risk_mass_by_mm</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="compute_tail_risk">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.compute_tail_risk">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_tail_risk</span><span class="p">(</span>
+    <span class="n">offtargets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">],</span>
+    <span class="n">focus_exonic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute tail-risk score: the worst single off-target.</span>
+
+<span class="sd">    Tail risk dominates safety perception more than total OT count.</span>
+<span class="sd">    A single high-CFD exonic off-target is more dangerous than</span>
+<span class="sd">    100 low-CFD intergenic off-targets.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        offtargets: List of off-target sites</span>
+<span class="sd">        focus_exonic: If True, only consider exonic off-targets for max</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (max_cfd_score, worst_offtarget)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">focus_exonic</span><span class="p">:</span>
+        <span class="n">exonic</span> <span class="o">=</span> <span class="p">[</span><span class="n">ot</span> <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">offtargets</span> <span class="k">if</span> <span class="n">ot</span><span class="o">.</span><span class="n">is_exonic</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">exonic</span><span class="p">:</span>
+            <span class="n">worst</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">exonic</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">cfd_score</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">worst</span><span class="o">.</span><span class="n">cfd_score</span><span class="p">,</span> <span class="n">worst</span>
+
+    <span class="c1"># Fallback to all off-targets</span>
+    <span class="n">worst</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">offtargets</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">cfd_score</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">worst</span><span class="o">.</span><span class="n">cfd_score</span><span class="p">,</span> <span class="n">worst</span></div>
+
+
+
+<div class="viewcode-block" id="compute_concentration_measures">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.compute_concentration_measures">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_concentration_measures</span><span class="p">(</span>
+    <span class="n">offtargets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">OffTargetSite</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute concentration measures for off-target risk.</span>
+
+<span class="sd">    These complement entropy by capturing different aspects of risk distribution:</span>
+<span class="sd">    - Gini coefficient: 0 = all equal, 1 = all in one site</span>
+<span class="sd">    - Herfindahl-Hirschman Index (HHI): 0-1, higher = more concentrated</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        offtargets: List of off-target sites</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict with gini_coefficient, herfindahl_index</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;gini_coefficient&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;herfindahl_index&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+
+    <span class="c1"># Get CFD scores as &quot;market shares&quot;</span>
+    <span class="n">cfd_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ot</span><span class="o">.</span><span class="n">cfd_score</span> <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">offtargets</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">cfd_scores</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;gini_coefficient&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;herfindahl_index&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+
+    <span class="c1"># Normalize to proportions</span>
+    <span class="n">proportions</span> <span class="o">=</span> <span class="n">cfd_scores</span> <span class="o">/</span> <span class="n">cfd_scores</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="c1"># Gini coefficient</span>
+    <span class="c1"># G = (2 * sum_i(i * x_i) / (n * sum(x_i))) - (n + 1) / n</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cfd_scores</span><span class="p">)</span>
+    <span class="n">sorted_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">cfd_scores</span><span class="p">)</span>
+    <span class="n">cumsum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">sorted_scores</span><span class="p">)</span>
+    <span class="n">gini</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">sorted_scores</span><span class="p">)))</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">cfd_scores</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+
+    <span class="c1"># Herfindahl-Hirschman Index</span>
+    <span class="c1"># HHI = sum(p_i^2) where p_i is market share</span>
+    <span class="n">hhi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">proportions</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;gini_coefficient&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">gini</span><span class="p">))),</span>
+        <span class="s1">&#39;herfindahl_index&#39;</span><span class="p">:</span> <span class="n">hhi</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="compute_ir_enhanced_score">
+<a class="viewcode-back" href="../../../../reference/index.html#phaselab.integrations.crispor.compute_ir_enhanced_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_ir_enhanced_score</span><span class="p">(</span>
+    <span class="n">base_score</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">ir_analysis</span><span class="p">:</span> <span class="n">OffTargetIRAnalysis</span><span class="p">,</span>
+    <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adjust a guide&#39;s score based on IR analysis of off-targets.</span>
+
+<span class="sd">    This adds/subtracts from the base score based on:</span>
+<span class="sd">    - Entropy bonus/penalty</span>
+<span class="sd">    - Coherence contrast</span>
+<span class="sd">    - Exonic risk</span>
+<span class="sd">    - Energy tail risk</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        base_score: Initial score from standard pipeline</span>
+<span class="sd">        ir_analysis: Results from analyze_offtarget_landscape</span>
+<span class="sd">        weights: Optional custom weights</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (adjusted_score, list of adjustment reasons)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;entropy_bonus&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>      <span class="c1"># Bonus for diffuse risk</span>
+            <span class="s1">&#39;entropy_penalty&#39;</span><span class="p">:</span> <span class="mf">0.10</span><span class="p">,</span>    <span class="c1"># Penalty for concentrated risk</span>
+            <span class="s1">&#39;delta_r_bar_penalty&#39;</span><span class="p">:</span> <span class="mf">0.08</span><span class="p">,</span>  <span class="c1"># If off-targets competitive</span>
+            <span class="s1">&#39;exonic_risk_penalty&#39;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>  <span class="c1"># Exonic close off-targets</span>
+            <span class="s1">&#39;energy_tail_penalty&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># Very stable off-targets</span>
+        <span class="p">}</span>
+
+    <span class="n">adjustments</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">base_score</span>
+
+    <span class="c1"># 1. Entropy adjustment</span>
+    <span class="k">if</span> <span class="n">ir_analysis</span><span class="o">.</span><span class="n">entropy_normalized</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">:</span>
+        <span class="c1"># Diffuse risk = bonus</span>
+        <span class="n">bonus</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="s1">&#39;entropy_bonus&#39;</span><span class="p">]</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="n">bonus</span>
+        <span class="n">adjustments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;+</span><span class="si">{</span><span class="n">bonus</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> diffuse risk (entropy=</span><span class="si">{</span><span class="n">ir_analysis</span><span class="o">.</span><span class="n">entropy_normalized</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">ir_analysis</span><span class="o">.</span><span class="n">entropy_normalized</span> <span class="o">&lt;</span> <span class="mf">0.3</span><span class="p">:</span>
+        <span class="c1"># Concentrated risk = penalty</span>
+        <span class="n">penalty</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="s1">&#39;entropy_penalty&#39;</span><span class="p">]</span>
+        <span class="n">score</span> <span class="o">-=</span> <span class="n">penalty</span>
+        <span class="n">adjustments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;-</span><span class="si">{</span><span class="n">penalty</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> concentrated risk (entropy=</span><span class="si">{</span><span class="n">ir_analysis</span><span class="o">.</span><span class="n">entropy_normalized</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 2. Coherence contrast</span>
+    <span class="k">if</span> <span class="n">ir_analysis</span><span class="o">.</span><span class="n">off_target_competitive</span><span class="p">:</span>
+        <span class="n">penalty</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="s1">&#39;delta_r_bar_penalty&#39;</span><span class="p">]</span>
+        <span class="n">score</span> <span class="o">-=</span> <span class="n">penalty</span>
+        <span class="n">adjustments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;-</span><span class="si">{</span><span class="n">penalty</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> competitive off-targets (ΔR̄=</span><span class="si">{</span><span class="n">ir_analysis</span><span class="o">.</span><span class="n">delta_r_bar</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 3. Exonic risk</span>
+    <span class="k">if</span> <span class="n">ir_analysis</span><span class="o">.</span><span class="n">has_exonic_risk</span><span class="p">:</span>
+        <span class="n">penalty</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="s1">&#39;exonic_risk_penalty&#39;</span><span class="p">]</span>
+        <span class="n">score</span> <span class="o">-=</span> <span class="n">penalty</span>
+        <span class="n">n_close_exonic</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">ot</span> <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">ir_analysis</span><span class="o">.</span><span class="n">close_offtargets</span> <span class="k">if</span> <span class="n">ot</span><span class="o">.</span><span class="n">is_exonic</span><span class="p">])</span>
+        <span class="n">adjustments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;-</span><span class="si">{</span><span class="n">penalty</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> exonic close off-targets (</span><span class="si">{</span><span class="n">n_close_exonic</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 4. Energy tail risk</span>
+    <span class="c1"># Penalize if off-targets have very favorable binding energy</span>
+    <span class="k">if</span> <span class="n">ir_analysis</span><span class="o">.</span><span class="n">energy_tail_risk</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">15</span><span class="p">:</span>  <span class="c1"># Very stable</span>
+        <span class="n">penalty</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="s1">&#39;energy_tail_penalty&#39;</span><span class="p">]</span>
+        <span class="n">score</span> <span class="o">-=</span> <span class="n">penalty</span>
+        <span class="n">adjustments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;-</span><span class="si">{</span><span class="n">penalty</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> high-affinity off-targets (E_tail=</span><span class="si">{</span><span class="n">ir_analysis</span><span class="o">.</span><span class="n">energy_tail_risk</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Bound score</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">score</span><span class="p">,</span> <span class="n">adjustments</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

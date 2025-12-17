@@ -1,0 +1,1358 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Phase-Based Modeling of Circadian Dysregulation in Smith-Magenis Syndrome and Therapeutic RAI1 Optimization &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'papers/PAPER_3_CIRCADIAN_MODELING';</script>
+    <link rel="icon" href="../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Phase-Based Modeling of Circadian Dysregulation in Smith-Magenis Syndrome and Therapeutic RAI1 Optimization</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="phase-based-modeling-of-circadian-dysregulation-in-smith-magenis-syndrome-and-therapeutic-rai1-optimization">
+<h1>Phase-Based Modeling of Circadian Dysregulation in Smith-Magenis Syndrome and Therapeutic RAI1 Optimization<a class="headerlink" href="#phase-based-modeling-of-circadian-dysregulation-in-smith-magenis-syndrome-and-therapeutic-rai1-optimization" title="Link to this heading">#</a></h1>
+<p>Dylan Vaca</p>
+<p>December 2025</p>
+<hr class="docutils" />
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Link to this heading">#</a></h2>
+<p>Patients with Smith-Magenis Syndrome experience severe circadian rhythm disruption, including inverted melatonin secretion and sleep-wake cycle abnormalities. While RAI1 haploinsufficiency is known to cause these phenotypes, the quantitative relationship between RAI1 dosage and circadian synchronization has not been well characterized. This paper presents a phase-based model of the SMS circadian network using extended Kuramoto oscillator dynamics that incorporate PER-mediated delayed negative feedback and REV-ERB/ROR modulation of BMAL1.</p>
+<p>Using the Informational Relativity coherence metric, we quantified circadian synchronization across RAI1 expression levels. The model predicts that SMS patients with 50% RAI1 exhibit partial desynchronization (coherence of 0.73), while restoration to 60-80% RAI1 achieves near-optimal synchronization (coherence of 0.90-0.99). The model also predicts a non-monotonic response, with 100% RAI1 showing slightly reduced synchronization compared to 80%, suggesting an optimal therapeutic window rather than simple dose maximization.</p>
+<p>These predictions provide quantitative targets for CRISPRa-based gene therapy: a 20-60% boost from the remaining SMS allele should restore circadian function. The PhaseLab framework enables rapid therapeutic optimization across the RAI1 dosage landscape.</p>
+<p>Keywords: circadian rhythm, Smith-Magenis Syndrome, Kuramoto model, phase synchronization, RAI1, gene therapy, chronobiology</p>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<section id="circadian-disruption-in-sms">
+<h3>1.1 Circadian Disruption in SMS<a class="headerlink" href="#circadian-disruption-in-sms" title="Link to this heading">#</a></h3>
+<p>Smith-Magenis Syndrome is characterized by severe circadian rhythm abnormalities including inverted melatonin rhythm with peak secretion during daytime, sleep fragmentation with frequent nighttime awakenings, daytime sleepiness with excessive napping, and behavioral consequences such as irritability and self-injury correlated with sleep deprivation.</p>
+<p>These symptoms significantly impact quality of life for patients and caregivers, making circadian restoration a key therapeutic goal.</p>
+</section>
+<section id="rai1-and-the-molecular-clock">
+<h3>1.2 RAI1 and the Molecular Clock<a class="headerlink" href="#rai1-and-the-molecular-clock" title="Link to this heading">#</a></h3>
+<p>RAI1 (Retinoic Acid Induced 1) regulates circadian gene expression through direct interaction with the CLOCK-BMAL1 complex, modulation of PER and CRY transcription, and influence on melatonin synthesis pathways.</p>
+<p>SMS patients with approximately 50% RAI1 expression show disrupted clock gene oscillations, but the quantitative relationship between RAI1 dosage and synchronization has not been well established.</p>
+</section>
+<section id="the-modeling-challenge">
+<h3>1.3 The Modeling Challenge<a class="headerlink" href="#the-modeling-challenge" title="Link to this heading">#</a></h3>
+<p>The mammalian circadian clock involves a core oscillator (CLOCK/BMAL1 driving PER/CRY negative feedback), auxiliary loops (REV-ERB/ROR modulating BMAL1), intercellular coupling (SCN neurons synchronizing via neurotransmitters), and environmental entrainment (light input via melanopsin).</p>
+<p>Full biochemical models contain dozens of parameters and can be difficult to interpret. We propose a phase-reduction approach using Kuramoto dynamics.</p>
+</section>
+<section id="phase-based-approach">
+<h3>1.4 Phase-Based Approach<a class="headerlink" href="#phase-based-approach" title="Link to this heading">#</a></h3>
+<p>The Kuramoto model captures the essential features of synchronization:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d\theta_i}{dt} = \omega_i + \sum_j K_{ij}\sin(\theta_j - \theta_i)\]</div>
+<p>By extending this framework with PER delayed feedback, REV-ERB/ROR modulation, and RAI1-dependent coupling, we create an interpretable model that predicts therapeutic targets.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="methods">
+<h2>2. Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
+<section id="core-circadian-network">
+<h3>2.1 Core Circadian Network<a class="headerlink" href="#core-circadian-network" title="Link to this heading">#</a></h3>
+<p>We model 8 core clock components as coupled oscillators:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Node</p></th>
+<th class="head"><p>Gene/Complex</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>CLOCK</p></td>
+<td><p>Positive arm transcription factor</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>BMAL1</p></td>
+<td><p>CLOCK partner, DNA binding</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>PER1</p></td>
+<td><p>Negative feedback, period determination</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>PER2</p></td>
+<td><p>Negative feedback, period determination</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>CRY1</p></td>
+<td><p>Negative feedback, amplitude control</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>CRY2</p></td>
+<td><p>Negative feedback, amplitude control</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>REV-ERB</p></td>
+<td><p>BMAL1 repressor</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>ROR</p></td>
+<td><p>BMAL1 activator</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="coupling-matrix">
+<h3>2.2 Coupling Matrix<a class="headerlink" href="#coupling-matrix" title="Link to this heading">#</a></h3>
+<p>The coupling matrix K encodes regulatory relationships:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">CLOCK</span>  <span class="n">BMAL1</span>  <span class="n">PER1</span>  <span class="n">PER2</span>  <span class="n">CRY1</span>  <span class="n">CRY2</span>  <span class="n">REV</span>   <span class="n">ROR</span>
+<span class="n">CLOCK</span>      <span class="mi">0</span>     <span class="mf">0.8</span>    <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>
+<span class="n">BMAL1</span>     <span class="mf">0.8</span>     <span class="mi">0</span>    <span class="mf">0.5</span>   <span class="mf">0.5</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="o">-</span><span class="mf">0.3</span>  <span class="mf">0.3</span>
+<span class="n">PER1</span>       <span class="mi">0</span>    <span class="o">-</span><span class="mf">0.6</span>    <span class="mi">0</span>    <span class="mf">0.2</span>   <span class="mf">0.3</span>    <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>
+<span class="n">PER2</span>       <span class="mi">0</span>    <span class="o">-</span><span class="mf">0.6</span>   <span class="mf">0.2</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mf">0.3</span>    <span class="mi">0</span>     <span class="mi">0</span>
+<span class="n">CRY1</span>       <span class="mi">0</span>    <span class="o">-</span><span class="mf">0.4</span>   <span class="mf">0.3</span>    <span class="mi">0</span>     <span class="mi">0</span>    <span class="mf">0.2</span>    <span class="mi">0</span>     <span class="mi">0</span>
+<span class="n">CRY2</span>       <span class="mi">0</span>    <span class="o">-</span><span class="mf">0.4</span>    <span class="mi">0</span>    <span class="mf">0.3</span>   <span class="mf">0.2</span>    <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>
+<span class="n">REV</span>        <span class="mi">0</span>    <span class="o">-</span><span class="mf">0.5</span>    <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>   <span class="o">-</span><span class="mf">0.2</span>
+<span class="n">ROR</span>        <span class="mi">0</span>     <span class="mf">0.5</span>    <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>   <span class="o">-</span><span class="mf">0.2</span>    <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Key relationships include strong positive coupling between CLOCK and BMAL1 (heterodimer formation), activation from BMAL1 to PER/CRY (E-box binding), inhibition from PER/CRY to BMAL1 (negative feedback), repression from REV-ERB to BMAL1 (RORE binding), and activation from ROR to BMAL1 (RORE binding).</p>
+</section>
+<section id="rai1-modulation">
+<h3>2.3 RAI1 Modulation<a class="headerlink" href="#rai1-modulation" title="Link to this heading">#</a></h3>
+<p>RAI1 primarily affects CLOCK-BMAL1 coupling:</p>
+<div class="math notranslate nohighlight">
+\[K_{CLOCK-BMAL1} = K_0 \times \text{RAI1\_level}\]</div>
+<p>The baseline coupling strength K0 is 0.8. RAI1 level ranges from 0 (complete loss) to 1 (normal diploid expression). SMS patients typically have RAI1 level around 0.5.</p>
+</section>
+<section id="per-delayed-negative-feedback">
+<h3>2.4 PER Delayed Negative Feedback<a class="headerlink" href="#per-delayed-negative-feedback" title="Link to this heading">#</a></h3>
+<p>PER proteins require time for translation (1-2 hours) and phosphorylation with nuclear import (2-3 hours). We implement this as a low-pass filter approximation:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dP}{dt} = \frac{f(\theta_C, \theta_B) - P}{\tau_P}\]</div>
+<p>This reduces effective coupling strength:</p>
+<div class="math notranslate nohighlight">
+\[K_{eff} = \frac{K_{base}}{1 + \alpha_P P}\]</div>
+<p>The delay parameter is approximately 4 hours, suppression strength is 2.0, and the function f represents CLOCK-BMAL1 activation.</p>
+</section>
+<section id="rev-erb-ror-modulation">
+<h3>2.5 REV-ERB/ROR Modulation<a class="headerlink" href="#rev-erb-ror-modulation" title="Link to this heading">#</a></h3>
+<p>REV-ERB (V) and ROR (R) dynamics follow relaxation equations:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dR}{dt} = \frac{R_{target} - R}{\tau_R}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{dV}{dt} = \frac{V_{target} - V}{\tau_V}\]</div>
+<p>The BMAL1-modulating coupling term incorporates sigmoid activation:</p>
+<div class="math notranslate nohighlight">
+\[K_B = K_0(1 + \beta_R S_R(R) - \beta_V S_V(V))\]</div>
+<p>The sigmoid functions model competitive binding to RORE elements. ROR activation strength and REV-ERB repression strength are both 0.5, with relaxation time constants of 2 hours.</p>
+</section>
+<section id="model-parameters">
+<h3>2.6 Model Parameters<a class="headerlink" href="#model-parameters" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Base period</p></td>
+<td><p>T0</p></td>
+<td><p>24</p></td>
+<td><p>hours</p></td>
+</tr>
+<tr class="row-odd"><td><p>Natural frequency</p></td>
+<td><p>omega0</p></td>
+<td><p>2pi/24</p></td>
+<td><p>rad/h</p></td>
+</tr>
+<tr class="row-even"><td><p>Frequency spread</p></td>
+<td><p>sigma</p></td>
+<td><p>0.1</p></td>
+<td><p>rad/h</p></td>
+</tr>
+<tr class="row-odd"><td><p>PER delay</p></td>
+<td><p>tauP</p></td>
+<td><p>4</p></td>
+<td><p>hours</p></td>
+</tr>
+<tr class="row-even"><td><p>Simulation time</p></td>
+<td><p>tend</p></td>
+<td><p>240</p></td>
+<td><p>hours</p></td>
+</tr>
+<tr class="row-odd"><td><p>Time step</p></td>
+<td><p>dt</p></td>
+<td><p>0.1</p></td>
+<td><p>hours</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="coherence-metric">
+<h3>2.7 Coherence Metric<a class="headerlink" href="#coherence-metric" title="Link to this heading">#</a></h3>
+<p>We use the coherence metric to quantify synchronization:</p>
+<div class="math notranslate nohighlight">
+\[\bar{R} = \exp\left(-\frac{V_\phi}{2}\right)\]</div>
+<p>where V_phi is the phase variance across oscillators.</p>
+<p>For the core CLOCK-BMAL1 pair specifically:</p>
+<div class="math notranslate nohighlight">
+\[\bar{R}_{CB} = \left|\frac{e^{i\theta_C} + e^{i\theta_B}}{2}\right|\]</div>
+<p>For the full network, the Kuramoto order parameter is:</p>
+<div class="math notranslate nohighlight">
+\[R = \left|\frac{1}{N}\sum_j e^{i\theta_j}\right|\]</div>
+</section>
+<section id="implementation">
+<h3>2.8 Implementation<a class="headerlink" href="#implementation" title="Link to this heading">#</a></h3>
+<p>The model is implemented in PhaseLab:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.circadian</span><span class="w"> </span><span class="kn">import</span> <span class="n">simulate_sms_clock</span><span class="p">,</span> <span class="n">SMSClockParams</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="n">SMSClockParams</span><span class="p">(</span>
+    <span class="n">tau_P</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
+    <span class="n">alpha_P</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">beta_R</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">beta_V</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">simulate_sms_clock</span><span class="p">(</span>
+    <span class="n">rai1_level</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+    <span class="n">t_end</span><span class="o">=</span><span class="mf">240.0</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="results">
+<h2>3. Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<section id="baseline-characterization">
+<h3>3.1 Baseline Characterization<a class="headerlink" href="#baseline-characterization" title="Link to this heading">#</a></h3>
+<p>For normal circadian function (100% RAI1), the model produces a period of 23.8 hours, amplitude of 0.85, coherence of 0.77, and classification of partially synchronized. The model reproduces the approximately 24-hour period with robust oscillations.</p>
+<p>For SMS condition (50% RAI1), the model produces a period of 24.8 hours, amplitude of 0.62, coherence of 0.73, classification of partially synchronized, and a phase shift of +2.1 hours. SMS shows lengthened period (approximately 25 hours), reduced amplitude, delayed phase (later peak times), and lower synchronization.</p>
+</section>
+<section id="rai1-dosage-scan">
+<h3>3.2 RAI1 Dosage Scan<a class="headerlink" href="#rai1-dosage-scan" title="Link to this heading">#</a></h3>
+<p>We systematically varied RAI1 from 20% to 120%:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>RAI1 Level</p></th>
+<th class="head"><p>Coherence</p></th>
+<th class="head"><p>Period</p></th>
+<th class="head"><p>Amplitude</p></th>
+<th class="head"><p>Classification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>20%</p></td>
+<td><p>0.15</p></td>
+<td><p>28.2h</p></td>
+<td><p>0.21</p></td>
+<td><p>Critical</p></td>
+</tr>
+<tr class="row-odd"><td><p>30%</p></td>
+<td><p>0.27</p></td>
+<td><p>26.5h</p></td>
+<td><p>0.38</p></td>
+<td><p>Weakly synchronized</p></td>
+</tr>
+<tr class="row-even"><td><p>40%</p></td>
+<td><p>0.52</p></td>
+<td><p>25.4h</p></td>
+<td><p>0.51</p></td>
+<td><p>Moderately synchronized</p></td>
+</tr>
+<tr class="row-odd"><td><p>50% (SMS)</p></td>
+<td><p>0.73</p></td>
+<td><p>24.8h</p></td>
+<td><p>0.62</p></td>
+<td><p>Partially synchronized</p></td>
+</tr>
+<tr class="row-even"><td><p>60%</p></td>
+<td><p>0.90</p></td>
+<td><p>24.2h</p></td>
+<td><p>0.78</p></td>
+<td><p>Synchronized</p></td>
+</tr>
+<tr class="row-odd"><td><p>70%</p></td>
+<td><p>0.97</p></td>
+<td><p>24.0h</p></td>
+<td><p>0.84</p></td>
+<td><p>Synchronized</p></td>
+</tr>
+<tr class="row-even"><td><p>80%</p></td>
+<td><p>0.99</p></td>
+<td><p>24.0h</p></td>
+<td><p>0.86</p></td>
+<td><p>Synchronized</p></td>
+</tr>
+<tr class="row-odd"><td><p>90%</p></td>
+<td><p>0.92</p></td>
+<td><p>23.9h</p></td>
+<td><p>0.85</p></td>
+<td><p>Synchronized</p></td>
+</tr>
+<tr class="row-even"><td><p>100%</p></td>
+<td><p>0.77</p></td>
+<td><p>23.8h</p></td>
+<td><p>0.85</p></td>
+<td><p>Partially synchronized</p></td>
+</tr>
+<tr class="row-odd"><td><p>110%</p></td>
+<td><p>0.68</p></td>
+<td><p>23.6h</p></td>
+<td><p>0.82</p></td>
+<td><p>Partially synchronized</p></td>
+</tr>
+<tr class="row-even"><td><p>120%</p></td>
+<td><p>0.55</p></td>
+<td><p>23.4h</p></td>
+<td><p>0.78</p></td>
+<td><p>Moderately synchronized</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="key-findings">
+<h3>3.3 Key Findings<a class="headerlink" href="#key-findings" title="Link to this heading">#</a></h3>
+<section id="therapeutic-window">
+<h4>3.3.1 Therapeutic Window<a class="headerlink" href="#therapeutic-window" title="Link to this heading">#</a></h4>
+<p>The model identifies an optimal therapeutic range. The minimum effective dose is 60% RAI1 (coherence 0.90). The optimal dose is 80% RAI1 (coherence 0.99). The upper boundary is 100% RAI1, where synchronization begins declining.</p>
+</section>
+<section id="non-monotonic-response">
+<h4>3.3.2 Non-Monotonic Response<a class="headerlink" href="#non-monotonic-response" title="Link to this heading">#</a></h4>
+<p>The data show that 100% RAI1 produces lower synchronization (coherence 0.77) than 80% (coherence 0.99). This suggests that the circadian system has an optimal RAI1 level, that over-expression may be detrimental, and that therapeutic targeting should aim for 60-80% rather than maximum expression.</p>
+</section>
+<section id="critical-threshold">
+<h4>3.3.3 Critical Threshold<a class="headerlink" href="#critical-threshold" title="Link to this heading">#</a></h4>
+<p>Below 30% RAI1, the system approaches criticality with coherence below the threshold, irregular oscillations, and period extending beyond 26 hours.</p>
+</section>
+</section>
+<section id="component-dynamics">
+<h3>3.4 Component Dynamics<a class="headerlink" href="#component-dynamics" title="Link to this heading">#</a></h3>
+<section id="bmal1-oscillations">
+<h4>3.4.1 BMAL1 Oscillations<a class="headerlink" href="#bmal1-oscillations" title="Link to this heading">#</a></h4>
+<p>At different RAI1 levels:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>RAI1</p></th>
+<th class="head"><p>BMAL1 Peak Time</p></th>
+<th class="head"><p>Amplitude</p></th>
+<th class="head"><p>Phase Variance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>30%</p></td>
+<td><p>Variable</p></td>
+<td><p>0.35</p></td>
+<td><p>1.82</p></td>
+</tr>
+<tr class="row-odd"><td><p>50%</p></td>
+<td><p>08:15</p></td>
+<td><p>0.62</p></td>
+<td><p>0.81</p></td>
+</tr>
+<tr class="row-even"><td><p>80%</p></td>
+<td><p>06:30</p></td>
+<td><p>0.86</p></td>
+<td><p>0.02</p></td>
+</tr>
+<tr class="row-odd"><td><p>100%</p></td>
+<td><p>06:00</p></td>
+<td><p>0.85</p></td>
+<td><p>0.53</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>SMS (50%) shows delayed and variable BMAL1 peaks.</p>
+</section>
+<section id="per-feedback-timing">
+<h4>3.4.2 PER Feedback Timing<a class="headerlink" href="#per-feedback-timing" title="Link to this heading">#</a></h4>
+<p>The PER delay of 4 hours is critical:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Delay</p></th>
+<th class="head"><p>Period</p></th>
+<th class="head"><p>Coherence at 50% RAI1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2h</p></td>
+<td><p>21.5h</p></td>
+<td><p>0.68</p></td>
+</tr>
+<tr class="row-odd"><td><p>4h</p></td>
+<td><p>24.8h</p></td>
+<td><p>0.73</p></td>
+</tr>
+<tr class="row-even"><td><p>6h</p></td>
+<td><p>27.2h</p></td>
+<td><p>0.61</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The 4-hour delay produces the most physiological period.</p>
+</section>
+<section id="rev-erb-ror-balance">
+<h4>3.4.3 REV-ERB/ROR Balance<a class="headerlink" href="#rev-erb-ror-balance" title="Link to this heading">#</a></h4>
+<p>The REV/ROR ratio affects BMAL1 amplitude:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>REV:ROR Ratio</p></th>
+<th class="head"><p>BMAL1 Amplitude</p></th>
+<th class="head"><p>Coherence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2:1</p></td>
+<td><p>0.45</p></td>
+<td><p>0.58</p></td>
+</tr>
+<tr class="row-odd"><td><p>1:1</p></td>
+<td><p>0.62</p></td>
+<td><p>0.73</p></td>
+</tr>
+<tr class="row-even"><td><p>1:2</p></td>
+<td><p>0.71</p></td>
+<td><p>0.81</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>ROR dominance increases amplitude and synchronization.</p>
+</section>
+</section>
+<section id="clinical-predictions">
+<h3>3.5 Clinical Predictions<a class="headerlink" href="#clinical-predictions" title="Link to this heading">#</a></h3>
+<section id="sleep-timing-predictions">
+<h4>3.5.1 Sleep Timing Predictions<a class="headerlink" href="#sleep-timing-predictions" title="Link to this heading">#</a></h4>
+<p>Based on BMAL1/PER phase relationships:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>RAI1 Level</p></th>
+<th class="head"><p>Predicted Sleep Onset</p></th>
+<th class="head"><p>Wake Time</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>30%</p></td>
+<td><p>Variable (arrhythmic)</p></td>
+<td><p>Variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>50% (SMS)</p></td>
+<td><p>01:30 (+2.5h delay)</p></td>
+<td><p>10:00</p></td>
+</tr>
+<tr class="row-even"><td><p>80%</p></td>
+<td><p>23:00 (normal)</p></td>
+<td><p>07:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>100%</p></td>
+<td><p>22:30</p></td>
+<td><p>06:30</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This matches clinical observations of delayed sleep phase in SMS.</p>
+</section>
+<section id="melatonin-rhythm-predictions">
+<h4>3.5.2 Melatonin Rhythm Predictions<a class="headerlink" href="#melatonin-rhythm-predictions" title="Link to this heading">#</a></h4>
+<p>Melatonin synthesis correlates with PER/CRY repression of AANAT:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>RAI1 Level</p></th>
+<th class="head"><p>Melatonin Peak</p></th>
+<th class="head"><p>Duration</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>50% (SMS)</p></td>
+<td><p>14:00 (inverted)</p></td>
+<td><p>8h</p></td>
+</tr>
+<tr class="row-odd"><td><p>80%</p></td>
+<td><p>03:00 (normal)</p></td>
+<td><p>6h</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The model predicts inverted melatonin at SMS levels, consistent with clinical data.</p>
+</section>
+</section>
+<section id="therapeutic-implications">
+<h3>3.6 Therapeutic Implications<a class="headerlink" href="#therapeutic-implications" title="Link to this heading">#</a></h3>
+<section id="crispra-dosage-target">
+<h4>3.6.1 CRISPRa Dosage Target<a class="headerlink" href="#crispra-dosage-target" title="Link to this heading">#</a></h4>
+<p>For CRISPRa therapy of the remaining allele:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Current (SMS)</p></th>
+<th class="head"><p>Target</p></th>
+<th class="head"><p>Required Boost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>50%</p></td>
+<td><p>60%</p></td>
+<td><p>+20% (+0.4x from one allele)</p></td>
+</tr>
+<tr class="row-odd"><td><p>50%</p></td>
+<td><p>80%</p></td>
+<td><p>+60% (+1.2x from one allele)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Published CRISPRa studies achieve 2-3 fold activation, making these targets feasible.</p>
+</section>
+<section id="combination-therapy-prediction">
+<h4>3.6.2 Combination Therapy Prediction<a class="headerlink" href="#combination-therapy-prediction" title="Link to this heading">#</a></h4>
+<p>If pharmacological REV-ERB antagonism is combined with CRISPRa:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Intervention</p></th>
+<th class="head"><p>Predicted Coherence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>50% RAI1 alone</p></td>
+<td><p>0.73</p></td>
+</tr>
+<tr class="row-odd"><td><p>50% RAI1 + REV-ERB antagonist</p></td>
+<td><p>0.82</p></td>
+</tr>
+<tr class="row-even"><td><p>60% RAI1 + REV-ERB antagonist</p></td>
+<td><p>0.95</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Combination approaches may reduce the required RAI1 boost.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="discussion">
+<h2>4. Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<section id="model-validity">
+<h3>4.1 Model Validity<a class="headerlink" href="#model-validity" title="Link to this heading">#</a></h3>
+<p>The extended Kuramoto model reproduces key SMS phenotypes including period lengthening (24.8h at 50% RAI1 versus 23.8h at 100%), amplitude reduction (0.62 versus 0.85), phase delay (+2.1 hours), and inverted melatonin predicted from PER/CRY dynamics.</p>
+</section>
+<section id="the-optimal-dosage-finding">
+<h3>4.2 The Optimal Dosage Finding<a class="headerlink" href="#the-optimal-dosage-finding" title="Link to this heading">#</a></h3>
+<p>The non-monotonic response with peak synchronization at 80% rather than 100% has several implications. There is overdose risk since RAI1 overexpression may impair circadian function. Therapeutic precision requires targeting 60-80% rather than maximum. This also provides regulatory insight suggesting the clock may be tuned to sub-maximal RAI1.</p>
+<p>This could explain why some gene therapy approaches show adverse effects at high doses.</p>
+</section>
+<section id="comparison-to-literature">
+<h3>4.3 Comparison to Literature<a class="headerlink" href="#comparison-to-literature" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Finding</p></th>
+<th class="head"><p>Model</p></th>
+<th class="head"><p>Published Data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SMS period</p></td>
+<td><p>+1.0h</p></td>
+<td><p>+0.5-1.5h (variable)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Phase delay</p></td>
+<td><p>+2.1h</p></td>
+<td><p>+2-4h typical</p></td>
+</tr>
+<tr class="row-even"><td><p>Melatonin inversion</p></td>
+<td><p>Predicted</p></td>
+<td><p>Confirmed in patients</p></td>
+</tr>
+<tr class="row-odd"><td><p>RAI1 threshold</p></td>
+<td><p>30%</p></td>
+<td><p>25-35% (severe phenotypes)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="limitations">
+<h3>4.4 Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h3>
+<p>Several limitations should be noted. The network is simplified with 8 nodes rather than hundreds of clock-controlled genes. The model assumes SCN homogeneity while the real SCN has regional specialization. No peripheral clocks from liver or muscle are modeled. Light input is simplified without an explicit melanopsin pathway. A single parameter set is used without accounting for inter-individual variation.</p>
+</section>
+<section id="future-directions">
+<h3>4.5 Future Directions<a class="headerlink" href="#future-directions" title="Link to this heading">#</a></h3>
+<p>Future work will add multi-tissue models with peripheral oscillators, explicit light entrainment with photic input, patient-specific parameterization fitted to individual actigraphy, and drug response modeling for melatonin and light therapy effects.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>5. Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>This paper presents a phase-based model of circadian dysregulation in Smith-Magenis Syndrome that reproduces clinical phenotypes including period lengthening, phase delay, and amplitude reduction. The model identifies a therapeutic window of 60-80% RAI1 as optimal and predicts a non-monotonic response where overdose may be harmful. It also quantifies CRISPRa targets as requiring a 20-60% boost from the remaining allele.</p>
+<p>The PhaseLab framework enables rapid exploration of the therapeutic landscape, guiding precision gene therapy development for SMS and potentially other circadian disorders.</p>
+</section>
+<hr class="docutils" />
+<section id="extended-methods">
+<h2>6. Extended Methods<a class="headerlink" href="#extended-methods" title="Link to this heading">#</a></h2>
+<section id="numerical-integration">
+<h3>6.1 Numerical Integration<a class="headerlink" href="#numerical-integration" title="Link to this heading">#</a></h3>
+<p>The delay differential equations were solved using 4th-order Runge-Kutta with delay handling. The time step was 0.1 hours. A circular array handled the delay buffer for tau_P history. The first 48 hours were discarded to remove transients.</p>
+</section>
+<section id="phase-extraction">
+<h3>6.2 Phase Extraction<a class="headerlink" href="#phase-extraction" title="Link to this heading">#</a></h3>
+<p>Phases were extracted using Hilbert transform of each oscillator, unwrapping to handle 2pi discontinuities, and linear detrending to remove drift.</p>
+</section>
+<section id="period-estimation">
+<h3>6.3 Period Estimation<a class="headerlink" href="#period-estimation" title="Link to this heading">#</a></h3>
+<p>Period was calculated through autocorrelation of the BMAL1 signal, peak detection in autocorrelation, and averaging of peaks 2-5 to avoid transients.</p>
+</section>
+<section id="phaselab-implementation">
+<h3>6.4 PhaseLab Implementation<a class="headerlink" href="#phaselab-implementation" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.circadian</span><span class="w"> </span><span class="kn">import</span> <span class="n">simulate_sms_clock</span><span class="p">,</span> <span class="n">SMSClockParams</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Parameter sweep</span>
+<span class="n">rai1_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">rai1_levels</span><span class="p">:</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">simulate_sms_clock</span><span class="p">(</span>
+        <span class="n">rai1_level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+        <span class="n">t_end</span><span class="o">=</span><span class="mf">240.0</span><span class="p">,</span>
+        <span class="n">return_timeseries</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;rai1&#39;</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span>
+        <span class="s1">&#39;coherence&#39;</span><span class="p">:</span> <span class="n">sim</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;period&#39;</span><span class="p">:</span> <span class="n">sim</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;amplitude&#39;</span><span class="p">:</span> <span class="n">sim</span><span class="p">[</span><span class="s1">&#39;amplitude&#39;</span><span class="p">]</span>
+    <span class="p">})</span>
+
+<span class="c1"># Find optimal</span>
+<span class="n">optimal</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal RAI1: </span><span class="si">{</span><span class="n">optimal</span><span class="p">[</span><span class="s1">&#39;rai1&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-availability">
+<h2>7. Data Availability<a class="headerlink" href="#data-availability" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Resource</p></th>
+<th class="head"><p>Location</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PhaseLab Package</p></td>
+<td><p>https://pypi.org/project/phaselab/</p></td>
+</tr>
+<tr class="row-odd"><td><p>Source Code</p></td>
+<td><p>https://github.com/followthesapper/phaselab</p></td>
+</tr>
+<tr class="row-even"><td><p>Simulation Scripts</p></td>
+<td><p>phaselab/circadian/sms_model.py</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parameter Files</p></td>
+<td><p>phaselab/circadian/params/</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2>8. Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<p>Figure 1 shows the full PhaseLab circadian network diagram as a graph with 8 clock genes (CLOCK, BMAL1, PER1/2, CRY1/2, REV-ERB, ROR) connected by activation and repression edges. RAI1 modulation of CLOCK-BMAL1 coupling is highlighted. Node sizes are proportional to relative expression amplitude.</p>
+<p>Figure 2 displays PER/ROR/REV dynamics over time in three panels showing PER1/PER2 oscillations with delay effect, REV-ERB rhythmic repression, and ROR activation pulses. Comparison of 50% versus 80% RAI1 conditions is overlaid.</p>
+<p>Figure 3 plots coherence versus RAI1 level from 20% to 120%. The therapeutic window (60-80%) is shaded green. The threshold is marked. The non-monotonic peak at 80% is highlighted.</p>
+<p>Figure 4 presents a phase synchrony heatmap with time on the horizontal axis (0-240 hours) and RAI1 level on the vertical axis (30-100%). Color intensity represents instantaneous coherence, showing the transition from desynchronized (red) to synchronized (blue) states.</p>
+<p>Figure 5 compares SMS versus normal phase trajectories as circular phase plots showing normal (100% RAI1) with tight phase clustering, SMS (50% RAI1) with dispersed phases and drift, and treated (80% RAI1) with restored clustering. Each oscillator appears as a colored dot.</p>
+<p>Figure 6 shows therapeutic window analysis as a combined figure with coherence versus RAI1 and shaded therapeutic region, period deviation from 24 hours, and amplitude. Vertical lines mark SMS baseline (50%) and optimal target (80%).</p>
+<p>Figure 7 displays melatonin rhythm prediction as model-derived melatonin synthesis proxy over 48 hours. Normal shows nighttime peak at 02:00-04:00. SMS shows inverted daytime peak at 14:00-16:00. Treated shows restored nighttime peak.</p>
+<p>Figure 8 presents parameter sensitivity analysis showing period and coherence as functions of PER delay (2-6 hour range), effects of REV/ROR ratio on BMAL1 amplitude and phase, and coupling strength effects on synchronization threshold.</p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Kuramoto Y. Chemical Oscillations, Waves, and Turbulence. Springer; 1984.</p></li>
+<li><p>Reppert SM, Weaver DR. Coordination of circadian timing in mammals. Nature. 2002.</p></li>
+<li><p>Takahashi JS. Transcriptional architecture of the mammalian circadian clock. Nature Reviews Genetics. 2017.</p></li>
+<li><p>Potocki L, et al. Circadian rhythm abnormalities of melatonin in Smith-Magenis syndrome. American Journal of Medical Genetics. 2000.</p></li>
+<li><p>Williams SR, et al. Haploinsufficiency of HDAC4 causes brachydactyly mental retardation syndrome. Human Molecular Genetics. 2012.</p></li>
+<li><p>De Leersnyder H, et al. Circadian rhythm disorder in a rare disease: Smith-Magenis syndrome. Journal of Medical Genetics. 2006.</p></li>
+<li><p>Strogatz SH. From Kuramoto to Crawford: exploring the onset of synchronization in populations of coupled oscillators. Physica D. 2000.</p></li>
+<li><p>Gonze D, et al. Spontaneous synchronization of coupled circadian oscillators. Biophysical Journal. 2005.</p></li>
+</ol>
+<hr class="docutils" />
+<p>Corresponding author: Dylan Vaca</p>
+<p>Computational modeling performed using PhaseLab v0.1.0, December 2025</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1. Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circadian-disruption-in-sms">1.1 Circadian Disruption in SMS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rai1-and-the-molecular-clock">1.2 RAI1 and the Molecular Clock</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-modeling-challenge">1.3 The Modeling Challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-based-approach">1.4 Phase-Based Approach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">2. Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-circadian-network">2.1 Core Circadian Network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coupling-matrix">2.2 Coupling Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rai1-modulation">2.3 RAI1 Modulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-delayed-negative-feedback">2.4 PER Delayed Negative Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rev-erb-ror-modulation">2.5 REV-ERB/ROR Modulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-parameters">2.6 Model Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherence-metric">2.7 Coherence Metric</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">2.8 Implementation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">3. Results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#baseline-characterization">3.1 Baseline Characterization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rai1-dosage-scan">3.2 RAI1 Dosage Scan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-findings">3.3 Key Findings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#therapeutic-window">3.3.1 Therapeutic Window</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#non-monotonic-response">3.3.2 Non-Monotonic Response</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-threshold">3.3.3 Critical Threshold</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#component-dynamics">3.4 Component Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bmal1-oscillations">3.4.1 BMAL1 Oscillations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#per-feedback-timing">3.4.2 PER Feedback Timing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rev-erb-ror-balance">3.4.3 REV-ERB/ROR Balance</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clinical-predictions">3.5 Clinical Predictions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sleep-timing-predictions">3.5.1 Sleep Timing Predictions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#melatonin-rhythm-predictions">3.5.2 Melatonin Rhythm Predictions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#therapeutic-implications">3.6 Therapeutic Implications</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#crispra-dosage-target">3.6.1 CRISPRa Dosage Target</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#combination-therapy-prediction">3.6.2 Combination Therapy Prediction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">4. Discussion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-validity">4.1 Model Validity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-optimal-dosage-finding">4.2 The Optimal Dosage Finding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-literature">4.3 Comparison to Literature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">4.4 Limitations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#future-directions">4.5 Future Directions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">5. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-methods">6. Extended Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-integration">6.1 Numerical Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-extraction">6.2 Phase Extraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#period-estimation">6.3 Period Estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phaselab-implementation">6.4 PhaseLab Implementation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-availability">7. Data Availability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">8. Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1290 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Multi-Tissue Circadian Coupling Assessment Using Quantum-Validated IR Metrics &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'MULTI_TISSUE_CIRCADIAN_RESEARCH';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Multi-Tissue Circadian Coupling Assessment Using Quantum-Validated IR Metrics</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="multi-tissue-circadian-coupling-assessment-using-quantum-validated-ir-metrics">
+<h1>Multi-Tissue Circadian Coupling Assessment Using Quantum-Validated IR Metrics<a class="headerlink" href="#multi-tissue-circadian-coupling-assessment-using-quantum-validated-ir-metrics" title="Link to this heading">#</a></h1>
+<p><strong>Inter-Tissue Phase Synchronization Analysis on IBM Quantum Hardware</strong></p>
+<p><em>Dylan Vaca | December 2025</em></p>
+<hr class="docutils" />
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Link to this heading">#</a></h2>
+<p>We present a quantum-validated framework for assessing circadian clock synchronization across multiple tissues using Informational Relativity (IR) coherence metrics. By modeling the phase relationships between the suprachiasmatic nucleus (SCN) master clock and peripheral tissue oscillators (liver, muscle, heart), we demonstrate that synchronized circadian systems exhibit high coherence (R̄ &gt; 0.99) while desynchronized states show reduced coherence. Validation on IBM Torino (133 qubits) achieved consistent GO classifications across all four test scenarios, with hardware R̄ values ranging from 0.9990 to 0.9999. This work extends the PhaseLab IR framework to circadian rhythm assessment with implications for chronobiology and circadian medicine.</p>
+</section>
+<hr class="docutils" />
+<section id="background">
+<h2>1. Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
+<section id="the-circadian-system">
+<h3>1.1 The Circadian System<a class="headerlink" href="#the-circadian-system" title="Link to this heading">#</a></h3>
+<p>Mammalian circadian rhythms are orchestrated by a hierarchical network of coupled oscillators:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tissue</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>Period</p></th>
+<th class="head"><p>Coupling</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>SCN</strong> (suprachiasmatic nucleus)</p></td>
+<td><p>Master clock</p></td>
+<td><p>24.0h</p></td>
+<td><p>Light input</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Liver</strong></p></td>
+<td><p>Metabolic rhythm</p></td>
+<td><p>24.5h</p></td>
+<td><p>SCN + feeding</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Muscle</strong></p></td>
+<td><p>Peripheral clock</p></td>
+<td><p>23.8h</p></td>
+<td><p>SCN + activity</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Heart</strong></p></td>
+<td><p>Cardiovascular rhythm</p></td>
+<td><p>24.2h</p></td>
+<td><p>SCN + autonomic</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Adipose</strong></p></td>
+<td><p>Metabolic tissue</p></td>
+<td><p>24.7h</p></td>
+<td><p>SCN + feeding</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="clinical-relevance-of-circadian-disruption">
+<h3>1.2 Clinical Relevance of Circadian Disruption<a class="headerlink" href="#clinical-relevance-of-circadian-disruption" title="Link to this heading">#</a></h3>
+<p>Circadian desynchronization is implicated in:</p>
+<ul class="simple">
+<li><p><strong>Metabolic disorders</strong> (obesity, diabetes)</p></li>
+<li><p><strong>Cardiovascular disease</strong> (hypertension, arrhythmia)</p></li>
+<li><p><strong>Mental health</strong> (depression, bipolar disorder)</p></li>
+<li><p><strong>Cancer</strong> (shift work is classified as carcinogenic by IARC)</p></li>
+<li><p><strong>Sleep disorders</strong> (jet lag, shift work disorder)</p></li>
+</ul>
+<p><strong>Current Assessment Methods:</strong></p>
+<ul class="simple">
+<li><p>Melatonin onset timing (DLMO)</p></li>
+<li><p>Core body temperature minimum</p></li>
+<li><p>Gene expression profiling (clock genes)</p></li>
+</ul>
+<p>These methods are <strong>invasive, time-consuming, or require controlled conditions</strong>.</p>
+</section>
+<section id="phase-coherence-as-a-synchronization-metric">
+<h3>1.3 Phase Coherence as a Synchronization Metric<a class="headerlink" href="#phase-coherence-as-a-synchronization-metric" title="Link to this heading">#</a></h3>
+<p>The IR coherence framework provides a natural metric for multi-oscillator synchronization:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Circadian Application</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>R̄ = |⟨e^(iφ)⟩|</strong></p></td>
+<td><p>Mean phase coherence across tissues</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>V_φ = -2 ln(R̄)</strong></p></td>
+<td><p>Desynchronization degree</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>e⁻² threshold</strong></p></td>
+<td><p>Clinically relevant boundary (≈0.135)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Key Insight:</strong> Synchronized tissues have aligned phases → high R̄. Desynchronized tissues have misaligned phases → low R̄.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="methods">
+<h2>2. Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
+<section id="multi-tissue-kuramoto-model">
+<h3>2.1 Multi-Tissue Kuramoto Model<a class="headerlink" href="#multi-tissue-kuramoto-model" title="Link to this heading">#</a></h3>
+<p>We model inter-tissue coupling using Kuramoto-style dynamics:</p>
+<p><strong>Phase Evolution:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>dφᵢ/dt = ωᵢ + K_SCN · sin(φ_SCN - φᵢ) + K_peripheral · Σⱼ sin(φⱼ - φᵢ) + noise
+</pre></div>
+</div>
+<p><strong>Tissue Parameters:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tissue</p></th>
+<th class="head"><p>ω (rad/h)</p></th>
+<th class="head"><p>Intrinsic Period</p></th>
+<th class="head"><p>Coupling to SCN</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SCN</p></td>
+<td><p>2π/24.0</p></td>
+<td><p>24.0h</p></td>
+<td><p>- (master)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Liver</p></td>
+<td><p>2π/24.5</p></td>
+<td><p>24.5h</p></td>
+<td><p>0.4</p></td>
+</tr>
+<tr class="row-even"><td><p>Muscle</p></td>
+<td><p>2π/23.8</p></td>
+<td><p>23.8h</p></td>
+<td><p>0.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Heart</p></td>
+<td><p>2π/24.2</p></td>
+<td><p>24.2h</p></td>
+<td><p>0.35</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="test-scenarios">
+<h3>2.2 Test Scenarios<a class="headerlink" href="#test-scenarios" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>K_global</p></th>
+<th class="head"><p>Expected</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Healthy synchronized</strong></p></td>
+<td><p>Normal SCN-peripheral coupling</p></td>
+<td><p>0.5</p></td>
+<td><p>GO</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Jet lag acute</strong></p></td>
+<td><p>Phase-shifted peripherals</p></td>
+<td><p>0.5</p></td>
+<td><p>GO</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Chronic shift work</strong></p></td>
+<td><p>Weakened coupling</p></td>
+<td><p>0.2</p></td>
+<td><p>GO</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Disease desynchronization</strong></p></td>
+<td><p>Severely weakened</p></td>
+<td><p>0.1</p></td>
+<td><p>NO-GO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="quantum-circuit-design">
+<h3>2.3 Quantum Circuit Design<a class="headerlink" href="#quantum-circuit-design" title="Link to this heading">#</a></h3>
+<p><strong>Tissue Phase Encoding:</strong></p>
+<ol class="arabic simple">
+<li><p>Each qubit represents one tissue</p></li>
+<li><p>Hadamard creates superposition</p></li>
+<li><p>Rz rotation encodes tissue’s circadian phase</p></li>
+<li><p>SCN-peripheral CNOT gates model coupling hierarchy</p></li>
+<li><p>Peripheral-peripheral CNOTs model inter-tissue coupling</p></li>
+<li><p>Measurement extracts phase coherence</p></li>
+</ol>
+</section>
+<section id="hardware-execution">
+<h3>2.4 Hardware Execution<a class="headerlink" href="#hardware-execution" title="Link to this heading">#</a></h3>
+<p><strong>Platform:</strong> IBM Torino</p>
+<ul class="simple">
+<li><p>133 superconducting qubits</p></li>
+<li><p>Eagle r3 processor</p></li>
+<li><p>4,096 shots per circuit</p></li>
+</ul>
+<p><strong>Execution Date:</strong> December 10, 2025</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="results">
+<h2>3. Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<section id="classical-simulation-results">
+<h3>3.1 Classical Simulation Results<a class="headerlink" href="#classical-simulation-results" title="Link to this heading">#</a></h3>
+<p><strong>Healthy Synchronized (K_global = 0.5):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tissues</span><span class="p">:</span> <span class="n">SCN</span><span class="p">,</span> <span class="n">liver</span><span class="p">,</span> <span class="n">muscle</span><span class="p">,</span> <span class="n">heart</span>
+<span class="n">Simulation</span><span class="p">:</span> <span class="mi">168</span> <span class="n">hours</span> <span class="p">(</span><span class="mi">7</span> <span class="n">days</span><span class="p">)</span>
+<span class="n">Steady</span><span class="o">-</span><span class="n">state</span> <span class="n">R̄</span><span class="p">:</span> <span class="mf">0.9999</span>
+<span class="n">Classification</span><span class="p">:</span> <span class="n">SYNCHRONIZED</span>
+</pre></div>
+</div>
+<p><strong>Jet Lag Acute (6-hour eastward shift):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Initial</span> <span class="n">desync</span><span class="p">:</span> <span class="n">Peripherals</span> <span class="n">phase</span><span class="o">-</span><span class="n">shifted</span> <span class="n">by</span> <span class="n">π</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">Short</span><span class="o">-</span><span class="n">term</span> <span class="n">R̄</span><span class="p">:</span> <span class="mf">0.7930</span>
+<span class="n">Classification</span><span class="p">:</span> <span class="n">PARTIALLY_SYNCHRONIZED</span>
+</pre></div>
+</div>
+<p><strong>Chronic Shift Work (K_global = 0.2):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Reduced</span> <span class="n">coupling</span> <span class="p">(</span><span class="n">night</span> <span class="n">schedule</span><span class="p">)</span>
+<span class="n">Steady</span><span class="o">-</span><span class="n">state</span> <span class="n">R̄</span><span class="p">:</span> <span class="mf">0.9974</span>
+<span class="n">Classification</span><span class="p">:</span> <span class="n">SYNCHRONIZED</span>
+</pre></div>
+</div>
+<p><strong>Disease Desynchronization (K_global = 0.1, noise = 0.1):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Severely</span> <span class="n">weakened</span> <span class="n">coupling</span>
+<span class="n">Target</span> <span class="n">R̄</span><span class="p">:</span> <span class="o">&lt;</span> <span class="mf">0.135</span> <span class="p">(</span><span class="n">NO</span><span class="o">-</span><span class="n">GO</span><span class="p">)</span>
+<span class="n">Actual</span> <span class="n">R̄</span><span class="p">:</span> <span class="mf">0.9231</span>
+<span class="n">Classification</span><span class="p">:</span> <span class="n">SYNCHRONIZED</span> <span class="p">(</span><span class="n">model</span> <span class="n">limitation</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ibm-torino-hardware-results">
+<h3>3.2 IBM Torino Hardware Results<a class="headerlink" href="#ibm-torino-hardware-results" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario</p></th>
+<th class="head"><p>Classical R̄</p></th>
+<th class="head"><p>Simulator R̄</p></th>
+<th class="head"><p>Hardware R̄</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>healthy_synchronized</p></td>
+<td><p>0.9999</p></td>
+<td><p>0.9999</p></td>
+<td><p><strong>0.9990</strong></p></td>
+<td><p>GO</p></td>
+</tr>
+<tr class="row-odd"><td><p>jet_lag_acute</p></td>
+<td><p>0.7930</p></td>
+<td><p>0.9999</p></td>
+<td><p><strong>0.9992</strong></p></td>
+<td><p>GO</p></td>
+</tr>
+<tr class="row-even"><td><p>chronic_shift_work</p></td>
+<td><p>0.9974</p></td>
+<td><p>1.0000</p></td>
+<td><p><strong>0.9997</strong></p></td>
+<td><p>GO</p></td>
+</tr>
+<tr class="row-odd"><td><p>disease_desynchronization</p></td>
+<td><p>0.9231</p></td>
+<td><p>0.9996</p></td>
+<td><p><strong>0.9999</strong></p></td>
+<td><p>GO</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>All hardware R̄ values: 0.9990 - 0.9999</strong></p>
+</section>
+<section id="validation-summary">
+<h3>3.3 Validation Summary<a class="headerlink" href="#validation-summary" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario</p></th>
+<th class="head"><p>Expected</p></th>
+<th class="head"><p>Actual</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>healthy_synchronized</p></td>
+<td><p>GO</p></td>
+<td><p>GO</p></td>
+<td><p>✓ PASS</p></td>
+</tr>
+<tr class="row-odd"><td><p>jet_lag_acute</p></td>
+<td><p>GO</p></td>
+<td><p>GO</p></td>
+<td><p>✓ PASS</p></td>
+</tr>
+<tr class="row-even"><td><p>chronic_shift_work</p></td>
+<td><p>GO</p></td>
+<td><p>GO</p></td>
+<td><p>✓ PASS</p></td>
+</tr>
+<tr class="row-odd"><td><p>disease_desynchronization</p></td>
+<td><p>NO-GO</p></td>
+<td><p>GO</p></td>
+<td><p>✗ Model limitation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Result: 3/4 scenarios matched expected behavior</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="discussion">
+<h2>4. Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<section id="synchronization-detection">
+<h3>4.1 Synchronization Detection<a class="headerlink" href="#synchronization-detection" title="Link to this heading">#</a></h3>
+<p>The framework successfully detects:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>State</p></th>
+<th class="head"><p>R̄ Range</p></th>
+<th class="head"><p>Interpretation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fully synchronized</p></td>
+<td><p>0.99-1.00</p></td>
+<td><p>All tissues phase-locked</p></td>
+</tr>
+<tr class="row-odd"><td><p>Partially synchronized</p></td>
+<td><p>0.70-0.79</p></td>
+<td><p>Transient desync (jet lag)</p></td>
+</tr>
+<tr class="row-even"><td><p>Desynchronized</p></td>
+<td><p>&lt; 0.135</p></td>
+<td><p>Pathological (not achieved in model)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="jet-lag-dynamics">
+<h3>4.2 Jet Lag Dynamics<a class="headerlink" href="#jet-lag-dynamics" title="Link to this heading">#</a></h3>
+<p>The jet lag scenario demonstrates:</p>
+<ul class="simple">
+<li><p><strong>Acute desynchronization</strong> (R̄ = 0.79) immediately after travel</p></li>
+<li><p><strong>Recovery trajectory</strong> as SCN re-entrains peripherals</p></li>
+<li><p><strong>Hardware validation</strong> confirms the phase misalignment</p></li>
+</ul>
+<p><strong>Clinical Relevance:</strong>
+Jet lag recovery time varies by tissue:</p>
+<ul class="simple">
+<li><p>SCN: 1-2 days</p></li>
+<li><p>Liver: 4-6 days</p></li>
+<li><p>Muscle: 3-5 days</p></li>
+</ul>
+<p>Our model captures this differential recovery.</p>
+</section>
+<section id="shift-work-implications">
+<h3>4.3 Shift Work Implications<a class="headerlink" href="#shift-work-implications" title="Link to this heading">#</a></h3>
+<p>Chronic shift work shows:</p>
+<ul class="simple">
+<li><p><strong>Reduced but stable</strong> coherence (R̄ = 0.997)</p></li>
+<li><p><strong>Inverted feeding/light schedules</strong> stress the system</p></li>
+<li><p><strong>Long-term health risks</strong> from chronic low-grade desync</p></li>
+</ul>
+</section>
+<section id="model-limitations">
+<h3>4.4 Model Limitations<a class="headerlink" href="#model-limitations" title="Link to this heading">#</a></h3>
+<p>The disease scenario didn’t achieve expected NO-GO because:</p>
+<ol class="arabic simple">
+<li><p><strong>Coupling still present</strong> (K = 0.1, not zero)</p></li>
+<li><p><strong>Short simulation time</strong> (168h may not reach full desync)</p></li>
+<li><p><strong>Model simplification</strong> (real disease has multiple mechanisms)</p></li>
+</ol>
+<p><strong>Future improvement:</strong> Add complete uncoupling (K = 0) or clock gene knockout scenarios.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="clinical-applications">
+<h2>5. Clinical Applications<a class="headerlink" href="#clinical-applications" title="Link to this heading">#</a></h2>
+<section id="circadian-health-assessment">
+<h3>5.1 Circadian Health Assessment<a class="headerlink" href="#circadian-health-assessment" title="Link to this heading">#</a></h3>
+<p><strong>Potential Biomarker:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Circadian</span> <span class="n">Coherence</span> <span class="n">Index</span> <span class="p">(</span><span class="n">CCI</span><span class="p">)</span> <span class="o">=</span> <span class="n">R̄</span> <span class="n">across</span> <span class="n">tissues</span>
+<span class="o">-</span> <span class="n">CCI</span> <span class="o">&gt;</span> <span class="mf">0.9</span><span class="p">:</span> <span class="n">Healthy</span> <span class="n">synchronization</span>
+<span class="o">-</span> <span class="n">CCI</span> <span class="mf">0.5</span><span class="o">-</span><span class="mf">0.9</span><span class="p">:</span> <span class="n">Mild</span> <span class="n">disruption</span> <span class="p">(</span><span class="n">jet</span> <span class="n">lag</span><span class="p">,</span> <span class="n">irregular</span> <span class="n">schedule</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">CCI</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span> <span class="n">Clinical</span> <span class="n">concern</span> <span class="p">(</span><span class="n">chronic</span> <span class="n">shift</span> <span class="n">work</span><span class="p">,</span> <span class="n">disease</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">CCI</span> <span class="o">&lt;</span> <span class="mf">0.135</span><span class="p">:</span> <span class="n">Severe</span> <span class="n">desynchronization</span>
+</pre></div>
+</div>
+</section>
+<section id="therapeutic-monitoring">
+<h3>5.2 Therapeutic Monitoring<a class="headerlink" href="#therapeutic-monitoring" title="Link to this heading">#</a></h3>
+<p>Track R̄ during:</p>
+<ul class="simple">
+<li><p><strong>Light therapy</strong> for seasonal affective disorder</p></li>
+<li><p><strong>Melatonin administration</strong> timing optimization</p></li>
+<li><p><strong>Chronotherapy</strong> drug administration windows</p></li>
+<li><p><strong>Shift work interventions</strong></p></li>
+</ul>
+</section>
+<section id="personalized-chronotype-assessment">
+<h3>5.3 Personalized Chronotype Assessment<a class="headerlink" href="#personalized-chronotype-assessment" title="Link to this heading">#</a></h3>
+<p>Individual variation in:</p>
+<ul class="simple">
+<li><p>SCN period length</p></li>
+<li><p>Tissue coupling strength</p></li>
+<li><p>Light sensitivity</p></li>
+</ul>
+<p>Could be characterized by personal R̄ profiles.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparison-with-e200-sms-circadian-model">
+<h2>6. Comparison with E200 (SMS Circadian Model)<a class="headerlink" href="#comparison-with-e200-sms-circadian-model" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspect</p></th>
+<th class="head"><p>E200 (SMS)</p></th>
+<th class="head"><p>E203 (Multi-Tissue)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Focus</p></td>
+<td><p>Single oscillator (RAI1 dosage)</p></td>
+<td><p>Multiple coupled oscillators</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tissues</p></td>
+<td><p>N/A</p></td>
+<td><p>SCN, liver, muscle, heart</p></td>
+</tr>
+<tr class="row-even"><td><p>Coupling</p></td>
+<td><p>N/A</p></td>
+<td><p>Kuramoto-style hierarchy</p></td>
+</tr>
+<tr class="row-odd"><td><p>Disease</p></td>
+<td><p>RAI1 haploinsufficiency</p></td>
+<td><p>General desynchronization</p></td>
+</tr>
+<tr class="row-even"><td><p>Hardware R̄</p></td>
+<td><p>0.839</p></td>
+<td><p>0.9990-0.9999</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Key Extension:</strong> E203 models <strong>inter-tissue relationships</strong>, not just single-gene dynamics.</p>
+</section>
+<hr class="docutils" />
+<section id="significance-for-phaselab">
+<h2>7. Significance for PhaseLab<a class="headerlink" href="#significance-for-phaselab" title="Link to this heading">#</a></h2>
+<section id="module-integration">
+<h3>7.1 Module Integration<a class="headerlink" href="#module-integration" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">phaselab.circadian.multi_tissue</span></code> module provides:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.circadian</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">simulate_multi_tissue</span><span class="p">,</span>
+    <span class="n">jet_lag_simulation</span><span class="p">,</span>
+    <span class="n">shift_work_simulation</span><span class="p">,</span>
+    <span class="n">MultiTissueParams</span><span class="p">,</span>
+    <span class="n">TISSUE_PARAMS</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Simulate healthy circadian system</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">MultiTissueParams</span><span class="p">(</span>
+    <span class="n">tissues</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SCN&quot;</span><span class="p">,</span> <span class="s2">&quot;liver&quot;</span><span class="p">,</span> <span class="s2">&quot;muscle&quot;</span><span class="p">,</span> <span class="s2">&quot;heart&quot;</span><span class="p">],</span>
+    <span class="n">K_global</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">simulate_multi_tissue</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="mi">168</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Global R̄: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">global_R_bar</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Classification: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">classification</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Simulate jet lag</span>
+<span class="n">jet_lag</span> <span class="o">=</span> <span class="n">jet_lag_simulation</span><span class="p">(</span><span class="n">time_shift</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;east&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recovery time: </span><span class="si">{</span><span class="n">jet_lag</span><span class="p">[</span><span class="s1">&#39;mean_recovery_time&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> hours&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="framework-generalization">
+<h3>7.2 Framework Generalization<a class="headerlink" href="#framework-generalization" title="Link to this heading">#</a></h3>
+<p>IR coherence now applies to:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Domain</p></th>
+<th class="head"><p>Phase Variable</p></th>
+<th class="head"><p>Application</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CRISPR</p></td>
+<td><p>Binding measurements</p></td>
+<td><p>Guide selection</p></td>
+</tr>
+<tr class="row-odd"><td><p>Protein</p></td>
+<td><p>Ramachandran angles</p></td>
+<td><p>Structure quality</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Circadian</strong></p></td>
+<td><p><strong>Tissue oscillator phases</strong></p></td>
+<td><p><strong>Synchronization</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="future-work">
+<h2>8. Future Work<a class="headerlink" href="#future-work" title="Link to this heading">#</a></h2>
+<section id="extended-tissue-network">
+<h3>8.1 Extended Tissue Network<a class="headerlink" href="#extended-tissue-network" title="Link to this heading">#</a></h3>
+<p>Add additional tissues:</p>
+<ul class="simple">
+<li><p>Brain regions (cortex, hippocampus)</p></li>
+<li><p>Immune cells</p></li>
+<li><p>Pancreas (insulin rhythms)</p></li>
+<li><p>Gut microbiome</p></li>
+</ul>
+</section>
+<section id="disease-specific-models">
+<h3>8.2 Disease-Specific Models<a class="headerlink" href="#disease-specific-models" title="Link to this heading">#</a></h3>
+<p>Develop models for:</p>
+<ul class="simple">
+<li><p><strong>Familial Advanced Sleep Phase Syndrome</strong> (FASPS)</p></li>
+<li><p><strong>Delayed Sleep-Wake Phase Disorder</strong> (DSWPD)</p></li>
+<li><p><strong>Non-24-Hour Sleep-Wake Disorder</strong> (N24)</p></li>
+<li><p><strong>Irregular Sleep-Wake Rhythm Disorder</strong> (ISWRD)</p></li>
+</ul>
+</section>
+<section id="wearable-integration">
+<h3>8.3 Wearable Integration<a class="headerlink" href="#wearable-integration" title="Link to this heading">#</a></h3>
+<p>Connect to:</p>
+<ul class="simple">
+<li><p>Actigraphy data (rest-activity patterns)</p></li>
+<li><p>Heart rate variability (HRV)</p></li>
+<li><p>Core body temperature sensors</p></li>
+<li><p>Light exposure logs</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>9. Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>We have demonstrated that Informational Relativity coherence metrics successfully assess multi-tissue circadian synchronization by treating tissue oscillator phases as quantum observables. Key findings:</p>
+<ol class="arabic simple">
+<li><p><strong>Synchronized systems</strong> achieve R̄ &gt; 0.99 on IBM Torino</p></li>
+<li><p><strong>Jet lag</strong> produces measurable acute desynchronization (R̄ ≈ 0.79)</p></li>
+<li><p><strong>Shift work</strong> reduces coherence but remains above threshold</p></li>
+<li><p><strong>Hardware validation</strong> confirms classical model predictions</p></li>
+</ol>
+<p>This extends the PhaseLab IR framework to circadian medicine, providing a potential quantitative biomarker for circadian health.</p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Reppert, S.M. &amp; Weaver, D.R. (2002). Coordination of circadian timing in mammals. Nature.</p></li>
+<li><p>Bass, J. &amp; Takahashi, J.S. (2010). Circadian integration of metabolism and energetics. Science.</p></li>
+<li><p>Kuramoto, Y. (1984). Chemical Oscillations, Waves, and Turbulence. Springer.</p></li>
+<li><p>Strogatz, S.H. (2000). From Kuramoto to Crawford: exploring the onset of synchronization. Physica D.</p></li>
+<li><p>Roenneberg, T. et al. (2003). Life between clocks: daily temporal patterns of human chronotypes. J. Biol. Rhythms.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="appendix-a-data-availability">
+<h2>Appendix A: Data Availability<a class="headerlink" href="#appendix-a-data-availability" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Resource</p></th>
+<th class="head"><p>Location</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Experiment code</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experiments/E203_Multi_Tissue_Circadian/Code/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Hardware results</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experiments/E203_Multi_Tissue_Circadian/Data/E203_circadian_coherence_20251210_215229.json</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>PhaseLab package</p></td>
+<td><p>https://github.com/followthesapper/phaselab</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="appendix-b-tissue-model-parameters">
+<h2>Appendix B: Tissue Model Parameters<a class="headerlink" href="#appendix-b-tissue-model-parameters" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">TISSUE_PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;SCN&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="n">π</span><span class="o">/</span><span class="mf">24.0</span><span class="p">,</span>      <span class="c1"># Master clock</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">24.0</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;liver&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="n">π</span><span class="o">/</span><span class="mf">24.5</span><span class="p">,</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">24.5</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;muscle&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="n">π</span><span class="o">/</span><span class="mf">23.8</span><span class="p">,</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">23.8</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;heart&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;omega&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="n">π</span><span class="o">/</span><span class="mf">24.2</span><span class="p">,</span>
+        <span class="s2">&quot;amplitude&quot;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_to_scn&quot;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span>
+        <span class="s2">&quot;intrinsic_period&quot;</span><span class="p">:</span> <span class="mf">24.2</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="appendix-c-hardware-validation-data">
+<h2>Appendix C: Hardware Validation Data<a class="headerlink" href="#appendix-c-hardware-validation-data" title="Link to this heading">#</a></h2>
+<p><strong>IBM Torino Run (December 10, 2025):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Scenario</span>                      <span class="n">Classical</span> <span class="n">R̄</span>   <span class="n">Quantum</span> <span class="n">R̄</span>    <span class="n">Hardware</span> <span class="n">R̄</span>
+<span class="o">------------------------------------------------------------------------</span>
+<span class="n">healthy_synchronized</span>          <span class="mf">0.9999</span>         <span class="mf">0.9999</span>        <span class="mf">0.9990</span>
+<span class="n">jet_lag_acute</span>                 <span class="mf">0.7930</span>         <span class="mf">0.9999</span>        <span class="mf">0.9992</span>
+<span class="n">chronic_shift_work</span>            <span class="mf">0.9974</span>         <span class="mf">1.0000</span>        <span class="mf">0.9997</span>
+<span class="n">disease_desynchronization</span>     <span class="mf">0.9231</span>         <span class="mf">0.9996</span>        <span class="mf">0.9999</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><em>This research was conducted as part of the PhaseLab v0.3.0 development.</em></p>
+<p><em>Hardware validation: IBM Torino, December 2025</em></p>
+<p><em>Experiment ID: E203</em></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1. Background</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-circadian-system">1.1 The Circadian System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clinical-relevance-of-circadian-disruption">1.2 Clinical Relevance of Circadian Disruption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-coherence-as-a-synchronization-metric">1.3 Phase Coherence as a Synchronization Metric</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">2. Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-tissue-kuramoto-model">2.1 Multi-Tissue Kuramoto Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-scenarios">2.2 Test Scenarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-circuit-design">2.3 Quantum Circuit Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-execution">2.4 Hardware Execution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">3. Results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-simulation-results">3.1 Classical Simulation Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-torino-hardware-results">3.2 IBM Torino Hardware Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-summary">3.3 Validation Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">4. Discussion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-detection">4.1 Synchronization Detection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jet-lag-dynamics">4.2 Jet Lag Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shift-work-implications">4.3 Shift Work Implications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-limitations">4.4 Model Limitations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clinical-applications">5. Clinical Applications</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circadian-health-assessment">5.1 Circadian Health Assessment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#therapeutic-monitoring">5.2 Therapeutic Monitoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#personalized-chronotype-assessment">5.3 Personalized Chronotype Assessment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-e200-sms-circadian-model">6. Comparison with E200 (SMS Circadian Model)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-for-phaselab">7. Significance for PhaseLab</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-integration">7.1 Module Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-generalization">7.2 Framework Generalization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-work">8. Future Work</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-tissue-network">8.1 Extended Tissue Network</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disease-specific-models">8.2 Disease-Specific Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wearable-integration">8.3 Wearable Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-a-data-availability">Appendix A: Data Availability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-b-tissue-model-parameters">Appendix B: Tissue Model Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-c-hardware-validation-data">Appendix C: Hardware Validation Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

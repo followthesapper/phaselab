@@ -1,0 +1,1058 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PhaseLab Development Roadmap &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ROADMAP';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">PhaseLab Development Roadmap</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="phaselab-development-roadmap">
+<h1>PhaseLab Development Roadmap<a class="headerlink" href="#phaselab-development-roadmap" title="Link to this heading">#</a></h1>
+<p>This document outlines the planned development trajectory for PhaseLab, from the current release through full clinical integration.</p>
+<section id="version-history">
+<h2>Version History<a class="headerlink" href="#version-history" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Status</p></th>
+<th class="head"><p>Release Date</p></th>
+<th class="head"><p>Summary</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.1.0</p></td>
+<td><p>Released</p></td>
+<td><p>Jun 2025</p></td>
+<td><p>Core coherence, CRISPR pipeline, SMS model</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.2.0</p></td>
+<td><p>Released</p></td>
+<td><p>Jul 2025</p></td>
+<td><p>Protein folding, tissue-specific chromatin</p></td>
+</tr>
+<tr class="row-even"><td><p>0.3.0</p></td>
+<td><p>Released</p></td>
+<td><p>Aug 2025</p></td>
+<td><p>Multi-tissue circadian, base/prime editing</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.4.0</p></td>
+<td><p>Released</p></td>
+<td><p>Sep 2025</p></td>
+<td><p>Complete CRISPR toolkit, therapy dosage</p></td>
+</tr>
+<tr class="row-even"><td><p>0.5.0</p></td>
+<td><p>Released</p></td>
+<td><p>Oct 2025</p></td>
+<td><p>ATAC-seq integration, enhancer targeting</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.6.0</p></td>
+<td><p>Released</p></td>
+<td><p>Nov 2025</p></td>
+<td><p>ATLAS-Q integration, CRISPOR integration</p></td>
+</tr>
+<tr class="row-even"><td><p>0.7.0</p></td>
+<td><p>Released</p></td>
+<td><p>Nov 2025</p></td>
+<td><p>Enhanced pipeline, modality support</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.8.0</p></td>
+<td><p>Released</p></td>
+<td><p>Dec 2025</p></td>
+<td><p>Claim levels, fusion module</p></td>
+</tr>
+<tr class="row-even"><td><p>0.9.0</p></td>
+<td><p>Released</p></td>
+<td><p>Dec 2025</p></td>
+<td><p>SMS Trials Module, falsification tests</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1.0.0</strong></p></td>
+<td><p><strong>Current</strong></p></td>
+<td><p>Dec 2025</p></td>
+<td><p><strong>Spatial coherence paradigm, multi-domain modules</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>1.1.0</p></td>
+<td><p>Planned</p></td>
+<td><p>2026</p></td>
+<td><p>Full wet lab integration, clinical validation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="v1-0-0-spatial-coherence-paradigm-current-release">
+<h2>v1.0.0 - Spatial Coherence Paradigm (Current Release)<a class="headerlink" href="#v1-0-0-spatial-coherence-paradigm-current-release" title="Link to this heading">#</a></h2>
+<p><strong>Status</strong>: Released</p>
+<section id="major-paradigm-shift">
+<h3>Major Paradigm Shift<a class="headerlink" href="#major-paradigm-shift" title="Link to this heading">#</a></h3>
+<p><strong>Guide-sequence coherence has been deprecated.</strong> Experiments E200-E211 showed that computing coherence from guide sequences (GC content, thermodynamic properties) has no predictive value for experimental outcomes (r ≈ 0).</p>
+<p><strong>Spatial coherence is the validated approach.</strong> Experiments E213-E216 validated that measuring spatial coherence of response landscapes predicts perturbation reliability:</p>
+<ul class="simple">
+<li><p>r = -0.24 to -0.50 correlation with outcome variance</p></li>
+<li><p>32-49% variance reduction when selecting from stable regions</p></li>
+<li><p>115,251 sgRNAs tested across 6 genes</p></li>
+</ul>
+</section>
+<section id="new-modules">
+<h3>New Modules<a class="headerlink" href="#new-modules" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>phaselab.landscapes</strong> - Core perturbation-response data structures</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ResponseLandscape</span></code> - Generic position → response mapping</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CoherenceProfile</span></code> - Per-position coherence values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StabilityClass</span></code> - STABLE, MIXED, AMPLIFYING, IRRELEVANT</p></li>
+</ul>
+</li>
+<li><p><strong>phaselab.spatial</strong> - E213-validated tiling screen analysis</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">analyze_tiling_coherence()</span></code> - Full coherence analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_tiling_screen()</span></code> - Data loading utilities</p></li>
+<li><p>Region classification and stable region identification</p></li>
+</ul>
+</li>
+<li><p><strong>phaselab.surf</strong> - CRISPR-SURF integration</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_surf_output()</span></code> - Parse SURF deconvolution output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_surf_coherence()</span></code> - Coherence on deconvolved data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SURFPipeline</span></code> - End-to-end analysis pipeline</p></li>
+</ul>
+</li>
+<li><p><strong>phaselab.omics</strong> - Genomics assay coherence</p>
+<ul>
+<li><p>ATAC-seq: <code class="docutils literal notranslate"><span class="pre">analyze_atac_coherence()</span></code> - Stable accessibility regions</p></li>
+<li><p>ChIP-seq: <code class="docutils literal notranslate"><span class="pre">analyze_chip_coherence()</span></code> - Stable binding sites</p></li>
+<li><p>RNA-seq: <code class="docutils literal notranslate"><span class="pre">analyze_expression_coherence()</span></code> - Reliable expression changes</p></li>
+</ul>
+</li>
+<li><p><strong>phaselab.microbio</strong> - Microbial screen analysis</p>
+<ul>
+<li><p>TnSeq: <code class="docutils literal notranslate"><span class="pre">analyze_tnseq_coherence()</span></code> - Essential domain identification</p></li>
+<li><p>CRISPRi: <code class="docutils literal notranslate"><span class="pre">analyze_crispri_coherence()</span></code> - Bacterial screen analysis</p></li>
+<li><p>Drug: <code class="docutils literal notranslate"><span class="pre">analyze_drug_coherence()</span></code> - Dose-response stability</p></li>
+</ul>
+</li>
+<li><p><strong>phaselab.chem</strong> - Chemical systems</p>
+<ul>
+<li><p>Binding: <code class="docutils literal notranslate"><span class="pre">analyze_binding_coherence()</span></code> - Stable binding hot spots</p></li>
+<li><p>Reaction: <code class="docutils literal notranslate"><span class="pre">analyze_reaction_coherence()</span></code> - Stable operating windows</p></li>
+<li><p>HTS: <code class="docutils literal notranslate"><span class="pre">analyze_screening_coherence()</span></code> - Reliable hit identification</p></li>
+</ul>
+</li>
+<li><p><strong>phaselab.protein.mutscan</strong> - Mutational scanning</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">analyze_mutscan_coherence()</span></code> - Functional domain identification</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_coherence_profile()</span></code> - Per-residue coherence</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_coherence_to_structure()</span></code> - PDB B-factor mapping</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="quantum-mode-configuration">
+<h3>Quantum Mode Configuration<a class="headerlink" href="#quantum-mode-configuration" title="Link to this heading">#</a></h3>
+<p>New quantum execution modes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QuantumMode.OFF</span></code> - Classical only (default, fastest)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QuantumMode.AUDIT</span></code> - Classical + quantum validation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QuantumMode.REQUIRED</span></code> - Quantum mandatory</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.quantum</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_quantum_mode</span><span class="p">,</span> <span class="n">QuantumMode</span>
+<span class="n">set_quantum_mode</span><span class="p">(</span><span class="n">QuantumMode</span><span class="o">.</span><span class="n">AUDIT</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="breaking-changes">
+<h3>Breaking Changes<a class="headerlink" href="#breaking-changes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_coherence=True</span></code> in CRISPR pipeline is deprecated (no effect)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weight_coherence</span></code> defaults to 0.0 (was 1.0)</p></li>
+<li><p>Guide-sequence coherence functions emit deprecation warnings</p></li>
+<li><p>SMS trials now use spatial coherence by default</p></li>
+</ul>
+</section>
+<section id="api-quick-start">
+<h3>API Quick Start<a class="headerlink" href="#api-quick-start" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.landscapes</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResponseLandscape</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">analyze_tiling_coherence</span>
+
+<span class="c1"># Create response landscape</span>
+<span class="n">landscape</span> <span class="o">=</span> <span class="n">ResponseLandscape</span><span class="p">(</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span>
+    <span class="n">responses</span><span class="o">=</span><span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># Analyze coherence</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">analyze_tiling_coherence</span><span class="p">(</span><span class="n">landscape</span><span class="p">)</span>
+
+<span class="c1"># Find stable regions</span>
+<span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">stable_regions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stable: </span><span class="si">{</span><span class="n">region</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">region</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, coh=</span><span class="si">{</span><span class="n">region</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="v0-9-0-sms-trials-module-released">
+<h2>v0.9.0 - SMS Trials Module (Released)<a class="headerlink" href="#v0-9-0-sms-trials-module-released" title="Link to this heading">#</a></h2>
+<p><strong>Status</strong>: Released</p>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Complete SMS Therapeutic Trial Framework</strong></p>
+<ul>
+<li><p>CRISPRa RAI1 activation trial with therapeutic window validation</p></li>
+<li><p>CRISPRi modifier gene suppression trials (PER1, CRY1, CLOCK)</p></li>
+<li><p>Knockout model validation trials (research use)</p></li>
+<li><p>Base editing trials for point mutation correction</p></li>
+<li><p>Prime editing trials for regulatory motif repair</p></li>
+<li><p>Circadian rescue simulation with sleep/wake prediction</p></li>
+<li><p>AAV delivery feasibility assessment for CNS</p></li>
+</ul>
+</li>
+<li><p><strong>SMS Pipeline Orchestrator</strong> - Integrated GO/NO-GO decision system</p></li>
+<li><p><strong>Falsification Test Framework</strong> - Automated wet-lab validation experiment generation</p></li>
+<li><p><strong>Claim Level System</strong> - STRONG_COMPUTATIONAL, CONTEXT_DEPENDENT, EXPLORATORY, UNKNOWN</p></li>
+</ul>
+</section>
+<section id="api-additions">
+<h3>API Additions<a class="headerlink" href="#api-additions" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.trials.sms</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SMSPipeline</span><span class="p">,</span>
+    <span class="n">SMSTrialConfig</span><span class="p">,</span>
+    <span class="n">run_sms_crispra_trial</span><span class="p">,</span>
+    <span class="n">run_sms_crispri_trial</span><span class="p">,</span>
+    <span class="n">run_sms_knockout_trial</span><span class="p">,</span>
+    <span class="n">run_sms_base_editing_trial</span><span class="p">,</span>
+    <span class="n">run_sms_prime_editing_trial</span><span class="p">,</span>
+    <span class="n">run_circadian_rescue_simulation</span><span class="p">,</span>
+    <span class="n">run_delivery_assessment</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Run full SMS therapeutic pipeline</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">SMSPipeline</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">SMSTrialConfig</span><span class="p">())</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">run_full_pipeline</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GO/NO-GO: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">overall_go_nogo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Falsification tests: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">falsification_tests</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="v0-8-0-claim-levels-fusion-released">
+<h2>v0.8.0 - Claim Levels &amp; Fusion (Released)<a class="headerlink" href="#v0-8-0-claim-levels-fusion-released" title="Link to this heading">#</a></h2>
+<p><strong>Status</strong>: Released</p>
+<section id="id1">
+<h3>Features<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Claim Level System</strong>: Four-tier evidence classification</p></li>
+<li><p><strong>Fusion Module</strong>: Multi-source data integration with uncertainty quantification</p></li>
+<li><p><strong>Virtual Assay Stack</strong>: Enhanced guide scoring with tissue-specific modeling</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="v0-7-0-enhanced-pipeline-released">
+<h2>v0.7.0 - Enhanced Pipeline (Released)<a class="headerlink" href="#v0-7-0-enhanced-pipeline-released" title="Link to this heading">#</a></h2>
+<p><strong>Status</strong>: Released</p>
+<section id="id2">
+<h3>Features<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Enhanced Pipeline</strong>: <code class="docutils literal notranslate"><span class="pre">design_enhanced_guides()</span></code> with modality-specific scoring</p></li>
+<li><p><strong>Modality Support</strong>: CRISPRa, CRISPRi, Knockout, Base Editing, Prime Editing</p></li>
+<li><p><strong>Tissue-Specific Scoring</strong>: Brain, liver, blood, and muscle accessibility models</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="v0-6-x-atlas-q-integration-released">
+<h2>v0.6.x - ATLAS-Q Integration (Released)<a class="headerlink" href="#v0-6-x-atlas-q-integration-released" title="Link to this heading">#</a></h2>
+<p><strong>Status</strong>: Released</p>
+<section id="id3">
+<h3>Features<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>ATLAS-Q tensor network backend integration</p></li>
+<li><p>CRISPOR integration with IR-enhanced off-target analysis</p></li>
+<li><p>Coherence mode parameter (heuristic vs quantum)</p></li>
+<li><p>Evidence levels (A/B/C classification)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="v0-2-0-0-5-0-foundation-releases-released">
+<h2>v0.2.0-0.5.0 - Foundation Releases (Released)<a class="headerlink" href="#v0-2-0-0-5-0-foundation-releases-released" title="Link to this heading">#</a></h2>
+<p><strong>Status</strong>: Released</p>
+<section id="features-summary">
+<h3>Features Summary<a class="headerlink" href="#features-summary" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>v0.2.0</strong>: Protein folding coherence, tissue-specific chromatin models</p></li>
+<li><p><strong>v0.3.0</strong>: Multi-tissue circadian models, base/prime editing support</p></li>
+<li><p><strong>v0.4.0</strong>: Complete CRISPR toolkit (knockout, CRISPRi), therapy dosage optimization</p></li>
+<li><p><strong>v0.5.0</strong>: ATAC-seq integration, nucleosome occupancy, enhancer targeting, AAV delivery</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="v1-0-0-clinical-integration-planned">
+<h2>v1.0.0 - Clinical Integration (Planned)<a class="headerlink" href="#v1-0-0-clinical-integration-planned" title="Link to this heading">#</a></h2>
+<p><strong>Status</strong>: Planned
+<strong>Target</strong>: 2026</p>
+<section id="goals">
+<h3>Goals<a class="headerlink" href="#goals" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Full wet lab validation pipeline</p></li>
+<li><p>Clinical trial support features</p></li>
+<li><p>Regulatory documentation helpers</p></li>
+<li><p>Production-ready reliability</p></li>
+</ul>
+</section>
+<section id="planned-features">
+<h3>Planned Features<a class="headerlink" href="#planned-features" title="Link to this heading">#</a></h3>
+<section id="wet-lab-integration">
+<h4>Wet Lab Integration<a class="headerlink" href="#wet-lab-integration" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Automated qPCR analysis</p></li>
+<li><p>Western blot quantification</p></li>
+<li><p>Flow cytometry integration</p></li>
+<li><p>Microscopy image analysis</p></li>
+</ul>
+</section>
+<section id="clinical-validation">
+<h4>Clinical Validation<a class="headerlink" href="#clinical-validation" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Patient stratification tools</p></li>
+<li><p>Outcome prediction models</p></li>
+<li><p>Safety monitoring dashboards</p></li>
+<li><p>Efficacy tracking</p></li>
+</ul>
+</section>
+<section id="regulatory-support">
+<h4>Regulatory Support<a class="headerlink" href="#regulatory-support" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>GLP-compliant logging</p></li>
+<li><p>Audit trail generation</p></li>
+<li><p>Data provenance tracking</p></li>
+<li><p>Report generation</p></li>
+</ul>
+</section>
+</section>
+<section id="requirements-for-1-0">
+<h3>Requirements for 1.0<a class="headerlink" href="#requirements-for-1-0" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[ ] Published peer-reviewed validation</p></li>
+<li><p>[ ] At least one wet lab confirmation</p></li>
+<li><p>[ ] IRB-approved study integration</p></li>
+<li><p>[ ] Partner institution collaboration</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="future-directions-post-1-0">
+<h2>Future Directions (Post-1.0)<a class="headerlink" href="#future-directions-post-1-0" title="Link to this heading">#</a></h2>
+<section id="potential-v1-x-features">
+<h3>Potential v1.x Features<a class="headerlink" href="#potential-v1-x-features" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Additional gene targets (SHANK3, CHD8, NRXN1)</p></li>
+<li><p>In vivo delivery optimization</p></li>
+<li><p>AAV serotype selection</p></li>
+<li><p>Blood-brain barrier modeling</p></li>
+</ul>
+</section>
+<section id="research-collaborations">
+<h3>Research Collaborations<a class="headerlink" href="#research-collaborations" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Academic partnerships for validation</p></li>
+<li><p>Pharmaceutical industry pilots</p></li>
+<li><p>Patient foundation collaborations</p></li>
+</ul>
+</section>
+<section id="platform-extensions">
+<h3>Platform Extensions<a class="headerlink" href="#platform-extensions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Cloud-based analysis service</p></li>
+<li><p>GUI application</p></li>
+<li><p>Jupyter notebook integrations</p></li>
+<li><p>Clinical decision support</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="contributing-to-the-roadmap">
+<h2>Contributing to the Roadmap<a class="headerlink" href="#contributing-to-the-roadmap" title="Link to this heading">#</a></h2>
+<p>We welcome community input on the development roadmap. To suggest features:</p>
+<ol class="arabic simple">
+<li><p>Open an issue on GitHub with <code class="docutils literal notranslate"><span class="pre">[ROADMAP]</span></code> prefix</p></li>
+<li><p>Describe the use case and proposed solution</p></li>
+<li><p>Include any relevant references or prior art</p></li>
+</ol>
+<p>Priority is given to features that:</p>
+<ul class="simple">
+<li><p>Have clear therapeutic applications</p></li>
+<li><p>Can be validated experimentally</p></li>
+<li><p>Extend the IR framework coherently</p></li>
+<li><p>Benefit multiple user groups</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="version-numbering">
+<h2>Version Numbering<a class="headerlink" href="#version-numbering" title="Link to this heading">#</a></h2>
+<p>PhaseLab follows semantic versioning:</p>
+<ul class="simple">
+<li><p><strong>MAJOR</strong> (1.x.x): Breaking API changes, clinical-grade release</p></li>
+<li><p><strong>MINOR</strong> (x.1.x): New features, backward compatible</p></li>
+<li><p><strong>PATCH</strong> (x.x.1): Bug fixes, documentation updates</p></li>
+</ul>
+<p>Development versions use <code class="docutils literal notranslate"><span class="pre">-dev</span></code> suffix (e.g., <code class="docutils literal notranslate"><span class="pre">0.2.0-dev</span></code>).</p>
+<hr class="docutils" />
+<p><em>Last updated: December 2025</em>
+<em>Maintainer: Dylan Vaca</em></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-history">Version History</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v1-0-0-spatial-coherence-paradigm-current-release">v1.0.0 - Spatial Coherence Paradigm (Current Release)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#major-paradigm-shift">Major Paradigm Shift</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-modules">New Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-mode-configuration">Quantum Mode Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-changes">Breaking Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api-quick-start">API Quick Start</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-9-0-sms-trials-module-released">v0.9.0 - SMS Trials Module (Released)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api-additions">API Additions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-8-0-claim-levels-fusion-released">v0.8.0 - Claim Levels &amp; Fusion (Released)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-7-0-enhanced-pipeline-released">v0.7.0 - Enhanced Pipeline (Released)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-6-x-atlas-q-integration-released">v0.6.x - ATLAS-Q Integration (Released)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-2-0-0-5-0-foundation-releases-released">v0.2.0-0.5.0 - Foundation Releases (Released)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features-summary">Features Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v1-0-0-clinical-integration-planned">v1.0.0 - Clinical Integration (Planned)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planned-features">Planned Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wet-lab-integration">Wet Lab Integration</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clinical-validation">Clinical Validation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#regulatory-support">Regulatory Support</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements-for-1-0">Requirements for 1.0</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-directions-post-1-0">Future Directions (Post-1.0)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-v1-x-features">Potential v1.x Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research-collaborations">Research Collaborations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-extensions">Platform Extensions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-to-the-roadmap">Contributing to the Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-numbering">Version Numbering</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

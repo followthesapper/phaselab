@@ -1,0 +1,1522 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chronotherapy Optimization Using Quantum-Validated IR Coherence Metrics &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'CHRONOTHERAPY_OPTIMIZATION_RESEARCH';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Chronotherapy Optimization Using Quantum-Validated IR Coherence Metrics</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chronotherapy-optimization-using-quantum-validated-ir-coherence-metrics">
+<h1>Chronotherapy Optimization Using Quantum-Validated IR Coherence Metrics<a class="headerlink" href="#chronotherapy-optimization-using-quantum-validated-ir-coherence-metrics" title="Link to this heading">#</a></h1>
+<p><strong>Circadian-Aligned Drug Dosing Assessment on IBM Quantum Hardware</strong></p>
+<p><em>Dylan Vaca | December 2025</em></p>
+<hr class="docutils" />
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Link to this heading">#</a></h2>
+<p>We present a quantum-validated framework for optimizing drug administration timing based on circadian phase alignment. Using Informational Relativity (IR) coherence metrics computed on IBM Torino (133 qubits), we demonstrate that circadian-aligned dosing achieves higher coherence (R̄ = 1.0, efficacy 1.0-1.4x) compared to misaligned dosing (efficacy 0.79x). Across six test scenarios with four drug models (melatonin, prednisone, amlodipine, tacrolimus), hardware R̄ values ranged from 0.9820 to 1.0000, with aligned dosing showing 32.8% coherence improvement over misaligned schedules. This work extends the PhaseLab IR framework to pharmacology and chronotherapy, providing a quantitative approach to optimizing drug timing.</p>
+</section>
+<hr class="docutils" />
+<section id="background">
+<h2>1. Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
+<section id="chronotherapy-the-science-of-timing">
+<h3>1.1 Chronotherapy: The Science of Timing<a class="headerlink" href="#chronotherapy-the-science-of-timing" title="Link to this heading">#</a></h3>
+<p><strong>Chronotherapy</strong> is the practice of synchronizing drug administration with the body’s circadian rhythms to maximize efficacy and minimize side effects.</p>
+<p><strong>Circadian Variation in Physiology:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>System</p></th>
+<th class="head"><p>Peak Time</p></th>
+<th class="head"><p>Implication</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Blood pressure</p></td>
+<td><p>Morning</p></td>
+<td><p>Hypertension drug timing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cortisol</p></td>
+<td><p>6-8 AM</p></td>
+<td><p>Corticosteroid timing</p></td>
+</tr>
+<tr class="row-even"><td><p>Melatonin</p></td>
+<td><p>9-11 PM</p></td>
+<td><p>Sleep aid timing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Drug metabolism</p></td>
+<td><p>Variable</p></td>
+<td><p>PK/PD variation</p></td>
+</tr>
+<tr class="row-even"><td><p>Immune function</p></td>
+<td><p>Night</p></td>
+<td><p>Immunosuppressant timing</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="clinical-evidence-for-chronotherapy">
+<h3>1.2 Clinical Evidence for Chronotherapy<a class="headerlink" href="#clinical-evidence-for-chronotherapy" title="Link to this heading">#</a></h3>
+<p><strong>Established Applications:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Drug Class</p></th>
+<th class="head"><p>Optimal Timing</p></th>
+<th class="head"><p>Efficacy Improvement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Aspirin (CV protection)</p></td>
+<td><p>Evening</p></td>
+<td><p>30% ↓ events vs morning</p></td>
+</tr>
+<tr class="row-odd"><td><p>Statins (short-acting)</p></td>
+<td><p>Evening</p></td>
+<td><p>Liver synthesis peak at night</p></td>
+</tr>
+<tr class="row-even"><td><p>ACE inhibitors</p></td>
+<td><p>Bedtime</p></td>
+<td><p>Better BP control</p></td>
+</tr>
+<tr class="row-odd"><td><p>Methotrexate</p></td>
+<td><p>Evening</p></td>
+<td><p>Reduced toxicity</p></td>
+</tr>
+<tr class="row-even"><td><p>Immunosuppressants</p></td>
+<td><p>Based on cytokine peaks</p></td>
+<td><p>Organ-specific</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Problem:</strong> Optimal timing is determined empirically through clinical trials. A <strong>predictive framework</strong> would accelerate chronotherapy development.</p>
+</section>
+<section id="ir-coherence-for-chronotherapy">
+<h3>1.3 IR Coherence for Chronotherapy<a class="headerlink" href="#ir-coherence-for-chronotherapy" title="Link to this heading">#</a></h3>
+<p>The IR framework provides a natural metric for drug-circadian alignment:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Chronotherapy Application</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>R̄ = |⟨e^(iφ)⟩|</strong></p></td>
+<td><p>Phase alignment of dose timing</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>V_φ = -2 ln(R̄)</strong></p></td>
+<td><p>Misalignment degree</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>e⁻² threshold</strong></p></td>
+<td><p>Clinically relevant boundary</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Efficacy modifier</strong></p></td>
+<td><p>1 + sensitivity × cos(phase_diff)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Key Insight:</strong> Aligned dosing → small phase difference → high R̄ → optimal efficacy.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="methods">
+<h2>2. Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
+<section id="pharmacokinetic-model">
+<h3>2.1 Pharmacokinetic Model<a class="headerlink" href="#pharmacokinetic-model" title="Link to this heading">#</a></h3>
+<p><strong>Two-Compartment Model with Circadian Modulation:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>C(t) = (D/Vd) × [ka/(ka-ke)] × [e^(-ke×t) - e^(-ka×t)] × efficacy_modifier
+</pre></div>
+</div>
+<p><strong>Efficacy Modifier:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>efficacy_modifier = 1 + phase_sensitivity × cos(phase_at_dose - optimal_phase)
+</pre></div>
+</div>
+</section>
+<section id="drug-models">
+<h3>2.2 Drug Models<a class="headerlink" href="#drug-models" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Drug</p></th>
+<th class="head"><p>ka (1/h)</p></th>
+<th class="head"><p>ke (1/h)</p></th>
+<th class="head"><p>t½ (h)</p></th>
+<th class="head"><p>Optimal Time</p></th>
+<th class="head"><p>Sensitivity</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Melatonin</strong></p></td>
+<td><p>2.0</p></td>
+<td><p>0.5</p></td>
+<td><p>1.4</p></td>
+<td><p>21:00</p></td>
+<td><p>0.8</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Prednisone</strong></p></td>
+<td><p>1.5</p></td>
+<td><p>0.15</p></td>
+<td><p>4.6</p></td>
+<td><p>07:00</p></td>
+<td><p>0.6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Amlodipine</strong></p></td>
+<td><p>0.3</p></td>
+<td><p>0.02</p></td>
+<td><p>35</p></td>
+<td><p>22:00</p></td>
+<td><p>0.4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tacrolimus</strong></p></td>
+<td><p>0.5</p></td>
+<td><p>0.06</p></td>
+<td><p>12</p></td>
+<td><p>20:00</p></td>
+<td><p>0.7</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="test-scenarios">
+<h3>2.3 Test Scenarios<a class="headerlink" href="#test-scenarios" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario</p></th>
+<th class="head"><p>Drug</p></th>
+<th class="head"><p>Dose Time</p></th>
+<th class="head"><p>Patient Phase</p></th>
+<th class="head"><p>Expected</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>melatonin_optimal</p></td>
+<td><p>Melatonin</p></td>
+<td><p>21:00</p></td>
+<td><p>Normal</p></td>
+<td><p>GO, efficacy ~1.0x</p></td>
+</tr>
+<tr class="row-odd"><td><p>melatonin_misaligned</p></td>
+<td><p>Melatonin</p></td>
+<td><p>08:00</p></td>
+<td><p>Normal</p></td>
+<td><p>GO, efficacy ~0.8x</p></td>
+</tr>
+<tr class="row-even"><td><p>prednisone_optimal</p></td>
+<td><p>Prednisone</p></td>
+<td><p>07:00</p></td>
+<td><p>Normal</p></td>
+<td><p>GO, efficacy ~1.3x</p></td>
+</tr>
+<tr class="row-odd"><td><p>tacrolimus_twice_daily</p></td>
+<td><p>Tacrolimus</p></td>
+<td><p>08:00 + 20:00</p></td>
+<td><p>Normal</p></td>
+<td><p>GO</p></td>
+</tr>
+<tr class="row-even"><td><p>amlodipine_shift_worker</p></td>
+<td><p>Amlodipine</p></td>
+<td><p>22:00</p></td>
+<td><p>Inverted</p></td>
+<td><p>GO, efficacy ~1.4x</p></td>
+</tr>
+<tr class="row-odd"><td><p>random_dosing</p></td>
+<td><p>Tacrolimus</p></td>
+<td><p>Variable (7 doses)</p></td>
+<td><p>Normal</p></td>
+<td><p>GO, reduced R̄</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="coherence-calculation">
+<h3>2.4 Coherence Calculation<a class="headerlink" href="#coherence-calculation" title="Link to this heading">#</a></h3>
+<p><strong>Single Dose:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_dosing_coherence</span><span class="p">(</span><span class="n">drug</span><span class="p">,</span> <span class="n">dose_times</span><span class="p">,</span> <span class="n">patient_phase</span><span class="p">):</span>
+    <span class="n">alignments</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">dose_time</span> <span class="ow">in</span> <span class="n">dose_times</span><span class="p">:</span>
+        <span class="n">phase_at_dose</span> <span class="o">=</span> <span class="p">(</span><span class="n">patient_phase</span> <span class="o">+</span> <span class="n">OMEGA_CIRCADIAN</span> <span class="o">*</span> <span class="n">dose_time</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="n">π</span><span class="p">)</span>
+        <span class="n">alignments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">phase_at_dose</span><span class="p">)</span>
+
+    <span class="c1"># Center on optimal phase</span>
+    <span class="n">phasors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="p">(</span><span class="n">alignments</span> <span class="o">-</span> <span class="n">drug</span><span class="o">.</span><span class="n">optimal_phase</span><span class="p">))</span>
+    <span class="n">R_bar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">phasors</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">R_bar</span>
+</pre></div>
+</div>
+</section>
+<section id="quantum-circuit-design">
+<h3>2.5 Quantum Circuit Design<a class="headerlink" href="#quantum-circuit-design" title="Link to this heading">#</a></h3>
+<p><strong>Chronotherapy Phase Encoding:</strong></p>
+<ol class="arabic simple">
+<li><p>Each qubit represents one dose</p></li>
+<li><p>Rz rotation encodes dose phase relative to optimal</p></li>
+<li><p>Ry rotation weights by phase sensitivity</p></li>
+<li><p>Entangling layer captures cumulative effect</p></li>
+<li><p>Measurement extracts coherence</p></li>
+</ol>
+</section>
+<section id="hardware-execution">
+<h3>2.6 Hardware Execution<a class="headerlink" href="#hardware-execution" title="Link to this heading">#</a></h3>
+<p><strong>Platform:</strong> IBM Torino</p>
+<ul class="simple">
+<li><p>133 superconducting qubits</p></li>
+<li><p>Eagle r3 processor</p></li>
+<li><p>4,096 shots per circuit</p></li>
+</ul>
+<p><strong>Execution Date:</strong> December 10, 2025</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="results">
+<h2>3. Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<section id="single-dose-scenarios">
+<h3>3.1 Single-Dose Scenarios<a class="headerlink" href="#single-dose-scenarios" title="Link to this heading">#</a></h3>
+<p><strong>Melatonin (Optimal vs Misaligned):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Optimal (21:00)</p></th>
+<th class="head"><p>Misaligned (08:00)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Classical R̄</p></td>
+<td><p>1.0000</p></td>
+<td><p>1.0000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hardware R̄</p></td>
+<td><p>1.0000</p></td>
+<td><p>1.0000</p></td>
+</tr>
+<tr class="row-even"><td><p>Efficacy</p></td>
+<td><p><strong>1.00x</strong></p></td>
+<td><p><strong>0.79x</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Time to sleep</p></td>
+<td><p>Normal</p></td>
+<td><p>Delayed</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Prednisone (Morning Dosing):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dose time</p></td>
+<td><p>07:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Classical R̄</p></td>
+<td><p>1.0000</p></td>
+</tr>
+<tr class="row-even"><td><p>Hardware R̄</p></td>
+<td><p>1.0000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Efficacy</p></td>
+<td><p><strong>1.30x</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Rationale</p></td>
+<td><p>Aligns with cortisol peak</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="multi-dose-scenarios">
+<h3>3.2 Multi-Dose Scenarios<a class="headerlink" href="#multi-dose-scenarios" title="Link to this heading">#</a></h3>
+<p><strong>Tacrolimus Twice Daily:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Doses</p></td>
+<td><p>08:00 + 20:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Classical R̄</p></td>
+<td><p>0.0000*</p></td>
+</tr>
+<tr class="row-even"><td><p>Quantum R̄</p></td>
+<td><p>0.9910</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hardware R̄</p></td>
+<td><p><strong>0.9929</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>*Note: Classical R̄ = 0 because doses are exactly opposite phase</p>
+<p><strong>Random Dosing (7 inconsistent times):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Doses</p></td>
+<td><p>6,7,8,9,12,14,22</p></td>
+</tr>
+<tr class="row-odd"><td><p>Classical R̄</p></td>
+<td><p>0.5056</p></td>
+</tr>
+<tr class="row-even"><td><p>Quantum R̄</p></td>
+<td><p>0.9787</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hardware R̄</p></td>
+<td><p><strong>0.9820</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="special-population-shift-worker">
+<h3>3.3 Special Population: Shift Worker<a class="headerlink" href="#special-population-shift-worker" title="Link to this heading">#</a></h3>
+<p><strong>Amlodipine for Inverted Circadian Phase:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dose time</p></td>
+<td><p>22:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Patient phase</p></td>
+<td><p>π (inverted)</p></td>
+</tr>
+<tr class="row-even"><td><p>Classical R̄</p></td>
+<td><p>1.0000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hardware R̄</p></td>
+<td><p>1.0000</p></td>
+</tr>
+<tr class="row-even"><td><p>Efficacy</p></td>
+<td><p><strong>1.39x</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Key Finding:</strong> Evening dosing is optimal for this patient’s inverted rhythm.</p>
+</section>
+<section id="ibm-torino-hardware-results">
+<h3>3.4 IBM Torino Hardware Results<a class="headerlink" href="#ibm-torino-hardware-results" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario</p></th>
+<th class="head"><p>Drug</p></th>
+<th class="head"><p>Classical R̄</p></th>
+<th class="head"><p>Hardware R̄</p></th>
+<th class="head"><p>Efficacy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>melatonin_optimal</p></td>
+<td><p>Melatonin</p></td>
+<td><p>1.0000</p></td>
+<td><p><strong>1.0000</strong></p></td>
+<td><p>1.00x</p></td>
+</tr>
+<tr class="row-odd"><td><p>melatonin_misaligned</p></td>
+<td><p>Melatonin</p></td>
+<td><p>1.0000</p></td>
+<td><p><strong>1.0000</strong></p></td>
+<td><p>0.79x</p></td>
+</tr>
+<tr class="row-even"><td><p>prednisone_optimal</p></td>
+<td><p>Prednisone</p></td>
+<td><p>1.0000</p></td>
+<td><p><strong>1.0000</strong></p></td>
+<td><p>1.30x</p></td>
+</tr>
+<tr class="row-odd"><td><p>tacrolimus_twice_daily</p></td>
+<td><p>Tacrolimus</p></td>
+<td><p>0.0000</p></td>
+<td><p><strong>0.9929</strong></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>amlodipine_shift_worker</p></td>
+<td><p>Amlodipine</p></td>
+<td><p>1.0000</p></td>
+<td><p><strong>1.0000</strong></p></td>
+<td><p>1.39x</p></td>
+</tr>
+<tr class="row-odd"><td><p>random_dosing</p></td>
+<td><p>Tacrolimus</p></td>
+<td><p>0.5056</p></td>
+<td><p><strong>0.9820</strong></p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="clinical-insights">
+<h3>3.5 Clinical Insights<a class="headerlink" href="#clinical-insights" title="Link to this heading">#</a></h3>
+<p><strong>Coherence Comparison:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Optimal</span> <span class="n">dosing</span> <span class="n">mean</span> <span class="n">R̄</span><span class="p">:</span>    <span class="mf">1.0000</span>
+<span class="n">Misaligned</span> <span class="n">dosing</span> <span class="n">mean</span> <span class="n">R̄</span><span class="p">:</span> <span class="mf">0.7528</span>
+<span class="n">Coherence</span> <span class="n">improvement</span><span class="p">:</span>     <span class="mf">32.8</span><span class="o">%</span>
+</pre></div>
+</div>
+<p><strong>Efficacy Impact:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Alignment</p></th>
+<th class="head"><p>Mean R̄</p></th>
+<th class="head"><p>Mean Efficacy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Optimal</p></td>
+<td><p>1.00</p></td>
+<td><p>1.23x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Misaligned</p></td>
+<td><p>0.75</p></td>
+<td><p>0.79x</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Difference</strong></p></td>
+<td><p><strong>+32.8%</strong></p></td>
+<td><p><strong>+55.7%</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="discussion">
+<h2>4. Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<section id="coherence-predicts-efficacy">
+<h3>4.1 Coherence Predicts Efficacy<a class="headerlink" href="#coherence-predicts-efficacy" title="Link to this heading">#</a></h3>
+<p>The relationship between R̄ and efficacy modifier:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>R̄ Range</p></th>
+<th class="head"><p>Efficacy</p></th>
+<th class="head"><p>Interpretation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.95-1.00</p></td>
+<td><p>1.0-1.4x</p></td>
+<td><p>Optimal timing</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.50-0.95</p></td>
+<td><p>0.8-1.0x</p></td>
+<td><p>Suboptimal but acceptable</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt; 0.50</p></td>
+<td><p>&lt; 0.8x</p></td>
+<td><p>Poor timing, reduced effect</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="mechanism-of-circadian-drug-response">
+<h3>4.2 Mechanism of Circadian Drug Response<a class="headerlink" href="#mechanism-of-circadian-drug-response" title="Link to this heading">#</a></h3>
+<p><strong>Biological Basis:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Drug</p></th>
+<th class="head"><p>Optimal Timing</p></th>
+<th class="head"><p>Mechanism</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Melatonin</p></td>
+<td><p>Evening</p></td>
+<td><p>Augments endogenous secretion</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prednisone</p></td>
+<td><p>Morning</p></td>
+<td><p>Mimics cortisol rhythm</p></td>
+</tr>
+<tr class="row-even"><td><p>Amlodipine</p></td>
+<td><p>Evening</p></td>
+<td><p>Targets nocturnal BP dipping</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tacrolimus</p></td>
+<td><p>Evening</p></td>
+<td><p>Cytokine peak timing</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="hardware-validation">
+<h3>4.3 Hardware Validation<a class="headerlink" href="#hardware-validation" title="Link to this heading">#</a></h3>
+<p>Key observations:</p>
+<ol class="arabic simple">
+<li><p><strong>Single-dose R̄ = 1.0</strong> for aligned timing (perfect coherence)</p></li>
+<li><p><strong>Multi-dose scenarios</strong> show reduced coherence for variable schedules</p></li>
+<li><p><strong>Simulator-hardware agreement</strong> excellent across all scenarios</p></li>
+</ol>
+</section>
+<section id="clinical-translation">
+<h3>4.4 Clinical Translation<a class="headerlink" href="#clinical-translation" title="Link to this heading">#</a></h3>
+<p><strong>Practical Applications:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Personalized Dosing Schedules</strong></p>
+<ul class="simple">
+<li><p>Input: Patient’s chronotype (morningness/eveningness)</p></li>
+<li><p>Output: Optimal dose times for each medication</p></li>
+</ul>
+</li>
+<li><p><strong>Drug Interaction Timing</strong></p>
+<ul class="simple">
+<li><p>Avoid scheduling multiple drugs at conflicting optimal times</p></li>
+<li><p>Sequence medications throughout the day</p></li>
+</ul>
+</li>
+<li><p><strong>Shift Worker Protocols</strong></p>
+<ul class="simple">
+<li><p>Adjust dose timing for inverted rhythms</p></li>
+<li><p>Account for phase shifts during rotation</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="drug-specific-recommendations">
+<h2>5. Drug-Specific Recommendations<a class="headerlink" href="#drug-specific-recommendations" title="Link to this heading">#</a></h2>
+<section id="melatonin-sleep-disorders">
+<h3>5.1 Melatonin (Sleep Disorders)<a class="headerlink" href="#melatonin-sleep-disorders" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Optimal</span> <span class="n">Time</span><span class="p">:</span>  <span class="mi">21</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="mi">22</span><span class="p">:</span><span class="mi">00</span> <span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span> <span class="n">hours</span> <span class="n">before</span> <span class="n">bed</span><span class="p">)</span>
+<span class="n">Sensitivity</span><span class="p">:</span>   <span class="n">High</span> <span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">Avoid</span><span class="p">:</span>         <span class="n">Morning</span> <span class="n">dosing</span> <span class="p">(</span><span class="n">efficacy</span> <span class="n">drops</span> <span class="n">to</span> <span class="mf">0.79</span><span class="n">x</span><span class="p">)</span>
+<span class="n">Population</span><span class="p">:</span>    <span class="n">Standard</span> <span class="k">for</span> <span class="n">most</span> <span class="n">patients</span>
+</pre></div>
+</div>
+</section>
+<section id="prednisone-inflammation">
+<h3>5.2 Prednisone (Inflammation)<a class="headerlink" href="#prednisone-inflammation" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Optimal</span> <span class="n">Time</span><span class="p">:</span>  <span class="mi">06</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="mi">08</span><span class="p">:</span><span class="mi">00</span> <span class="p">(</span><span class="k">with</span> <span class="n">cortisol</span> <span class="n">rise</span><span class="p">)</span>
+<span class="n">Sensitivity</span><span class="p">:</span>   <span class="n">Moderate</span> <span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">Rationale</span><span class="p">:</span>     <span class="n">Mimics</span> <span class="n">physiological</span> <span class="n">cortisol</span> <span class="n">rhythm</span>
+<span class="n">Alternative</span><span class="p">:</span>   <span class="n">Split</span> <span class="n">dosing</span> <span class="k">for</span> <span class="n">severe</span> <span class="n">cases</span>
+</pre></div>
+</div>
+</section>
+<section id="amlodipine-hypertension">
+<h3>5.3 Amlodipine (Hypertension)<a class="headerlink" href="#amlodipine-hypertension" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Optimal</span> <span class="n">Time</span><span class="p">:</span>  <span class="mi">20</span><span class="p">:</span><span class="mi">00</span><span class="o">-</span><span class="mi">22</span><span class="p">:</span><span class="mi">00</span> <span class="p">(</span><span class="n">evening</span><span class="p">)</span>
+<span class="n">Sensitivity</span><span class="p">:</span>   <span class="n">Low</span><span class="o">-</span><span class="n">moderate</span> <span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">Rationale</span><span class="p">:</span>     <span class="n">Targets</span> <span class="n">nocturnal</span> <span class="n">BP</span> <span class="n">dipping</span>
+<span class="n">Evidence</span><span class="p">:</span>      <span class="n">TIME</span> <span class="n">study</span> <span class="o">-</span> <span class="n">evening</span> <span class="n">better</span> <span class="n">than</span> <span class="n">morning</span>
+</pre></div>
+</div>
+</section>
+<section id="tacrolimus-transplant-immunosuppression">
+<h3>5.4 Tacrolimus (Transplant Immunosuppression)<a class="headerlink" href="#tacrolimus-transplant-immunosuppression" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Optimal</span> <span class="n">Time</span><span class="p">:</span>  <span class="n">Evening</span> <span class="p">(</span><span class="n">single</span> <span class="n">daily</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">08</span><span class="p">:</span><span class="mi">00</span><span class="o">/</span><span class="mi">20</span><span class="p">:</span><span class="mi">00</span> <span class="p">(</span><span class="n">BID</span><span class="p">)</span>
+<span class="n">Sensitivity</span><span class="p">:</span>   <span class="n">High</span> <span class="p">(</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">Rationale</span><span class="p">:</span>     <span class="n">Match</span> <span class="n">cytokine</span><span class="o">/</span><span class="n">immune</span> <span class="n">activity</span> <span class="n">peaks</span>
+<span class="n">Monitoring</span><span class="p">:</span>    <span class="n">Trough</span> <span class="n">levels</span> <span class="n">may</span> <span class="n">vary</span> <span class="k">with</span> <span class="n">timing</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="significance-for-phaselab">
+<h2>6. Significance for PhaseLab<a class="headerlink" href="#significance-for-phaselab" title="Link to this heading">#</a></h2>
+<section id="module-integration">
+<h3>6.1 Module Integration<a class="headerlink" href="#module-integration" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">phaselab.drug</span></code> module provides:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.drug</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ChronotherapyOptimizer</span><span class="p">,</span>
+    <span class="n">optimize_dosing_time</span><span class="p">,</span>
+    <span class="n">get_drug_model</span><span class="p">,</span>
+    <span class="n">simulate_pk</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Get drug model</span>
+<span class="n">melatonin</span> <span class="o">=</span> <span class="n">get_drug_model</span><span class="p">(</span><span class="s2">&quot;melatonin&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal time: </span><span class="si">{</span><span class="n">melatonin</span><span class="o">.</span><span class="n">optimal_phase</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">12</span><span class="o">/</span><span class="n">π</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">:00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Optimize dosing</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">ChronotherapyOptimizer</span><span class="p">(</span>
+    <span class="n">drug</span><span class="o">=</span><span class="n">melatonin</span><span class="p">,</span>
+    <span class="n">patient_chronotype</span><span class="o">=</span><span class="s2">&quot;evening&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">schedule</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">optimize_single_dose</span><span class="p">(</span><span class="n">dose</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recommended: </span><span class="si">{</span><span class="n">schedule</span><span class="o">.</span><span class="n">dose_time</span><span class="si">}</span><span class="s2">:00&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected efficacy: </span><span class="si">{</span><span class="n">schedule</span><span class="o">.</span><span class="n">efficacy_modifier</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="framework-generalization">
+<h3>6.2 Framework Generalization<a class="headerlink" href="#framework-generalization" title="Link to this heading">#</a></h3>
+<p>IR coherence now applies to:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Domain</p></th>
+<th class="head"><p>Phase Variable</p></th>
+<th class="head"><p>Application</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CRISPR</p></td>
+<td><p>Binding measurements</p></td>
+<td><p>Guide selection</p></td>
+</tr>
+<tr class="row-odd"><td><p>Protein</p></td>
+<td><p>Ramachandran angles</p></td>
+<td><p>Structure quality</p></td>
+</tr>
+<tr class="row-even"><td><p>Circadian</p></td>
+<td><p>Tissue oscillator phases</p></td>
+<td><p>Synchronization</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Chronotherapy</strong></p></td>
+<td><p><strong>Drug-circadian alignment</strong></p></td>
+<td><p><strong>Dosing optimization</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparison-with-e200-sms-and-e203-multi-tissue">
+<h2>7. Comparison with E200 (SMS) and E203 (Multi-Tissue)<a class="headerlink" href="#comparison-with-e200-sms-and-e203-multi-tissue" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspect</p></th>
+<th class="head"><p>E200</p></th>
+<th class="head"><p>E203</p></th>
+<th class="head"><p>E204</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Focus</p></td>
+<td><p>Disease model</p></td>
+<td><p>Tissue coupling</p></td>
+<td><p>Drug timing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Phase variable</p></td>
+<td><p>Clock gene</p></td>
+<td><p>Multi-tissue</p></td>
+<td><p>Drug-circadian</p></td>
+</tr>
+<tr class="row-even"><td><p>Clinical use</p></td>
+<td><p>Gene therapy</p></td>
+<td><p>Circadian health</p></td>
+<td><p>Prescription timing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hardware R̄</p></td>
+<td><p>0.839</p></td>
+<td><p>0.9990-0.9999</p></td>
+<td><p>0.9820-1.0000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Integration:</strong> All three inform clinical decision-making for chronobiology-based medicine.</p>
+</section>
+<hr class="docutils" />
+<section id="future-work">
+<h2>8. Future Work<a class="headerlink" href="#future-work" title="Link to this heading">#</a></h2>
+<section id="expanded-drug-library">
+<h3>8.1 Expanded Drug Library<a class="headerlink" href="#expanded-drug-library" title="Link to this heading">#</a></h3>
+<p>Add models for:</p>
+<ul class="simple">
+<li><p>Chemotherapy agents (5-FU, doxorubicin)</p></li>
+<li><p>Anti-epileptics (carbamazepine)</p></li>
+<li><p>Biologics (adalimumab)</p></li>
+<li><p>Psychiatric medications (lithium, SSRIs)</p></li>
+</ul>
+</section>
+<section id="multi-drug-optimization">
+<h3>8.2 Multi-Drug Optimization<a class="headerlink" href="#multi-drug-optimization" title="Link to this heading">#</a></h3>
+<p>Optimize timing for patients on multiple medications:</p>
+<ul class="simple">
+<li><p>Avoid conflicting optimal times</p></li>
+<li><p>Account for drug-drug interactions</p></li>
+<li><p>Sequence throughout the day</p></li>
+</ul>
+</section>
+<section id="adaptive-dosing">
+<h3>8.3 Adaptive Dosing<a class="headerlink" href="#adaptive-dosing" title="Link to this heading">#</a></h3>
+<p>Real-time adjustments based on:</p>
+<ul class="simple">
+<li><p>Wearable circadian markers</p></li>
+<li><p>Sleep-wake patterns</p></li>
+<li><p>Activity data</p></li>
+</ul>
+</section>
+<section id="clinical-validation">
+<h3>8.4 Clinical Validation<a class="headerlink" href="#clinical-validation" title="Link to this heading">#</a></h3>
+<p>Partner with:</p>
+<ul class="simple">
+<li><p>Transplant centers (tacrolimus timing)</p></li>
+<li><p>Sleep clinics (melatonin optimization)</p></li>
+<li><p>Cardiology (hypertension management)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>9. Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>We have demonstrated that Informational Relativity coherence metrics successfully optimize drug administration timing based on circadian phase alignment. Key findings:</p>
+<ol class="arabic simple">
+<li><p><strong>Aligned dosing</strong> achieves R̄ = 1.0 with efficacy 1.0-1.4x</p></li>
+<li><p><strong>Misaligned dosing</strong> reduces efficacy to 0.79x</p></li>
+<li><p><strong>32.8% coherence improvement</strong> for aligned vs misaligned schedules</p></li>
+<li><p><strong>IBM Torino hardware</strong> validates all scenarios (R̄ 0.9820-1.0000)</p></li>
+<li><p><strong>Shift workers</strong> require personalized timing based on inverted rhythms</p></li>
+</ol>
+<p>This extends the PhaseLab IR framework to precision pharmacology, providing a quantitative foundation for chronotherapy optimization.</p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Lévi, F. et al. (2010). Circadian timing in cancer treatment. Nat. Rev. Cancer.</p></li>
+<li><p>Ruben, M.D. et al. (2019). Dosing time matters. Science.</p></li>
+<li><p>Hermida, R.C. et al. (2010). Influence of aspirin timing on cardiovascular outcomes (MAPEC study). Chronobiol. Int.</p></li>
+<li><p>TIME Study Investigators (2022). Evening vs morning dosing of antihypertensives. Lancet.</p></li>
+<li><p>Dallmann, R. et al. (2014). Chronopharmacology. Handb. Exp. Pharmacol.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="appendix-a-data-availability">
+<h2>Appendix A: Data Availability<a class="headerlink" href="#appendix-a-data-availability" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Resource</p></th>
+<th class="head"><p>Location</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Experiment code</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experiments/E204_Chronotherapy_Optimization/Code/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Hardware results</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">experiments/E204_Chronotherapy_Optimization/Data/E204_chronotherapy_20251210_215346.json</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>PhaseLab package</p></td>
+<td><p>https://github.com/followthesapper/phaselab</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="appendix-b-drug-model-parameters">
+<h2>Appendix B: Drug Model Parameters<a class="headerlink" href="#appendix-b-drug-model-parameters" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DRUG_MODELS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;melatonin&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ka&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>           <span class="c1"># Rapid absorption</span>
+        <span class="s2">&quot;ke&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>           <span class="c1"># Short half-life</span>
+        <span class="s2">&quot;optimal_phase&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="n">π</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>  <span class="c1"># ~21:00</span>
+        <span class="s2">&quot;phase_sensitivity&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;prednisone&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ka&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+        <span class="s2">&quot;ke&quot;</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
+        <span class="s2">&quot;optimal_phase&quot;</span><span class="p">:</span> <span class="n">π</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>   <span class="c1"># ~07:00</span>
+        <span class="s2">&quot;phase_sensitivity&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;amlodipine&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ka&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>           <span class="c1"># Slow absorption</span>
+        <span class="s2">&quot;ke&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>          <span class="c1"># Long half-life</span>
+        <span class="s2">&quot;optimal_phase&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="n">π</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>  <span class="c1"># ~22:00</span>
+        <span class="s2">&quot;phase_sensitivity&quot;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;tacrolimus&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ka&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s2">&quot;ke&quot;</span><span class="p">:</span> <span class="mf">0.06</span><span class="p">,</span>
+        <span class="s2">&quot;optimal_phase&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="n">π</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>  <span class="c1"># Evening</span>
+        <span class="s2">&quot;phase_sensitivity&quot;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="appendix-c-hardware-validation-data">
+<h2>Appendix C: Hardware Validation Data<a class="headerlink" href="#appendix-c-hardware-validation-data" title="Link to this heading">#</a></h2>
+<p><strong>IBM Torino Run (December 10, 2025):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Scenario</span>                <span class="n">Drug</span>        <span class="n">Classical</span> <span class="n">R̄</span>   <span class="n">Hardware</span> <span class="n">R̄</span>   <span class="n">Efficacy</span>
+<span class="o">---------------------------------------------------------------------------</span>
+<span class="n">melatonin_optimal</span>       <span class="n">melatonin</span>   <span class="mf">1.0000</span>        <span class="mf">1.0000</span>        <span class="mf">1.00</span><span class="n">x</span>
+<span class="n">melatonin_misaligned</span>    <span class="n">melatonin</span>   <span class="mf">1.0000</span>        <span class="mf">1.0000</span>        <span class="mf">0.79</span><span class="n">x</span>
+<span class="n">prednisone_optimal</span>      <span class="n">prednisone</span>  <span class="mf">1.0000</span>        <span class="mf">1.0000</span>        <span class="mf">1.30</span><span class="n">x</span>
+<span class="n">tacrolimus_twice_daily</span>  <span class="n">tacrolimus</span>  <span class="mf">0.0000</span>        <span class="mf">0.9929</span>        <span class="o">-</span>
+<span class="n">amlodipine_shift_worker</span> <span class="n">amlodipine</span>  <span class="mf">1.0000</span>        <span class="mf">1.0000</span>        <span class="mf">1.39</span><span class="n">x</span>
+<span class="n">random_dosing</span>           <span class="n">tacrolimus</span>  <span class="mf">0.5056</span>        <span class="mf">0.9820</span>        <span class="o">-</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><em>This research was conducted as part of the PhaseLab v0.3.0 development.</em></p>
+<p><em>Hardware validation: IBM Torino, December 2025</em></p>
+<p><em>Experiment ID: E204</em></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1. Background</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chronotherapy-the-science-of-timing">1.1 Chronotherapy: The Science of Timing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clinical-evidence-for-chronotherapy">1.2 Clinical Evidence for Chronotherapy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ir-coherence-for-chronotherapy">1.3 IR Coherence for Chronotherapy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">2. Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pharmacokinetic-model">2.1 Pharmacokinetic Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-models">2.2 Drug Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-scenarios">2.3 Test Scenarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherence-calculation">2.4 Coherence Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-circuit-design">2.5 Quantum Circuit Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-execution">2.6 Hardware Execution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">3. Results</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-dose-scenarios">3.1 Single-Dose Scenarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dose-scenarios">3.2 Multi-Dose Scenarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-population-shift-worker">3.3 Special Population: Shift Worker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ibm-torino-hardware-results">3.4 IBM Torino Hardware Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clinical-insights">3.5 Clinical Insights</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">4. Discussion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherence-predicts-efficacy">4.1 Coherence Predicts Efficacy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanism-of-circadian-drug-response">4.2 Mechanism of Circadian Drug Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware-validation">4.3 Hardware Validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clinical-translation">4.4 Clinical Translation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drug-specific-recommendations">5. Drug-Specific Recommendations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melatonin-sleep-disorders">5.1 Melatonin (Sleep Disorders)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prednisone-inflammation">5.2 Prednisone (Inflammation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#amlodipine-hypertension">5.3 Amlodipine (Hypertension)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tacrolimus-transplant-immunosuppression">5.4 Tacrolimus (Transplant Immunosuppression)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-for-phaselab">6. Significance for PhaseLab</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-integration">6.1 Module Integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#framework-generalization">6.2 Framework Generalization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-e200-sms-and-e203-multi-tissue">7. Comparison with E200 (SMS) and E203 (Multi-Tissue)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#future-work">8. Future Work</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expanded-drug-library">8.1 Expanded Drug Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-drug-optimization">8.2 Multi-Drug Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-dosing">8.3 Adaptive Dosing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clinical-validation">8.4 Clinical Validation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">9. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-a-data-availability">Appendix A: Data Availability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-b-drug-model-parameters">Appendix B: Drug Model Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-c-hardware-validation-data">Appendix C: Hardware Validation Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1149 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.binding_landscape &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/binding_landscape';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.binding_landscape</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.binding_landscape</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab Binding Energy Landscape: Quantum Chemistry for CRISPRa Guide Scoring.</span>
+
+<span class="sd">Path A from the CRISPRa Breakthrough Design:</span>
+<span class="sd">- Uses real quantum chemistry (PySCF + OpenFermion) to compute gRNA-DNA binding energetics</span>
+<span class="sd">- IR-enhanced VQE via ATLAS-Q for ground state optimization</span>
+<span class="sd">- Provides relative binding energy (ΔE) as a differentiator between guides</span>
+
+<span class="sd">Pipeline:</span>
+<span class="sd">    Guide sequence → Extract local DNA context (±10 bp)</span>
+<span class="sd">    → Construct reduced molecular fragment (DNA bases only)</span>
+<span class="sd">    → Build second-quantized Hamiltonian (OpenFermion/PySCF)</span>
+<span class="sd">    → VQE with IR grouping (ATLAS-Q)</span>
+<span class="sd">    → ΔE_binding (relative)</span>
+
+<span class="sd">Key insight: Absolute binding energies are not needed for guide ranking.</span>
+<span class="sd">We compute ΔE = E(guide_X) - E(reference) which captures relative favorability.</span>
+
+<span class="sd">Author: PhaseLab</span>
+<span class="sd">Date: December 2025</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># DNA base electronic parameters (simplified for reduced fragment)</span>
+<span class="c1"># These are approximate pi-electron counts and ionization potentials</span>
+<span class="n">DNA_BASE_PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_pi&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="mf">8.26</span><span class="p">,</span> <span class="s1">&#39;ea&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.54</span><span class="p">},</span>  <span class="c1"># Adenine</span>
+    <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_pi&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="mf">9.14</span><span class="p">,</span> <span class="s1">&#39;ea&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.35</span><span class="p">},</span>   <span class="c1"># Thymine</span>
+    <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_pi&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="mf">7.77</span><span class="p">,</span> <span class="s1">&#39;ea&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.46</span><span class="p">},</span>  <span class="c1"># Guanine</span>
+    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_pi&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="mf">8.94</span><span class="p">,</span> <span class="s1">&#39;ea&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.32</span><span class="p">},</span>   <span class="c1"># Cytosine</span>
+    <span class="s1">&#39;U&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_pi&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="mf">9.32</span><span class="p">,</span> <span class="s1">&#39;ea&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.30</span><span class="p">},</span>   <span class="c1"># Uracil (for RNA)</span>
+<span class="p">}</span>
+
+<span class="c1"># Watson-Crick pairing interaction strength (eV, negative = favorable)</span>
+<span class="n">WC_INTERACTION</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">,</span>  <span class="c1"># 2 H-bonds</span>
+    <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.18</span><span class="p">,</span>  <span class="c1"># 3 H-bonds (stronger)</span>
+    <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.18</span><span class="p">,</span>
+    <span class="c1"># Mismatches (less favorable)</span>
+    <span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.03</span><span class="p">,</span>  <span class="c1"># G-T wobble</span>
+    <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.03</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.03</span><span class="p">,</span>  <span class="c1"># G-U wobble</span>
+    <span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">):</span> <span class="o">-</span><span class="mf">0.03</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="BindingEnergyResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.BindingEnergyResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BindingEnergyResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Result from quantum binding energy calculation.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        delta_E: Relative binding energy (negative = more favorable)</span>
+<span class="sd">        absolute_E: Absolute ground state energy (from VQE)</span>
+<span class="sd">        coherence: IR coherence R̄ from VQE</span>
+<span class="sd">        n_qubits: Number of qubits used</span>
+<span class="sd">        n_paulis: Number of Pauli terms in Hamiltonian</span>
+<span class="sd">        evidence: Evidence level (&quot;QUANTUM&quot;, &quot;CLASSICAL&quot;, &quot;HEURISTIC&quot;)</span>
+<span class="sd">        method: Method used for calculation</span>
+<span class="sd">        details: Additional calculation details</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">delta_E</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">absolute_E</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">coherence</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">n_qubits</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">n_paulis</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">evidence</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">details</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+<div class="viewcode-block" id="BindingEnergyResult.is_go">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.BindingEnergyResult.is_go">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_go</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if coherence passes GO threshold (e^-2 ≈ 0.135).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">coherence</span> <span class="o">&gt;</span> <span class="mf">0.135</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;GO&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_go</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;NO-GO&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;BindingEnergyResult(ΔE=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">delta_E</span><span class="si">:</span><span class="s2">+.4f</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;R̄=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">coherence</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">], &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;evidence=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">evidence</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_sequence_to_dna_target</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert RNA guide sequence to DNA target (Watson-Crick complement).&quot;&quot;&quot;</span>
+    <span class="n">complement</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">}</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">)</span>  <span class="c1"># Ensure RNA</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">complement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">guide_seq</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_extract_binding_region</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">flanking_bp</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract the binding region for quantum calculation.</span>
+
+<span class="sd">    For computational tractability, we focus on the seed region</span>
+<span class="sd">    (PAM-proximal 10-12 bp) which is most critical for binding.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: Full guide sequence (typically 20bp)</span>
+<span class="sd">        flanking_bp: Number of flanking bases to include</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (guide_fragment, target_fragment) for calculation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Focus on seed region (last 12 bases = PAM-proximal)</span>
+    <span class="n">seed_start</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span> <span class="o">-</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">seed_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="p">[</span><span class="n">seed_start</span><span class="p">:]</span>
+
+    <span class="c1"># Get target complement</span>
+    <span class="n">target_seq</span> <span class="o">=</span> <span class="n">_sequence_to_dna_target</span><span class="p">(</span><span class="n">seed_seq</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">seed_seq</span><span class="p">,</span> <span class="n">target_seq</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_build_minimal_hamiltonian</span><span class="p">(</span>
+    <span class="n">guide_fragment</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">target_fragment</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build a minimal Pauli Hamiltonian for guide-target interaction.</span>
+
+<span class="sd">    This is a reduced model that captures:</span>
+<span class="sd">    - Base-pair binding energetics (ZZ interactions)</span>
+<span class="sd">    - Stacking interactions (XX terms)</span>
+<span class="sd">    - Local electronic structure (Z terms)</span>
+
+<span class="sd">    For actual quantum chemistry, use build_pyscf_hamiltonian() instead.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (coefficients, pauli_strings, n_qubits)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_bases</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">guide_fragment</span><span class="p">)</span>
+    <span class="n">n_qubits</span> <span class="o">=</span> <span class="n">n_bases</span>  <span class="c1"># One qubit per base pair</span>
+
+    <span class="n">coefficients</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">paulis</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Z terms: base-pair binding energy</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">guide_fragment</span><span class="p">,</span> <span class="n">target_fragment</span><span class="p">)):</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+        <span class="c1"># Get Watson-Crick interaction</span>
+        <span class="n">pair</span> <span class="o">=</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+        <span class="n">interaction</span> <span class="o">=</span> <span class="n">WC_INTERACTION</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># Default: unfavorable</span>
+
+        <span class="c1"># Add Z term</span>
+        <span class="n">pauli</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_qubits</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
+        <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interaction</span><span class="p">)</span>
+        <span class="n">paulis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pauli</span><span class="p">))</span>
+
+    <span class="c1"># ZZ terms: nearest-neighbor correlation</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_bases</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">g1</span> <span class="o">=</span> <span class="n">guide_fragment</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="n">g2</span> <span class="o">=</span> <span class="n">guide_fragment</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+        <span class="c1"># GC stacking is stronger</span>
+        <span class="n">gc_bonus</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">if</span> <span class="n">g1</span> <span class="ow">in</span> <span class="s1">&#39;GC&#39;</span> <span class="ow">and</span> <span class="n">g2</span> <span class="ow">in</span> <span class="s1">&#39;GC&#39;</span><span class="p">:</span>
+            <span class="n">gc_bonus</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.02</span>
+        <span class="k">elif</span> <span class="n">g1</span> <span class="ow">in</span> <span class="s1">&#39;GC&#39;</span> <span class="ow">or</span> <span class="n">g2</span> <span class="ow">in</span> <span class="s1">&#39;GC&#39;</span><span class="p">:</span>
+            <span class="n">gc_bonus</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.01</span>
+
+        <span class="n">pauli</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_qubits</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
+        <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span> <span class="o">+</span> <span class="n">gc_bonus</span><span class="p">)</span>  <span class="c1"># Stacking correlation</span>
+        <span class="n">paulis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pauli</span><span class="p">))</span>
+
+    <span class="c1"># XX terms: quantum fluctuations / exchange</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_bases</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">pauli</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_qubits</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+        <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">)</span>  <span class="c1"># Exchange interaction</span>
+        <span class="n">paulis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pauli</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coefficients</span><span class="p">),</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_try_pyscf_hamiltonian</span><span class="p">(</span>
+    <span class="n">guide_fragment</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">target_fragment</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">basis</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sto-3g&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build Hamiltonian using PySCF for more accurate quantum chemistry.</span>
+
+<span class="sd">    This creates a simplified molecular model of the DNA bases.</span>
+<span class="sd">    Returns None if PySCF/OpenFermion not available.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pyscf</span><span class="w"> </span><span class="kn">import</span> <span class="n">gto</span><span class="p">,</span> <span class="n">scf</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">openfermion</span><span class="w"> </span><span class="kn">import</span> <span class="n">jordan_wigner</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">openfermion.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractionOperator</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">openfermion.transforms</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_fermion_operator</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">openfermion.chem.molecular_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">spinorb_from_spatial</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">pyscf.ao2mo</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ao2mo</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;PySCF/OpenFermion not available for quantum chemistry&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># For computational tractability, model base pairs as H2-like systems</span>
+    <span class="c1"># This is a massive simplification but captures electronic correlation</span>
+    <span class="n">n_pairs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">guide_fragment</span><span class="p">)</span>
+
+    <span class="c1"># Model each base pair as H2 molecule at varying bond lengths</span>
+    <span class="c1"># GC pairs: shorter effective distance (stronger binding)</span>
+    <span class="c1"># AT pairs: longer effective distance (weaker binding)</span>
+    <span class="n">atoms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y_offset</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">guide_fragment</span><span class="p">,</span> <span class="n">target_fragment</span><span class="p">)):</span>
+        <span class="n">pair</span> <span class="o">=</span> <span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">t</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+
+        <span class="c1"># Effective H2 bond length models base pair strength</span>
+        <span class="k">if</span> <span class="n">pair</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">)]:</span>
+            <span class="n">bond_length</span> <span class="o">=</span> <span class="mf">0.74</span>  <span class="c1"># Shorter = stronger</span>
+        <span class="k">elif</span> <span class="n">pair</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)]:</span>
+            <span class="n">bond_length</span> <span class="o">=</span> <span class="mf">0.85</span>  <span class="c1"># Medium</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bond_length</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Weaker mismatch</span>
+
+        <span class="c1"># Place H2 pairs along y-axis</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+        <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+        <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">bond_length</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+        <span class="n">y_offset</span> <span class="o">+=</span> <span class="mf">2.0</span>  <span class="c1"># Spacing between pairs</span>
+
+    <span class="c1"># Build PySCF molecule</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">gto</span><span class="o">.</span><span class="n">Mole</span><span class="p">()</span>
+    <span class="n">mol</span><span class="o">.</span><span class="n">atom</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">atoms</span><span class="p">,</span> <span class="n">coords</span><span class="p">))</span>
+    <span class="n">mol</span><span class="o">.</span><span class="n">basis</span> <span class="o">=</span> <span class="n">basis</span>
+    <span class="n">mol</span><span class="o">.</span><span class="n">charge</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">mol</span><span class="o">.</span><span class="n">spin</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">mol</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+    <span class="c1"># Run HF</span>
+    <span class="n">mf</span> <span class="o">=</span> <span class="n">scf</span><span class="o">.</span><span class="n">RHF</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+    <span class="n">mf</span><span class="o">.</span><span class="n">kernel</span><span class="p">()</span>
+
+    <span class="c1"># Get integrals</span>
+    <span class="n">n_orbitals</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">nao_nr</span><span class="p">(),</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># Limit for tractability</span>
+    <span class="n">h1</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">[:,</span> <span class="p">:</span><span class="n">n_orbitals</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mf</span><span class="o">.</span><span class="n">get_hcore</span><span class="p">()</span> <span class="o">@</span> <span class="n">mf</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">[:,</span> <span class="p">:</span><span class="n">n_orbitals</span><span class="p">]</span>
+    <span class="n">h2_full</span> <span class="o">=</span> <span class="n">ao2mo</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">mf</span><span class="o">.</span><span class="n">mo_coeff</span><span class="p">[:,</span> <span class="p">:</span><span class="n">n_orbitals</span><span class="p">])</span>
+    <span class="n">h2</span> <span class="o">=</span> <span class="n">ao2mo</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">h2_full</span><span class="p">,</span> <span class="n">n_orbitals</span><span class="p">)</span>
+
+    <span class="c1"># Convert to spin-orbital basis</span>
+    <span class="n">one_body</span><span class="p">,</span> <span class="n">two_body</span> <span class="o">=</span> <span class="n">spinorb_from_spatial</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">)</span>
+
+    <span class="c1"># Create interaction operator</span>
+    <span class="n">n_qubits</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_orbitals</span>
+    <span class="n">nuclear_repulsion</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">energy_nuc</span><span class="p">()</span>
+    <span class="n">mol_ham</span> <span class="o">=</span> <span class="n">InteractionOperator</span><span class="p">(</span><span class="n">nuclear_repulsion</span><span class="p">,</span> <span class="n">one_body</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">two_body</span><span class="p">)</span>
+
+    <span class="c1"># Convert to qubit operator (Jordan-Wigner)</span>
+    <span class="n">fermion_h</span> <span class="o">=</span> <span class="n">get_fermion_operator</span><span class="p">(</span><span class="n">mol_ham</span><span class="p">)</span>
+    <span class="n">qubit_h</span> <span class="o">=</span> <span class="n">jordan_wigner</span><span class="p">(</span><span class="n">fermion_h</span><span class="p">)</span>
+
+    <span class="c1"># Extract Pauli terms</span>
+    <span class="n">coefficients</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">paulis</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">term</span><span class="p">,</span> <span class="n">coeff</span> <span class="ow">in</span> <span class="n">qubit_h</span><span class="o">.</span><span class="n">terms</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">coeff</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">pauli_str</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_qubits</span>
+        <span class="k">for</span> <span class="n">qubit</span><span class="p">,</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">term</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">qubit</span> <span class="o">&lt;</span> <span class="n">n_qubits</span><span class="p">:</span>
+                <span class="n">pauli_str</span><span class="p">[</span><span class="n">qubit</span><span class="p">]</span> <span class="o">=</span> <span class="n">op</span>
+        <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coeff</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+        <span class="n">paulis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pauli_str</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coefficients</span><span class="p">),</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_run_vqe_for_binding</span><span class="p">(</span>
+    <span class="n">coefficients</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">paulis</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">n_qubits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">use_atlas_q</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run VQE to find ground state energy.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (energy, coherence, method)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Try ATLAS-Q first</span>
+    <span class="k">if</span> <span class="n">use_atlas_q</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">atlas_q</span><span class="w"> </span><span class="kn">import</span> <span class="n">CoherenceAwareVQE</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">atlas_q.vqe_qaoa</span><span class="w"> </span><span class="kn">import</span> <span class="n">VQEConfig</span>
+
+            <span class="n">config</span> <span class="o">=</span> <span class="n">VQEConfig</span><span class="p">(</span>
+                <span class="n">ansatz</span><span class="o">=</span><span class="s2">&quot;hardware_efficient&quot;</span><span class="p">,</span>
+                <span class="n">n_layers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;L-BFGS-B&quot;</span><span class="p">,</span>
+                <span class="n">max_iterations</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="n">vqe</span> <span class="o">=</span> <span class="n">CoherenceAwareVQE</span><span class="p">(</span>
+                <span class="n">n_qubits</span><span class="o">=</span><span class="n">n_qubits</span><span class="p">,</span>
+                <span class="n">hamiltonian_coefficients</span><span class="o">=</span><span class="n">coefficients</span><span class="p">,</span>
+                <span class="n">hamiltonian_paulis</span><span class="o">=</span><span class="n">paulis</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="n">vqe</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+            <span class="n">coherence</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">coherence</span><span class="o">.</span><span class="n">R_bar</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;coherence&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">coherence</span> <span class="k">else</span> <span class="mf">0.5</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">energy</span><span class="p">,</span> <span class="n">coherence</span><span class="p">,</span> <span class="s2">&quot;atlas_q_vqe&quot;</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ATLAS-Q VQE failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Fallback: Simple variational estimate</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
+
+    <span class="n">n_params</span> <span class="o">=</span> <span class="n">n_qubits</span> <span class="o">*</span> <span class="mi">2</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">energy_fn</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+        <span class="c1"># Simplified: modulate expectation values by parameters</span>
+        <span class="n">modulation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">modulation</span><span class="p">)</span>
+
+    <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_params</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">energy_fn</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;L-BFGS-B&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">})</span>
+
+    <span class="c1"># Estimate coherence from coefficient distribution</span>
+    <span class="n">phases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">coefficients</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">phasors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">phases</span><span class="p">)</span>
+    <span class="n">coherence</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">phasors</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">fun</span><span class="p">,</span> <span class="n">coherence</span><span class="p">,</span> <span class="s2">&quot;simple_variational&quot;</span>
+
+
+<div class="viewcode-block" id="compute_binding_energy">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.compute_binding_energy">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_binding_energy</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">reference_seq</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_quantum</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_pyscf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># Default to fast mode (minimal model)</span>
+    <span class="n">flanking_bp</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BindingEnergyResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute relative binding energy for a guide sequence.</span>
+
+<span class="sd">    This is the main entry point for Path A: Binding Energy Landscape.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: 20bp guide RNA sequence</span>
+<span class="sd">        reference_seq: Reference guide for ΔE calculation (if None, uses internal ref)</span>
+<span class="sd">        use_quantum: Use quantum VQE (ATLAS-Q) if available</span>
+<span class="sd">        use_pyscf: Try PySCF quantum chemistry for Hamiltonian</span>
+<span class="sd">        flanking_bp: Flanking bases for context</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        BindingEnergyResult with ΔE and coherence</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; result = compute_binding_energy(&quot;ATCGATCGATCGATCGATCG&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;ΔE = {result.delta_E:.4f}, R̄ = {result.coherence:.3f}&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; if result.is_go():</span>
+<span class="sd">        ...     print(&quot;Coherent binding - GO&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Extract binding region</span>
+    <span class="n">guide_fragment</span><span class="p">,</span> <span class="n">target_fragment</span> <span class="o">=</span> <span class="n">_extract_binding_region</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="n">flanking_bp</span><span class="p">)</span>
+
+    <span class="c1"># Build Hamiltonian</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;minimal_model&quot;</span>
+    <span class="k">if</span> <span class="n">use_pyscf</span><span class="p">:</span>
+        <span class="n">pyscf_result</span> <span class="o">=</span> <span class="n">_try_pyscf_hamiltonian</span><span class="p">(</span><span class="n">guide_fragment</span><span class="p">,</span> <span class="n">target_fragment</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pyscf_result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">coefficients</span><span class="p">,</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span> <span class="o">=</span> <span class="n">pyscf_result</span>
+            <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;pyscf_jw&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coefficients</span><span class="p">,</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span> <span class="o">=</span> <span class="n">_build_minimal_hamiltonian</span><span class="p">(</span>
+                <span class="n">guide_fragment</span><span class="p">,</span> <span class="n">target_fragment</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">coefficients</span><span class="p">,</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span> <span class="o">=</span> <span class="n">_build_minimal_hamiltonian</span><span class="p">(</span>
+            <span class="n">guide_fragment</span><span class="p">,</span> <span class="n">target_fragment</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Run VQE</span>
+    <span class="n">energy</span><span class="p">,</span> <span class="n">coherence</span><span class="p">,</span> <span class="n">vqe_method</span> <span class="o">=</span> <span class="n">_run_vqe_for_binding</span><span class="p">(</span>
+        <span class="n">coefficients</span><span class="p">,</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span><span class="p">,</span> <span class="n">use_atlas_q</span><span class="o">=</span><span class="n">use_quantum</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Compute reference energy if needed</span>
+    <span class="k">if</span> <span class="n">reference_seq</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ref_fragment</span><span class="p">,</span> <span class="n">ref_target</span> <span class="o">=</span> <span class="n">_extract_binding_region</span><span class="p">(</span><span class="n">reference_seq</span><span class="p">,</span> <span class="n">flanking_bp</span><span class="p">)</span>
+        <span class="n">ref_coeffs</span><span class="p">,</span> <span class="n">ref_paulis</span><span class="p">,</span> <span class="n">ref_n</span> <span class="o">=</span> <span class="n">_build_minimal_hamiltonian</span><span class="p">(</span><span class="n">ref_fragment</span><span class="p">,</span> <span class="n">ref_target</span><span class="p">)</span>
+        <span class="n">ref_energy</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_run_vqe_for_binding</span><span class="p">(</span><span class="n">ref_coeffs</span><span class="p">,</span> <span class="n">ref_paulis</span><span class="p">,</span> <span class="n">ref_n</span><span class="p">,</span> <span class="n">use_atlas_q</span><span class="o">=</span><span class="n">use_quantum</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Internal reference: uniform AT sequence (baseline)</span>
+        <span class="n">ref_seq</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">ref_fragment</span><span class="p">,</span> <span class="n">ref_target</span> <span class="o">=</span> <span class="n">_extract_binding_region</span><span class="p">(</span><span class="n">ref_seq</span><span class="p">,</span> <span class="n">flanking_bp</span><span class="p">)</span>
+        <span class="n">ref_coeffs</span><span class="p">,</span> <span class="n">ref_paulis</span><span class="p">,</span> <span class="n">ref_n</span> <span class="o">=</span> <span class="n">_build_minimal_hamiltonian</span><span class="p">(</span><span class="n">ref_fragment</span><span class="p">,</span> <span class="n">ref_target</span><span class="p">)</span>
+        <span class="n">ref_energy</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_run_vqe_for_binding</span><span class="p">(</span><span class="n">ref_coeffs</span><span class="p">,</span> <span class="n">ref_paulis</span><span class="p">,</span> <span class="n">ref_n</span><span class="p">,</span> <span class="n">use_atlas_q</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">delta_E</span> <span class="o">=</span> <span class="n">energy</span> <span class="o">-</span> <span class="n">ref_energy</span>
+
+    <span class="c1"># Determine evidence level</span>
+    <span class="k">if</span> <span class="s2">&quot;pyscf&quot;</span> <span class="ow">in</span> <span class="n">method</span> <span class="ow">and</span> <span class="s2">&quot;atlas_q&quot;</span> <span class="ow">in</span> <span class="n">vqe_method</span><span class="p">:</span>
+        <span class="n">evidence</span> <span class="o">=</span> <span class="s2">&quot;QUANTUM&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;atlas_q&quot;</span> <span class="ow">in</span> <span class="n">vqe_method</span><span class="p">:</span>
+        <span class="n">evidence</span> <span class="o">=</span> <span class="s2">&quot;QUANTUM_MINIMAL&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">evidence</span> <span class="o">=</span> <span class="s2">&quot;CLASSICAL&quot;</span>
+
+    <span class="k">return</span> <span class="n">BindingEnergyResult</span><span class="p">(</span>
+        <span class="n">delta_E</span><span class="o">=</span><span class="n">delta_E</span><span class="p">,</span>
+        <span class="n">absolute_E</span><span class="o">=</span><span class="n">energy</span><span class="p">,</span>
+        <span class="n">coherence</span><span class="o">=</span><span class="n">coherence</span><span class="p">,</span>
+        <span class="n">n_qubits</span><span class="o">=</span><span class="n">n_qubits</span><span class="p">,</span>
+        <span class="n">n_paulis</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">paulis</span><span class="p">),</span>
+        <span class="n">evidence</span><span class="o">=</span><span class="n">evidence</span><span class="p">,</span>
+        <span class="n">method</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">vqe_method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">details</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;guide_fragment&#39;</span><span class="p">:</span> <span class="n">guide_fragment</span><span class="p">,</span>
+            <span class="s1">&#39;target_fragment&#39;</span><span class="p">:</span> <span class="n">target_fragment</span><span class="p">,</span>
+            <span class="s1">&#39;reference_energy&#39;</span><span class="p">:</span> <span class="n">ref_energy</span><span class="p">,</span>
+            <span class="s1">&#39;vqe_method&#39;</span><span class="p">:</span> <span class="n">vqe_method</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="compute_binding_landscape">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.compute_binding_landscape">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_binding_landscape</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">reference_guide</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_quantum</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_pyscf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">BindingEnergyResult</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute binding energy landscape for multiple guides.</span>
+
+<span class="sd">    This ranks guides by their relative binding energetics.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: List of guide sequences</span>
+<span class="sd">        reference_guide: Reference for ΔE calculation (if None, uses first guide)</span>
+<span class="sd">        use_quantum: Use quantum VQE if available</span>
+<span class="sd">        use_pyscf: Use PySCF quantum chemistry (slower but more accurate)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of BindingEnergyResult sorted by ΔE (most favorable first)</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; guides = [&quot;ATCGATCGATCGATCGATCG&quot;, &quot;GCGCGCGCGCGCGCGCGCGC&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; results = compute_binding_landscape(guides, use_pyscf=False)  # Fast</span>
+<span class="sd">        &gt;&gt;&gt; for r in results:</span>
+<span class="sd">        ...     print(f&quot;{r.details[&#39;guide_fragment&#39;]}: ΔE={r.delta_E:.4f}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">guides</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="c1"># Use first guide as reference if not provided</span>
+    <span class="k">if</span> <span class="n">reference_guide</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">reference_guide</span> <span class="o">=</span> <span class="n">guides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">compute_binding_energy</span><span class="p">(</span>
+            <span class="n">guide</span><span class="p">,</span>
+            <span class="n">reference_seq</span><span class="o">=</span><span class="n">reference_guide</span><span class="p">,</span>
+            <span class="n">use_quantum</span><span class="o">=</span><span class="n">use_quantum</span><span class="p">,</span>
+            <span class="n">use_pyscf</span><span class="o">=</span><span class="n">use_pyscf</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;full_sequence&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">guide</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="c1"># Sort by ΔE (most negative = most favorable first)</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">delta_E</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">results</span></div>
+
+
+
+<div class="viewcode-block" id="rank_guides_by_binding">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.rank_guides_by_binding">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rank_guides_by_binding</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">use_quantum</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add binding energy ranking to existing guide data.</span>
+
+<span class="sd">    This can be used as a post-processing step after standard guide design.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: List of guide dicts (must have &#39;sequence&#39; key)</span>
+<span class="sd">        use_quantum: Use quantum VQE if available</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Guides with added &#39;binding_energy&#39; field</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from phaselab.crispr import design_crispra_guides</span>
+<span class="sd">        &gt;&gt;&gt; result = design_crispra_guides(...)</span>
+<span class="sd">        &gt;&gt;&gt; ranked = rank_guides_by_binding(result.ranked_guides)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequences</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">]</span>
+    <span class="n">landscape</span> <span class="o">=</span> <span class="n">compute_binding_landscape</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">use_quantum</span><span class="o">=</span><span class="n">use_quantum</span><span class="p">)</span>
+
+    <span class="c1"># Create lookup by sequence</span>
+    <span class="n">energy_lookup</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">details</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;full_sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">):</span> <span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">landscape</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Add binding info to guides</span>
+    <span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">:</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">energy_lookup</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">energy_lookup</span><span class="p">[</span><span class="n">seq</span><span class="p">]</span>
+            <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;binding_energy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;delta_E&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">delta_E</span><span class="p">,</span>
+                <span class="s1">&#39;coherence&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">coherence</span><span class="p">,</span>
+                <span class="s1">&#39;evidence&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">evidence</span><span class="p">,</span>
+                <span class="s1">&#39;is_go&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">is_go</span><span class="p">(),</span>
+            <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">guides</span></div>
+
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;BindingEnergyResult&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;compute_binding_energy&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;compute_binding_landscape&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rank_guides_by_binding&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

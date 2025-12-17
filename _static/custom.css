@@ -1,0 +1,235 @@
+/* Custom CSS for PhaseLab documentation */
+
+/* Custom Dark Mode Color Scheme */
+html[data-theme="dark"] {
+    /* Override primary PyData theme colors */
+    --pst-color-primary: #bbc4c2;     /* Pewter - primary accent */
+    --pst-color-secondary: #7e7c73;   /* Gray - secondary accent */
+    --pst-color-accent: #bbc4c2;      /* Pewter - accent color */
+    --pst-color-link: #bbc4c2;        /* Pewter - links */
+    --pst-color-link-hover: #ffffff;  /* White - link hover */
+
+    /* Backgrounds and surfaces */
+    --pst-color-background: #140005;  /* Jet Black - main background */
+    --pst-color-surface: #464033;     /* Ebony - surface/cards */
+    --pst-color-on-surface: #ffffff;  /* White text on surfaces */
+
+    /* Borders and dividers */
+    --pst-color-border: #7e7c73;      /* Gray - borders */
+
+    /* Text colors */
+    --pst-color-text-base: #ffffff;   /* White text */
+    --pst-color-text-muted: #bbc4c2;  /* Pewter - muted text */
+
+    /* Sidebar and navigation */
+    --pst-color-sidebar-bg: #140005;  /* Jet Black - sidebar background */
+    --pst-color-sidebar-link-active: #bbc4c2;  /* Pewter - active link */
+
+    /* Navbar */
+    --pst-color-navbar-bg: #464033;   /* Ebony - navbar background */
+    --pst-color-navbar-text: #ffffff; /* White navbar text */
+
+    /* Code blocks */
+    --pst-color-inline-code: #bbc4c2; /* Pewter inline code */
+
+    /* Remove blue/purple theme colors */
+    --pst-color-info: #7e7c73;
+    --pst-color-success: #7e7c73;
+    --pst-color-warning: #7e7c73;
+    --pst-color-danger: #7e7c73;
+}
+
+html[data-theme="dark"] .bd-sidebar {
+    background-color: #140005 !important;  /* Jet Black */
+}
+
+html[data-theme="dark"] .bd-header,
+html[data-theme="dark"] .bd-header-announcement,
+html[data-theme="dark"] .navbar {
+    background-color: #464033 !important;  /* Ebony */
+    border-bottom: 1px solid #7e7c73 !important;  /* Gray border */
+}
+
+html[data-theme="dark"] .bd-header *,
+html[data-theme="dark"] .navbar * {
+    color: #ffffff !important;  /* White text in header */
+}
+
+html[data-theme="dark"] .bd-article-container {
+    background-color: #140005 !important;  /* Jet Black */
+    color: #ffffff !important;  /* White text */
+}
+
+html[data-theme="dark"] .bd-content {
+    background-color: #140005 !important;
+}
+
+html[data-theme="dark"] code,
+html[data-theme="dark"] pre {
+    background-color: #464033 !important;  /* Ebony */
+    border: 1px solid #7e7c73 !important;  /* Gray */
+    color: #bbc4c2 !important;  /* Pewter text */
+}
+
+html[data-theme="dark"] .highlight {
+    background-color: #464033 !important;  /* Ebony */
+}
+
+/* All link colors */
+html[data-theme="dark"] a,
+html[data-theme="dark"] a:link,
+html[data-theme="dark"] .bd-sidebar a,
+html[data-theme="dark"] .bd-toc a,
+html[data-theme="dark"] .reference {
+    color: #bbc4c2 !important;  /* Pewter */
+    text-decoration: none;
+}
+
+html[data-theme="dark"] a:hover,
+html[data-theme="dark"] a:focus,
+html[data-theme="dark"] .bd-sidebar a:hover,
+html[data-theme="dark"] .bd-toc a:hover {
+    color: #ffffff !important;  /* White on hover */
+}
+
+/* Active/current navigation items */
+html[data-theme="dark"] .bd-sidebar .active,
+html[data-theme="dark"] .bd-sidebar .current,
+html[data-theme="dark"] .bd-toc .active,
+html[data-theme="dark"] .bd-toc .current {
+    color: #ffffff !important;
+    background-color: #464033 !important;  /* Ebony highlight */
+    border-left: 3px solid #bbc4c2 !important;  /* Pewter accent */
+}
+
+/* Remove any blue/purple highlights */
+html[data-theme="dark"] ::selection {
+    background-color: #464033 !important;  /* Ebony */
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .highlighted {
+    background-color: #464033 !important;  /* Ebony */
+    color: #ffffff !important;
+}
+
+/* Button and interactive elements */
+html[data-theme="dark"] button,
+html[data-theme="dark"] .btn,
+html[data-theme="dark"] .btn-primary {
+    background-color: #464033 !important;  /* Ebony */
+    border-color: #7e7c73 !important;  /* Gray */
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] button:hover,
+html[data-theme="dark"] .btn:hover {
+    background-color: #7e7c73 !important;  /* Gray on hover */
+    color: #ffffff !important;
+}
+
+/* Widen main content area by adjusting sidebar widths */
+.bd-sidebar-primary {
+    max-width: 200px !important;
+    width: 200px !important;
+}
+
+.bd-sidebar-secondary {
+    max-width: 200px !important;
+    width: 200px !important;
+}
+
+.bd-main .bd-content {
+    max-width: none !important;
+}
+
+/* Increase main container width */
+.bd-container {
+    max-width: 100% !important;
+}
+
+/* Better content spacing */
+.bd-article-container {
+    max-width: none !important;
+}
+
+/* Improve code block appearance */
+.highlight pre {
+    border-radius: 4px;
+    padding: 12px;
+}
+
+/* Make tables more readable */
+table.docutils {
+    border-collapse: collapse;
+}
+
+table.docutils td, table.docutils th {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Improve admonition boxes */
+.admonition {
+    border-radius: 4px;
+    padding: 12px;
+}
+
+/* Better spacing for parameter lists */
+dl.field-list {
+    margin-bottom: 1em;
+}
+
+dl.field-list dt {
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
+/* PhaseLab-specific styling */
+
+/* GO/NO-GO status badges */
+.go-status {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.no-go-status {
+    color: #F44336;
+    font-weight: bold;
+}
+
+/* Coherence score highlighting */
+.coherence-excellent {
+    color: #4CAF50;
+}
+
+.coherence-good {
+    color: #8BC34A;
+}
+
+.coherence-moderate {
+    color: #FFC107;
+}
+
+.coherence-severe {
+    color: #FF9800;
+}
+
+.coherence-critical {
+    color: #F44336;
+}
+
+/* Math equations styling */
+.math {
+    font-size: 1.1em;
+    padding: 0.5em;
+}
+
+/* Version badge */
+.version-badge {
+    background-color: #464033;
+    color: #bbc4c2;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}

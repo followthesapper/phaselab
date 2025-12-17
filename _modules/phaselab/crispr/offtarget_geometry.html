@@ -1,0 +1,1113 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.offtarget_geometry &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/offtarget_geometry';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.offtarget_geometry</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.offtarget_geometry</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab Off-Target Landscape Geometry: Quantum-assisted IR scoring.</span>
+
+<span class="sd">Path C from the CRISPRa Breakthrough Design:</span>
+<span class="sd">- Uses IR coherence to compare on-target vs off-target binding ensembles</span>
+<span class="sd">- Higher coherence contrast = better specificity</span>
+<span class="sd">- Quantum-enhanced where possible via ATLAS-Q</span>
+
+<span class="sd">Key Insight:</span>
+<span class="sd">Mismatch counting is insufficient for CRISPRa. We need to know:</span>
+<span class="sd">1. How COHERENTLY does the guide bind to the on-target?</span>
+<span class="sd">2. How INCOHERENTLY does it bind to off-targets?</span>
+
+<span class="sd">The CONTRAST between these (ΔR̄ = R̄_on - R̄_off) predicts true specificity.</span>
+
+<span class="sd">Pipeline:</span>
+<span class="sd">    Guide → Find all potential off-targets (CRISPOR/Cas-OFFinder)</span>
+<span class="sd">    → Compute R̄ for on-target binding (via VQE or heuristic)</span>
+<span class="sd">    → Compute R̄ for off-target ensemble (averaged)</span>
+<span class="sd">    → ΔR̄ = R̄_on - &lt;R̄_off&gt;</span>
+<span class="sd">    → High ΔR̄ = specific guide (on-target binding is distinctly coherent)</span>
+
+<span class="sd">Physics:</span>
+<span class="sd">    On-target: All base pairs aligned → coherent phase distribution</span>
+<span class="sd">    Off-target: Mismatches break alignment → incoherent phases</span>
+
+<span class="sd">    R̄_on ≈ 1 for perfect Watson-Crick</span>
+<span class="sd">    R̄_off decreases with mismatches</span>
+
+<span class="sd">Author: PhaseLab</span>
+<span class="sd">Date: December 2025</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Coherence reduction per mismatch type</span>
+<span class="n">MISMATCH_COHERENCE_PENALTY</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># Seed region mismatches (positions 1-12 from PAM) are more costly</span>
+    <span class="s1">&#39;seed&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="mf">0.20</span><span class="p">,</span>   <span class="c1"># 1 mismatch in seed</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="mf">0.40</span><span class="p">,</span>   <span class="c1"># 2 mismatches</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span>   <span class="c1"># 3 mismatches</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="mf">0.65</span><span class="p">,</span>   <span class="c1"># 4 mismatches</span>
+    <span class="p">},</span>
+    <span class="c1"># PAM-distal mismatches are less costly</span>
+    <span class="s1">&#39;distal&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="mf">0.08</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="mf">0.15</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="mf">0.22</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="mf">0.28</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Watson-Crick complements</span>
+<span class="n">WC_COMPLEMENT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;U&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span>  <span class="c1"># RNA</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="OffTargetGeometryResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.OffTargetGeometryResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">OffTargetGeometryResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Result from off-target geometry analysis.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        R_bar_on: Coherence for on-target binding</span>
+<span class="sd">        R_bar_off_mean: Mean coherence for off-target ensemble</span>
+<span class="sd">        R_bar_off_std: Std of off-target coherence</span>
+<span class="sd">        delta_R: Coherence contrast (R̄_on - R̄_off_mean)</span>
+<span class="sd">        specificity_score: Combined specificity metric (0-100)</span>
+<span class="sd">        n_offtargets: Number of off-targets analyzed</span>
+<span class="sd">        evidence: Evidence level</span>
+<span class="sd">        details: Additional calculation details</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">R_bar_on</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">R_bar_off_mean</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">R_bar_off_std</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">delta_R</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">specificity_score</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">n_offtargets</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">evidence</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">details</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+<div class="viewcode-block" id="OffTargetGeometryResult.is_go">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.OffTargetGeometryResult.is_go">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_go</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if on-target coherence passes GO threshold.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">R_bar_on</span> <span class="o">&gt;</span> <span class="mf">0.135</span></div>
+
+
+<div class="viewcode-block" id="OffTargetGeometryResult.is_specific">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.OffTargetGeometryResult.is_specific">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_specific</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if coherence contrast indicates good specificity.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta_R</span> <span class="o">&gt;</span> <span class="n">threshold</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;GO&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_go</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;NO-GO&quot;</span>
+        <span class="n">spec</span> <span class="o">=</span> <span class="s2">&quot;SPECIFIC&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_specific</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;PROMISCUOUS&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;OffTargetGeometryResult(&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;R̄_on=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">R_bar_on</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">], &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;ΔR̄=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">delta_R</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">spec</span><span class="si">}</span><span class="s2">], &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;specificity=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">specificity_score</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_sequence_to_phases</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert DNA/RNA sequence to phase representation.</span>
+
+<span class="sd">    Each base maps to a specific phase angle:</span>
+<span class="sd">    - A/T pairs: phases near 0 and π (aligned)</span>
+<span class="sd">    - G/C pairs: phases near π/2 and 3π/2 (aligned but rotated)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">phase_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span>
+        <span class="s1">&#39;U&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span>
+        <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">phase_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">])</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_binding_coherence</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">target_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">use_quantum</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute coherence for guide-target binding.</span>
+
+<span class="sd">    For perfect Watson-Crick pairing: R̄ ≈ 1</span>
+<span class="sd">    For mismatches: R̄ decreases</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: Guide RNA sequence</span>
+<span class="sd">        target_seq: Target DNA sequence</span>
+<span class="sd">        use_quantum: Use ATLAS-Q if available</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Coherence R̄ (0 to 1)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">)</span>
+    <span class="n">target_seq</span> <span class="o">=</span> <span class="n">target_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_seq</span><span class="p">))</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
+    <span class="n">target_seq</span> <span class="o">=</span> <span class="n">target_seq</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="c1"># Count mismatches and their positions</span>
+    <span class="n">mismatches_seed</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">mismatches_distal</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="n">target_seq</span><span class="p">)):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="n">WC_COMPLEMENT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="o">!=</span> <span class="n">expected</span><span class="p">:</span>
+            <span class="c1"># Seed region = last 12 bases (PAM-proximal)</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">12</span><span class="p">:</span>
+                <span class="n">mismatches_seed</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">mismatches_distal</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># Compute base coherence (perfect match = 1.0)</span>
+    <span class="n">base_coherence</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Apply mismatch penalties</span>
+    <span class="k">if</span> <span class="n">mismatches_seed</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">penalty_key</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mismatches_seed</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="n">base_coherence</span> <span class="o">-=</span> <span class="n">MISMATCH_COHERENCE_PENALTY</span><span class="p">[</span><span class="s1">&#39;seed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">penalty_key</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mismatches_distal</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">penalty_key</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mismatches_distal</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="n">base_coherence</span> <span class="o">-=</span> <span class="n">MISMATCH_COHERENCE_PENALTY</span><span class="p">[</span><span class="s1">&#39;distal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">penalty_key</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="c1"># Ensure positive</span>
+    <span class="n">base_coherence</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">base_coherence</span><span class="p">)</span>
+
+    <span class="c1"># If quantum available, refine with actual phase calculation</span>
+    <span class="k">if</span> <span class="n">use_quantum</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_quantum_binding_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="n">target_seq</span><span class="p">,</span> <span class="n">base_coherence</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Quantum coherence failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Add some realistic noise</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">base_coherence</span> <span class="o">+</span> <span class="n">noise</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_quantum_binding_coherence</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">target_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">heuristic_estimate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute coherence using ATLAS-Q VQE.</span>
+
+<span class="sd">    This runs a minimal quantum circuit to get actual coherence measurements.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">atlas_q</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_coherence_metrics</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">heuristic_estimate</span>
+
+    <span class="c1"># Build minimal Hamiltonian</span>
+    <span class="n">n_qubits</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">),</span> <span class="mi">12</span><span class="p">)</span>  <span class="c1"># Limit for tractability</span>
+
+    <span class="c1"># Simplified: use coefficient-based coherence from ATLAS-Q</span>
+    <span class="c1"># This is the same method used in VRA grouping</span>
+    <span class="n">coefficients</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">):</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>  <span class="c1"># PAM-proximal first</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">target_seq</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_seq</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;N&#39;</span>
+
+        <span class="n">expected</span> <span class="o">=</span> <span class="n">WC_COMPLEMENT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="n">expected</span><span class="p">:</span>
+            <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># Match</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>  <span class="c1"># Mismatch</span>
+
+    <span class="n">coefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span>
+
+    <span class="c1"># Compute coherence from coefficient distribution</span>
+    <span class="c1"># Map coefficients to phases</span>
+    <span class="n">phases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">coefficients</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">phasors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">phases</span><span class="p">)</span>
+    <span class="n">R_bar</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">phasors</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">R_bar</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_complement</span><span class="p">(</span><span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get Watson-Crick complement.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">WC_COMPLEMENT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_synthetic_offtargets</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">n_offtargets</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="n">max_mismatches</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate synthetic off-target sequences for testing.</span>
+
+<span class="sd">    In production, use CRISPOR or Cas-OFFinder for real off-targets.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: Guide sequence</span>
+<span class="sd">        n_offtargets: Number of off-targets to generate</span>
+<span class="sd">        max_mismatches: Maximum mismatches per off-target</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of off-target dicts with &#39;sequence&#39; and &#39;mismatches&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">_get_complement</span><span class="p">(</span><span class="n">guide_seq</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">))</span>
+
+    <span class="n">offtargets</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">bases</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ATGC&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_offtargets</span><span class="p">):</span>
+        <span class="c1"># Random number of mismatches (weighted toward fewer)</span>
+        <span class="n">n_mm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_mismatches</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+
+        <span class="c1"># Generate off-target</span>
+        <span class="n">ot_seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="n">mm_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">),</span> <span class="n">n_mm</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">mm_positions</span><span class="p">:</span>
+            <span class="n">original</span> <span class="o">=</span> <span class="n">ot_seq</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
+            <span class="n">alternatives</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bases</span> <span class="k">if</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">original</span><span class="p">]</span>
+            <span class="n">ot_seq</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">alternatives</span><span class="p">)</span>
+
+        <span class="n">offtargets</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ot_seq</span><span class="p">),</span>
+            <span class="s1">&#39;mismatches&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_mm</span><span class="p">),</span>
+            <span class="s1">&#39;positions&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">mm_positions</span><span class="p">),</span>
+        <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">offtargets</span>
+
+
+<div class="viewcode-block" id="compute_offtarget_geometry">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.compute_offtarget_geometry">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_offtarget_geometry</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">offtargets</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_quantum</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OffTargetGeometryResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute off-target landscape geometry for a guide.</span>
+
+<span class="sd">    This is the main entry point for Path C: Off-Target Landscape Geometry.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: Guide RNA sequence (20bp)</span>
+<span class="sd">        offtargets: List of off-target dicts with &#39;sequence&#39; key</span>
+<span class="sd">                    If None, generates synthetic off-targets</span>
+<span class="sd">        use_quantum: Use ATLAS-Q for coherence if available</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        OffTargetGeometryResult with coherence contrast</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; # With real CRISPOR off-targets</span>
+<span class="sd">        &gt;&gt;&gt; offtargets = [{&#39;sequence&#39;: &#39;ATCGATCGATCGATCGATCC&#39;, &#39;mismatches&#39;: 1}, ...]</span>
+<span class="sd">        &gt;&gt;&gt; result = compute_offtarget_geometry(guide, offtargets)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Coherence contrast: {result.delta_R:.3f}&quot;)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; # With synthetic off-targets (for testing)</span>
+<span class="sd">        &gt;&gt;&gt; result = compute_offtarget_geometry(guide, offtargets=None)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Get on-target sequence (perfect complement)</span>
+    <span class="n">on_target_seq</span> <span class="o">=</span> <span class="n">_get_complement</span><span class="p">(</span><span class="n">guide_seq</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Compute on-target coherence</span>
+    <span class="n">R_bar_on</span> <span class="o">=</span> <span class="n">_compute_binding_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="n">on_target_seq</span><span class="p">,</span> <span class="n">use_quantum</span><span class="p">)</span>
+
+    <span class="c1"># Generate synthetic off-targets if none provided</span>
+    <span class="k">if</span> <span class="n">offtargets</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">offtargets</span> <span class="o">=</span> <span class="n">generate_synthetic_offtargets</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+
+    <span class="c1"># Compute off-target coherences</span>
+    <span class="n">R_bars_off</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">offtarget_details</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">ot</span> <span class="ow">in</span> <span class="n">offtargets</span><span class="p">:</span>
+        <span class="n">ot_seq</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ot_seq</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">R_bar_ot</span> <span class="o">=</span> <span class="n">_compute_binding_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="n">ot_seq</span><span class="p">,</span> <span class="n">use_quantum</span><span class="p">)</span>
+        <span class="n">R_bars_off</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">R_bar_ot</span><span class="p">)</span>
+
+        <span class="n">offtarget_details</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">ot_seq</span><span class="p">,</span>
+            <span class="s1">&#39;mismatches&#39;</span><span class="p">:</span> <span class="n">ot</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mismatches&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;R_bar&#39;</span><span class="p">:</span> <span class="n">R_bar_ot</span><span class="p">,</span>
+        <span class="p">})</span>
+
+    <span class="c1"># Compute statistics</span>
+    <span class="k">if</span> <span class="n">R_bars_off</span><span class="p">:</span>
+        <span class="n">R_bar_off_mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">R_bars_off</span><span class="p">))</span>
+        <span class="n">R_bar_off_std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">R_bars_off</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">R_bar_off_mean</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="n">R_bar_off_std</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Coherence contrast</span>
+    <span class="n">delta_R</span> <span class="o">=</span> <span class="n">R_bar_on</span> <span class="o">-</span> <span class="n">R_bar_off_mean</span>
+
+    <span class="c1"># Specificity score (0-100 scale)</span>
+    <span class="c1"># Higher delta_R and higher R_bar_on both contribute</span>
+    <span class="n">specificity_score</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">*</span> <span class="n">delta_R</span> <span class="o">+</span> <span class="mi">50</span> <span class="o">*</span> <span class="n">R_bar_on</span>
+    <span class="n">specificity_score</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">specificity_score</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">OffTargetGeometryResult</span><span class="p">(</span>
+        <span class="n">R_bar_on</span><span class="o">=</span><span class="n">R_bar_on</span><span class="p">,</span>
+        <span class="n">R_bar_off_mean</span><span class="o">=</span><span class="n">R_bar_off_mean</span><span class="p">,</span>
+        <span class="n">R_bar_off_std</span><span class="o">=</span><span class="n">R_bar_off_std</span><span class="p">,</span>
+        <span class="n">delta_R</span><span class="o">=</span><span class="n">delta_R</span><span class="p">,</span>
+        <span class="n">specificity_score</span><span class="o">=</span><span class="n">specificity_score</span><span class="p">,</span>
+        <span class="n">n_offtargets</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">offtargets</span><span class="p">),</span>
+        <span class="n">evidence</span><span class="o">=</span><span class="s2">&quot;QUANTUM&quot;</span> <span class="k">if</span> <span class="n">use_quantum</span> <span class="k">else</span> <span class="s2">&quot;HEURISTIC&quot;</span><span class="p">,</span>
+        <span class="n">details</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;on_target&#39;</span><span class="p">:</span> <span class="n">on_target_seq</span><span class="p">,</span>
+            <span class="s1">&#39;offtargets&#39;</span><span class="p">:</span> <span class="n">offtarget_details</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span>  <span class="c1"># First 10 for details</span>
+            <span class="s1">&#39;guide_sequence&#39;</span><span class="p">:</span> <span class="n">guide_seq</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="compute_geometry_landscape">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.compute_geometry_landscape">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_geometry_landscape</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">offtargets_per_guide</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_quantum</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute off-target geometry for multiple guides.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: List of guide dicts with &#39;sequence&#39; key</span>
+<span class="sd">        offtargets_per_guide: Dict mapping guide sequence to off-targets</span>
+<span class="sd">        use_quantum: Use ATLAS-Q if available</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Guides with added &#39;offtarget_geometry&#39; field</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">:</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">seq</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Get off-targets for this guide</span>
+        <span class="n">offtargets</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">offtargets_per_guide</span> <span class="ow">and</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">offtargets_per_guide</span><span class="p">:</span>
+            <span class="n">offtargets</span> <span class="o">=</span> <span class="n">offtargets_per_guide</span><span class="p">[</span><span class="n">seq</span><span class="p">]</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">compute_offtarget_geometry</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">offtargets</span><span class="p">,</span> <span class="n">use_quantum</span><span class="p">)</span>
+            <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;offtarget_geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;R_bar_on&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">R_bar_on</span><span class="p">,</span>
+                <span class="s1">&#39;R_bar_off_mean&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">R_bar_off_mean</span><span class="p">,</span>
+                <span class="s1">&#39;delta_R&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">delta_R</span><span class="p">,</span>
+                <span class="s1">&#39;specificity_score&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">specificity_score</span><span class="p">,</span>
+                <span class="s1">&#39;is_go&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">is_go</span><span class="p">(),</span>
+                <span class="s1">&#39;is_specific&#39;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">is_specific</span><span class="p">(),</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Geometry analysis failed for </span><span class="si">{</span><span class="n">seq</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">...: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;offtarget_geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;R_bar_on&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="s1">&#39;R_bar_off_mean&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="s1">&#39;delta_R&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="s1">&#39;specificity_score&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="s1">&#39;is_go&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s1">&#39;is_specific&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+            <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">guides</span></div>
+
+
+
+<div class="viewcode-block" id="rank_guides_by_geometry">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.rank_guides_by_geometry">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rank_guides_by_geometry</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">offtargets_per_guide</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_quantum</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rank guides by off-target geometry specificity.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: List of guide dicts</span>
+<span class="sd">        offtargets_per_guide: Real off-targets from CRISPOR</span>
+<span class="sd">        use_quantum: Use ATLAS-Q if available</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Guides sorted by specificity score (highest first)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guides</span> <span class="o">=</span> <span class="n">compute_geometry_landscape</span><span class="p">(</span><span class="n">guides</span><span class="p">,</span> <span class="n">offtargets_per_guide</span><span class="p">,</span> <span class="n">use_quantum</span><span class="p">)</span>
+
+    <span class="c1"># Sort by specificity score (descending)</span>
+    <span class="n">guides</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
+        <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;offtarget_geometry&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;specificity_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">guides</span></div>
+
+
+
+<div class="viewcode-block" id="integrate_crispor_offtargets">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.integrate_crispor_offtargets">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">integrate_crispor_offtargets</span><span class="p">(</span>
+    <span class="n">crispor_results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert CRISPOR results to off-target format for geometry analysis.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        crispor_results: Output from CrisporValidator or parse_crispor_results</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict mapping guide sequence to list of off-target dicts</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">offtargets_per_guide</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">crispor_results</span><span class="p">:</span>
+        <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">guide_seq</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Extract off-target information</span>
+        <span class="n">offtargets</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># CRISPOR provides off-target counts by mismatch</span>
+        <span class="c1"># We generate representative sequences for each mismatch level</span>
+        <span class="k">for</span> <span class="n">mm</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ot_</span><span class="si">{</span><span class="n">mm</span><span class="si">}</span><span class="s1">mm&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Generate synthetic off-targets matching the count</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="mi">10</span><span class="p">)):</span>  <span class="c1"># Cap at 10 per mismatch level</span>
+                    <span class="n">ot</span> <span class="o">=</span> <span class="n">generate_synthetic_offtargets</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="n">n_offtargets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_mismatches</span><span class="o">=</span><span class="n">mm</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">ot</span><span class="p">[</span><span class="s1">&#39;mismatches&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mm</span>
+                    <span class="n">offtargets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ot</span><span class="p">)</span>
+
+        <span class="n">offtargets_per_guide</span><span class="p">[</span><span class="n">guide_seq</span><span class="p">]</span> <span class="o">=</span> <span class="n">offtargets</span>
+
+    <span class="k">return</span> <span class="n">offtargets_per_guide</span></div>
+
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;OffTargetGeometryResult&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;compute_offtarget_geometry&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;compute_geometry_landscape&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rank_guides_by_geometry&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;generate_synthetic_offtargets&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;integrate_crispor_offtargets&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

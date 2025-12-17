@@ -1,0 +1,1101 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Quantum Mode Guidance &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'QUANTUM_MODE_GUIDANCE';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Quantum Mode Guidance</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="quantum-mode-guidance">
+<h1>Quantum Mode Guidance<a class="headerlink" href="#quantum-mode-guidance" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>PhaseLab supports three quantum execution modes. This document specifies when each mode is appropriate.</p>
+</section>
+<hr class="docutils" />
+<section id="the-three-modes">
+<h2>The Three Modes<a class="headerlink" href="#the-three-modes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Performance</p></th>
+<th class="head"><p>Use Case</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>OFF</strong></p></td>
+<td><p>Classical only</p></td>
+<td><p>Fastest</p></td>
+<td><p>Standard analysis</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>AUDIT</strong></p></td>
+<td><p>Classical + quantum validation</p></td>
+<td><p>Moderate</p></td>
+<td><p>Research validation</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>REQUIRED</strong></p></td>
+<td><p>Quantum mandatory</p></td>
+<td><p>Slowest</p></td>
+<td><p>Fundamental research</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="the-decision-rule">
+<h2>The Decision Rule<a class="headerlink" href="#the-decision-rule" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>If a classical experiment can falsify a claim, quantum mode should be OFF.</strong></p>
+</div></blockquote>
+<p>This rule applies to 95%+ of PhaseLab use cases.</p>
+</section>
+<hr class="docutils" />
+<section id="module-by-module-guidance">
+<h2>Module-by-Module Guidance<a class="headerlink" href="#module-by-module-guidance" title="Link to this heading">#</a></h2>
+<section id="biology-modules">
+<h3>Biology Modules<a class="headerlink" href="#biology-modules" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Recommended</p></th>
+<th class="head"><p>Justification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.spatial</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Classical coherence sufficient</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.surf</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Deconvolution is classical</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.crispr.pipeline</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Guide scoring is classical</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.crispr.scoring</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>All metrics classical</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="protein-modules">
+<h3>Protein Modules<a class="headerlink" href="#protein-modules" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Recommended</p></th>
+<th class="head"><p>Justification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.protein.mutscan</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>DMS coherence is classical</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.protein.folding</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Ramachandran analysis is classical</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.protein.binding</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Affinity patterns are classical</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="chemistry-modules">
+<h3>Chemistry Modules<a class="headerlink" href="#chemistry-modules" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Recommended</p></th>
+<th class="head"><p>Justification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.chem.binding</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Binding landscapes classical</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.chem.reaction</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Reaction optimization classical</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.chem.screening</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>HTS analysis classical</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="omics-modules">
+<h3>Omics Modules<a class="headerlink" href="#omics-modules" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Recommended</p></th>
+<th class="head"><p>Justification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.omics.expression</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>RNA-seq analysis classical</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.omics.atac</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Accessibility classical</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.omics.chip</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Binding sites classical</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="microbiology-modules">
+<h3>Microbiology Modules<a class="headerlink" href="#microbiology-modules" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Recommended</p></th>
+<th class="head"><p>Justification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.microbio.tnseq</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Essentiality classical</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.microbio.crispri</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Bacterial screens classical</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.microbio.drug</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Dose-response classical</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="trial-modules">
+<h3>Trial Modules<a class="headerlink" href="#trial-modules" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Recommended</p></th>
+<th class="head"><p>Justification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.trials.sms.*</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>All therapeutic trials classical</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="circadian-modules">
+<h3>Circadian Modules<a class="headerlink" href="#circadian-modules" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Recommended</p></th>
+<th class="head"><p>Justification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phaselab.circadian.sms_model</span></code></p></td>
+<td><p>OFF</p></td>
+<td><p>OFF</p></td>
+<td><p>Kuramoto simulation classical</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="when-to-use-audit-mode">
+<h2>When to Use AUDIT Mode<a class="headerlink" href="#when-to-use-audit-mode" title="Link to this heading">#</a></h2>
+<p>AUDIT mode runs classical computation first, then validates a subset with quantum.</p>
+<section id="appropriate-use-cases">
+<h3>Appropriate Use Cases<a class="headerlink" href="#appropriate-use-cases" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Use Case</p></th>
+<th class="head"><p>Justification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Publishing coherence results</p></td>
+<td><p>Independent validation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cross-checking unusual findings</p></td>
+<td><p>Catch classical edge cases</p></td>
+</tr>
+<tr class="row-even"><td><p>Methodology validation papers</p></td>
+<td><p>Show classical ≈ quantum</p></td>
+</tr>
+<tr class="row-odd"><td><p>Research-grade analysis</p></td>
+<td><p>Extra rigor when needed</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.quantum</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_quantum_mode</span><span class="p">,</span> <span class="n">QuantumMode</span>
+
+<span class="n">set_quantum_mode</span><span class="p">(</span><span class="n">QuantumMode</span><span class="o">.</span><span class="n">AUDIT</span><span class="p">)</span>
+<span class="c1"># Now 10% of computations will be quantum-validated</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="when-to-use-required-mode">
+<h2>When to Use REQUIRED Mode<a class="headerlink" href="#when-to-use-required-mode" title="Link to this heading">#</a></h2>
+<p>REQUIRED mode uses quantum for all coherence computation.</p>
+<section id="id1">
+<h3>Appropriate Use Cases<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Use Case</p></th>
+<th class="head"><p>Justification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Representation efficiency bounds</p></td>
+<td><p>Quantum fundamentally different</p></td>
+</tr>
+<tr class="row-odd"><td><p>Measurement limit experiments</p></td>
+<td><p>Probing quantum-classical boundary</p></td>
+</tr>
+<tr class="row-even"><td><p>IR theoretical validation</p></td>
+<td><p>Testing core theory</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fundamental physics research</p></td>
+<td><p>Not applied biology</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id2">
+<h3>Configuration<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.quantum</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_quantum_mode</span><span class="p">,</span> <span class="n">QuantumMode</span>
+
+<span class="n">set_quantum_mode</span><span class="p">(</span><span class="n">QuantumMode</span><span class="o">.</span><span class="n">REQUIRED</span><span class="p">)</span>
+<span class="c1"># All coherence via quantum simulation</span>
+<span class="c1"># Raises error if quantum backend unavailable</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="what-quantum-adds-and-doesn-t">
+<h2>What Quantum Adds (and Doesn’t)<a class="headerlink" href="#what-quantum-adds-and-doesn-t" title="Link to this heading">#</a></h2>
+<section id="what-quantum-can-add">
+<h3>What Quantum Can Add<a class="headerlink" href="#what-quantum-can-add" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Capability</p></th>
+<th class="head"><p>When Relevant</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Representation efficiency bounds</p></td>
+<td><p>Theoretical research</p></td>
+</tr>
+<tr class="row-odd"><td><p>Phase transition classification</p></td>
+<td><p>System characterization</p></td>
+</tr>
+<tr class="row-even"><td><p>Decoherence universality tests</p></td>
+<td><p>Fundamental IR validation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Measurement limit probing</p></td>
+<td><p>Physics experiments</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="what-quantum-does-not-add">
+<h3>What Quantum Does NOT Add<a class="headerlink" href="#what-quantum-does-not-add" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Capability</p></th>
+<th class="head"><p>Why Not</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Better CRISPR guide selection</p></td>
+<td><p>Classical coherence sufficient</p></td>
+</tr>
+<tr class="row-odd"><td><p>Better DMS analysis</p></td>
+<td><p>No quantum advantage</p></td>
+</tr>
+<tr class="row-even"><td><p>Better binding predictions</p></td>
+<td><p>Classical physics governs</p></td>
+</tr>
+<tr class="row-odd"><td><p>Better therapeutic decisions</p></td>
+<td><p>Reliability is the question</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="cost-benefit-analysis">
+<h2>Cost-Benefit Analysis<a class="headerlink" href="#cost-benefit-analysis" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Compute Cost</p></th>
+<th class="head"><p>Value Added</p></th>
+<th class="head"><p>When Worth It</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OFF</p></td>
+<td><p>1x</p></td>
+<td><p>Baseline</p></td>
+<td><p>Always for applied work</p></td>
+</tr>
+<tr class="row-odd"><td><p>AUDIT</p></td>
+<td><p>1.1x</p></td>
+<td><p>Validation</p></td>
+<td><p>Publications, unusual results</p></td>
+</tr>
+<tr class="row-even"><td><p>REQUIRED</p></td>
+<td><p>10-100x</p></td>
+<td><p>Theoretical rigor</p></td>
+<td><p>Fundamental research only</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="common-mistakes">
+<h2>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<section id="mistake-1-quantum-is-always-better">
+<h3>Mistake 1: “Quantum is always better”<a class="headerlink" href="#mistake-1-quantum-is-always-better" title="Link to this heading">#</a></h3>
+<p><strong>Wrong</strong>. Quantum is slower and adds no value when classical suffices.</p>
+</section>
+<section id="mistake-2-use-required-for-therapeutic-work">
+<h3>Mistake 2: “Use REQUIRED for therapeutic work”<a class="headerlink" href="#mistake-2-use-required-for-therapeutic-work" title="Link to this heading">#</a></h3>
+<p><strong>Wrong</strong>. Therapeutic decisions need wet lab, not quantum.</p>
+</section>
+<section id="mistake-3-audit-mode-for-every-analysis">
+<h3>Mistake 3: “AUDIT mode for every analysis”<a class="headerlink" href="#mistake-3-audit-mode-for-every-analysis" title="Link to this heading">#</a></h3>
+<p><strong>Unnecessary</strong>. Only use AUDIT when publishing or validating.</p>
+</section>
+<section id="mistake-4-quantum-makes-results-more-accurate">
+<h3>Mistake 4: “Quantum makes results more accurate”<a class="headerlink" href="#mistake-4-quantum-makes-results-more-accurate" title="Link to this heading">#</a></h3>
+<p><strong>Misleading</strong>. Classical and quantum give same coherence values. Quantum validates the classical is correct.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="the-bottom-line">
+<h2>The Bottom Line<a class="headerlink" href="#the-bottom-line" title="Link to this heading">#</a></h2>
+<p>For 95%+ of PhaseLab use cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.quantum</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_quantum_mode</span>
+
+<span class="n">set_quantum_mode</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>  <span class="c1"># This is the default. Leave it.</span>
+</pre></div>
+</div>
+<p>Quantum is for:</p>
+<ol class="arabic simple">
+<li><p>Methodology papers</p></li>
+<li><p>Theoretical research</p></li>
+<li><p>IR validation</p></li>
+</ol>
+<p>Quantum is NOT for:</p>
+<ol class="arabic simple">
+<li><p>Guide selection</p></li>
+<li><p>Protein analysis</p></li>
+<li><p>Drug discovery</p></li>
+<li><p>Any applied biology</p></li>
+</ol>
+<hr class="docutils" />
+<p><em>PhaseLab v1.0.0</em>
+<em>December 2025</em></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-modes">The Three Modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-decision-rule">The Decision Rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-by-module-guidance">Module-by-Module Guidance</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biology-modules">Biology Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protein-modules">Protein Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chemistry-modules">Chemistry Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#omics-modules">Omics Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#microbiology-modules">Microbiology Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-modules">Trial Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circadian-modules">Circadian Modules</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-audit-mode">When to Use AUDIT Mode</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appropriate-use-cases">Appropriate Use Cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-required-mode">When to Use REQUIRED Mode</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Appropriate Use Cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-quantum-adds-and-doesn-t">What Quantum Adds (and Doesn’t)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-quantum-can-add">What Quantum Can Add</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-quantum-does-not-add">What Quantum Does NOT Add</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-benefit-analysis">Cost-Benefit Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-1-quantum-is-always-better">Mistake 1: “Quantum is always better”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-2-use-required-for-therapeutic-work">Mistake 2: “Use REQUIRED for therapeutic work”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-3-audit-mode-for-every-analysis">Mistake 3: “AUDIT mode for every analysis”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-4-quantum-makes-results-more-accurate">Mistake 4: “Quantum makes results more accurate”</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bottom-line">The Bottom Line</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1336 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.prime_editing &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/prime_editing';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.prime_editing</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.prime_editing</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab Prime Editing: pegRNA design for precise genome editing.</span>
+
+<span class="sd">Implements:</span>
+<span class="sd">- pegRNA (prime editing guide RNA) design</span>
+<span class="sd">- PBS (Primer Binding Site) optimization</span>
+<span class="sd">- RT (Reverse Transcriptase) template design</span>
+<span class="sd">- Secondary structure risk assessment</span>
+<span class="sd">- Off-target prime editing site screening</span>
+<span class="sd">- IR coherence validation</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.pam_scan</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_pam_sites</span><span class="p">,</span> <span class="n">PAMHit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.scoring</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">gc_content</span><span class="p">,</span>
+    <span class="n">delta_g_santalucia</span><span class="p">,</span>
+    <span class="n">mit_specificity_score</span><span class="p">,</span>
+    <span class="n">cfd_score</span><span class="p">,</span>
+    <span class="n">max_homopolymer_run</span><span class="p">,</span>
+    <span class="n">sequence_complexity</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.coherence</span><span class="w"> </span><span class="kn">import</span> <span class="n">coherence_score</span><span class="p">,</span> <span class="n">go_no_go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.hamiltonians</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_grna_hamiltonian</span>
+
+
+<span class="c1"># PBS length optimization parameters</span>
+<span class="n">PBS_OPTIMAL_LENGTH</span> <span class="o">=</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>  <span class="c1"># bp</span>
+<span class="n">PBS_MIN_LENGTH</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">PBS_MAX_LENGTH</span> <span class="o">=</span> <span class="mi">17</span>
+
+<span class="c1"># RT template length parameters</span>
+<span class="n">RT_OPTIMAL_LENGTH</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>  <span class="c1"># bp</span>
+<span class="n">RT_MIN_LENGTH</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">RT_MAX_LENGTH</span> <span class="o">=</span> <span class="mi">34</span>
+
+<span class="c1"># Nick-to-edit distance (for nicking guides)</span>
+<span class="n">NICK_TO_EDIT_OPTIMAL</span> <span class="o">=</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># bp</span>
+
+<span class="c1"># Secondary structure energy thresholds (kcal/mol)</span>
+<span class="n">SECONDARY_STRUCTURE_WARNING</span> <span class="o">=</span> <span class="o">-</span><span class="mf">5.0</span>
+<span class="n">SECONDARY_STRUCTURE_FAIL</span> <span class="o">=</span> <span class="o">-</span><span class="mf">10.0</span>
+
+
+<div class="viewcode-block" id="PrimeEditConfig">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.PrimeEditConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PrimeEditConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for prime editing guide design.&quot;&quot;&quot;</span>
+
+    <span class="c1"># PAM settings</span>
+    <span class="n">pam</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;NGG&quot;</span>
+    <span class="n">guide_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span>
+
+    <span class="c1"># PBS parameters</span>
+    <span class="n">pbs_length_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">PBS_MIN_LENGTH</span>
+    <span class="n">pbs_length_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">PBS_MAX_LENGTH</span>
+    <span class="n">pbs_optimal_length</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">PBS_OPTIMAL_LENGTH</span>
+    <span class="n">pbs_gc_min</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.35</span>
+    <span class="n">pbs_gc_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.65</span>
+
+    <span class="c1"># RT template parameters</span>
+    <span class="n">rt_length_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">RT_MIN_LENGTH</span>
+    <span class="n">rt_length_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">RT_MAX_LENGTH</span>
+    <span class="n">rt_optimal_length</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">RT_OPTIMAL_LENGTH</span>
+
+    <span class="c1"># Edit type</span>
+    <span class="n">edit_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;substitution&quot;</span>  <span class="c1"># &quot;substitution&quot;, &quot;insertion&quot;, &quot;deletion&quot;</span>
+
+    <span class="c1"># Filtering</span>
+    <span class="n">min_gc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.35</span>
+    <span class="n">max_gc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.75</span>
+    <span class="n">max_homopolymer</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+
+    <span class="c1"># Secondary structure</span>
+    <span class="n">check_secondary_structure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">max_secondary_structure_dg</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">5.0</span>
+
+    <span class="c1"># Scoring weights</span>
+    <span class="n">weight_mit</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">weight_cfd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">weight_pbs_score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.2</span>
+    <span class="n">weight_rt_score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.2</span>
+    <span class="n">weight_nick_distance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span>
+    <span class="n">weight_coherence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Coherence</span>
+    <span class="n">compute_coherence</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">coherence_shots</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2000</span>
+
+    <span class="c1"># Output</span>
+    <span class="n">top_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span></div>
+
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PegRNACandidate</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A candidate pegRNA design.&quot;&quot;&quot;</span>
+    <span class="n">spacer</span><span class="p">:</span> <span class="nb">str</span>              <span class="c1"># 20bp spacer sequence</span>
+    <span class="n">pam</span><span class="p">:</span> <span class="nb">str</span>                 <span class="c1"># PAM sequence</span>
+    <span class="n">pbs</span><span class="p">:</span> <span class="nb">str</span>                 <span class="c1"># Primer binding site</span>
+    <span class="n">rt_template</span><span class="p">:</span> <span class="nb">str</span>         <span class="c1"># RT template (includes edit)</span>
+    <span class="n">edit_position</span><span class="p">:</span> <span class="nb">int</span>       <span class="c1"># Position of edit in genome</span>
+    <span class="n">edit_type</span><span class="p">:</span> <span class="nb">str</span>           <span class="c1"># substitution, insertion, deletion</span>
+    <span class="n">edit_from</span><span class="p">:</span> <span class="nb">str</span>           <span class="c1"># Original sequence</span>
+    <span class="n">edit_to</span><span class="p">:</span> <span class="nb">str</span>             <span class="c1"># New sequence</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">full_pegrna</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Full pegRNA sequence (spacer + scaffold + RT + PBS).&quot;&quot;&quot;</span>
+        <span class="c1"># Note: This is a simplified representation</span>
+        <span class="c1"># Real pegRNA includes scaffold sequence between spacer and extension</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">spacer</span><span class="si">}</span><span class="s2">[scaffold]</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rt_template</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">pbs</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+<div class="viewcode-block" id="pbs_score">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.pbs_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">pbs_score</span><span class="p">(</span><span class="n">pbs_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Score a PBS sequence.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pbs_seq: PBS sequence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Score (0 to ~1.5).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">pbs_seq</span><span class="p">)</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pbs_seq</span><span class="p">)</span>
+
+    <span class="c1"># GC scoring</span>
+    <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="mf">0.35</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">:</span>
+        <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">0.7</span>
+    <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="mf">0.25</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.75</span><span class="p">:</span>
+        <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">0.4</span>
+
+    <span class="c1"># Length scoring</span>
+    <span class="n">length_score</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="n">PBS_OPTIMAL_LENGTH</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="n">PBS_OPTIMAL_LENGTH</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">length_score</span> <span class="o">=</span> <span class="mf">1.2</span>
+
+    <span class="c1"># Secondary structure</span>
+    <span class="n">ss_dg</span> <span class="o">=</span> <span class="n">estimate_hairpin_dg</span><span class="p">(</span><span class="n">pbs_seq</span><span class="p">)</span>
+    <span class="n">ss_score</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">ss_dg</span> <span class="o">&gt;</span> <span class="n">SECONDARY_STRUCTURE_WARNING</span> <span class="k">else</span> <span class="mf">0.6</span>
+
+    <span class="k">return</span> <span class="n">gc_score</span> <span class="o">*</span> <span class="n">length_score</span> <span class="o">*</span> <span class="n">ss_score</span></div>
+
+
+
+<div class="viewcode-block" id="rt_template_score">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.rt_template_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rt_template_score</span><span class="p">(</span><span class="n">rt_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Score an RT template sequence.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        rt_seq: RT template sequence.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Score (0 to ~1.5).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">rt_seq</span><span class="p">)</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rt_seq</span><span class="p">)</span>
+
+    <span class="c1"># GC scoring</span>
+    <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="mf">0.35</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">:</span>
+        <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">0.7</span>
+
+    <span class="c1"># Length scoring</span>
+    <span class="n">length_score</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="n">RT_OPTIMAL_LENGTH</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="n">RT_OPTIMAL_LENGTH</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">length_score</span> <span class="o">=</span> <span class="mf">1.2</span>
+
+    <span class="c1"># Secondary structure</span>
+    <span class="n">ss_dg</span> <span class="o">=</span> <span class="n">estimate_hairpin_dg</span><span class="p">(</span><span class="n">rt_seq</span><span class="p">)</span>
+    <span class="n">ss_score</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">ss_dg</span> <span class="o">&gt;</span> <span class="n">SECONDARY_STRUCTURE_WARNING</span> <span class="k">else</span> <span class="mf">0.6</span>
+
+    <span class="k">return</span> <span class="n">gc_score</span> <span class="o">*</span> <span class="n">length_score</span> <span class="o">*</span> <span class="n">ss_score</span></div>
+
+
+
+<div class="viewcode-block" id="design_pbs">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.design_pbs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_pbs</span><span class="p">(</span>
+    <span class="n">target_sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">nick_position</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">pbs_lengths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Design Primer Binding Sites for pegRNA.</span>
+
+<span class="sd">    PBS binds to the nicked DNA strand to initiate RT-mediated synthesis.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target_sequence: DNA sequence around target site.</span>
+<span class="sd">        nick_position: Position where Cas9 nicks (3bp upstream of PAM).</span>
+<span class="sd">        pbs_lengths: List of PBS lengths to try.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of PBS designs with scores.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">pbs_lengths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pbs_lengths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">PBS_MIN_LENGTH</span><span class="p">,</span> <span class="n">PBS_MAX_LENGTH</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">pbs_designs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">pbs_lengths</span><span class="p">:</span>
+        <span class="c1"># PBS is complementary to sequence upstream of nick</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">nick_position</span> <span class="o">-</span> <span class="n">length</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">pbs_target</span> <span class="o">=</span> <span class="n">target_sequence</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">nick_position</span><span class="p">]</span>
+        <span class="n">pbs_seq</span> <span class="o">=</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">pbs_target</span><span class="p">)</span>
+
+        <span class="c1"># Score PBS</span>
+        <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">pbs_seq</span><span class="p">)</span>
+        <span class="n">tm</span> <span class="o">=</span> <span class="n">estimate_melting_temp</span><span class="p">(</span><span class="n">pbs_seq</span><span class="p">)</span>
+
+        <span class="c1"># Penalize extreme GC</span>
+        <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="mf">0.35</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">:</span>
+            <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">0.7</span>
+        <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="mf">0.25</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.75</span><span class="p">:</span>
+            <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">0.4</span>
+
+        <span class="c1"># Optimal length bonus</span>
+        <span class="n">length_score</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">if</span> <span class="n">PBS_OPTIMAL_LENGTH</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="n">PBS_OPTIMAL_LENGTH</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">length_score</span> <span class="o">=</span> <span class="mf">1.2</span>
+
+        <span class="c1"># Secondary structure penalty</span>
+        <span class="n">ss_dg</span> <span class="o">=</span> <span class="n">estimate_hairpin_dg</span><span class="p">(</span><span class="n">pbs_seq</span><span class="p">)</span>
+        <span class="n">ss_score</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">ss_dg</span> <span class="o">&gt;</span> <span class="n">SECONDARY_STRUCTURE_WARNING</span> <span class="k">else</span> <span class="mf">0.6</span>
+
+        <span class="n">overall_score</span> <span class="o">=</span> <span class="n">gc_score</span> <span class="o">*</span> <span class="n">length_score</span> <span class="o">*</span> <span class="n">ss_score</span>
+
+        <span class="n">pbs_designs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">pbs_seq</span><span class="p">,</span>
+            <span class="s1">&#39;length&#39;</span><span class="p">:</span> <span class="n">length</span><span class="p">,</span>
+            <span class="s1">&#39;gc&#39;</span><span class="p">:</span> <span class="n">gc</span><span class="p">,</span>
+            <span class="s1">&#39;tm&#39;</span><span class="p">:</span> <span class="n">tm</span><span class="p">,</span>
+            <span class="s1">&#39;secondary_structure_dg&#39;</span><span class="p">:</span> <span class="n">ss_dg</span><span class="p">,</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="n">overall_score</span><span class="p">,</span>
+        <span class="p">})</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pbs_designs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="design_rt_template">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.design_rt_template">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_rt_template</span><span class="p">(</span>
+    <span class="n">target_sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">nick_position</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">edit_position</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">edit_from</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">edit_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">rt_lengths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Design RT templates for pegRNA.</span>
+
+<span class="sd">    RT template encodes the desired edit and homology arms.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target_sequence: DNA sequence around target site.</span>
+<span class="sd">        nick_position: Position where Cas9 nicks.</span>
+<span class="sd">        edit_position: Position of the desired edit.</span>
+<span class="sd">        edit_from: Original sequence at edit site.</span>
+<span class="sd">        edit_to: Desired new sequence.</span>
+<span class="sd">        rt_lengths: List of RT template lengths to try.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of RT template designs with scores.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">rt_lengths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">rt_lengths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">RT_MIN_LENGTH</span><span class="p">,</span> <span class="n">RT_MAX_LENGTH</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">rt_designs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">edit_offset</span> <span class="o">=</span> <span class="n">edit_position</span> <span class="o">-</span> <span class="n">nick_position</span>
+
+    <span class="k">for</span> <span class="n">length</span> <span class="ow">in</span> <span class="n">rt_lengths</span><span class="p">:</span>
+        <span class="c1"># Calculate template boundaries</span>
+        <span class="c1"># RT synthesizes from nick toward edit and beyond</span>
+        <span class="n">rt_start</span> <span class="o">=</span> <span class="n">nick_position</span>
+        <span class="n">rt_end</span> <span class="o">=</span> <span class="n">nick_position</span> <span class="o">+</span> <span class="n">length</span>
+
+        <span class="k">if</span> <span class="n">rt_end</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_sequence</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">edit_position</span> <span class="o">&gt;</span> <span class="n">rt_end</span><span class="p">:</span>
+            <span class="k">continue</span>  <span class="c1"># Edit not covered</span>
+
+        <span class="c1"># Build RT template with edit incorporated</span>
+        <span class="n">template_seq</span> <span class="o">=</span> <span class="n">target_sequence</span><span class="p">[</span><span class="n">rt_start</span><span class="p">:</span><span class="n">rt_end</span><span class="p">]</span>
+
+        <span class="c1"># Insert the edit</span>
+        <span class="n">edit_rel_pos</span> <span class="o">=</span> <span class="n">edit_position</span> <span class="o">-</span> <span class="n">rt_start</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">edit_rel_pos</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">template_seq</span><span class="p">):</span>
+            <span class="c1"># For substitution</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">edit_from</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">edit_to</span><span class="p">):</span>
+                <span class="n">template_with_edit</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">template_seq</span><span class="p">[:</span><span class="n">edit_rel_pos</span><span class="p">]</span> <span class="o">+</span>
+                    <span class="n">edit_to</span> <span class="o">+</span>
+                    <span class="n">template_seq</span><span class="p">[</span><span class="n">edit_rel_pos</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">edit_from</span><span class="p">):]</span>
+                <span class="p">)</span>
+            <span class="c1"># For insertion</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">edit_from</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">edit_to</span><span class="p">):</span>
+                <span class="n">template_with_edit</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">template_seq</span><span class="p">[:</span><span class="n">edit_rel_pos</span><span class="p">]</span> <span class="o">+</span>
+                    <span class="n">edit_to</span> <span class="o">+</span>
+                    <span class="n">template_seq</span><span class="p">[</span><span class="n">edit_rel_pos</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">edit_from</span><span class="p">):]</span>
+                <span class="p">)</span>
+            <span class="c1"># For deletion</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">template_with_edit</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">template_seq</span><span class="p">[:</span><span class="n">edit_rel_pos</span><span class="p">]</span> <span class="o">+</span>
+                    <span class="n">edit_to</span> <span class="o">+</span>
+                    <span class="n">template_seq</span><span class="p">[</span><span class="n">edit_rel_pos</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">edit_from</span><span class="p">):]</span>
+                <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">template_with_edit</span> <span class="o">=</span> <span class="n">template_seq</span>
+
+        <span class="c1"># RT template is reverse complement (for RNA)</span>
+        <span class="n">rt_rna</span> <span class="o">=</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">template_with_edit</span><span class="p">)</span>
+
+        <span class="c1"># Score RT template</span>
+        <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">rt_rna</span><span class="p">)</span>
+        <span class="n">homology_3prime</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">length</span> <span class="o">-</span> <span class="n">edit_offset</span><span class="p">)</span>  <span class="c1"># 3&#39; homology after edit</span>
+
+        <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="mf">0.35</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">:</span>
+            <span class="n">gc_score</span> <span class="o">=</span> <span class="mf">0.7</span>
+
+        <span class="n">length_score</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">if</span> <span class="n">RT_OPTIMAL_LENGTH</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="n">RT_OPTIMAL_LENGTH</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">length_score</span> <span class="o">=</span> <span class="mf">1.2</span>
+
+        <span class="c1"># More 3&#39; homology is better</span>
+        <span class="n">homology_score</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">homology_3prime</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+
+        <span class="n">ss_dg</span> <span class="o">=</span> <span class="n">estimate_hairpin_dg</span><span class="p">(</span><span class="n">rt_rna</span><span class="p">)</span>
+        <span class="n">ss_score</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">ss_dg</span> <span class="o">&gt;</span> <span class="n">SECONDARY_STRUCTURE_WARNING</span> <span class="k">else</span> <span class="mf">0.6</span>
+
+        <span class="n">overall_score</span> <span class="o">=</span> <span class="n">gc_score</span> <span class="o">*</span> <span class="n">length_score</span> <span class="o">*</span> <span class="n">homology_score</span> <span class="o">*</span> <span class="n">ss_score</span>
+
+        <span class="n">rt_designs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">rt_rna</span><span class="p">,</span>
+            <span class="s1">&#39;length&#39;</span><span class="p">:</span> <span class="n">length</span><span class="p">,</span>
+            <span class="s1">&#39;gc&#39;</span><span class="p">:</span> <span class="n">gc</span><span class="p">,</span>
+            <span class="s1">&#39;homology_3prime&#39;</span><span class="p">:</span> <span class="n">homology_3prime</span><span class="p">,</span>
+            <span class="s1">&#39;secondary_structure_dg&#39;</span><span class="p">:</span> <span class="n">ss_dg</span><span class="p">,</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="n">overall_score</span><span class="p">,</span>
+        <span class="p">})</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">rt_designs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="design_prime_edit">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.design_prime_edit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_prime_edit</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">edit_position</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">edit_from</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">edit_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">PrimeEditConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Design pegRNAs for prime editing.</span>
+
+<span class="sd">    This designs complete prime editing guide RNAs with optimized</span>
+<span class="sd">    PBS and RT template components.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: DNA sequence containing the edit site.</span>
+<span class="sd">        edit_position: Position of the edit in sequence (0-based).</span>
+<span class="sd">        edit_from: Original sequence to replace.</span>
+<span class="sd">        edit_to: New sequence (the edit).</span>
+<span class="sd">        config: PrimeEditConfig with parameters.</span>
+<span class="sd">        verbose: Print progress messages.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DataFrame with ranked pegRNA candidates.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from phaselab.crispr import design_prime_edit</span>
+<span class="sd">        &gt;&gt;&gt; pegrnas = design_prime_edit(</span>
+<span class="sd">        ...     sequence=gene_region,</span>
+<span class="sd">        ...     edit_position=150,</span>
+<span class="sd">        ...     edit_from=&quot;A&quot;,</span>
+<span class="sd">        ...     edit_to=&quot;G&quot;,  # A-to-G substitution</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &gt;&gt;&gt; print(pegrnas[[&#39;spacer&#39;, &#39;pbs_length&#39;, &#39;rt_length&#39;, &#39;score&#39;]].head())</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">PrimeEditConfig</span><span class="p">()</span>
+
+    <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">edit_from</span> <span class="o">=</span> <span class="n">edit_from</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">edit_to</span> <span class="o">=</span> <span class="n">edit_to</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Designing prime editing guides for </span><span class="si">{</span><span class="n">edit_from</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">edit_to</span><span class="si">}</span><span class="s2"> at position </span><span class="si">{</span><span class="n">edit_position</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Find PAM sites near the edit</span>
+    <span class="c1"># PE requires the nick to be within ~50bp of the edit</span>
+    <span class="n">search_start</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">edit_position</span> <span class="o">-</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">search_end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">),</span> <span class="n">edit_position</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">search_seq</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="n">search_start</span><span class="p">:</span><span class="n">search_end</span><span class="p">]</span>
+
+    <span class="n">all_hits</span> <span class="o">=</span> <span class="n">find_pam_sites</span><span class="p">(</span>
+        <span class="n">search_seq</span><span class="p">,</span>
+        <span class="n">pam</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">pam</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">guide_length</span><span class="p">,</span>
+        <span class="n">both_strands</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_hits</span><span class="p">)</span><span class="si">}</span><span class="s2"> PAM sites near edit&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">all_hits</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_empty_prime_edit_df</span><span class="p">()</span>
+
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">hit</span> <span class="ow">in</span> <span class="n">all_hits</span><span class="p">:</span>
+        <span class="c1"># Adjust positions back to original sequence coordinates</span>
+        <span class="n">abs_guide_start</span> <span class="o">=</span> <span class="n">search_start</span> <span class="o">+</span> <span class="n">hit</span><span class="o">.</span><span class="n">guide_start</span>
+        <span class="n">abs_guide_end</span> <span class="o">=</span> <span class="n">search_start</span> <span class="o">+</span> <span class="n">hit</span><span class="o">.</span><span class="n">guide_end</span>
+
+        <span class="c1"># Nick position (3bp upstream of PAM for NGG)</span>
+        <span class="k">if</span> <span class="n">hit</span><span class="o">.</span><span class="n">strand</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+            <span class="n">nick_pos</span> <span class="o">=</span> <span class="n">abs_guide_end</span> <span class="o">-</span> <span class="mi">3</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nick_pos</span> <span class="o">=</span> <span class="n">abs_guide_start</span> <span class="o">+</span> <span class="mi">3</span>
+
+        <span class="c1"># Distance from nick to edit</span>
+        <span class="n">nick_to_edit</span> <span class="o">=</span> <span class="n">edit_position</span> <span class="o">-</span> <span class="n">nick_pos</span>
+        <span class="k">if</span> <span class="n">hit</span><span class="o">.</span><span class="n">strand</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+            <span class="n">nick_to_edit</span> <span class="o">=</span> <span class="o">-</span><span class="n">nick_to_edit</span>
+
+        <span class="c1"># PE3 requires nick downstream of edit on the edited strand</span>
+        <span class="c1"># PE2 can work with various configurations</span>
+        <span class="k">if</span> <span class="n">nick_to_edit</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">5</span> <span class="ow">or</span> <span class="n">nick_to_edit</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="k">continue</span>  <span class="c1"># Too far from edit</span>
+
+        <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">hit</span><span class="o">.</span><span class="n">guide</span>
+
+        <span class="c1"># Quality filters</span>
+        <span class="n">gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">gc</span> <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">min_gc</span> <span class="ow">or</span> <span class="n">gc</span> <span class="o">&gt;</span> <span class="n">config</span><span class="o">.</span><span class="n">max_gc</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">homo</span> <span class="o">=</span> <span class="n">max_homopolymer_run</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">homo</span> <span class="o">&gt;</span> <span class="n">config</span><span class="o">.</span><span class="n">max_homopolymer</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Design PBS options</span>
+        <span class="n">pbs_designs</span> <span class="o">=</span> <span class="n">design_pbs</span><span class="p">(</span>
+            <span class="n">sequence</span><span class="p">,</span>
+            <span class="n">nick_pos</span><span class="p">,</span>
+            <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">pbs_length_min</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">pbs_length_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pbs_designs</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">best_pbs</span> <span class="o">=</span> <span class="n">pbs_designs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Design RT template options</span>
+        <span class="n">rt_designs</span> <span class="o">=</span> <span class="n">design_rt_template</span><span class="p">(</span>
+            <span class="n">sequence</span><span class="p">,</span>
+            <span class="n">nick_pos</span><span class="p">,</span>
+            <span class="n">edit_position</span><span class="p">,</span>
+            <span class="n">edit_from</span><span class="p">,</span>
+            <span class="n">edit_to</span><span class="p">,</span>
+            <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">rt_length_min</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">rt_length_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">rt_designs</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">best_rt</span> <span class="o">=</span> <span class="n">rt_designs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Standard scores</span>
+        <span class="n">delta_g</span> <span class="o">=</span> <span class="n">delta_g_santalucia</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">mit</span> <span class="o">=</span> <span class="n">mit_specificity_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+        <span class="n">cfd</span> <span class="o">=</span> <span class="n">cfd_score</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+
+        <span class="c1"># IR coherence</span>
+        <span class="n">R_bar</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">go_status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">compute_coherence</span><span class="p">:</span>
+            <span class="n">R_bar</span> <span class="o">=</span> <span class="n">_compute_guide_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">)</span>
+            <span class="n">go_status</span> <span class="o">=</span> <span class="n">go_no_go</span><span class="p">(</span><span class="n">R_bar</span><span class="p">)</span>
+
+        <span class="c1"># Combined pegRNA secondary structure check</span>
+        <span class="n">full_extension</span> <span class="o">=</span> <span class="n">best_rt</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">best_pbs</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span>
+        <span class="n">extension_ss_dg</span> <span class="o">=</span> <span class="n">estimate_hairpin_dg</span><span class="p">(</span><span class="n">full_extension</span><span class="p">)</span>
+
+        <span class="c1"># Combined score</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="n">_compute_prime_edit_score</span><span class="p">(</span>
+            <span class="n">pbs_score</span><span class="o">=</span><span class="n">best_pbs</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span>
+            <span class="n">rt_score</span><span class="o">=</span><span class="n">best_rt</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">],</span>
+            <span class="n">nick_to_edit</span><span class="o">=</span><span class="n">nick_to_edit</span><span class="p">,</span>
+            <span class="n">mit</span><span class="o">=</span><span class="n">mit</span><span class="p">,</span>
+            <span class="n">cfd</span><span class="o">=</span><span class="n">cfd</span><span class="p">,</span>
+            <span class="n">R_bar</span><span class="o">=</span><span class="n">R_bar</span><span class="p">,</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;spacer&#39;</span><span class="p">:</span> <span class="n">guide_seq</span><span class="p">,</span>
+            <span class="s1">&#39;pam&#39;</span><span class="p">:</span> <span class="n">hit</span><span class="o">.</span><span class="n">pam</span><span class="p">,</span>
+            <span class="s1">&#39;strand&#39;</span><span class="p">:</span> <span class="n">hit</span><span class="o">.</span><span class="n">strand</span><span class="p">,</span>
+            <span class="s1">&#39;nick_position&#39;</span><span class="p">:</span> <span class="n">nick_pos</span><span class="p">,</span>
+            <span class="s1">&#39;nick_to_edit_distance&#39;</span><span class="p">:</span> <span class="n">nick_to_edit</span><span class="p">,</span>
+            <span class="s1">&#39;pbs_sequence&#39;</span><span class="p">:</span> <span class="n">best_pbs</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;pbs_length&#39;</span><span class="p">:</span> <span class="n">best_pbs</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;pbs_gc&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">best_pbs</span><span class="p">[</span><span class="s1">&#39;gc&#39;</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s1">&#39;rt_sequence&#39;</span><span class="p">:</span> <span class="n">best_rt</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;rt_length&#39;</span><span class="p">:</span> <span class="n">best_rt</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;rt_gc&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">best_rt</span><span class="p">[</span><span class="s1">&#39;gc&#39;</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s1">&#39;extension_ss_dg&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">extension_ss_dg</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="s1">&#39;gc&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s1">&#39;delta_g&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">delta_g</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s1">&#39;mit_score&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">mit</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;cfd_score&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">cfd</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;coherence_R&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">R_bar</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">R_bar</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;go_no_go&#39;</span><span class="p">:</span> <span class="n">go_status</span><span class="p">,</span>
+            <span class="s1">&#39;combined_score&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">})</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_empty_prime_edit_df</span><span class="p">()</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;combined_score&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Returning </span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span><span class="w"> </span><span class="n">config</span><span class="o">.</span><span class="n">top_n</span><span class="p">)</span><span class="si">}</span><span class="s2"> top candidates&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">top_n</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_empty_prime_edit_df</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return empty DataFrame with prime edit columns.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;spacer&#39;</span><span class="p">,</span> <span class="s1">&#39;pam&#39;</span><span class="p">,</span> <span class="s1">&#39;strand&#39;</span><span class="p">,</span> <span class="s1">&#39;nick_position&#39;</span><span class="p">,</span> <span class="s1">&#39;nick_to_edit_distance&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pbs_sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;pbs_length&#39;</span><span class="p">,</span> <span class="s1">&#39;pbs_gc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;rt_sequence&#39;</span><span class="p">,</span> <span class="s1">&#39;rt_length&#39;</span><span class="p">,</span> <span class="s1">&#39;rt_gc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;extension_ss_dg&#39;</span><span class="p">,</span> <span class="s1">&#39;gc&#39;</span><span class="p">,</span> <span class="s1">&#39;delta_g&#39;</span><span class="p">,</span> <span class="s1">&#39;mit_score&#39;</span><span class="p">,</span> <span class="s1">&#39;cfd_score&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coherence_R&#39;</span><span class="p">,</span> <span class="s1">&#39;go_no_go&#39;</span><span class="p">,</span> <span class="s1">&#39;combined_score&#39;</span><span class="p">,</span>
+    <span class="p">])</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_guide_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute IR coherence using ATLAS-Q enhanced backend (v0.6.0+).&quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.coherence_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_guide_coherence</span>
+    <span class="k">return</span> <span class="n">compute_guide_coherence</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="n">use_atlas_q</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_prime_edit_score</span><span class="p">(</span>
+    <span class="n">pbs_score</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">rt_score</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">nick_to_edit</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">mit</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">cfd</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">R_bar</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">PrimeEditConfig</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute combined score for prime editing.&quot;&quot;&quot;</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># PBS and RT template scores</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_pbs_score</span> <span class="o">*</span> <span class="n">pbs_score</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_rt_score</span> <span class="o">*</span> <span class="n">rt_score</span>
+
+    <span class="c1"># Nick-to-edit distance (optimal 10-50bp)</span>
+    <span class="n">nick_score</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">if</span> <span class="mi">10</span> <span class="o">&lt;=</span> <span class="n">nick_to_edit</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="n">nick_score</span> <span class="o">=</span> <span class="mf">1.2</span>
+    <span class="k">elif</span> <span class="n">nick_to_edit</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">nick_to_edit</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="n">nick_score</span> <span class="o">=</span> <span class="mf">0.6</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_nick_distance</span> <span class="o">*</span> <span class="n">nick_score</span>
+
+    <span class="c1"># Specificity</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_mit</span> <span class="o">*</span> <span class="p">(</span><span class="n">mit</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_cfd</span> <span class="o">*</span> <span class="p">(</span><span class="n">cfd</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+
+    <span class="c1"># Coherence</span>
+    <span class="k">if</span> <span class="n">R_bar</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="n">config</span><span class="o">.</span><span class="n">weight_coherence</span> <span class="o">*</span> <span class="n">R_bar</span>
+
+    <span class="k">return</span> <span class="n">score</span>
+
+
+<span class="c1"># Utility functions</span>
+
+<div class="viewcode-block" id="reverse_complement">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.reverse_complement">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">reverse_complement</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return reverse complement of DNA sequence.&quot;&quot;&quot;</span>
+    <span class="n">complement</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="s1">&#39;N&#39;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">complement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">estimate_melting_temp</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Estimate melting temperature using simplified formula.&quot;&quot;&quot;</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">gc</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">seq</span> <span class="k">if</span> <span class="n">b</span> <span class="ow">in</span> <span class="s1">&#39;GC&#39;</span><span class="p">)</span>
+    <span class="n">at</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">seq</span> <span class="k">if</span> <span class="n">b</span> <span class="ow">in</span> <span class="s1">&#39;AT&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">14</span><span class="p">:</span>
+        <span class="c1"># Short oligo formula</span>
+        <span class="n">tm</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">at</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">gc</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Long oligo formula (simplified)</span>
+        <span class="n">tm</span> <span class="o">=</span> <span class="mf">64.9</span> <span class="o">+</span> <span class="mi">41</span> <span class="o">*</span> <span class="p">(</span><span class="n">gc</span> <span class="o">-</span> <span class="mf">16.4</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">tm</span>
+
+
+<div class="viewcode-block" id="estimate_hairpin_dg">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.estimate_hairpin_dg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">estimate_hairpin_dg</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Estimate secondary structure ΔG (simplified).</span>
+
+<span class="sd">    More negative = stronger secondary structure = worse.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Estimated ΔG in kcal/mol.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="n">seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Simple heuristic: check for complementary regions</span>
+    <span class="n">dg</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Look for potential hairpin stems (4-8bp)</span>
+    <span class="k">for</span> <span class="n">stem_len</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">stem_len</span> <span class="o">-</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="n">stem1</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">stem_len</span><span class="p">]</span>
+            <span class="c1"># Check region after potential loop (3-8bp loop)</span>
+            <span class="k">for</span> <span class="n">loop_len</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">stem_len</span> <span class="o">+</span> <span class="n">loop_len</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="o">+</span> <span class="n">stem_len</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">stem2</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">j</span> <span class="o">+</span> <span class="n">stem_len</span><span class="p">]</span>
+                <span class="n">stem2_rc</span> <span class="o">=</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">stem2</span><span class="p">)</span>
+
+                <span class="c1"># Count matches</span>
+                <span class="n">matches</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">stem1</span><span class="p">,</span> <span class="n">stem2_rc</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">matches</span> <span class="o">&gt;=</span> <span class="n">stem_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Allow 1 mismatch</span>
+                    <span class="c1"># Penalize based on stem length</span>
+                    <span class="n">dg</span> <span class="o">-=</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">matches</span>
+
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mf">15.0</span><span class="p">,</span> <span class="n">dg</span><span class="p">)</span>  <span class="c1"># Cap at reasonable minimum</span></div>
+
+
+
+<div class="viewcode-block" id="validate_prime_edit">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.validate_prime_edit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_prime_edit</span><span class="p">(</span>
+    <span class="n">spacer</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">pbs</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">rt_template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">edit_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;substitution&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validate a pegRNA design.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        spacer: 20bp spacer sequence.</span>
+<span class="sd">        pbs: PBS sequence.</span>
+<span class="sd">        rt_template: RT template sequence.</span>
+<span class="sd">        edit_type: Type of edit.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Validation results dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">warnings</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Check spacer</span>
+    <span class="n">spacer_gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">spacer</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">spacer_gc</span> <span class="o">&lt;</span> <span class="mf">0.35</span> <span class="ow">or</span> <span class="n">spacer_gc</span> <span class="o">&gt;</span> <span class="mf">0.75</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spacer GC </span><span class="si">{</span><span class="n">spacer_gc</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2"> out of optimal range&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check PBS</span>
+    <span class="n">pbs_gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">pbs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pbs_gc</span> <span class="o">&lt;</span> <span class="mf">0.35</span> <span class="ow">or</span> <span class="n">pbs_gc</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PBS GC </span><span class="si">{</span><span class="n">pbs_gc</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2"> may affect binding&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pbs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">PBS_MIN_LENGTH</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PBS length </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pbs</span><span class="p">)</span><span class="si">}</span><span class="s2">bp too short&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pbs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">PBS_MAX_LENGTH</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PBS length </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pbs</span><span class="p">)</span><span class="si">}</span><span class="s2">bp may reduce efficiency&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check RT template</span>
+    <span class="n">rt_gc</span> <span class="o">=</span> <span class="n">gc_content</span><span class="p">(</span><span class="n">rt_template</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rt_gc</span> <span class="o">&lt;</span> <span class="mf">0.35</span> <span class="ow">or</span> <span class="n">rt_gc</span> <span class="o">&gt;</span> <span class="mf">0.65</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RT template GC </span><span class="si">{</span><span class="n">rt_gc</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2"> may affect synthesis&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rt_template</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">RT_MIN_LENGTH</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RT template length </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rt_template</span><span class="p">)</span><span class="si">}</span><span class="s2">bp too short&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rt_template</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">RT_MAX_LENGTH</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RT template length </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rt_template</span><span class="p">)</span><span class="si">}</span><span class="s2">bp may reduce efficiency&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Check extension secondary structure</span>
+    <span class="n">extension</span> <span class="o">=</span> <span class="n">rt_template</span> <span class="o">+</span> <span class="n">pbs</span>
+    <span class="n">ss_dg</span> <span class="o">=</span> <span class="n">estimate_hairpin_dg</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ss_dg</span> <span class="o">&lt;</span> <span class="n">SECONDARY_STRUCTURE_FAIL</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Strong secondary structure (ΔG=</span><span class="si">{</span><span class="n">ss_dg</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> kcal/mol)&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">ss_dg</span> <span class="o">&lt;</span> <span class="n">SECONDARY_STRUCTURE_WARNING</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Moderate secondary structure (ΔG=</span><span class="si">{</span><span class="n">ss_dg</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> kcal/mol)&quot;</span><span class="p">)</span>
+
+    <span class="n">R_bar</span> <span class="o">=</span> <span class="n">_compute_guide_coherence</span><span class="p">(</span><span class="n">spacer</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;spacer&#39;</span><span class="p">:</span> <span class="n">spacer</span><span class="p">,</span>
+        <span class="s1">&#39;spacer_gc&#39;</span><span class="p">:</span> <span class="n">spacer_gc</span><span class="p">,</span>
+        <span class="s1">&#39;pbs&#39;</span><span class="p">:</span> <span class="n">pbs</span><span class="p">,</span>
+        <span class="s1">&#39;pbs_gc&#39;</span><span class="p">:</span> <span class="n">pbs_gc</span><span class="p">,</span>
+        <span class="s1">&#39;pbs_length&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">pbs</span><span class="p">),</span>
+        <span class="s1">&#39;rt_template&#39;</span><span class="p">:</span> <span class="n">rt_template</span><span class="p">,</span>
+        <span class="s1">&#39;rt_gc&#39;</span><span class="p">:</span> <span class="n">rt_gc</span><span class="p">,</span>
+        <span class="s1">&#39;rt_length&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">rt_template</span><span class="p">),</span>
+        <span class="s1">&#39;extension_ss_dg&#39;</span><span class="p">:</span> <span class="n">ss_dg</span><span class="p">,</span>
+        <span class="s1">&#39;coherence_R&#39;</span><span class="p">:</span> <span class="n">R_bar</span><span class="p">,</span>
+        <span class="s1">&#39;go_no_go&#39;</span><span class="p">:</span> <span class="n">go_no_go</span><span class="p">(</span><span class="n">R_bar</span><span class="p">),</span>
+        <span class="s1">&#39;warnings&#39;</span><span class="p">:</span> <span class="n">warnings</span><span class="p">,</span>
+        <span class="s1">&#39;valid&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">warnings</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

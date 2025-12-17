@@ -1,0 +1,1317 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.multiguide &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/multiguide';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.multiguide</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.multiguide</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab Multi-Guide Synergy: Model interactions between multiple CRISPR guides.</span>
+
+<span class="sd">Implements:</span>
+<span class="sd">- Synergy prediction for CRISPRa guide combinations</span>
+<span class="sd">- Steric clash detection between nearby guides</span>
+<span class="sd">- Optimal spacing determination</span>
+<span class="sd">- Combinatorial guide set design</span>
+<span class="sd">- IR coherence for multi-guide reliability</span>
+
+<span class="sd">References:</span>
+<span class="sd">- CRISPR-M: Multi-view deep learning for predictions</span>
+<span class="sd">- Combinatorial CRISPR screens (AI-driven prioritization)</span>
+<span class="sd">- Multi-guide CRISPRa for complex promoters</span>
+<span class="sd">- Experimental data on guide synergy (Konermann et al.)</span>
+
+<span class="sd">Version: 0.5.0</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">combinations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.coherence</span><span class="w"> </span><span class="kn">import</span> <span class="n">coherence_score</span><span class="p">,</span> <span class="n">go_no_go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">E_MINUS_2</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="c1"># Empirical spacing parameters for guide interactions</span>
+<span class="c1"># Based on published CRISPRa synergy studies</span>
+<span class="n">GUIDE_SPACING_PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># Minimum spacing before steric clash (bp)</span>
+    <span class="s1">&#39;min_spacing&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+
+    <span class="c1"># Optimal spacing range for synergy (bp)</span>
+    <span class="s1">&#39;optimal_spacing_min&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s1">&#39;optimal_spacing_max&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+
+    <span class="c1"># Maximum spacing for significant interaction (bp)</span>
+    <span class="s1">&#39;max_interaction_distance&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+
+    <span class="c1"># Steric clash radius (bp) - guides closer than this interfere</span>
+    <span class="s1">&#39;clash_radius&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Synergy coefficients by relative position</span>
+<span class="c1"># Based on experimental CRISPRa data</span>
+<span class="n">POSITION_SYNERGY</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;upstream_upstream&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>    <span class="c1"># Both upstream of TSS</span>
+    <span class="s1">&#39;upstream_downstream&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>  <span class="c1"># One each side</span>
+    <span class="s1">&#39;downstream_downstream&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="c1"># Both downstream (less effective)</span>
+    <span class="s1">&#39;same_region&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>          <span class="c1"># Same promoter region</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="GuideCandidate">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.GuideCandidate">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GuideCandidate</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A guide candidate for multi-guide analysis.&quot;&quot;&quot;</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">position</span><span class="p">:</span> <span class="nb">int</span>              <span class="c1"># Position relative to TSS</span>
+    <span class="n">strand</span><span class="p">:</span> <span class="nb">str</span>                <span class="c1"># &#39;+&#39; or &#39;-&#39;</span>
+    <span class="n">individual_score</span><span class="p">:</span> <span class="nb">float</span>    <span class="c1"># Score without considering other guides</span>
+    <span class="n">coherence_R</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1"># IR coherence</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="c1"># Computed properties</span>
+    <span class="n">efficiency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">specificity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span></div>
+
+
+
+<div class="viewcode-block" id="GuidePair">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.GuidePair">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GuidePair</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analysis of a pair of guides.&quot;&quot;&quot;</span>
+    <span class="n">guide1</span><span class="p">:</span> <span class="n">GuideCandidate</span>
+    <span class="n">guide2</span><span class="p">:</span> <span class="n">GuideCandidate</span>
+
+    <span class="c1"># Spacing analysis</span>
+    <span class="n">spacing</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">has_steric_clash</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">in_optimal_range</span><span class="p">:</span> <span class="nb">bool</span>
+
+    <span class="c1"># Synergy prediction</span>
+    <span class="n">synergy_score</span><span class="p">:</span> <span class="nb">float</span>       <span class="c1"># 0-2 scale (&gt;1 = synergistic, &lt;1 = antagonistic)</span>
+    <span class="n">combined_efficiency</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="c1"># Interaction type</span>
+    <span class="n">interaction_type</span><span class="p">:</span> <span class="nb">str</span>      <span class="c1"># &#39;synergistic&#39;, &#39;additive&#39;, &#39;antagonistic&#39;, &#39;clash&#39;</span></div>
+
+
+
+<div class="viewcode-block" id="MultiGuideSet">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.MultiGuideSet">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MultiGuideSet</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A set of guides designed to work together.&quot;&quot;&quot;</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GuideCandidate</span><span class="p">]</span>
+    <span class="n">pairs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GuidePair</span><span class="p">]</span>
+
+    <span class="c1"># Overall scores</span>
+    <span class="n">combined_score</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">synergy_factor</span><span class="p">:</span> <span class="nb">float</span>      <span class="c1"># Average synergy across pairs</span>
+    <span class="n">ensemble_coherence</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># Combined IR coherence</span>
+
+    <span class="c1"># Quality metrics</span>
+    <span class="n">has_clashes</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">min_spacing</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">max_spacing</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1"># Recommendation</span>
+    <span class="n">recommendation</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">go_no_go</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+
+<div class="viewcode-block" id="MultiGuideConfig">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.MultiGuideConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MultiGuideConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for multi-guide analysis.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Spacing parameters</span>
+    <span class="n">min_spacing</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">optimal_spacing_min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="n">optimal_spacing_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">max_interaction_distance</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="n">clash_radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span>
+
+    <span class="c1"># Synergy modeling</span>
+    <span class="n">enable_synergy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">synergy_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;empirical&quot;</span>  <span class="c1"># &#39;empirical&#39;, &#39;learned&#39;, &#39;none&#39;</span>
+
+    <span class="c1"># Combination parameters</span>
+    <span class="n">max_guides</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>        <span class="c1"># Maximum guides in a set</span>
+    <span class="n">min_guides</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span>        <span class="c1"># Minimum guides in a set</span>
+
+    <span class="c1"># Scoring weights</span>
+    <span class="n">weight_individual</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.4</span>
+    <span class="n">weight_synergy</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="n">weight_coherence</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+    <span class="c1"># IR coherence</span>
+    <span class="n">compute_coherence</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_spacing</span><span class="p">(</span><span class="n">guide1</span><span class="p">:</span> <span class="n">GuideCandidate</span><span class="p">,</span> <span class="n">guide2</span><span class="p">:</span> <span class="n">GuideCandidate</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate spacing between two guides.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide1: First guide</span>
+<span class="sd">        guide2: Second guide</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Absolute distance in bp</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">guide1</span><span class="o">.</span><span class="n">position</span> <span class="o">-</span> <span class="n">guide2</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_steric_clash</span><span class="p">(</span>
+    <span class="n">guide1</span><span class="p">:</span> <span class="n">GuideCandidate</span><span class="p">,</span>
+    <span class="n">guide2</span><span class="p">:</span> <span class="n">GuideCandidate</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MultiGuideConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if two guides would have steric clash.</span>
+
+<span class="sd">    Steric clash occurs when:</span>
+<span class="sd">    - Guides are too close (&lt;30bp typically)</span>
+<span class="sd">    - dCas9 proteins would physically interfere</span>
+<span class="sd">    - Same strand and overlapping</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide1: First guide</span>
+<span class="sd">        guide2: Second guide</span>
+<span class="sd">        config: MultiGuideConfig</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        True if steric clash expected</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">MultiGuideConfig</span><span class="p">()</span>
+
+    <span class="n">spacing</span> <span class="o">=</span> <span class="n">calculate_spacing</span><span class="p">(</span><span class="n">guide1</span><span class="p">,</span> <span class="n">guide2</span><span class="p">)</span>
+
+    <span class="c1"># Basic distance check</span>
+    <span class="k">if</span> <span class="n">spacing</span> <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">clash_radius</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># Same strand amplifies clash</span>
+    <span class="k">if</span> <span class="n">guide1</span><span class="o">.</span><span class="n">strand</span> <span class="o">==</span> <span class="n">guide2</span><span class="o">.</span><span class="n">strand</span> <span class="ow">and</span> <span class="n">spacing</span> <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">min_spacing</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># Opposite strands can be slightly closer</span>
+    <span class="k">if</span> <span class="n">guide1</span><span class="o">.</span><span class="n">strand</span> <span class="o">!=</span> <span class="n">guide2</span><span class="o">.</span><span class="n">strand</span> <span class="ow">and</span> <span class="n">spacing</span> <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">clash_radius</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<div class="viewcode-block" id="predict_pairwise_synergy">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.predict_pairwise_synergy">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">predict_pairwise_synergy</span><span class="p">(</span>
+    <span class="n">guide1</span><span class="p">:</span> <span class="n">GuideCandidate</span><span class="p">,</span>
+    <span class="n">guide2</span><span class="p">:</span> <span class="n">GuideCandidate</span><span class="p">,</span>
+    <span class="n">tss_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MultiGuideConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Predict synergy between two guides.</span>
+
+<span class="sd">    Synergy &gt; 1.0 means combined effect is greater than sum of parts.</span>
+<span class="sd">    Synergy &lt; 1.0 means interference or redundancy.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide1: First guide</span>
+<span class="sd">        guide2: Second guide</span>
+<span class="sd">        tss_position: TSS position for relative calculations</span>
+<span class="sd">        config: MultiGuideConfig</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Synergy coefficient (0-2, with 1.0 = additive)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">MultiGuideConfig</span><span class="p">()</span>
+
+    <span class="n">spacing</span> <span class="o">=</span> <span class="n">calculate_spacing</span><span class="p">(</span><span class="n">guide1</span><span class="p">,</span> <span class="n">guide2</span><span class="p">)</span>
+
+    <span class="c1"># Check for clash first</span>
+    <span class="k">if</span> <span class="n">check_steric_clash</span><span class="p">(</span><span class="n">guide1</span><span class="p">,</span> <span class="n">guide2</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">0.0</span>  <span class="c1"># Complete interference</span>
+
+    <span class="c1"># Base synergy from spacing</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">optimal_spacing_min</span> <span class="o">&lt;=</span> <span class="n">spacing</span> <span class="o">&lt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">optimal_spacing_max</span><span class="p">:</span>
+        <span class="c1"># Optimal range - maximum synergy potential</span>
+        <span class="n">spacing_factor</span> <span class="o">=</span> <span class="mf">1.2</span>
+    <span class="k">elif</span> <span class="n">spacing</span> <span class="o">&lt;</span> <span class="n">config</span><span class="o">.</span><span class="n">optimal_spacing_min</span><span class="p">:</span>
+        <span class="c1"># Too close - some interference</span>
+        <span class="n">spacing_factor</span> <span class="o">=</span> <span class="mf">0.7</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="p">(</span><span class="n">spacing</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">optimal_spacing_min</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">spacing</span> <span class="o">&lt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">max_interaction_distance</span><span class="p">:</span>
+        <span class="c1"># Beyond optimal but still interacting</span>
+        <span class="n">decay</span> <span class="o">=</span> <span class="p">(</span><span class="n">spacing</span> <span class="o">-</span> <span class="n">config</span><span class="o">.</span><span class="n">optimal_spacing_max</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">max_interaction_distance</span> <span class="o">-</span> <span class="n">config</span><span class="o">.</span><span class="n">optimal_spacing_max</span>
+        <span class="p">)</span>
+        <span class="n">spacing_factor</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">decay</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Too far apart - independent action</span>
+        <span class="k">return</span> <span class="mf">1.0</span>  <span class="c1"># Additive only</span>
+
+    <span class="c1"># Position-based synergy (relative to TSS)</span>
+    <span class="n">pos1_rel</span> <span class="o">=</span> <span class="n">guide1</span><span class="o">.</span><span class="n">position</span> <span class="o">-</span> <span class="n">tss_position</span>
+    <span class="n">pos2_rel</span> <span class="o">=</span> <span class="n">guide2</span><span class="o">.</span><span class="n">position</span> <span class="o">-</span> <span class="n">tss_position</span>
+
+    <span class="c1"># Both upstream of TSS</span>
+    <span class="k">if</span> <span class="n">pos1_rel</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">pos2_rel</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">position_factor</span> <span class="o">=</span> <span class="n">POSITION_SYNERGY</span><span class="p">[</span><span class="s1">&#39;upstream_upstream&#39;</span><span class="p">]</span>
+    <span class="c1"># One upstream, one downstream</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">pos1_rel</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">pos2_rel</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">position_factor</span> <span class="o">=</span> <span class="n">POSITION_SYNERGY</span><span class="p">[</span><span class="s1">&#39;upstream_downstream&#39;</span><span class="p">]</span>
+    <span class="c1"># Both downstream</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">position_factor</span> <span class="o">=</span> <span class="n">POSITION_SYNERGY</span><span class="p">[</span><span class="s1">&#39;downstream_downstream&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Strand consideration</span>
+    <span class="c1"># Same strand can have cooperative loading</span>
+    <span class="k">if</span> <span class="n">guide1</span><span class="o">.</span><span class="n">strand</span> <span class="o">==</span> <span class="n">guide2</span><span class="o">.</span><span class="n">strand</span><span class="p">:</span>
+        <span class="n">strand_factor</span> <span class="o">=</span> <span class="mf">1.1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">strand_factor</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Coherence contribution</span>
+    <span class="c1"># High coherence guides synergize better</span>
+    <span class="k">if</span> <span class="n">guide1</span><span class="o">.</span><span class="n">coherence_R</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">guide2</span><span class="o">.</span><span class="n">coherence_R</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">coherence_factor</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">guide1</span><span class="o">.</span><span class="n">coherence_R</span> <span class="o">+</span> <span class="n">guide2</span><span class="o">.</span><span class="n">coherence_R</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">coherence_factor</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Combined synergy</span>
+    <span class="n">synergy</span> <span class="o">=</span> <span class="n">spacing_factor</span> <span class="o">*</span> <span class="n">position_factor</span> <span class="o">*</span> <span class="n">strand_factor</span> <span class="o">*</span> <span class="n">coherence_factor</span>
+
+    <span class="c1"># Clamp to reasonable range</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">synergy</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="analyze_guide_pair">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.analyze_guide_pair">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze_guide_pair</span><span class="p">(</span>
+    <span class="n">guide1</span><span class="p">:</span> <span class="n">GuideCandidate</span><span class="p">,</span>
+    <span class="n">guide2</span><span class="p">:</span> <span class="n">GuideCandidate</span><span class="p">,</span>
+    <span class="n">tss_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MultiGuideConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GuidePair</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Analyze interaction between two guides.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide1: First guide</span>
+<span class="sd">        guide2: Second guide</span>
+<span class="sd">        tss_position: TSS position</span>
+<span class="sd">        config: MultiGuideConfig</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        GuidePair analysis object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">MultiGuideConfig</span><span class="p">()</span>
+
+    <span class="n">spacing</span> <span class="o">=</span> <span class="n">calculate_spacing</span><span class="p">(</span><span class="n">guide1</span><span class="p">,</span> <span class="n">guide2</span><span class="p">)</span>
+    <span class="n">has_clash</span> <span class="o">=</span> <span class="n">check_steric_clash</span><span class="p">(</span><span class="n">guide1</span><span class="p">,</span> <span class="n">guide2</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="n">in_optimal</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">optimal_spacing_min</span> <span class="o">&lt;=</span> <span class="n">spacing</span> <span class="o">&lt;=</span> <span class="n">config</span><span class="o">.</span><span class="n">optimal_spacing_max</span>
+    <span class="p">)</span>
+
+    <span class="n">synergy</span> <span class="o">=</span> <span class="n">predict_pairwise_synergy</span><span class="p">(</span><span class="n">guide1</span><span class="p">,</span> <span class="n">guide2</span><span class="p">,</span> <span class="n">tss_position</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="c1"># Determine interaction type</span>
+    <span class="k">if</span> <span class="n">has_clash</span><span class="p">:</span>
+        <span class="n">interaction_type</span> <span class="o">=</span> <span class="s2">&quot;clash&quot;</span>
+    <span class="k">elif</span> <span class="n">synergy</span> <span class="o">&gt;</span> <span class="mf">1.1</span><span class="p">:</span>
+        <span class="n">interaction_type</span> <span class="o">=</span> <span class="s2">&quot;synergistic&quot;</span>
+    <span class="k">elif</span> <span class="n">synergy</span> <span class="o">&gt;=</span> <span class="mf">0.9</span><span class="p">:</span>
+        <span class="n">interaction_type</span> <span class="o">=</span> <span class="s2">&quot;additive&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">interaction_type</span> <span class="o">=</span> <span class="s2">&quot;antagonistic&quot;</span>
+
+    <span class="c1"># Combined efficiency</span>
+    <span class="c1"># For synergistic: E_combined &gt; E1 + E2</span>
+    <span class="c1"># For additive: E_combined ≈ E1 + E2 - E1*E2 (diminishing returns)</span>
+    <span class="n">e1</span> <span class="o">=</span> <span class="n">guide1</span><span class="o">.</span><span class="n">efficiency</span> <span class="k">if</span> <span class="n">guide1</span><span class="o">.</span><span class="n">efficiency</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">guide1</span><span class="o">.</span><span class="n">individual_score</span>
+    <span class="n">e2</span> <span class="o">=</span> <span class="n">guide2</span><span class="o">.</span><span class="n">efficiency</span> <span class="k">if</span> <span class="n">guide2</span><span class="o">.</span><span class="n">efficiency</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">guide2</span><span class="o">.</span><span class="n">individual_score</span>
+
+    <span class="k">if</span> <span class="n">has_clash</span><span class="p">:</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>  <span class="c1"># Severe reduction</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Multiplicative model with synergy</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">e1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">e2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">synergy</span><span class="p">)</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">combined</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">GuidePair</span><span class="p">(</span>
+        <span class="n">guide1</span><span class="o">=</span><span class="n">guide1</span><span class="p">,</span>
+        <span class="n">guide2</span><span class="o">=</span><span class="n">guide2</span><span class="p">,</span>
+        <span class="n">spacing</span><span class="o">=</span><span class="n">spacing</span><span class="p">,</span>
+        <span class="n">has_steric_clash</span><span class="o">=</span><span class="n">has_clash</span><span class="p">,</span>
+        <span class="n">in_optimal_range</span><span class="o">=</span><span class="n">in_optimal</span><span class="p">,</span>
+        <span class="n">synergy_score</span><span class="o">=</span><span class="n">synergy</span><span class="p">,</span>
+        <span class="n">combined_efficiency</span><span class="o">=</span><span class="n">combined</span><span class="p">,</span>
+        <span class="n">interaction_type</span><span class="o">=</span><span class="n">interaction_type</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="design_multiguide_set">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.design_multiguide_set">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_multiguide_set</span><span class="p">(</span>
+    <span class="n">candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GuideCandidate</span><span class="p">],</span>
+    <span class="n">n_guides</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">tss_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MultiGuideConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">MultiGuideSet</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Design optimal multi-guide sets from candidates.</span>
+
+<span class="sd">    Evaluates all combinations and ranks by combined effectiveness.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        candidates: List of guide candidates</span>
+<span class="sd">        n_guides: Number of guides in each set</span>
+<span class="sd">        tss_position: TSS position</span>
+<span class="sd">        config: MultiGuideConfig</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of MultiGuideSet objects, sorted by score</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; candidates = [GuideCandidate(...) for guide in top_guides]</span>
+<span class="sd">        &gt;&gt;&gt; sets = design_multiguide_set(candidates, n_guides=2)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Best set synergy: {sets[0].synergy_factor:.2f}&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">MultiGuideConfig</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n_guides</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Need at least </span><span class="si">{</span><span class="n">n_guides</span><span class="si">}</span><span class="s2"> candidates, got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">sets</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Evaluate all combinations</span>
+    <span class="k">for</span> <span class="n">combo</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">)),</span> <span class="n">n_guides</span><span class="p">):</span>
+        <span class="n">guides</span> <span class="o">=</span> <span class="p">[</span><span class="n">candidates</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">combo</span><span class="p">]</span>
+
+        <span class="c1"># Analyze all pairs</span>
+        <span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_guides</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">pair</span> <span class="o">=</span> <span class="n">analyze_guide_pair</span><span class="p">(</span><span class="n">guides</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">guides</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">tss_position</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+            <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span>
+
+        <span class="c1"># Check for any clashes</span>
+        <span class="n">has_clashes</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">has_steric_clash</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">)</span>
+
+        <span class="c1"># Calculate spacing stats</span>
+        <span class="n">spacings</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">spacing</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">]</span>
+        <span class="n">min_spacing</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">spacings</span><span class="p">)</span> <span class="k">if</span> <span class="n">spacings</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">max_spacing</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">spacings</span><span class="p">)</span> <span class="k">if</span> <span class="n">spacings</span> <span class="k">else</span> <span class="mi">0</span>
+
+        <span class="c1"># Average synergy</span>
+        <span class="n">synergy_factor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">synergy_score</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">])</span> <span class="k">if</span> <span class="n">pairs</span> <span class="k">else</span> <span class="mf">1.0</span>
+
+        <span class="c1"># Combined score</span>
+        <span class="n">individual_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">g</span><span class="o">.</span><span class="n">individual_score</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">])</span>
+
+        <span class="c1"># Ensemble coherence (geometric mean)</span>
+        <span class="n">coherences</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">coherence_R</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">guides</span> <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">coherence_R</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">coherences</span><span class="p">:</span>
+            <span class="n">ensemble_coherence</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">coherences</span><span class="p">))))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ensemble_coherence</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+        <span class="c1"># Combined efficiency (accounts for synergy and diminishing returns)</span>
+        <span class="n">combined_score</span> <span class="o">=</span> <span class="n">_compute_set_score</span><span class="p">(</span>
+            <span class="n">guides</span><span class="p">,</span> <span class="n">pairs</span><span class="p">,</span> <span class="n">synergy_factor</span><span class="p">,</span> <span class="n">ensemble_coherence</span><span class="p">,</span> <span class="n">config</span>
+        <span class="p">)</span>
+
+        <span class="c1"># GO/NO-GO</span>
+        <span class="k">if</span> <span class="n">has_clashes</span><span class="p">:</span>
+            <span class="n">go_status</span> <span class="o">=</span> <span class="s2">&quot;NO-GO&quot;</span>
+            <span class="n">recommendation</span> <span class="o">=</span> <span class="s2">&quot;CLASH: Guides too close, will interfere&quot;</span>
+        <span class="k">elif</span> <span class="n">ensemble_coherence</span> <span class="o">&lt;</span> <span class="n">E_MINUS_2</span><span class="p">:</span>
+            <span class="n">go_status</span> <span class="o">=</span> <span class="s2">&quot;NO-GO&quot;</span>
+            <span class="n">recommendation</span> <span class="o">=</span> <span class="s2">&quot;LOW COHERENCE: Unreliable prediction&quot;</span>
+        <span class="k">elif</span> <span class="n">synergy_factor</span> <span class="o">&lt;</span> <span class="mf">0.8</span><span class="p">:</span>
+            <span class="n">go_status</span> <span class="o">=</span> <span class="s2">&quot;CAUTION&quot;</span>
+            <span class="n">recommendation</span> <span class="o">=</span> <span class="s2">&quot;ANTAGONISTIC: Guides may interfere&quot;</span>
+        <span class="k">elif</span> <span class="n">synergy_factor</span> <span class="o">&gt;</span> <span class="mf">1.1</span><span class="p">:</span>
+            <span class="n">go_status</span> <span class="o">=</span> <span class="s2">&quot;GO&quot;</span>
+            <span class="n">recommendation</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SYNERGISTIC: </span><span class="si">{</span><span class="n">synergy_factor</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">x synergy expected&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">go_status</span> <span class="o">=</span> <span class="s2">&quot;GO&quot;</span>
+            <span class="n">recommendation</span> <span class="o">=</span> <span class="s2">&quot;ADDITIVE: Normal combined effect expected&quot;</span>
+
+        <span class="n">guide_set</span> <span class="o">=</span> <span class="n">MultiGuideSet</span><span class="p">(</span>
+            <span class="n">guides</span><span class="o">=</span><span class="n">guides</span><span class="p">,</span>
+            <span class="n">pairs</span><span class="o">=</span><span class="n">pairs</span><span class="p">,</span>
+            <span class="n">combined_score</span><span class="o">=</span><span class="n">combined_score</span><span class="p">,</span>
+            <span class="n">synergy_factor</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">synergy_factor</span><span class="p">),</span>
+            <span class="n">ensemble_coherence</span><span class="o">=</span><span class="n">ensemble_coherence</span><span class="p">,</span>
+            <span class="n">has_clashes</span><span class="o">=</span><span class="n">has_clashes</span><span class="p">,</span>
+            <span class="n">min_spacing</span><span class="o">=</span><span class="n">min_spacing</span><span class="p">,</span>
+            <span class="n">max_spacing</span><span class="o">=</span><span class="n">max_spacing</span><span class="p">,</span>
+            <span class="n">recommendation</span><span class="o">=</span><span class="n">recommendation</span><span class="p">,</span>
+            <span class="n">go_no_go</span><span class="o">=</span><span class="n">go_status</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">sets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">guide_set</span><span class="p">)</span>
+
+    <span class="c1"># Sort by combined score (descending)</span>
+    <span class="n">sets</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">combined_score</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">sets</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_set_score</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GuideCandidate</span><span class="p">],</span>
+    <span class="n">pairs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GuidePair</span><span class="p">],</span>
+    <span class="n">synergy_factor</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">ensemble_coherence</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">MultiGuideConfig</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute combined score for a guide set.&quot;&quot;&quot;</span>
+    <span class="c1"># Individual contribution</span>
+    <span class="n">individual_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">g</span><span class="o">.</span><span class="n">individual_score</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">])</span>
+
+    <span class="c1"># Synergy contribution (normalized)</span>
+    <span class="n">synergy_norm</span> <span class="o">=</span> <span class="n">synergy_factor</span> <span class="o">/</span> <span class="mf">1.2</span>  <span class="c1"># 1.2 is approximate max</span>
+
+    <span class="c1"># Combined</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">weight_individual</span> <span class="o">*</span> <span class="n">individual_avg</span> <span class="o">+</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">weight_synergy</span> <span class="o">*</span> <span class="n">synergy_norm</span> <span class="o">+</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">weight_coherence</span> <span class="o">*</span> <span class="n">ensemble_coherence</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Penalty for clashes</span>
+    <span class="n">clash_count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pairs</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">has_steric_clash</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">clash_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">*=</span> <span class="mf">0.3</span> <span class="o">**</span> <span class="n">clash_count</span>
+
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="optimize_guide_spacing">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.optimize_guide_spacing">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">optimize_guide_spacing</span><span class="p">(</span>
+    <span class="n">anchor_guide</span><span class="p">:</span> <span class="n">GuideCandidate</span><span class="p">,</span>
+    <span class="n">candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GuideCandidate</span><span class="p">],</span>
+    <span class="n">tss_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MultiGuideConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">GuideCandidate</span><span class="p">,</span> <span class="n">GuidePair</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find optimal second guide given an anchor guide.</span>
+
+<span class="sd">    Useful when one guide is already selected and you need</span>
+<span class="sd">    to find the best partner.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        anchor_guide: The fixed guide</span>
+<span class="sd">        candidates: Potential partner guides</span>
+<span class="sd">        tss_position: TSS position</span>
+<span class="sd">        config: MultiGuideConfig</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of (guide, pair_analysis) tuples, sorted by synergy</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">MultiGuideConfig</span><span class="p">()</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">candidate</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="c1"># Skip self-comparison</span>
+        <span class="k">if</span> <span class="n">candidate</span><span class="o">.</span><span class="n">position</span> <span class="o">==</span> <span class="n">anchor_guide</span><span class="o">.</span><span class="n">position</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">pair</span> <span class="o">=</span> <span class="n">analyze_guide_pair</span><span class="p">(</span><span class="n">anchor_guide</span><span class="p">,</span> <span class="n">candidate</span><span class="p">,</span> <span class="n">tss_position</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pair</span><span class="o">.</span><span class="n">has_steric_clash</span><span class="p">:</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">candidate</span><span class="p">,</span> <span class="n">pair</span><span class="p">))</span>
+
+    <span class="c1"># Sort by synergy score</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">synergy_score</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">results</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">predict_combinatorial_effect</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GuideCandidate</span><span class="p">],</span>
+    <span class="n">individual_effects</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+    <span class="n">tss_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MultiGuideConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Predict combined effect of multiple guides.</span>
+
+<span class="sd">    Uses multiplicative model with synergy corrections.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: List of guides</span>
+<span class="sd">        individual_effects: Individual fold-change or efficiency for each</span>
+<span class="sd">        tss_position: TSS position</span>
+<span class="sd">        config: MultiGuideConfig</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Prediction dictionary with combined effect</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; result = predict_combinatorial_effect(</span>
+<span class="sd">        ...     guides=[g1, g2, g3],</span>
+<span class="sd">        ...     individual_effects=[2.0, 1.8, 1.5]  # Fold changes</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Combined fold change: {result[&#39;combined_effect&#39;]:.1f}x&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">MultiGuideConfig</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">guides</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">individual_effects</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must have same number of guides and effects&quot;</span><span class="p">)</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">guides</span><span class="p">)</span>
+
+    <span class="c1"># Analyze all pairs</span>
+    <span class="n">pair_synergies</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">synergy</span> <span class="o">=</span> <span class="n">predict_pairwise_synergy</span><span class="p">(</span>
+                <span class="n">guides</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">guides</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">tss_position</span><span class="p">,</span> <span class="n">config</span>
+            <span class="p">)</span>
+            <span class="n">pair_synergies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">synergy</span><span class="p">)</span>
+
+    <span class="n">avg_synergy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pair_synergies</span><span class="p">)</span> <span class="k">if</span> <span class="n">pair_synergies</span> <span class="k">else</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Combined effect model</span>
+    <span class="c1"># For fold changes: multiplicative with diminishing returns</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">e</span> <span class="o">&gt;=</span> <span class="mf">1.0</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">individual_effects</span><span class="p">):</span>
+        <span class="c1"># Fold changes (multiplicative)</span>
+        <span class="n">base_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">individual_effects</span><span class="p">)</span>
+
+        <span class="c1"># Apply diminishing returns (log-sum model)</span>
+        <span class="n">log_effects</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">individual_effects</span><span class="p">)</span>
+        <span class="n">log_combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">log_effects</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.6</span> <span class="o">+</span> <span class="mf">0.4</span> <span class="o">*</span> <span class="n">avg_synergy</span><span class="p">)</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_combined</span><span class="p">)</span>
+
+        <span class="c1"># Cap at reasonable maximum</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="n">base_product</span> <span class="o">*</span> <span class="n">avg_synergy</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Efficiency values (0-1)</span>
+        <span class="c1"># P(all active) model with synergy</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">for</span> <span class="n">effect</span> <span class="ow">in</span> <span class="n">individual_effects</span><span class="p">:</span>
+            <span class="n">combined</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">effect</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">avg_synergy</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;combined_effect&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">combined</span><span class="p">),</span>
+        <span class="s1">&#39;individual_effects&#39;</span><span class="p">:</span> <span class="n">individual_effects</span><span class="p">,</span>
+        <span class="s1">&#39;average_synergy&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">avg_synergy</span><span class="p">),</span>
+        <span class="s1">&#39;n_guides&#39;</span><span class="p">:</span> <span class="n">n</span><span class="p">,</span>
+        <span class="s1">&#39;synergy_type&#39;</span><span class="p">:</span> <span class="s1">&#39;synergistic&#39;</span> <span class="k">if</span> <span class="n">avg_synergy</span> <span class="o">&gt;</span> <span class="mf">1.1</span> <span class="k">else</span> <span class="p">(</span>
+            <span class="s1">&#39;additive&#39;</span> <span class="k">if</span> <span class="n">avg_synergy</span> <span class="o">&gt;=</span> <span class="mf">0.9</span> <span class="k">else</span> <span class="s1">&#39;antagonistic&#39;</span>
+        <span class="p">),</span>
+    <span class="p">}</span>
+
+
+<div class="viewcode-block" id="validate_guide_set">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.validate_guide_set">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_guide_set</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">GuideCandidate</span><span class="p">],</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MultiGuideConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validate a proposed guide set for compatibility.</span>
+
+<span class="sd">    Checks:</span>
+<span class="sd">    - Steric clashes</span>
+<span class="sd">    - Spacing appropriateness</span>
+<span class="sd">    - Coherence quality</span>
+<span class="sd">    - Overall synergy potential</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: List of guides to validate</span>
+<span class="sd">        config: MultiGuideConfig</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Validation results dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">MultiGuideConfig</span><span class="p">()</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">guides</span><span class="p">)</span>
+    <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">warnings</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Check pairs</span>
+    <span class="n">clashes</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">min_spacing</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">max_spacing</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">synergies</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">spacing</span> <span class="o">=</span> <span class="n">calculate_spacing</span><span class="p">(</span><span class="n">guides</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">guides</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="n">min_spacing</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">min_spacing</span><span class="p">,</span> <span class="n">spacing</span><span class="p">)</span>
+            <span class="n">max_spacing</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_spacing</span><span class="p">,</span> <span class="n">spacing</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">check_steric_clash</span><span class="p">(</span><span class="n">guides</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">guides</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">config</span><span class="p">):</span>
+                <span class="n">clashes</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Steric clash between guide </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;(spacing: </span><span class="si">{</span><span class="n">spacing</span><span class="si">}</span><span class="s2">bp)&quot;</span>
+                <span class="p">)</span>
+
+            <span class="n">synergy</span> <span class="o">=</span> <span class="n">predict_pairwise_synergy</span><span class="p">(</span><span class="n">guides</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">guides</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+            <span class="n">synergies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">synergy</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">synergy</span> <span class="o">&lt;</span> <span class="mf">0.8</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Low synergy (</span><span class="si">{</span><span class="n">synergy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">) between guide </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+    <span class="c1"># Coherence check</span>
+    <span class="n">low_coherence</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">guides</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">coherence_R</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">g</span><span class="o">.</span><span class="n">coherence_R</span> <span class="o">&lt;</span> <span class="n">E_MINUS_2</span>
+    <span class="p">]</span>
+    <span class="k">if</span> <span class="n">low_coherence</span><span class="p">:</span>
+        <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Low coherence guides (NO-GO): </span><span class="si">{</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">low_coherence</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Overall assessment</span>
+    <span class="n">valid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">issues</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">avg_synergy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">synergies</span><span class="p">)</span> <span class="k">if</span> <span class="n">synergies</span> <span class="k">else</span> <span class="mf">1.0</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;valid&#39;</span><span class="p">:</span> <span class="n">valid</span><span class="p">,</span>
+        <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="n">issues</span><span class="p">,</span>
+        <span class="s1">&#39;warnings&#39;</span><span class="p">:</span> <span class="n">warnings</span><span class="p">,</span>
+        <span class="s1">&#39;n_clashes&#39;</span><span class="p">:</span> <span class="n">clashes</span><span class="p">,</span>
+        <span class="s1">&#39;min_spacing&#39;</span><span class="p">:</span> <span class="n">min_spacing</span> <span class="k">if</span> <span class="n">min_spacing</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;max_spacing&#39;</span><span class="p">:</span> <span class="n">max_spacing</span><span class="p">,</span>
+        <span class="s1">&#39;average_synergy&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">avg_synergy</span><span class="p">),</span>
+        <span class="s1">&#39;recommendation&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="s2">&quot;VALID&quot;</span> <span class="k">if</span> <span class="n">valid</span> <span class="k">else</span> <span class="s2">&quot;INVALID: &quot;</span> <span class="o">+</span> <span class="s2">&quot;; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">issues</span><span class="p">)</span>
+        <span class="p">),</span>
+    <span class="p">}</span></div>
+
+
+
+<span class="c1"># Experimental synergy data for validation</span>
+<span class="n">KNOWN_SYNERGY_EXAMPLES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># From Konermann et al. and other CRISPRa studies</span>
+    <span class="s1">&#39;high_synergy&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;spacing_range&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+        <span class="s1">&#39;expected_synergy&#39;</span><span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Optimal spacing shows ~30</span><span class="si">% s</span><span class="s1">ynergy&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;close_spacing&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;spacing_range&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
+        <span class="s1">&#39;expected_synergy&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Very close guides interfere&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;far_spacing&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;spacing_range&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">600</span><span class="p">),</span>
+        <span class="s1">&#39;expected_synergy&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Distant guides act independently&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

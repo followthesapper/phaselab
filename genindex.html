@@ -1,0 +1,2865 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.quantum.__getattr__">__getattr__() (in module phaselab.quantum)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporValidator.__init__">__init__() (phaselab.crispr.CrisporValidator method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.__post_init__">__post_init__() (phaselab.quantum.QuantumConfig method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.GuideTier.A">A (phaselab.crispr.GuideTier attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.EvidenceLevel.A">(phaselab.integrations.crispor.EvidenceLevel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.abc_score">abc_score (phaselab.crispr.Enhancer attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.abs_end">abs_end (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.abs_start">abs_start (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult.absolute_E">absolute_E (phaselab.crispr.BindingEnergyResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.accessibility">accessibility (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult.activation_potential">activation_potential (phaselab.crispr.EnhancerGuideResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.activity_score">activity_score (phaselab.crispr.Enhancer attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.activity_window">activity_window (phaselab.crispr.BaseEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionSet.add_region">add_region() (phaselab.crispr.RegionSet method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionBuilder.add_tss">add_tss() (phaselab.crispr.RegionBuilder method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.RegionBuilder.add_tss_manual">add_tss_manual() (phaselab.crispr.RegionBuilder method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionBuilder.add_window">add_window() (phaselab.crispr.RegionBuilder method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.alpha_P">alpha_P (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.amplitudes">amplitudes (phaselab.circadian.MultiTissueResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.analyze_guide_pair">analyze_guide_pair() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.analyze_offtarget_landscape">analyze_offtarget_landscape() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.apply_hard_gates">apply_hard_gates() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Nuclease.ASCAS12A">ASCAS12A (phaselab.crispr.Nuclease attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CoherenceSource.ATLAS_Q_EXPECTATIONS">ATLAS_Q_EXPECTATIONS (phaselab.integrations.crispor.CoherenceSource attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CoherenceSource.ATLAS_Q_VQE">ATLAS_Q_VQE (phaselab.integrations.crispor.CoherenceSource attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumMode.AUDIT">AUDIT (phaselab.quantum.QuantumMode attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.audit_fraction">audit_fraction (phaselab.quantum.QuantumConfig attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.GuideTier.B">B (phaselab.crispr.GuideTier attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.EvidenceLevel.B">(phaselab.integrations.crispor.EvidenceLevel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.backend">backend (phaselab.quantum.QuantumConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Modality.BASE_EDITING">BASE_EDITING (phaselab.crispr.Modality attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig">BaseEditConfig (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.benchmark_against_published">benchmark_against_published() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BenchmarkResult">BenchmarkResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.beta_R">beta_R (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.beta_V">beta_V (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseRole.BINDING">BINDING (phaselab.crispr.NucleaseRole attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.binding_energy">binding_energy (phaselab.crispr.QuantumGuideResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.binding_energy">(phaselab.integrations.crispor.OffTargetSite attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult.binding_result">binding_result (phaselab.crispr.MultiEvidenceResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RankingPolicy.BINDING_STRICT">BINDING_STRICT (phaselab.crispr.RankingPolicy attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult">BindingEnergyResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.bonus_diffuse_risk">bonus_diffuse_risk (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionBuilder.build">build() (phaselab.crispr.RegionBuilder method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.build_regions_for_gene">build_regions_for_gene() (in module phaselab.crispr)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.GuideTier.C">C (phaselab.crispr.GuideTier attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.EvidenceLevel.C">(phaselab.integrations.crispor.EvidenceLevel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide">CandidateGuide (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnumerationResult.candidates">candidates (phaselab.crispr.EnumerationResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnumerationResult.candidates_by_region">candidates_by_region (phaselab.crispr.EnumerationResult property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnumerationResult.candidates_by_strand">candidates_by_strand (phaselab.crispr.EnumerationResult property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Nuclease.CAS9_HF1">CAS9_HF1 (phaselab.crispr.Nuclease attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.cell_type">cell_type (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.center">center (phaselab.crispr.Enhancer property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPORMetrics.cfd_score">cfd_score (phaselab.crispr.CRISPORMetrics attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.cfd_score">(phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.cfd_score">(phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.cfd_score">(phaselab.integrations.crispor.OffTargetSite attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.cfd_score">cfd_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.cfd_specificity">cfd_specificity (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.cfd_specificity">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.check_bystanders">check_bystanders (phaselab.crispr.BaseEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.check_safety_gate">check_safety_gate() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.check_secondary_structure">check_secondary_structure (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.chrom">chrom (phaselab.crispr.EnhancedGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.Enhancer.chrom">(phaselab.crispr.Enhancer attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.chrom">(phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.chrom">(phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.chromatin_accessibility_score">chromatin_accessibility_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.chromatin_state">chromatin_state (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.chromosome">chromosome (phaselab.crispr.CandidateGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.Region.chromosome">(phaselab.crispr.Region attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.chromosome">(phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.claim_description">claim_description (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.claim_level">claim_level (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.claim_level_enum">claim_level_enum (phaselab.crispr.EnhancedGuide property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.clash_radius">clash_radius (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorResult.classical_scores">classical_scores (phaselab.crispr.DiscriminatorResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.classification">classification (phaselab.circadian.MultiTissueResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.core.coherence.classify_coherence">classify_coherence() (in module phaselab.core.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.classify_synchronization">classify_synchronization() (in module phaselab.circadian)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.close_offtargets">close_offtargets (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.cluster_concentration">cluster_concentration (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult.coherence">coherence (phaselab.crispr.BindingEnergyResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.coherence">(phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.coherence">(phaselab.crispr.QuantumGuideResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.coherence_mode">coherence_mode (phaselab.crispr.EnhancedGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.coherence_mode">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult.coherence_R">coherence_R (phaselab.crispr.EnhancerGuideResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.GuideCandidate.coherence_R">(phaselab.crispr.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.core.coherence.coherence_score">coherence_score() (in module phaselab.core.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.coherence_shots">coherence_shots (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.coherence_shots">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.coherence_shots">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.coherence_shots">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.coherence_shots">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.coherence_source">coherence_source (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CoherenceMode">CoherenceMode (class in phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.coherence_utils.CoherenceMode">(class in phaselab.crispr.coherence_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.quantum.coherence.CoherenceResult">CoherenceResult (class in phaselab.quantum.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CoherenceSource">CoherenceSource (class in phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuidePair.combined_efficiency">combined_efficiency (phaselab.crispr.GuidePair attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult.combined_score">combined_score (phaselab.crispr.EnhancerGuideResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult.combined_score">(phaselab.crispr.MultiEvidenceResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.combined_score">(phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.quantum.coherence.compare_coherence">compare_coherence() (in module phaselab.quantum.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compare_guides_with_without_context">compare_guides_with_without_context() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compare_promoter_vs_enhancer">compare_promoter_vs_enhancer() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.core.coherence.compare_sim_hardware">compare_sim_hardware() (in module phaselab.core.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.complexity">complexity (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.compute_binding_energy">compute_binding_energy() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_binding_landscape">compute_binding_landscape() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.compute_coherence">compute_coherence (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.compute_coherence">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.compute_coherence">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.compute_coherence">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.compute_coherence">(phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.compute_coherence">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_coherence_batch">compute_coherence_batch() (in module phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.coherence_utils.compute_coherence_batch">(in module phaselab.crispr.coherence_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_coherence_contrast">compute_coherence_contrast() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.coherence.compute_coherence_from_expectations">compute_coherence_from_expectations() (in module phaselab.quantum.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.coherence.compute_coherence_from_hamiltonian">compute_coherence_from_hamiltonian() (in module phaselab.quantum.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.coherence.compute_coherence_from_phases">compute_coherence_from_phases() (in module phaselab.quantum.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_coherence_with_zscore">compute_coherence_with_zscore() (in module phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.coherence_utils.compute_coherence_with_zscore">(in module phaselab.crispr.coherence_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_concentration_measures">compute_concentration_measures() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporConfig.compute_efficiency">compute_efficiency (phaselab.crispr.CrisporConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_energy_spectrum">compute_energy_spectrum() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.compute_evidence_level">compute_evidence_level() (phaselab.integrations.crispor.GuideCandidate method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_final_score">compute_final_score() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_geometry_landscape">compute_geometry_landscape() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.compute_guide_coherence">compute_guide_coherence (phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_guide_coherence">compute_guide_coherence() (in module phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.coherence_utils.compute_guide_coherence">(in module phaselab.crispr.coherence_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_guide_coherence_with_details">compute_guide_coherence_with_details() (in module phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.coherence_utils.compute_guide_coherence_with_details">(in module phaselab.crispr.coherence_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_ir_enhanced_score">compute_ir_enhanced_score() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_multi_evidence_score">compute_multi_evidence_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_offtarget_clustering">compute_offtarget_clustering() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_offtarget_entropy">compute_offtarget_entropy() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_offtarget_geometry">compute_offtarget_geometry() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_phase_alignment">compute_phase_alignment() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.compute_phase_landscape">compute_phase_landscape() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_region_difficulty">compute_region_difficulty() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_risk_mass">compute_risk_mass() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.compute_tail_risk">compute_tail_risk() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.config">config (phaselab.crispr.EnhancedDesignResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.configure_quantum">configure_quantum() (in module phaselab.quantum)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.context_confidence">context_confidence (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.crispor_composite_score">crispor_composite_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporConfig.crispor_path">crispor_path (phaselab.crispr.CrisporConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporConfig.crispor_path">(phaselab.integrations.crispor.CrisporConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporClient.crispor_script">crispor_script (phaselab.integrations.crispor.CrisporClient property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.crispor_validated">crispor_validated (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporClient">CrisporClient (class in phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporConfig">CrisporConfig (class in phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporConfig">(class in phaselab.integrations.crispor)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow">CrisporGuideRow (class in phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPORMetrics">CRISPORMetrics (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget">CrisporOffTarget (class in phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOutput">CrisporOutput (class in phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporValidator">CrisporValidator (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.crispr_window">crispr_window (phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Modality.CRISPRA">CRISPRA (phaselab.crispr.Modality attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.crispra_window">crispra_window (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Modality.CRISPRI">CRISPRI (phaselab.crispr.Modality attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.crispri_window">crispri_window (phaselab.crispr.CRISPRiConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.crispri_window">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig">CRISPRiConfig (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PhaseAlignmentResult.critical_window">critical_window (phaselab.crispr.PhaseAlignmentResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSSource.CUSTOM">CUSTOM (phaselab.crispr.TSSSource attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.cut_efficiency_score">cut_efficiency_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseRole.CUTTING">CUTTING (phaselab.crispr.NucleaseRole attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RankingPolicy.CUTTING_STRICT">CUTTING_STRICT (phaselab.crispr.RankingPolicy attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult.delta_E">delta_E (phaselab.crispr.BindingEnergyResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.delta_g">delta_g (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.delta_g_santalucia">delta_g_santalucia() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.delta_R">delta_R (phaselab.crispr.OffTargetGeometryResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.delta_r_bar">delta_r_bar (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.delta_r_bar">(phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.delta_r_bar_threshold">delta_r_bar_threshold (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.description">description (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_abe_guides">design_abe_guides() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_base_edit_guides">design_base_edit_guides() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_cbe_guides">design_cbe_guides() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_crispra_guides">design_crispra_guides() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_crispra_guides_v2">design_crispra_guides_v2() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_crispri_guides">design_crispri_guides() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_enhanced_guides">design_enhanced_guides() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_enhancer_guides">design_enhancer_guides() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_guides">design_guides() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.design_guides_with_crispor">design_guides_with_crispor() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_guides_with_quantum_discriminator">design_guides_with_quantum_discriminator() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_knockout_guides">design_knockout_guides() (in module phaselab.crispr)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.design_knockout_guides_v2">design_knockout_guides_v2() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_multiguide_set">design_multiguide_set() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_pbs">design_pbs() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_prime_edit">design_prime_edit() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.design_rt_template">design_rt_template() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult">DesignResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BenchmarkResult.details">details (phaselab.crispr.BenchmarkResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult.details">(phaselab.crispr.BindingEnergyResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult.details">(phaselab.crispr.MultiEvidenceResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.details">(phaselab.crispr.OffTargetGeometryResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PhaseAlignmentResult.details">(phaselab.crispr.PhaseAlignmentResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.details">(phaselab.crispr.QuantumGuideResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorResult">DiscriminatorResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorStatus">DiscriminatorStatus (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.disease_severity">disease_severity (phaselab.circadian.MultiTissueParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.disease_tissue">disease_tissue (phaselab.circadian.MultiTissueParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.distance_to_tss">distance_to_tss (phaselab.crispr.Enhancer attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.doench_2016">doench_2016 (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.doench_2016">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.Window.downstream">downstream (phaselab.crispr.Window attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.Nuclease.ECAS9">ECAS9 (phaselab.crispr.Nuclease attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.edit_type">edit_type (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.editing_efficiency_at_position">editing_efficiency_at_position() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.editor">editor (phaselab.crispr.BaseEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideCandidate.efficiency">efficiency (phaselab.crispr.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.element_type">element_type (phaselab.crispr.Enhancer attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.emit_manifest">emit_manifest() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.enable_synergy">enable_synergy (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.end">end (phaselab.crispr.CandidateGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.Enhancer.end">(phaselab.crispr.Enhancer attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.Region.end">(phaselab.crispr.Region attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.end">(phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.end">(phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.energy_off_max">energy_off_max (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.energy_off_mean">energy_off_mean (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.energy_on_target">energy_on_target (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorResult.energy_separations">energy_separations (phaselab.crispr.DiscriminatorResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.energy_tail_risk">energy_tail_risk (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.energy_uncertainty">energy_uncertainty (phaselab.crispr.QuantumGuideResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult">EnhancedDesignResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide">EnhancedGuide (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig">EnhancedGuideConfig (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PhaseAlignmentResult.enhancement_factor">enhancement_factor (phaselab.crispr.PhaseAlignmentResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer">Enhancer (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult.enhancer">enhancer (phaselab.crispr.EnhancerGuideResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerConfig">EnhancerConfig (class in phaselab.crispr)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult">EnhancerGuideResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSSource.ENSEMBL">ENSEMBL (phaselab.crispr.TSSSource attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.ensemble_coherence">ensemble_coherence (phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.core.coherence.ensemble_coherence">ensemble_coherence() (in module phaselab.core.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.entropy">entropy (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.entropy_high_threshold">entropy_high_threshold (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.entropy_low_threshold">entropy_low_threshold (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.entropy_normalized">entropy_normalized (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.enumerate_from_sequence">enumerate_from_sequence() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.enumerate_guides">enumerate_guides() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.enumeration">enumeration (phaselab.crispr.DesignResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnumerationResult">EnumerationResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.eqtl_support">eqtl_support (phaselab.crispr.Enhancer attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.error_on_unavailable">error_on_unavailable (phaselab.quantum.QuantumConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.estimate_hairpin_dg">estimate_hairpin_dg() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.evaluate_candidate">evaluate_candidate() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.evaluate_candidates">evaluate_candidates() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult.evidence">evidence (phaselab.crispr.BindingEnergyResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.evidence">(phaselab.crispr.OffTargetGeometryResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PhaseAlignmentResult.evidence">(phaselab.crispr.PhaseAlignmentResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.evidence_level">evidence_level (phaselab.crispr.EnhancedGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.evidence_level">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult.evidence_levels">evidence_levels (phaselab.crispr.MultiEvidenceResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.EvidenceLevel">EvidenceLevel (class in phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GateResult.excluded_by">excluded_by (phaselab.crispr.GateResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.execution_time_s">execution_time_s (phaselab.crispr.QuantumGuideResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RankingPolicy.EXPLORATORY">EXPLORATORY (phaselab.crispr.RankingPolicy attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.failed_gates">failed_gates (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.feeding_amplitude">feeding_amplitude (phaselab.circadian.MultiTissueParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.feeding_phase">feeding_phase (phaselab.circadian.MultiTissueParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.filter_poly_t">filter_poly_t (phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.filter_repeats">filter_repeats (phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.filtered_by_coherence">filtered_by_coherence (phaselab.crispr.EnhancedDesignResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.filtered_by_gates">filtered_by_gates (phaselab.crispr.EnhancedDesignResult attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.final_score">final_score (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.find_bystanders">find_bystanders() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.find_pam_sites">find_pam_sites() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.frameshift_probability">frameshift_probability() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.full_sequence">full_sequence (phaselab.integrations.crispor.GuideCandidate property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.fused_confidence">fused_confidence (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.fused_score">fused_score (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.fusion_config">fusion_config (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.gate_0mm">gate_0mm (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.gate_1mm">gate_1mm (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.gate_repeats">gate_repeats (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.gate_u6_incompatible">gate_u6_incompatible (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.gate_unscorable">gate_unscorable (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GateResult">GateResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.gc">gc (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.gc_content">gc_content() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSSource.GENCODE">GENCODE (phaselab.crispr.TSSSource attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.gene">gene (phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.gene">(phaselab.integrations.crispor.OffTargetSite attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.Region.gene_id">gene_id (phaselab.crispr.Region attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.RegionSet.gene_id">(phaselab.crispr.RegionSet attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.gene_id">(phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.gene_region">gene_region (phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BenchmarkResult.gene_symbol">gene_symbol (phaselab.crispr.BenchmarkResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.DesignResult.gene_symbol">(phaselab.crispr.DesignResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.Region.gene_symbol">(phaselab.crispr.Region attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.RegionSet.gene_symbol">(phaselab.crispr.RegionSet attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.gene_symbol">(phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.generate_report">generate_report() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporConfig.genome">genome (phaselab.crispr.CrisporConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporConfig.genome">(phaselab.integrations.crispor.CrisporConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.genome_build">genome_build (phaselab.crispr.DesignResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.Region.genome_build">(phaselab.crispr.Region attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.RegionSet.genome_build">(phaselab.crispr.RegionSet attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporConfig.genome_dir">genome_dir (phaselab.integrations.crispor.CrisporConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GenomeBuild">GenomeBuild (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult.geometry_result">geometry_result (phaselab.crispr.MultiEvidenceResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.get_activity_window">get_activity_window() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.get_atlas_q_version">get_atlas_q_version() (in module phaselab.quantum)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.get_backend_info">get_backend_info() (phaselab.quantum.QuantumConfig method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.get_coherence_eligibility_info">get_coherence_eligibility_info() (in module phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.coherence_utils.get_coherence_eligibility_info">(in module phaselab.crispr.coherence_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.get_coherence_method">get_coherence_method() (in module phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.coherence_utils.get_coherence_method">(in module phaselab.crispr.coherence_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.get_known_enhancers">get_known_enhancers() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.get_pam_display">get_pam_display() (phaselab.crispr.NucleaseConfig method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.get_pam_pattern">get_pam_pattern() (phaselab.crispr.NucleaseConfig method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.quantum.get_quantum_config">get_quantum_config() (in module phaselab.quantum)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.get_quantum_mode">get_quantum_mode() (in module phaselab.quantum)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.get_tss_for_gene">get_tss_for_gene() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.gini_coefficient">gini_coefficient (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.global_R_bar">global_R_bar (phaselab.circadian.MultiTissueResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.go_guides">go_guides (phaselab.crispr.EnhancedDesignResult property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.go_no_go">go_no_go (phaselab.circadian.MultiTissueResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult.go_no_go">(phaselab.crispr.EnhancerGuideResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.go_no_go">(phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.core.coherence.go_no_go">go_no_go() (in module phaselab.core.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.go_reason">go_reason (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.go_status">go_status (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.go_threshold">go_threshold (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuidePair.guide1">guide1 (phaselab.crispr.GuidePair attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuidePair.guide2">guide2 (phaselab.crispr.GuidePair attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.guide_id">guide_id (phaselab.crispr.CandidateGuide property)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.guide_id">(phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.guide_id">(phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.guide_length">guide_length (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.guide_length">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.guide_length">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.guide_length">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.guide_length">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.guide_length">(phaselab.crispr.NucleaseConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.guide_length">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.guide_length_range">guide_length_range (phaselab.crispr.NucleaseConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult.guide_position">guide_position (phaselab.crispr.EnhancerGuideResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult.guide_quality">guide_quality (phaselab.crispr.EnhancerGuideResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult.guide_sequence">guide_sequence (phaselab.crispr.EnhancerGuideResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.guide_sequence">(phaselab.crispr.QuantumGuideResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.guide_sequence">(phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideCandidate">GuideCandidate (class in phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate">(class in phaselab.integrations.crispor)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig">GuideDesignConfig (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuidePair">GuidePair (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.guides">guides (phaselab.crispr.EnhancedDesignResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.guides">(phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerConfig.guides_per_enhancer">guides_per_enhancer (phaselab.crispr.EnhancerConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOutput.guides_tsv">guides_tsv (phaselab.integrations.crispor.CrisporOutput attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideTier">GuideTier (class in phaselab.crispr)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CoherenceSource.HARDWARE">HARDWARE (phaselab.integrations.crispor.CoherenceSource attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.hardware_backend">hardware_backend (phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.has_clashes">has_clashes (phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.has_critical_disagreement">has_critical_disagreement (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.has_exonic_close_offtargets">has_exonic_close_offtargets (phaselab.integrations.crispor.CrisporGuideRow property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.has_exonic_close_ot">has_exonic_close_ot (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.has_exonic_close_ot">(phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.has_exonic_risk">has_exonic_risk (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.has_experimental_data">has_experimental_data (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.GuidePair.has_steric_clash">has_steric_clash (phaselab.crispr.GuidePair attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.herfindahl_index">herfindahl_index (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.coherence_utils.CoherenceMode.HEURISTIC">HEURISTIC (phaselab.crispr.coherence_utils.CoherenceMode attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CoherenceMode.HEURISTIC">(phaselab.crispr.CoherenceMode attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CoherenceSource.HEURISTIC">(phaselab.integrations.crispor.CoherenceSource attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.GenomeBuild.HG19">HG19 (phaselab.crispr.GenomeBuild attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GenomeBuild.HG38">HG38 (phaselab.crispr.GenomeBuild attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.hi_c_contact">hi_c_contact (phaselab.crispr.Enhancer attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.histone_activity">histone_activity (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.homopolymer">homopolymer (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.ibm_token">ibm_token (phaselab.quantum.QuantumConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.identify_target_enhancers">identify_target_enhancers() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuidePair.in_optimal_range">in_optimal_range (phaselab.crispr.GuidePair attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.include_nogo">include_nogo (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.include_per_cry">include_per_cry (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.index_guides_by_sequence">index_guides_by_sequence() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideCandidate.individual_score">individual_score (phaselab.crispr.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult.individual_scores">individual_scores (phaselab.crispr.MultiEvidenceResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorStatus.INSUFFICIENT_GUIDES">INSUFFICIENT_GUIDES (phaselab.crispr.DiscriminatorStatus attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.integrate_crispor_offtargets">integrate_crispor_offtargets() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuidePair.interaction_type">interaction_type (phaselab.crispr.GuidePair attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ir_analysis_done">ir_analysis_done (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.ir_enhanced_score">ir_enhanced_score (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.is_atlas_q_available">is_atlas_q_available() (in module phaselab.quantum)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporClient.is_available">is_available() (phaselab.integrations.crispor.CrisporClient static method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.is_canonical">is_canonical (phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.is_close">is_close (phaselab.integrations.crispor.OffTargetSite property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.is_exonic">is_exonic (phaselab.integrations.crispor.OffTargetSite property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.is_go">is_go (phaselab.crispr.EnhancedGuide property)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult.is_go">(phaselab.crispr.MultiEvidenceResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.is_go">(phaselab.crispr.QuantumGuideResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.quantum.coherence.CoherenceResult.is_go">(phaselab.quantum.coherence.CoherenceResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult.is_go">is_go() (phaselab.crispr.BindingEnergyResult method)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.is_go">(phaselab.crispr.OffTargetGeometryResult method)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PhaseAlignmentResult.is_go">(phaselab.crispr.PhaseAlignmentResult method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.is_guide_coherent">is_guide_coherent() (in module phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.coherence_utils.is_guide_coherent">(in module phaselab.crispr.coherence_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.is_proximal">is_proximal (phaselab.crispr.Enhancer property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.is_quantum_available">is_quantum_available() (phaselab.quantum.QuantumConfig method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CoherenceSource.is_quantum_measured">is_quantum_measured (phaselab.integrations.crispor.CoherenceSource property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPORMetrics.is_repeat">is_repeat (phaselab.crispr.CRISPORMetrics attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.is_repeat_region">is_repeat_region() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.is_specific">is_specific() (phaselab.crispr.OffTargetGeometryResult method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.is_unknown">is_unknown (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.is_viable">is_viable (phaselab.crispr.EnhancedGuide property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.circadian.jet_lag_simulation">jet_lag_simulation() (in module phaselab.circadian)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.K0">K0 (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.K_base">K_base (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.K_global">K_global (phaselab.circadian.MultiTissueParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.K_peripheral">K_peripheral (phaselab.circadian.MultiTissueParams attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.Modality.KNOCKOUT">KNOCKOUT (phaselab.crispr.Modality attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.knockout_window">knockout_window (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig">KnockoutConfig (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.kuramoto_ode">kuramoto_ode() (in module phaselab.circadian)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.kuramoto_order_parameter">kuramoto_order_parameter() (in module phaselab.circadian)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.largest_cluster_size">largest_cluster_size (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.layer_disagreements">layer_disagreements (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Nuclease.LBCAS12A">LBCAS12A (phaselab.crispr.Nuclease attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.length">length (phaselab.crispr.Enhancer property)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.Region.length">(phaselab.crispr.Region property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.light_amplitude">light_amplitude (phaselab.circadian.MultiTissueParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.light_phase">light_phase (phaselab.circadian.MultiTissueParams attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.manifest">manifest (phaselab.crispr.DesignResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.DiscriminatorResult.manifest">(phaselab.crispr.DiscriminatorResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.max_0mm">max_0mm (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.max_1mm">max_1mm (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.max_2mm">max_2mm (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.max_bystanders_in_window">max_bystanders_in_window (phaselab.crispr.BaseEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.max_close_offtargets">max_close_offtargets (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerConfig.max_enhancer_distance">max_enhancer_distance (phaselab.crispr.EnhancerConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.max_exonic_close_ot">max_exonic_close_ot (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.max_gc">max_gc (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.max_gc">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.max_gc">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.max_gc">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.max_gc">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.max_gc">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.max_guides">max_guides (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.max_homopolymer">max_homopolymer (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.max_homopolymer">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.max_homopolymer">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.max_homopolymer">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.max_homopolymer">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.max_homopolymer">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.max_homopolymer_run">max_homopolymer_run() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.max_interaction_distance">max_interaction_distance (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporConfig.max_mismatches">max_mismatches (phaselab.integrations.crispor.CrisporConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.max_offtargets">max_offtargets (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.max_perfect_offtargets">max_perfect_offtargets (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.max_score_unvalidated">max_score_unvalidated (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.max_secondary_structure_dg">max_secondary_structure_dg (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.max_spacing">max_spacing (phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.max_tail_risk">max_tail_risk (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.merge_crispor_data">merge_crispor_data() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult.method">method (phaselab.crispr.BindingEnergyResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.quantum.coherence.CoherenceResult.method">(phaselab.quantum.coherence.CoherenceResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.methylation">methylation (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerConfig.min_abc_score">min_abc_score (phaselab.crispr.EnhancerConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerConfig.min_activity_score">min_activity_score (phaselab.crispr.EnhancerConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.min_coherence">min_coherence (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.min_complexity">min_complexity (phaselab.crispr.CRISPRiConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.min_complexity">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.min_complexity">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.min_complexity">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.min_cut_efficiency">min_cut_efficiency (phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerConfig.min_enhancer_length">min_enhancer_length (phaselab.crispr.EnhancerConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.min_gc">min_gc (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.min_gc">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.min_gc">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.min_gc">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.min_gc">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.min_gc">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.min_guides">min_guides (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.min_mit_score">min_mit_score (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.min_repression_efficiency">min_repression_efficiency (phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.min_spacing">min_spacing (phaselab.crispr.MultiGuideConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.min_spacing">(phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.mismatch_positions">mismatch_positions (phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.mismatches">mismatches (phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.mismatches">(phaselab.integrations.crispor.OffTargetSite attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPORMetrics.mit_score">mit_score (phaselab.crispr.CRISPORMetrics attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.mit_score">(phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.mit_specificity">mit_specificity (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.mit_specificity">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.mit_specificity_score">mit_specificity_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.ml_confidence">ml_confidence (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.ml_efficiency">ml_efficiency (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.ml_min_confidence">ml_min_confidence (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.ml_predictors_used">ml_predictors_used (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GenomeBuild.MM10">MM10 (phaselab.crispr.GenomeBuild attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GenomeBuild.MM39">MM39 (phaselab.crispr.GenomeBuild attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Modality">Modality (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.modality">modality (phaselab.crispr.DesignResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.modality">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.Region.modality">(phaselab.crispr.Region attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.RegionSet.modality">(phaselab.crispr.RegionSet attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.mode">mode (phaselab.quantum.QuantumConfig attribute)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="reference/index.html#module-phaselab.circadian">phaselab.circadian</a>
+</li>
+        <li><a href="reference/index.html#module-phaselab.core.coherence">phaselab.core.coherence</a>
+</li>
+        <li><a href="reference/index.html#module-phaselab.core.constants">phaselab.core.constants</a>
+</li>
+        <li><a href="reference/index.html#module-phaselab.crispr">phaselab.crispr</a>
+</li>
+        <li><a href="reference/index.html#module-phaselab.crispr.coherence_utils">phaselab.crispr.coherence_utils</a>
+</li>
+        <li><a href="reference/index.html#module-phaselab.integrations.crispor">phaselab.integrations.crispor</a>
+</li>
+        <li><a href="reference/index.html#module-phaselab.quantum">phaselab.quantum</a>
+</li>
+        <li><a href="reference/index.html#module-phaselab.quantum.coherence">phaselab.quantum.coherence</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.moreno_mateos">moreno_mateos (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.moreno_mateos">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult">MultiEvidenceResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig">MultiGuideConfig (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet">MultiGuideSet (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams">MultiTissueParams (class in phaselab.circadian)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult">MultiTissueResult (class in phaselab.circadian)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.n_clusters">n_clusters (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.coherence.CoherenceResult.n_measurements">n_measurements (phaselab.quantum.coherence.CoherenceResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.n_offtargets">n_offtargets (phaselab.crispr.OffTargetGeometryResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.n_offtargets_analyzed">n_offtargets_analyzed (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult.n_paulis">n_paulis (phaselab.crispr.BindingEnergyResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.n_paulis">(phaselab.crispr.QuantumGuideResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.BindingEnergyResult.n_qubits">n_qubits (phaselab.crispr.BindingEnergyResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.n_qubits">(phaselab.crispr.QuantumGuideResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.name">name (phaselab.crispr.Enhancer attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.GuideCandidate.name">(phaselab.crispr.GuideCandidate attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.name">(phaselab.crispr.NucleaseConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.name">(phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.Window.name">(phaselab.crispr.Window attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorStatus.NO_DEGENERACY">NO_DEGENERACY (phaselab.crispr.DiscriminatorStatus attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.noise_strength">noise_strength (phaselab.circadian.MultiTissueParams attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.noise_strength">(phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorStatus.NOT_RUN">NOT_RUN (phaselab.crispr.DiscriminatorStatus attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Nuclease">Nuclease (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.nuclease">nuclease (phaselab.crispr.CandidateGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.DesignResult.nuclease">(phaselab.crispr.DesignResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnumerationResult.nuclease">(phaselab.crispr.EnumerationResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig">NucleaseConfig (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseRole">NucleaseRole (class in phaselab.crispr)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumMode.OFF">OFF (phaselab.quantum.QuantumMode attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.off_target_competitive">off_target_competitive (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPORMetrics.off_targets">off_targets (phaselab.crispr.CRISPORMetrics attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.offtarget_count">offtarget_count (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult">OffTargetGeometryResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis">OffTargetIRAnalysis (class in phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOutput.offtargets_tsv">offtargets_tsv (phaselab.integrations.crispor.CrisporOutput attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite">OffTargetSite (class in phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.omega_B">omega_B (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.omega_C">omega_C (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.optimal_guide_position">optimal_guide_position() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.optimal_spacing_max">optimal_spacing_max (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.optimal_spacing_min">optimal_spacing_min (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.optimize_guide_spacing">optimize_guide_spacing() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.ot_0mm">ot_0mm (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_0mm">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.ot_1mm">ot_1mm (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_1mm">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.ot_2mm">ot_2mm (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_2mm">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.ot_3mm">ot_3mm (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_3mm">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.ot_4mm">ot_4mm (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_4mm">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_competitive">ot_competitive (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_energy_tail">ot_energy_tail (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_entropy">ot_entropy (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_entropy_normalized">ot_entropy_normalized (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.ot_exonic_0mm">ot_exonic_0mm (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.ot_exonic_1mm">ot_exonic_1mm (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.ot_exonic_2mm">ot_exonic_2mm (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.ot_exonic_3mm">ot_exonic_3mm (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.ot_r_bar_max">ot_r_bar_max (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.out_of_frame">out_of_frame (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.out_of_frame">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOutput.output_dir">output_dir (phaselab.integrations.crispor.CrisporOutput attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.P_init">P_init (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.pairs">pairs (phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.pam">pam (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.pam">(phaselab.crispr.CandidateGuide attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.pam">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.pam">(phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.pam">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.pam">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.pam">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.pam">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporConfig.pam">(phaselab.integrations.crispor.CrisporConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.pam">(phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.pam">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.pam_display">pam_display (phaselab.crispr.NucleaseConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.pam_display_binding">pam_display_binding (phaselab.crispr.NucleaseConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.pam_pattern">pam_pattern (phaselab.crispr.NucleaseConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.pam_pattern_binding">pam_pattern_binding (phaselab.crispr.NucleaseConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.NucleaseConfig.pam_side">pam_side (phaselab.crispr.NucleaseConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PAMScanner">PAMScanner (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.parse_guides_tsv">parse_guides_tsv() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.parse_offtargets_tsv">parse_offtargets_tsv() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BenchmarkResult.pass_rate">pass_rate (phaselab.crispr.BenchmarkResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BenchmarkResult.passed">passed (phaselab.crispr.BenchmarkResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.GateResult.passed">(phaselab.crispr.GateResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.passes_gates">passes_gates (phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.pbs_gc_max">pbs_gc_max (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.pbs_gc_min">pbs_gc_min (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.pbs_length_max">pbs_length_max (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.pbs_length_min">pbs_length_min (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.pbs_optimal_length">pbs_optimal_length (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.pbs_score">pbs_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_competitive_ot">penalty_competitive_ot (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_concentrated_risk">penalty_concentrated_risk (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_exonic_close_ot">penalty_exonic_close_ot (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_high_affinity_ot">penalty_high_affinity_ot (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_per_close_ot">penalty_per_close_ot (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_per_distant_ot">penalty_per_distant_ot (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_per_risk_mass_close">penalty_per_risk_mass_close (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_per_risk_mass_exonic">penalty_per_risk_mass_exonic (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_perfect_match_ot">penalty_perfect_match_ot (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.penalty_tail_risk">penalty_tail_risk (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PhaseAlignmentResult.phase_coherence">phase_coherence (phaselab.crispr.PhaseAlignmentResult attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.phase_concentration">phase_concentration (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.phase_delays">phase_delays (phaselab.circadian.MultiTissueResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.phase_mean">phase_mean (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.phase_mean">(phaselab.integrations.crispor.OffTargetSite attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult.phase_result">phase_result (phaselab.crispr.MultiEvidenceResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.core.coherence.phase_variance">phase_variance() (in module phaselab.core.coherence)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PhaseAlignmentResult.phase_velocity">phase_velocity (phaselab.crispr.PhaseAlignmentResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PhaseAlignmentResult">PhaseAlignmentResult (class in phaselab.crispr)</a>
+</li>
+      <li>
+    phaselab.circadian
+
+      <ul>
+        <li><a href="reference/index.html#module-phaselab.circadian">module</a>
+</li>
+      </ul></li>
+      <li>
+    phaselab.core.coherence
+
+      <ul>
+        <li><a href="reference/index.html#module-phaselab.core.coherence">module</a>
+</li>
+      </ul></li>
+      <li>
+    phaselab.core.constants
+
+      <ul>
+        <li><a href="reference/index.html#module-phaselab.core.constants">module</a>
+</li>
+      </ul></li>
+      <li>
+    phaselab.crispr
+
+      <ul>
+        <li><a href="reference/index.html#module-phaselab.crispr">module</a>
+</li>
+      </ul></li>
+      <li>
+    phaselab.crispr.coherence_utils
+
+      <ul>
+        <li><a href="reference/index.html#module-phaselab.crispr.coherence_utils">module</a>
+</li>
+      </ul></li>
+      <li>
+    phaselab.integrations.crispor
+
+      <ul>
+        <li><a href="reference/index.html#module-phaselab.integrations.crispor">module</a>
+</li>
+      </ul></li>
+      <li>
+    phaselab.quantum
+
+      <ul>
+        <li><a href="reference/index.html#module-phaselab.quantum">module</a>
+</li>
+      </ul></li>
+      <li>
+    phaselab.quantum.coherence
+
+      <ul>
+        <li><a href="reference/index.html#module-phaselab.quantum.coherence">module</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.BenchmarkResult.phaselab_rankings">phaselab_rankings (phaselab.crispr.BenchmarkResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.phases">phases (phaselab.circadian.MultiTissueResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.policy">policy (phaselab.crispr.DesignResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig">PolicyConfig (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.poly_t_penalty">poly_t_penalty() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.poly_t_threshold">poly_t_threshold (phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.position">position (phaselab.crispr.EnhancedGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.GuideCandidate.position">(phaselab.crispr.GuideCandidate attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.position">(phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.position">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.predict_enhancer_activation_effect">predict_enhancer_activation_effect() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.predict_pairwise_synergy">predict_pairwise_synergy() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerConfig.prefer_enhancer_center">prefer_enhancer_center (phaselab.crispr.EnhancerConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Modality.PRIME_EDITING">PRIME_EDITING (phaselab.crispr.Modality attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig">PrimeEditConfig (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.print_ranking_report">print_ranking_report() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BenchmarkResult.published_guides">published_guides (phaselab.crispr.BenchmarkResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporConfig.python_bin">python_bin (phaselab.integrations.crispor.CrisporConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporConfig.python_executable">python_executable (phaselab.crispr.CrisporConfig attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.coherence_utils.CoherenceMode.QUANTUM">QUANTUM (phaselab.crispr.coherence_utils.CoherenceMode attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CoherenceMode.QUANTUM">(phaselab.crispr.CoherenceMode attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorResult.quantum_advantage">quantum_advantage (phaselab.crispr.DiscriminatorResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorStatus.QUANTUM_FAILED">QUANTUM_FAILED (phaselab.crispr.DiscriminatorStatus attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.quantum.quantum_status">quantum_status() (in module phaselab.quantum)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorStatus.QUANTUM_SUCCESS">QUANTUM_SUCCESS (phaselab.crispr.DiscriminatorStatus attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig">QuantumConfig (class in phaselab.quantum)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult">QuantumGuideResult (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumMode">QuantumMode (class in phaselab.quantum)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.r_bar">r_bar (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.r_bar">(phaselab.integrations.crispor.OffTargetSite attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.quantum.coherence.CoherenceResult.R_bar">R_bar (phaselab.quantum.coherence.CoherenceResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.r_bar_off_max">r_bar_off_max (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.R_bar_off_mean">R_bar_off_mean (phaselab.crispr.OffTargetGeometryResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.R_bar_off_std">R_bar_off_std (phaselab.crispr.OffTargetGeometryResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.R_bar_on">R_bar_on (phaselab.crispr.OffTargetGeometryResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.r_bar_on_target">r_bar_on_target (phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.r_bar_std">r_bar_std (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.r_bar_zscore">r_bar_zscore (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.R_init">R_init (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.R_k">R_k (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.R_mid">R_mid (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.R_target">R_target (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.rai1_scale_factor">rai1_scale_factor (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.rank">rank (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.rank_guides">rank_guides() (in module phaselab.crispr)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.rank_guides">(in module phaselab.integrations.crispor)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.rank_guides_by_binding">rank_guides_by_binding() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.rank_guides_by_geometry">rank_guides_by_geometry() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.rank_guides_by_phase">rank_guides_by_phase() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.rank_guides_crispor_style">rank_guides_crispor_style() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.rank_guides_multi_evidence">rank_guides_multi_evidence() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.ranked_guides">ranked_guides (phaselab.crispr.DesignResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.DiscriminatorResult.ranked_guides">(phaselab.crispr.DiscriminatorResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.RankingPolicy">RankingPolicy (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.raw">raw (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GateResult.reason">reason (phaselab.crispr.GateResult attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerGuideResult.recommendation">recommendation (phaselab.crispr.EnhancerGuideResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.MultiEvidenceResult.recommendation">(phaselab.crispr.MultiEvidenceResult attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.recommendation">(phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSSource.REFSEQ">REFSEQ (phaselab.crispr.TSSSource attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Region">Region (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.region">region (phaselab.integrations.crispor.OffTargetSite attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.region_id">region_id (phaselab.crispr.CandidateGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.Region.region_id">(phaselab.crispr.Region property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.region_set">region_set (phaselab.crispr.DesignResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnumerationResult.region_set">(phaselab.crispr.EnumerationResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionBuilder">RegionBuilder (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionSet.regions">regions (phaselab.crispr.RegionSet attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionSet">RegionSet (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.repair_pathway_prediction">repair_pathway_prediction() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.repression_efficiency_score">repression_efficiency_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.repressor">repressor (phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerConfig.require_tissue_match">require_tissue_match (phaselab.crispr.EnhancerConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumMode.REQUIRED">REQUIRED (phaselab.quantum.QuantumMode attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.reverse_complement">reverse_complement() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.risk_concentrated">risk_concentrated (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.risk_concentrated">(phaselab.integrations.crispor.OffTargetIRAnalysis attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.risk_mass_close">risk_mass_close (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.risk_mass_distant">risk_mass_distant (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.risk_mass_exonic">risk_mass_exonic (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.rt_length_max">rt_length_max (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.rt_length_min">rt_length_min (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.rt_optimal_length">rt_optimal_length (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.rt_template_score">rt_template_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.run_quantum_discriminator">run_quantum_discriminator() (in module phaselab.crispr)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.Nuclease.SACAS9">SACAS9 (phaselab.crispr.Nuclease attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.save_results_json">save_results_json() (in module phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PAMScanner.scan_sequence">scan_sequence() (phaselab.crispr.PAMScanner method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.scn_peripheral_coherence">scn_peripheral_coherence (phaselab.circadian.MultiTissueResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.score_breakdown">score_breakdown (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.score_enhancer_for_activation">score_enhancer_for_activation() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporClient.score_guides">score_guides() (phaselab.integrations.crispor.CrisporClient method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporClient.score_sequence">score_sequence() (phaselab.integrations.crispor.CrisporClient method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights">ScoringWeights (class in phaselab.integrations.crispor)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.sequence">sequence (phaselab.crispr.CandidateGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.sequence">(phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideCandidate.sequence">(phaselab.crispr.GuideCandidate attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.sequence">(phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.sequence">(phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.sequence">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetSite.sequence">(phaselab.integrations.crispor.OffTargetSite attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.sequence_with_pam">sequence_with_pam (phaselab.crispr.CandidateGuide property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.set_quantum_config">set_quantum_config() (in module phaselab.quantum)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.set_quantum_mode">set_quantum_mode() (in module phaselab.quantum)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.setup_crispor">setup_crispor() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.shift_work_simulation">shift_work_simulation() (in module phaselab.circadian)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.shots">shots (phaselab.quantum.QuantumConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.QuantumConfig.should_use_quantum">should_use_quantum() (phaselab.quantum.QuantumConfig method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorResult.significant_separations">significant_separations (phaselab.crispr.DiscriminatorResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.simulate_multi_tissue">simulate_multi_tissue() (in module phaselab.circadian)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.simulate_sms_clock">simulate_sms_clock() (in module phaselab.circadian)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams">SMSClockParams (class in phaselab.circadian)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.source">source (phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.source_version">source_version (phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuidePair.spacing">spacing (phaselab.crispr.GuidePair attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Nuclease.SPCAS9">SPCAS9 (phaselab.crispr.Nuclease attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.Nuclease.SPCAS9_NG">SPCAS9_NG (phaselab.crispr.Nuclease attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideCandidate.specificity">specificity (phaselab.crispr.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.OffTargetGeometryResult.specificity_score">specificity_score (phaselab.crispr.OffTargetGeometryResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.stage1_pass">stage1_pass (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.start">start (phaselab.crispr.CandidateGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.Enhancer.start">(phaselab.crispr.Enhancer attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.Region.start">(phaselab.crispr.Region attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.start">(phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.start">(phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.DiscriminatorResult.status">status (phaselab.crispr.DiscriminatorResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOutput.stderr">stderr (phaselab.integrations.crispor.CrisporOutput attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOutput.stdout">stdout (phaselab.integrations.crispor.CrisporOutput attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.steric_hindrance_score">steric_hindrance_score() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.strand">strand (phaselab.crispr.CandidateGuide attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.strand">(phaselab.crispr.EnhancedGuide attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideCandidate.strand">(phaselab.crispr.GuideCandidate attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.Region.strand">(phaselab.crispr.Region attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.strand">(phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.strand">(phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOffTarget.strand">(phaselab.integrations.crispor.CrisporOffTarget attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.strand">(phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporOutput.success">success (phaselab.integrations.crispor.CrisporOutput attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BenchmarkResult.summary">summary() (phaselab.crispr.BenchmarkResult method)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.DesignResult.summary">(phaselab.crispr.DesignResult method)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.DiscriminatorResult.summary">(phaselab.crispr.DiscriminatorResult method)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.summary">(phaselab.crispr.EnhancedDesignResult method)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnumerationResult.summary">(phaselab.crispr.EnumerationResult method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.support_level">support_level (phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideSet.synergy_factor">synergy_factor (phaselab.crispr.MultiGuideSet attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.synergy_model">synergy_model (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.GuidePair.synergy_score">synergy_score (phaselab.crispr.GuidePair attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.t">t (phaselab.circadian.MultiTissueResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.tail_risk_score">tail_risk_score (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.target_base">target_base (phaselab.crispr.BaseEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.target_gene">target_gene (phaselab.crispr.EnhancedDesignResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.Enhancer.target_gene">(phaselab.crispr.Enhancer attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.target_gene_tss">target_gene_tss (phaselab.crispr.Enhancer attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancerConfig.target_tissue">target_tissue (phaselab.crispr.EnhancerConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.target_window">target_window (phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.tau_P">tau_P (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.tau_R">tau_R (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.tau_V">tau_V (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.therapeutic_scan">therapeutic_scan() (in module phaselab.circadian)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.tier_a_guides">tier_a_guides (phaselab.crispr.DesignResult property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.tier_b_guides">tier_b_guides (phaselab.crispr.DesignResult property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.tiers">tiers (phaselab.crispr.DesignResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporConfig.timeout">timeout (phaselab.crispr.CrisporConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporConfig.timeout">(phaselab.integrations.crispor.CrisporConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.tissue">tissue (phaselab.crispr.Enhancer attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.tissue_R_bars">tissue_R_bars (phaselab.circadian.MultiTissueResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Enhancer.tissue_specific">tissue_specific (phaselab.crispr.Enhancer attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueParams.tissues">tissues (phaselab.circadian.MultiTissueParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.to_dataframe">to_dataframe() (phaselab.crispr.DesignResult method)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.to_dataframe">(phaselab.crispr.EnhancedDesignResult method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.circadian.MultiTissueResult.to_dict">to_dict() (phaselab.circadian.MultiTissueResult method)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.to_dict">(phaselab.crispr.CandidateGuide method)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuide.to_dict">(phaselab.crispr.EnhancedGuide method)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.RegionSet.to_dict">(phaselab.crispr.RegionSet method)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.to_dict">(phaselab.integrations.crispor.GuideCandidate method)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.OffTargetIRAnalysis.to_dict">(phaselab.integrations.crispor.OffTargetIRAnalysis method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.EnumerationResult.to_dict_list">to_dict_list() (phaselab.crispr.EnumerationResult method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Window.to_genomic">to_genomic() (phaselab.crispr.Window method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.top_guide">top_guide (phaselab.crispr.DesignResult property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.top_n">top_n (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.top_n">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.top_n">(phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.top_n">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.top_n">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.top_n">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.total_after_gates">total_after_gates (phaselab.crispr.DesignResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.total_candidates">total_candidates (phaselab.crispr.EnhancedDesignResult attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.EnumerationResult.total_candidates">(phaselab.crispr.EnumerationResult property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.total_close_offtargets">total_close_offtargets (phaselab.integrations.crispor.CrisporGuideRow property)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.total_close_offtargets">(phaselab.integrations.crispor.GuideCandidate property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.DesignResult.total_enumerated">total_enumerated (phaselab.crispr.DesignResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionSet.total_length">total_length (phaselab.crispr.RegionSet property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CrisporGuideRow.total_offtargets">total_offtargets (phaselab.integrations.crispor.CrisporGuideRow attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.total_offtargets">(phaselab.integrations.crispor.GuideCandidate property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation.transcript_id">transcript_id (phaselab.crispr.TSSAnnotation attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionSet.tss_annotations">tss_annotations (phaselab.crispr.RegionSet attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Region.tss_id">tss_id (phaselab.crispr.Region attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Region.tss_position">tss_position (phaselab.crispr.Region attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CandidateGuide.tss_relative_position">tss_relative_position (phaselab.crispr.CandidateGuide attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionSet.tss_source">tss_source (phaselab.crispr.RegionSet attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionSet.tss_source_version">tss_source_version (phaselab.crispr.RegionSet attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSAnnotation">TSSAnnotation (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.TSSSource">TSSSource (class in phaselab.crispr)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.u6_compatibility_check">u6_compatibility_check() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPORMetrics.u6_compatible">u6_compatible (phaselab.crispr.CRISPORMetrics attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.CoherenceSource.UNKNOWN">UNKNOWN (phaselab.integrations.crispor.CoherenceSource attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.Window.upstream">upstream (phaselab.crispr.Window attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.use_biological_context">use_biological_context (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.RegionBuilder.use_default_window">use_default_window() (phaselab.crispr.RegionBuilder method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.use_ml_predictors">use_ml_predictors (phaselab.crispr.EnhancedGuideConfig attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.V_init">V_init (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.V_k">V_k (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.V_mid">V_mid (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.quantum.coherence.CoherenceResult.V_phi">V_phi (phaselab.quantum.coherence.CoherenceResult attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.circadian.SMSClockParams.V_target">V_target (phaselab.circadian.SMSClockParams attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.validate_and_rerank_with_crispor">validate_and_rerank_with_crispor() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.validate_base_edit">validate_base_edit() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.validate_crispri_guide">validate_crispri_guide() (in module phaselab.crispr)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.validate_guide">validate_guide() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.validate_guide_set">validate_guide_set() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporValidator.validate_guides">validate_guides() (phaselab.crispr.CrisporValidator method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.validate_knockout_guide">validate_knockout_guide() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.validate_prime_edit">validate_prime_edit() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CrisporValidator.validate_sequence">validate_sequence() (phaselab.crispr.CrisporValidator method)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.validate_with_crispor">validate_with_crispor() (in module phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedDesignResult.viable_guides">viable_guides (phaselab.crispr.EnhancedDesignResult property)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.QuantumGuideResult.vqe_iterations">vqe_iterations (phaselab.crispr.QuantumGuideResult attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.w_cfd">w_cfd (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.w_coherence">w_coherence (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.w_coherence_heuristic">w_coherence_heuristic (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.w_doench">w_doench (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.ScoringWeights.w_mit">w_mit (phaselab.integrations.crispor.ScoringWeights attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.integrations.crispor.GuideCandidate.warnings">warnings (phaselab.integrations.crispor.GuideCandidate attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.weight_3mm">weight_3mm (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.weight_4mm">weight_4mm (phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.weight_bystander">weight_bystander (phaselab.crispr.BaseEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.weight_cfd">weight_cfd (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.weight_cfd">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.weight_cfd">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.weight_cfd">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.weight_cfd">(phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.weight_cfd">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.weight_chromatin">weight_chromatin (phaselab.crispr.CRISPRiConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.weight_chromatin">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.weight_coherence">weight_coherence (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.weight_coherence">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.weight_coherence">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.weight_coherence">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.weight_coherence">(phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.weight_coherence">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.weight_context">weight_context (phaselab.crispr.BaseEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.weight_cut_efficiency">weight_cut_efficiency (phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.weight_delta_g">weight_delta_g (phaselab.crispr.CRISPRiConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.weight_delta_g">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.weight_delta_g">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.weight_gc">weight_gc (phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.weight_individual">weight_individual (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.weight_mit">weight_mit (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.weight_mit">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.GuideDesignConfig.weight_mit">(phaselab.crispr.GuideDesignConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.KnockoutConfig.weight_mit">(phaselab.crispr.KnockoutConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PolicyConfig.weight_mit">(phaselab.crispr.PolicyConfig attribute)</a>
+</li>
+        <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.weight_mit">(phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.weight_nick_distance">weight_nick_distance (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.weight_pbs_score">weight_pbs_score (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.BaseEditConfig.weight_position">weight_position (phaselab.crispr.BaseEditConfig attribute)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.weight_position">(phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/index.html#phaselab.crispr.CRISPRiConfig.weight_repression">weight_repression (phaselab.crispr.CRISPRiConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.PrimeEditConfig.weight_rt_score">weight_rt_score (phaselab.crispr.PrimeEditConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.MultiGuideConfig.weight_synergy">weight_synergy (phaselab.crispr.MultiGuideConfig attribute)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.Window">Window (class in phaselab.crispr)</a>
+</li>
+      <li><a href="reference/index.html#phaselab.crispr.EnhancedGuideConfig.window">window (phaselab.crispr.EnhancedGuideConfig property)</a>
+
+      <ul>
+        <li><a href="reference/index.html#phaselab.crispr.Region.window">(phaselab.crispr.Region attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/index.html#phaselab.crispr.GuideTier.X">X (phaselab.crispr.GuideTier attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

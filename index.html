@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PhaseLab Documentation &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="phaselab-documentation">
+<h1>PhaseLab Documentation<a class="headerlink" href="#phaselab-documentation" title="Link to this heading">#</a></h1>
+<p><strong>A reliability layer for perturbation science.</strong></p>
+<p>PhaseLab assesses whether experimental results from perturbation experiments (CRISPR, mutagenesis, chemical modification) will be reproducible—before you run the experiment.</p>
+<p>Version 1.0.0 (December 2025)</p>
+<section id="the-core-insight">
+<h2>The Core Insight<a class="headerlink" href="#the-core-insight" title="Link to this heading">#</a></h2>
+<p><strong>Spatial coherence of response landscapes predicts perturbation reliability.</strong></p>
+<p>Validated across 115,251 sgRNAs (6 genes):</p>
+<ul class="simple">
+<li><p>Correlation with outcome variance: r = -0.24 to -0.50</p></li>
+<li><p>Variance reduction in stable regions: 32-49%</p></li>
+</ul>
+</section>
+<section id="key-capabilities">
+<h2>Key Capabilities<a class="headerlink" href="#key-capabilities" title="Link to this heading">#</a></h2>
+<p><strong>Spatial Coherence Paradigm (v1.0.0)</strong></p>
+<p>This release represents a fundamental paradigm shift based on experimental validation:</p>
+<ul class="simple">
+<li><p><strong>E200-E211</strong>: Guide-sequence coherence does NOT work (r ≈ 0)</p></li>
+<li><p><strong>E213-E216</strong>: Spatial coherence of response landscapes DOES work</p></li>
+</ul>
+<p>The key insight: <em>“The guide is the probe, not the structure.”</em> Coherence measures the system’s response consistency, not properties of the perturbation itself.</p>
+<p><strong>New Domain Modules</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">phaselab.landscapes</span></code> - Core perturbation-response data structures</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phaselab.spatial</span></code> - E213-validated tiling screen analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phaselab.protein.mutscan</span></code> - Deep mutational scanning coherence</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phaselab.protein.folding</span></code> - Structure prediction quality control</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phaselab.chem</span></code> - Binding landscape and reaction optimization</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phaselab.omics</span></code> - ATAC-seq, ChIP-seq, RNA-seq reliability</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phaselab.microbio</span></code> - TnSeq and bacterial CRISPRi essentiality</p></li>
+</ul>
+<p><strong>Two-Stage Framework</strong></p>
+<ul class="simple">
+<li><p><strong>Stage I</strong>: Feasibility inference (pre-tiling) using structural priors</p></li>
+<li><p><strong>Stage II</strong>: Landscape resolution with minimum viable tiling (16-20 perturbations)</p></li>
+</ul>
+<p><strong>Claim Levels</strong></p>
+<p>Honest uncertainty reporting:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UNKNOWN</span></code> - Cannot assess reliability</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXPLORATORY</span></code> - Structural priors only</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTEXT_DEPENDENT</span></code> - Single tiling dataset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STRONG_COMPUTATIONAL</span></code> - Cross-validated</p></li>
+</ul>
+</section>
+<section id="quick-example">
+<h2>Quick Example<a class="headerlink" href="#quick-example" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">analyze_tiling_coherence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.landscapes</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResponseLandscape</span>
+
+<span class="c1"># Your tiling screen data</span>
+<span class="n">landscape</span> <span class="o">=</span> <span class="n">ResponseLandscape</span><span class="p">(</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>
+    <span class="n">responses</span><span class="o">=</span><span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># Analyze spatial coherence</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">analyze_tiling_coherence</span><span class="p">(</span><span class="n">landscape</span><span class="p">)</span>
+
+<span class="c1"># Find stable regions</span>
+<span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">stable_regions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stable: </span><span class="si">{</span><span class="n">region</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">region</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Coherence: </span><span class="si">{</span><span class="n">region</span><span class="p">[</span><span class="s1">&#39;coherence&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="quantum-mode">
+<h2>Quantum Mode<a class="headerlink" href="#quantum-mode" title="Link to this heading">#</a></h2>
+<p>For most use cases, quantum mode should be OFF (default):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">phaselab.quantum</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_quantum_mode</span><span class="p">,</span> <span class="n">QuantumMode</span>
+
+<span class="n">set_quantum_mode</span><span class="p">(</span><span class="n">QuantumMode</span><span class="o">.</span><span class="n">OFF</span><span class="p">)</span>       <span class="c1"># Classical only (fastest)</span>
+<span class="n">set_quantum_mode</span><span class="p">(</span><span class="n">QuantumMode</span><span class="o">.</span><span class="n">AUDIT</span><span class="p">)</span>     <span class="c1"># Validation subset</span>
+<span class="n">set_quantum_mode</span><span class="p">(</span><span class="n">QuantumMode</span><span class="o">.</span><span class="n">REQUIRED</span><span class="p">)</span>  <span class="c1"># Research only</span>
+</pre></div>
+</div>
+<p><strong>Rule:</strong> If a classical experiment can falsify a claim, quantum is optional.</p>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#basic-installation">Basic Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#optional-dependencies">Optional Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#development-installation">Development Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#verifying-installation">Verifying Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#core-concept-spatial-coherence">Core Concept: Spatial Coherence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#stability-classification">Stability Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#crispr-tiling-analysis">CRISPR Tiling Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#protein-mutational-scanning">Protein Mutational Scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#binding-landscape-analysis">Binding Landscape Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#claim-levels">Claim Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#quantum-mode">Quantum Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#sms-therapeutic-pipeline">SMS Therapeutic Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/spatial_coherence.html">Spatial Coherence Analysis (v1.0.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/protein_mutscan.html">Protein Mutational Scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/binding_landscapes.html">Binding Landscape Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/sms_pipeline.html">SMS Therapeutic Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/crispr_guide_design.html">CRISPR Guide Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/circadian_modeling.html">Circadian Clock Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/quantum_validation.html">Quantum Hardware Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/coherence_basics.html">Coherence Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/coherence_modes.html">Coherence Modes (v0.6.1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/index.html#core-tutorials-v1-0-0">Core Tutorials (v1.0.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/index.html#additional-tutorials">Additional Tutorials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/tutorials/index.html#legacy-tutorials">Legacy Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/howtos/index.html">How-To Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/howtos/select_guides_from_stable_regions.html">Select Guides from Stable Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/howtos/analyze_dms_data.html">Analyze Deep Mutational Scanning Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/howtos/filter_guides_by_coherence.html">Filter Guides by Coherence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/howtos/compare_crispr_modalities.html">Compare CRISPR Modalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/howtos/optimize_therapeutic_dose.html">Optimize Therapeutic Dose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/howtos/batch_process_targets.html">Batch Process Targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/howtos/index.html#spatial-coherence-workflows-v1-0-0">Spatial Coherence Workflows (v1.0.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/howtos/index.html#guide-selection-workflows">Guide Selection Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/howtos/index.html#therapeutic-workflows">Therapeutic Workflows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/explanations/index.html">Explanations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/two_stage_framework.html">Two-Stage Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/claim_levels.html">Claim Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/informational_relativity.html">Informational Relativity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/coherence_theory.html">Coherence Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/go_no_go_threshold.html">The GO/NO-GO Threshold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/crispr_scoring.html">CRISPR Scoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/evidence_levels.html">Evidence Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/index.html#core-concepts-v1-0-0">Core Concepts (v1.0.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/index.html#theoretical-foundations">Theoretical Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/explanations/index.html#technical-details">Technical Details</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/index.html#module-phaselab.core.coherence">Core Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/index.html#module-phaselab.crispr">CRISPR Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/index.html#module-phaselab.quantum">Quantum Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/index.html#module-phaselab.circadian">Circadian Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/index.html#integrations">Integrations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Research Applications</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="research/index.html">Research Applications</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="developer/index.html">Developer Documentation</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing PhaseLab</a></li>
+</ul>
+</div>
+</section>
+<section id="quick-links">
+<h2>Quick Links<a class="headerlink" href="#quick-links" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<li><p><a class="reference external" href="https://github.com/followthesapper/phaselab">GitHub Repository</a></p></li>
+<li><p><a class="reference external" href="https://github.com/followthesapper/phaselab/issues">Issue Tracker</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/phaselab/">PyPI Package</a></p></li>
+</ul>
+</section>
+<section id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Link to this heading">#</a></h2>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@software</span><span class="p">{</span><span class="nl">phaselab2025</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{PhaseLab: A Reliability Layer for Perturbation Science}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Vaca, Dylan}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="p">=</span><span class="s">{https://github.com/followthesapper/phaselab}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">version</span><span class="p">=</span><span class="s">{1.0.0}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="installation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Installation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-insight">The Core Insight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-capabilities">Key Capabilities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-example">Quick Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-mode">Quantum Mode</a><ul class="visible nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-links">Quick Links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

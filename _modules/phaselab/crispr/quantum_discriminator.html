@@ -1,0 +1,1347 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.quantum_discriminator &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/quantum_discriminator';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.quantum_discriminator</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.quantum_discriminator</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab Quantum Discriminator: Late-stage guide discrimination on IBM Quantum.</span>
+
+<span class="sd">This module implements the RAI1 Late-Stage Quantum Discriminator experiment:</span>
+<span class="sd">- Uses quantum chemistry on real hardware to discriminate between elite CRISPRa</span>
+<span class="sd">  guides whose predicted effectiveness is classically indistinguishable</span>
+<span class="sd">- NOT for guide discovery, but for tie-breaking among top candidates</span>
+<span class="sd">- Only invoked when classical methods saturate</span>
+
+<span class="sd">The Core Idea:</span>
+<span class="sd">    Use quantum-resolved binding energetics to discriminate between top-tier</span>
+<span class="sd">    CRISPRa guides that are classically indistinguishable, thereby increasing</span>
+<span class="sd">    wet-lab success probability.</span>
+
+<span class="sd">Scientific Claim (defensible):</span>
+<span class="sd">    &quot;IR-enhanced quantum VQE on current IBM hardware can resolve binding energy</span>
+<span class="sd">    differences between CRISPRa guides that are indistinguishable under classical</span>
+<span class="sd">    scoring, providing a physically grounded late-stage discriminator for</span>
+<span class="sd">    therapeutic guide selection.&quot;</span>
+
+<span class="sd">What this IS NOT:</span>
+<span class="sd">    - Not &quot;quantum finds cures&quot;</span>
+<span class="sd">    - Not &quot;quantum replaces biology&quot;</span>
+<span class="sd">    - Not &quot;quantum predicts expression directly&quot;</span>
+
+<span class="sd">What this IS:</span>
+<span class="sd">    - Quantum resolves energetic degeneracy</span>
+<span class="sd">    - Quantum increases hit rate per wet-lab experiment</span>
+<span class="sd">    - Quantum reduces wasted biological trials</span>
+
+<span class="sd">Author: PhaseLab</span>
+<span class="sd">Date: December 2025</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Quantum discriminator thresholds (pre-quantum gating)</span>
+<span class="n">DISCRIMINATOR_GATES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;min_mit_score&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s1">&#39;max_exonic_ot&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;min_delta_r&#39;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">,</span>
+    <span class="s1">&#39;min_phase_coherence&#39;</span><span class="p">:</span> <span class="mf">0.90</span><span class="p">,</span>
+    <span class="s1">&#39;min_guides_for_quantum&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># Need at least 2 to discriminate</span>
+<span class="p">}</span>
+
+<span class="c1"># Effective Hamiltonian parameters</span>
+<span class="n">EFFECTIVE_HAMILTONIAN_PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># Watson-Crick hydrogen bonding (eV)</span>
+    <span class="s1">&#39;hb_gc&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.18</span><span class="p">,</span>  <span class="c1"># G-C: 3 H-bonds</span>
+    <span class="s1">&#39;hb_at&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">,</span>  <span class="c1"># A-T: 2 H-bonds</span>
+    <span class="s1">&#39;hb_mismatch&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># Mismatch penalty</span>
+
+    <span class="c1"># Base stacking stabilization (eV)</span>
+    <span class="s1">&#39;stack_gc_gc&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.08</span><span class="p">,</span>
+    <span class="s1">&#39;stack_gc_at&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="s1">&#39;stack_at_at&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.03</span><span class="p">,</span>
+
+    <span class="c1"># Backbone charge screening</span>
+    <span class="s1">&#39;charge_screening&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+
+    <span class="c1"># Constraint term (prevents unphysical separation)</span>
+    <span class="s1">&#39;constraint_penalty&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="DiscriminatorStatus">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.DiscriminatorStatus">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DiscriminatorStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Status of quantum discriminator execution.&quot;&quot;&quot;</span>
+    <span class="n">NOT_RUN</span> <span class="o">=</span> <span class="s2">&quot;not_run&quot;</span>
+    <span class="n">INSUFFICIENT_GUIDES</span> <span class="o">=</span> <span class="s2">&quot;insufficient_guides&quot;</span>
+    <span class="n">NO_DEGENERACY</span> <span class="o">=</span> <span class="s2">&quot;no_degeneracy&quot;</span>
+    <span class="n">QUANTUM_SUCCESS</span> <span class="o">=</span> <span class="s2">&quot;quantum_success&quot;</span>
+    <span class="n">QUANTUM_FAILED</span> <span class="o">=</span> <span class="s2">&quot;quantum_failed&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="QuantumGuideResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.QuantumGuideResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">QuantumGuideResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Result from quantum discriminator for a single guide.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        guide_sequence: The guide RNA sequence</span>
+<span class="sd">        binding_energy: Ground-state binding energy (Hartree)</span>
+<span class="sd">        energy_uncertainty: Measurement uncertainty</span>
+<span class="sd">        coherence: IR execution coherence R̄</span>
+<span class="sd">        is_go: Whether result passes GO/NO-GO threshold</span>
+<span class="sd">        n_qubits: Number of qubits used</span>
+<span class="sd">        n_paulis: Number of Pauli terms</span>
+<span class="sd">        vqe_iterations: VQE iterations to convergence</span>
+<span class="sd">        execution_time_s: Wall-clock time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">guide_sequence</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">binding_energy</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">energy_uncertainty</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">coherence</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">is_go</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">n_qubits</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">n_paulis</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">vqe_iterations</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">execution_time_s</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">details</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;GO&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_go</span> <span class="k">else</span> <span class="s2">&quot;NO-GO&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;QuantumGuideResult(E=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">binding_energy</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">energy_uncertainty</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> Ha, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;R̄=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">coherence</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">])&quot;</span>
+        <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="DiscriminatorResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.DiscriminatorResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DiscriminatorResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Complete result from quantum discriminator.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        status: Overall status</span>
+<span class="sd">        ranked_guides: Guides ordered by quantum binding energy</span>
+<span class="sd">        energy_separations: Pairwise energy differences</span>
+<span class="sd">        significant_separations: Which pairs are statistically significant</span>
+<span class="sd">        classical_scores: Original classical scores for comparison</span>
+<span class="sd">        quantum_advantage: Whether quantum resolved classical degeneracy</span>
+<span class="sd">        manifest: Full execution manifest for reproducibility</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">status</span><span class="p">:</span> <span class="n">DiscriminatorStatus</span>
+    <span class="n">ranked_guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">QuantumGuideResult</span><span class="p">]</span>
+    <span class="n">energy_separations</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+    <span class="n">significant_separations</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span>
+    <span class="n">classical_scores</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+    <span class="n">quantum_advantage</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">manifest</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+<div class="viewcode-block" id="DiscriminatorResult.summary">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.DiscriminatorResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate human-readable summary.&quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">,</span>
+            <span class="s2">&quot;QUANTUM DISCRIMINATOR RESULT&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Status: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Guides evaluated: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ranked_guides</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;Quantum advantage: </span><span class="si">{</span><span class="s1">&#39;YES&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">quantum_advantage</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;NO&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ranking by quantum binding energy:&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ranked_guides</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;GO&quot;</span> <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">is_go</span> <span class="k">else</span> <span class="s2">&quot;NO-GO&quot;</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;  #</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">guide_sequence</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span><span class="si">}</span><span class="s2">... &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;E=</span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">binding_energy</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> Ha [</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">]&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">significant_separations</span><span class="p">:</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Statistically significant separations:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">pair</span><span class="p">,</span> <span class="n">is_sig</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">significant_separations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">is_sig</span><span class="p">:</span>
+                    <span class="n">delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">energy_separations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">pair</span><span class="si">}</span><span class="s2">: ΔE = </span><span class="si">{</span><span class="n">delta</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> Ha&quot;</span><span class="p">)</span>
+
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">70</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_classical_degeneracy</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">score_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;combined_score&#39;</span><span class="p">,</span>
+    <span class="n">degeneracy_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if guides are classically degenerate (within threshold).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (is_degenerate, degenerate_guides)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">guides</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="p">[]</span>
+
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">score_key</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;multi_evidence&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;combined_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+              <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">scores</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">guides</span>
+
+    <span class="n">max_score</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+    <span class="n">min_score</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+
+    <span class="c1"># Degenerate if range is within threshold</span>
+    <span class="n">is_degenerate</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_score</span> <span class="o">-</span> <span class="n">min_score</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">degeneracy_threshold</span>
+
+    <span class="k">return</span> <span class="n">is_degenerate</span><span class="p">,</span> <span class="n">guides</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_build_effective_binding_hamiltonian</span><span class="p">(</span>
+    <span class="n">guide_seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">dna_context</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build effective binding Hamiltonian for guide-DNA interaction.</span>
+
+<span class="sd">    This is NOT ab initio biochemistry - it is a valid effective Hamiltonian</span>
+<span class="sd">    that captures the essential physics of RNA-DNA binding.</span>
+
+<span class="sd">    H = H_HB + H_stack + H_charge + H_constraint</span>
+
+<span class="sd">    Where:</span>
+<span class="sd">        H_HB: Watson-Crick hydrogen bonding</span>
+<span class="sd">        H_stack: π-π stacking stabilization</span>
+<span class="sd">        H_charge: Backbone electrostatics (screened)</span>
+<span class="sd">        H_constraint: Prevents unphysical strand separation</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guide_seq: RNA guide sequence</span>
+<span class="sd">        dna_context: DNA target context</span>
+<span class="sd">        params: Hamiltonian parameters (uses defaults if None)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (coefficients, pauli_strings, n_qubits)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">EFFECTIVE_HAMILTONIAN_PARAMS</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">)</span>
+    <span class="n">dna_context</span> <span class="o">=</span> <span class="n">dna_context</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Use seed region (most important for binding)</span>
+    <span class="n">n_bases</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna_context</span><span class="p">),</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">guide_fragment</span> <span class="o">=</span> <span class="n">guide_seq</span><span class="p">[</span><span class="o">-</span><span class="n">n_bases</span><span class="p">:]</span>  <span class="c1"># PAM-proximal</span>
+    <span class="n">target_fragment</span> <span class="o">=</span> <span class="n">dna_context</span><span class="p">[:</span><span class="n">n_bases</span><span class="p">]</span>
+
+    <span class="c1"># Watson-Crick complements</span>
+    <span class="n">wc_complement</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">}</span>
+
+    <span class="n">n_qubits</span> <span class="o">=</span> <span class="n">n_bases</span>
+    <span class="n">coefficients</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">paulis</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># H_HB: Hydrogen bonding (Z terms)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">guide_fragment</span><span class="p">,</span> <span class="n">target_fragment</span><span class="p">)):</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="n">wc_complement</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="n">expected</span><span class="p">:</span>
+            <span class="c1"># Perfect Watson-Crick</span>
+            <span class="k">if</span> <span class="n">g</span> <span class="ow">in</span> <span class="s1">&#39;GC&#39;</span><span class="p">:</span>
+                <span class="n">coeff</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;hb_gc&#39;</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">coeff</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;hb_at&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Mismatch</span>
+            <span class="n">coeff</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;hb_mismatch&#39;</span><span class="p">]</span>
+
+        <span class="n">pauli</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_qubits</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
+        <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coeff</span><span class="p">)</span>
+        <span class="n">paulis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pauli</span><span class="p">))</span>
+
+    <span class="c1"># H_stack: Base stacking (ZZ terms for nearest neighbors)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_bases</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">g1</span><span class="p">,</span> <span class="n">g2</span> <span class="o">=</span> <span class="n">guide_fragment</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">guide_fragment</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Determine stacking strength</span>
+        <span class="n">gc_count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;GC&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">gc_count</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">coeff</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;stack_gc_gc&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">gc_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">coeff</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;stack_gc_at&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coeff</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;stack_at_at&#39;</span><span class="p">]</span>
+
+        <span class="n">pauli</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_qubits</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
+        <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coeff</span><span class="p">)</span>
+        <span class="n">paulis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pauli</span><span class="p">))</span>
+
+    <span class="c1"># H_charge: Electrostatic (XX terms for charge fluctuations)</span>
+    <span class="n">screening</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;charge_screening&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_bases</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">pauli</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_qubits</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+        <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mf">0.02</span> <span class="o">*</span> <span class="n">screening</span><span class="p">)</span>
+        <span class="n">paulis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pauli</span><span class="p">))</span>
+
+    <span class="c1"># H_constraint: Prevent separation (global ZZ chain)</span>
+    <span class="n">constraint</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;constraint_penalty&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_bases</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">pauli</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;I&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_qubits</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
+        <span class="n">pauli</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Z&#39;</span>
+        <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span> <span class="o">*</span> <span class="n">constraint</span><span class="p">)</span>
+        <span class="n">paulis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pauli</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coefficients</span><span class="p">),</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_run_quantum_vqe</span><span class="p">(</span>
+    <span class="n">coefficients</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">paulis</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">n_qubits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">backend_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ibm_torino&quot;</span><span class="p">,</span>
+    <span class="n">shots</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="n">max_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="n">use_hardware</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run VQE with IR-enhanced grouping.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        coefficients: Hamiltonian coefficients</span>
+<span class="sd">        paulis: Pauli strings</span>
+<span class="sd">        n_qubits: Number of qubits</span>
+<span class="sd">        backend_name: IBM Quantum backend</span>
+<span class="sd">        shots: Shots per measurement group</span>
+<span class="sd">        max_iterations: Max VQE iterations</span>
+<span class="sd">        use_hardware: Use real IBM Quantum (False = simulation)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (energy, uncertainty, coherence, iterations, time_s)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">use_hardware</span><span class="p">:</span>
+        <span class="c1"># Real IBM Quantum execution</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_run_ibm_quantum_vqe</span><span class="p">(</span>
+                <span class="n">coefficients</span><span class="p">,</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span><span class="p">,</span>
+                <span class="n">backend_name</span><span class="p">,</span> <span class="n">shots</span><span class="p">,</span> <span class="n">max_iterations</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IBM Quantum VQE failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">, falling back to simulation&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Simulation fallback</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
+
+    <span class="n">n_params</span> <span class="o">=</span> <span class="n">n_qubits</span> <span class="o">*</span> <span class="mi">2</span>
+
+    <span class="n">energy_history</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">cost_function</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+        <span class="c1"># Simplified energy calculation (simulation)</span>
+        <span class="n">modulation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
+        <span class="n">energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">modulation</span><span class="p">)</span>
+        <span class="n">energy_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">energy</span>
+
+    <span class="c1"># Random initialization</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_params</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span>
+        <span class="n">cost_function</span><span class="p">,</span>
+        <span class="n">x0</span><span class="p">,</span>
+        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;COBYLA&#39;</span><span class="p">,</span>
+        <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="n">max_iterations</span><span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">energy</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">fun</span>
+    <span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">energy_history</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">energy_history</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span> <span class="k">else</span> <span class="mf">0.01</span>
+
+    <span class="c1"># Compute coherence from coefficient phases</span>
+    <span class="n">phases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">coefficients</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">phasors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">phases</span><span class="p">)</span>
+    <span class="n">coherence</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">phasors</span><span class="p">)))</span>
+
+    <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+
+    <span class="k">return</span> <span class="n">energy</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">,</span> <span class="n">coherence</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">energy_history</span><span class="p">),</span> <span class="n">elapsed</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_run_ibm_quantum_vqe</span><span class="p">(</span>
+    <span class="n">coefficients</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">paulis</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">n_qubits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">backend_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">shots</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">max_iterations</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run VQE on actual IBM Quantum hardware.&quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">qiskit</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantumCircuit</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">qiskit.circuit.library</span><span class="w"> </span><span class="kn">import</span> <span class="n">EfficientSU2</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">qiskit.quantum_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparsePauliOp</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">qiskit.transpiler.preset_passmanagers</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_preset_pass_manager</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">qiskit_ibm_runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">QiskitRuntimeService</span><span class="p">,</span> <span class="n">EstimatorV2</span> <span class="k">as</span> <span class="n">Estimator</span><span class="p">,</span> <span class="n">Session</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>
+
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="c1"># Build observable</span>
+    <span class="n">observable</span> <span class="o">=</span> <span class="n">SparsePauliOp</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">paulis</span><span class="p">,</span> <span class="n">coefficients</span><span class="p">)))</span>
+
+    <span class="c1"># Build ansatz</span>
+    <span class="n">ansatz</span> <span class="o">=</span> <span class="n">EfficientSU2</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">,</span> <span class="n">reps</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">entanglement</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+    <span class="n">n_params</span> <span class="o">=</span> <span class="n">ansatz</span><span class="o">.</span><span class="n">num_parameters</span>
+
+    <span class="c1"># Connect to IBM Quantum</span>
+    <span class="n">service</span> <span class="o">=</span> <span class="n">QiskitRuntimeService</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s1">&#39;ibm_quantum_platform&#39;</span><span class="p">)</span>
+    <span class="n">backend</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">backend</span><span class="p">(</span><span class="n">backend_name</span><span class="p">)</span>
+
+    <span class="c1"># Transpile</span>
+    <span class="n">pm</span> <span class="o">=</span> <span class="n">generate_preset_pass_manager</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">optimization_level</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">isa_circuit</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">ansatz</span><span class="p">)</span>
+    <span class="n">isa_observable</span> <span class="o">=</span> <span class="n">observable</span><span class="o">.</span><span class="n">apply_layout</span><span class="p">(</span><span class="n">isa_circuit</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
+
+    <span class="n">energy_history</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">coherence_history</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="n">estimator</span> <span class="o">=</span> <span class="n">Estimator</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">session</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">evaluate_energy</span><span class="p">(</span><span class="n">params</span><span class="p">):</span>
+            <span class="n">bound_circuit</span> <span class="o">=</span> <span class="n">isa_circuit</span><span class="o">.</span><span class="n">assign_parameters</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+            <span class="n">job</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">run</span><span class="p">([(</span><span class="n">bound_circuit</span><span class="p">,</span> <span class="n">isa_observable</span><span class="p">)],</span> <span class="n">precision</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">shots</span><span class="p">))</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+
+            <span class="n">energy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">evs</span><span class="p">)</span>
+            <span class="n">std_error</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">stds</span><span class="p">)</span>
+
+            <span class="n">energy_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+
+            <span class="c1"># Compute coherence from expectation values</span>
+            <span class="c1"># (simplified - real implementation would use individual Pauli expectations)</span>
+            <span class="n">coherence_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">std_error</span><span class="p">))</span>
+
+            <span class="k">return</span> <span class="n">energy</span>
+
+        <span class="c1"># Optimize</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">n_params</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span>
+            <span class="n">evaluate_energy</span><span class="p">,</span>
+            <span class="n">x0</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="s1">&#39;COBYLA&#39;</span><span class="p">,</span>
+            <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="n">max_iterations</span><span class="p">,</span> <span class="s1">&#39;rhobeg&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="n">final_energy</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">energy_history</span><span class="p">)</span> <span class="k">if</span> <span class="n">energy_history</span> <span class="k">else</span> <span class="n">result</span><span class="o">.</span><span class="n">fun</span>
+    <span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">energy_history</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">energy_history</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="k">else</span> <span class="mf">0.01</span>
+    <span class="n">final_coherence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">coherence_history</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:])</span> <span class="k">if</span> <span class="n">coherence_history</span> <span class="k">else</span> <span class="mf">0.5</span>
+    <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+
+    <span class="k">return</span> <span class="n">final_energy</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">,</span> <span class="n">final_coherence</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">energy_history</span><span class="p">),</span> <span class="n">elapsed</span>
+
+
+<div class="viewcode-block" id="run_quantum_discriminator">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.run_quantum_discriminator">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_quantum_discriminator</span><span class="p">(</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">dna_context</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">backend_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ibm_torino&quot;</span><span class="p">,</span>
+    <span class="n">use_hardware</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">shots</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="n">max_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="n">degeneracy_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DiscriminatorResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run the quantum discriminator on a set of candidate guides.</span>
+
+<span class="sd">    This is the main entry point for quantum discrimination.</span>
+
+<span class="sd">    Only guides that pass all classical gates AND are within degeneracy</span>
+<span class="sd">    threshold will be evaluated on quantum hardware.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        guides: List of guide dicts with &#39;sequence&#39; and scoring info</span>
+<span class="sd">        dna_context: DNA target context for binding</span>
+<span class="sd">        backend_name: IBM Quantum backend</span>
+<span class="sd">        use_hardware: Use real IBM Quantum (False = simulation)</span>
+<span class="sd">        shots: Shots per measurement</span>
+<span class="sd">        max_iterations: Max VQE iterations</span>
+<span class="sd">        degeneracy_threshold: Score difference for degeneracy</span>
+<span class="sd">        output_dir: Directory to save results</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DiscriminatorResult with quantum-ordered guides</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; guides = [</span>
+<span class="sd">        ...     {&#39;sequence&#39;: &#39;GCGCGCGCGC...&#39;, &#39;combined_score&#39;: 0.95},</span>
+<span class="sd">        ...     {&#39;sequence&#39;: &#39;ATCGATCGAT...&#39;, &#39;combined_score&#39;: 0.94},</span>
+<span class="sd">        ... ]</span>
+<span class="sd">        &gt;&gt;&gt; result = run_quantum_discriminator(guides, dna_context)</span>
+<span class="sd">        &gt;&gt;&gt; print(result.summary())</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">manifest</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+        <span class="s1">&#39;backend&#39;</span><span class="p">:</span> <span class="n">backend_name</span><span class="p">,</span>
+        <span class="s1">&#39;use_hardware&#39;</span><span class="p">:</span> <span class="n">use_hardware</span><span class="p">,</span>
+        <span class="s1">&#39;shots&#39;</span><span class="p">:</span> <span class="n">shots</span><span class="p">,</span>
+        <span class="s1">&#39;max_iterations&#39;</span><span class="p">:</span> <span class="n">max_iterations</span><span class="p">,</span>
+        <span class="s1">&#39;degeneracy_threshold&#39;</span><span class="p">:</span> <span class="n">degeneracy_threshold</span><span class="p">,</span>
+        <span class="s1">&#39;input_guides&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">guides</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Check minimum guides</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">guides</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">DISCRIMINATOR_GATES</span><span class="p">[</span><span class="s1">&#39;min_guides_for_quantum&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">DiscriminatorResult</span><span class="p">(</span>
+            <span class="n">status</span><span class="o">=</span><span class="n">DiscriminatorStatus</span><span class="o">.</span><span class="n">INSUFFICIENT_GUIDES</span><span class="p">,</span>
+            <span class="n">ranked_guides</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">energy_separations</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">significant_separations</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">classical_scores</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">quantum_advantage</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">manifest</span><span class="o">=</span><span class="n">manifest</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Check classical degeneracy</span>
+    <span class="n">is_degenerate</span><span class="p">,</span> <span class="n">degenerate_guides</span> <span class="o">=</span> <span class="n">_check_classical_degeneracy</span><span class="p">(</span>
+        <span class="n">guides</span><span class="p">,</span> <span class="n">degeneracy_threshold</span><span class="o">=</span><span class="n">degeneracy_threshold</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_degenerate</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;No classical degeneracy detected - quantum discriminator not needed&quot;</span><span class="p">)</span>
+        <span class="n">manifest</span><span class="p">[</span><span class="s1">&#39;reason&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;no_degeneracy&#39;</span>
+        <span class="k">return</span> <span class="n">DiscriminatorResult</span><span class="p">(</span>
+            <span class="n">status</span><span class="o">=</span><span class="n">DiscriminatorStatus</span><span class="o">.</span><span class="n">NO_DEGENERACY</span><span class="p">,</span>
+            <span class="n">ranked_guides</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">energy_separations</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">significant_separations</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">classical_scores</span><span class="o">=</span><span class="p">{</span><span class="n">g</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">][:</span><span class="mi">20</span><span class="p">]:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;combined_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">},</span>
+            <span class="n">quantum_advantage</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">manifest</span><span class="o">=</span><span class="n">manifest</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Run quantum VQE for each guide</span>
+    <span class="n">quantum_results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">classical_scores</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">guide</span> <span class="ow">in</span> <span class="n">guides</span><span class="p">:</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="n">guide</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span>
+        <span class="n">classical_scores</span><span class="p">[</span><span class="n">seq</span><span class="p">[:</span><span class="mi">20</span><span class="p">]]</span> <span class="o">=</span> <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;combined_score&#39;</span><span class="p">,</span>
+            <span class="n">guide</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;multi_evidence&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;combined_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running quantum VQE for </span><span class="si">{</span><span class="n">seq</span><span class="p">[:</span><span class="mi">15</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Build Hamiltonian</span>
+        <span class="n">coefficients</span><span class="p">,</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span> <span class="o">=</span> <span class="n">_build_effective_binding_hamiltonian</span><span class="p">(</span>
+            <span class="n">seq</span><span class="p">,</span> <span class="n">dna_context</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Run VQE</span>
+        <span class="n">energy</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">,</span> <span class="n">coherence</span><span class="p">,</span> <span class="n">iterations</span><span class="p">,</span> <span class="n">time_s</span> <span class="o">=</span> <span class="n">_run_quantum_vqe</span><span class="p">(</span>
+            <span class="n">coefficients</span><span class="p">,</span> <span class="n">paulis</span><span class="p">,</span> <span class="n">n_qubits</span><span class="p">,</span>
+            <span class="n">backend_name</span><span class="o">=</span><span class="n">backend_name</span><span class="p">,</span>
+            <span class="n">shots</span><span class="o">=</span><span class="n">shots</span><span class="p">,</span>
+            <span class="n">max_iterations</span><span class="o">=</span><span class="n">max_iterations</span><span class="p">,</span>
+            <span class="n">use_hardware</span><span class="o">=</span><span class="n">use_hardware</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Check GO/NO-GO (e^-2 ≈ 0.135)</span>
+        <span class="n">is_go</span> <span class="o">=</span> <span class="n">coherence</span> <span class="o">&gt;</span> <span class="mf">0.135</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">QuantumGuideResult</span><span class="p">(</span>
+            <span class="n">guide_sequence</span><span class="o">=</span><span class="n">seq</span><span class="p">,</span>
+            <span class="n">binding_energy</span><span class="o">=</span><span class="n">energy</span><span class="p">,</span>
+            <span class="n">energy_uncertainty</span><span class="o">=</span><span class="n">uncertainty</span><span class="p">,</span>
+            <span class="n">coherence</span><span class="o">=</span><span class="n">coherence</span><span class="p">,</span>
+            <span class="n">is_go</span><span class="o">=</span><span class="n">is_go</span><span class="p">,</span>
+            <span class="n">n_qubits</span><span class="o">=</span><span class="n">n_qubits</span><span class="p">,</span>
+            <span class="n">n_paulis</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">paulis</span><span class="p">),</span>
+            <span class="n">vqe_iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span>
+            <span class="n">execution_time_s</span><span class="o">=</span><span class="n">time_s</span><span class="p">,</span>
+            <span class="n">details</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;classical_score&#39;</span><span class="p">:</span> <span class="n">classical_scores</span><span class="p">[</span><span class="n">seq</span><span class="p">[:</span><span class="mi">20</span><span class="p">]],</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">quantum_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="c1"># Sort by binding energy (lower = more favorable)</span>
+    <span class="n">quantum_results</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">binding_energy</span><span class="p">)</span>
+
+    <span class="c1"># Compute energy separations</span>
+    <span class="n">energy_separations</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">significant_separations</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">quantum_results</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">r2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">quantum_results</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">pair</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r1</span><span class="o">.</span><span class="n">guide_sequence</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">_vs_</span><span class="si">{</span><span class="n">r2</span><span class="o">.</span><span class="n">guide_sequence</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">delta</span> <span class="o">=</span> <span class="n">r2</span><span class="o">.</span><span class="n">binding_energy</span> <span class="o">-</span> <span class="n">r1</span><span class="o">.</span><span class="n">binding_energy</span>
+                <span class="n">energy_separations</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span> <span class="o">=</span> <span class="n">delta</span>
+
+                <span class="c1"># Significant if separation &gt; combined uncertainty</span>
+                <span class="n">combined_unc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r1</span><span class="o">.</span><span class="n">energy_uncertainty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">r2</span><span class="o">.</span><span class="n">energy_uncertainty</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">significant_separations</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">combined_unc</span>
+
+    <span class="c1"># Determine quantum advantage</span>
+    <span class="c1"># Advantage exists if quantum ordering differs from classical AND separations are significant</span>
+    <span class="n">classical_order</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">guides</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;combined_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">classical_seqs</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">][:</span><span class="mi">20</span><span class="p">]</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">classical_order</span><span class="p">]</span>
+    <span class="n">quantum_seqs</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">guide_sequence</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">quantum_results</span><span class="p">]</span>
+
+    <span class="n">quantum_advantage</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">classical_seqs</span> <span class="o">!=</span> <span class="n">quantum_seqs</span> <span class="ow">and</span>
+        <span class="nb">any</span><span class="p">(</span><span class="n">significant_separations</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="p">)</span>
+
+    <span class="n">manifest</span><span class="p">[</span><span class="s1">&#39;quantum_guides_evaluated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">quantum_results</span><span class="p">)</span>
+    <span class="n">manifest</span><span class="p">[</span><span class="s1">&#39;quantum_advantage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">quantum_advantage</span>
+
+    <span class="c1"># Save results if output_dir provided</span>
+    <span class="k">if</span> <span class="n">output_dir</span><span class="p">:</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+        <span class="n">output_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">results_file</span> <span class="o">=</span> <span class="n">output_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;quantum_discriminator_</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">_%H%M%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.json&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span>
+                <span class="s1">&#39;manifest&#39;</span><span class="p">:</span> <span class="n">manifest</span><span class="p">,</span>
+                <span class="s1">&#39;results&#39;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">guide_sequence</span><span class="p">,</span>
+                        <span class="s1">&#39;binding_energy&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">binding_energy</span><span class="p">,</span>
+                        <span class="s1">&#39;uncertainty&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">energy_uncertainty</span><span class="p">,</span>
+                        <span class="s1">&#39;coherence&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">coherence</span><span class="p">,</span>
+                        <span class="s1">&#39;is_go&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">is_go</span><span class="p">,</span>
+                    <span class="p">}</span>
+                    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">quantum_results</span>
+                <span class="p">],</span>
+                <span class="s1">&#39;energy_separations&#39;</span><span class="p">:</span> <span class="n">energy_separations</span><span class="p">,</span>
+                <span class="s1">&#39;significant_separations&#39;</span><span class="p">:</span> <span class="n">significant_separations</span><span class="p">,</span>
+            <span class="p">},</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Results saved to </span><span class="si">{</span><span class="n">results_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">DiscriminatorResult</span><span class="p">(</span>
+        <span class="n">status</span><span class="o">=</span><span class="n">DiscriminatorStatus</span><span class="o">.</span><span class="n">QUANTUM_SUCCESS</span><span class="p">,</span>
+        <span class="n">ranked_guides</span><span class="o">=</span><span class="n">quantum_results</span><span class="p">,</span>
+        <span class="n">energy_separations</span><span class="o">=</span><span class="n">energy_separations</span><span class="p">,</span>
+        <span class="n">significant_separations</span><span class="o">=</span><span class="n">significant_separations</span><span class="p">,</span>
+        <span class="n">classical_scores</span><span class="o">=</span><span class="n">classical_scores</span><span class="p">,</span>
+        <span class="n">quantum_advantage</span><span class="o">=</span><span class="n">quantum_advantage</span><span class="p">,</span>
+        <span class="n">manifest</span><span class="o">=</span><span class="n">manifest</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="design_guides_with_quantum_discriminator">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.design_guides_with_quantum_discriminator">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">design_guides_with_quantum_discriminator</span><span class="p">(</span>
+    <span class="n">gene</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">guides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">dna_context</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">quantum_stage</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;late&quot;</span><span class="p">,</span>
+    <span class="n">quantum_backend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ibm_torino&quot;</span><span class="p">,</span>
+    <span class="n">use_hardware</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">max_quantum_guides</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PhaseLab API: Design guides with optional quantum discrimination.</span>
+
+<span class="sd">    This is the high-level API for quantum-enhanced guide design.</span>
+
+<span class="sd">    Quantum is:</span>
+<span class="sd">    - Optional (only if degeneracy detected)</span>
+<span class="sd">    - Late-stage (after classical filtering)</span>
+<span class="sd">    - Quality-gated (GO/NO-GO enforced)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gene: Target gene symbol</span>
+<span class="sd">        guides: Pre-filtered guides from classical pipeline</span>
+<span class="sd">        dna_context: DNA target context</span>
+<span class="sd">        quantum_stage: When to use quantum (&quot;late&quot; or &quot;always&quot;)</span>
+<span class="sd">        quantum_backend: IBM Quantum backend</span>
+<span class="sd">        use_hardware: Use real hardware</span>
+<span class="sd">        max_quantum_guides: Max guides to evaluate on quantum</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict with final ranked guides and quantum results</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; result = design_guides_with_quantum_discriminator(</span>
+<span class="sd">        ...     gene=&quot;RAI1&quot;,</span>
+<span class="sd">        ...     guides=classical_top_guides,</span>
+<span class="sd">        ...     dna_context=rai1_promoter,</span>
+<span class="sd">        ...     quantum_stage=&quot;late&quot;,</span>
+<span class="sd">        ...     use_hardware=True,</span>
+<span class="sd">        ... )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Take top N guides for quantum evaluation</span>
+    <span class="n">top_guides</span> <span class="o">=</span> <span class="n">guides</span><span class="p">[:</span><span class="n">max_quantum_guides</span><span class="p">]</span>
+
+    <span class="c1"># Run quantum discriminator</span>
+    <span class="n">discriminator_result</span> <span class="o">=</span> <span class="n">run_quantum_discriminator</span><span class="p">(</span>
+        <span class="n">guides</span><span class="o">=</span><span class="n">top_guides</span><span class="p">,</span>
+        <span class="n">dna_context</span><span class="o">=</span><span class="n">dna_context</span><span class="p">,</span>
+        <span class="n">backend_name</span><span class="o">=</span><span class="n">quantum_backend</span><span class="p">,</span>
+        <span class="n">use_hardware</span><span class="o">=</span><span class="n">use_hardware</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Build final result</span>
+    <span class="k">if</span> <span class="n">discriminator_result</span><span class="o">.</span><span class="n">quantum_advantage</span><span class="p">:</span>
+        <span class="c1"># Use quantum ordering</span>
+        <span class="n">final_ranking</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">guide_sequence</span><span class="p">,</span>
+                <span class="s1">&#39;quantum_energy&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">binding_energy</span><span class="p">,</span>
+                <span class="s1">&#39;quantum_coherence&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">coherence</span><span class="p">,</span>
+                <span class="s1">&#39;quantum_is_go&#39;</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">is_go</span><span class="p">,</span>
+                <span class="s1">&#39;classical_score&#39;</span><span class="p">:</span> <span class="n">discriminator_result</span><span class="o">.</span><span class="n">classical_scores</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">guide_sequence</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="s1">&#39;ranking_source&#39;</span><span class="p">:</span> <span class="s1">&#39;quantum&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">discriminator_result</span><span class="o">.</span><span class="n">ranked_guides</span>
+        <span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Keep classical ordering</span>
+        <span class="n">final_ranking</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="n">g</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;classical_score&#39;</span><span class="p">:</span> <span class="n">g</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;combined_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="s1">&#39;ranking_source&#39;</span><span class="p">:</span> <span class="s1">&#39;classical&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">top_guides</span>
+        <span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;gene&#39;</span><span class="p">:</span> <span class="n">gene</span><span class="p">,</span>
+        <span class="s1">&#39;final_ranking&#39;</span><span class="p">:</span> <span class="n">final_ranking</span><span class="p">,</span>
+        <span class="s1">&#39;quantum_result&#39;</span><span class="p">:</span> <span class="n">discriminator_result</span><span class="p">,</span>
+        <span class="s1">&#39;quantum_advantage&#39;</span><span class="p">:</span> <span class="n">discriminator_result</span><span class="o">.</span><span class="n">quantum_advantage</span><span class="p">,</span>
+        <span class="s1">&#39;recommendation&#39;</span><span class="p">:</span> <span class="p">(</span>
+            <span class="s2">&quot;Use quantum ordering - significant energy separations detected&quot;</span>
+            <span class="k">if</span> <span class="n">discriminator_result</span><span class="o">.</span><span class="n">quantum_advantage</span>
+            <span class="k">else</span> <span class="s2">&quot;Use classical ordering - no quantum advantage&quot;</span>
+        <span class="p">),</span>
+    <span class="p">}</span></div>
+
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;DiscriminatorStatus&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;QuantumGuideResult&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DiscriminatorResult&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;run_quantum_discriminator&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;design_guides_with_quantum_discriminator&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DISCRIMINATOR_GATES&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

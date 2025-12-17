@@ -1,0 +1,1327 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phaselab.crispr.enumerate &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/phaselab/crispr/enumerate';</script>
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">phaselab.crispr.enumerate</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for phaselab.crispr.enumerate</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PhaseLab Guide Enumeration Module (v0.9.3+).</span>
+
+<span class="sd">Deterministically generates all candidate protospacers in declared regions.</span>
+
+<span class="sd">This module handles:</span>
+<span class="sd">- PAM scanning (nuclease-specific)</span>
+<span class="sd">- Protospacer extraction</span>
+<span class="sd">- Candidate metadata attachment</span>
+<span class="sd">- Sequence fetching (from 2bit/FASTA or user-provided)</span>
+
+<span class="sd">KEY PRINCIPLE: Enumeration is pure string scanning. No biology is decided here.</span>
+
+<span class="sd">v0.9.3 MAJOR CHANGES:</span>
+
+<span class="sd">1. NucleaseRole (BINDING vs CUTTING) for CRISPRa/i applications.</span>
+<span class="sd">   CRISPRa uses dCas9 binding which tolerates non-canonical PAMs that</span>
+<span class="sd">   would never support cutting. This is experimentally validated</span>
+<span class="sd">   (see Chang et al. 2022 - sg2 works despite non-canonical SaCas9 PAM).</span>
+
+<span class="sd">2. Sliding Binding Register Model for CRISPRa.</span>
+<span class="sd">   CRITICAL INSIGHT: CRISPRa binding is invariant to small (±2bp) shifts in</span>
+<span class="sd">   guide-PAM registration, especially in GC-dense promoters where PAM-like</span>
+<span class="sd">   motifs overlap. Most computational pipelines enforce rigid spacer anchoring</span>
+<span class="sd">   (guide_start = pam_start - guide_length) which works for cutting but</span>
+<span class="sd">   systematically misses experimentally validated CRISPRa guides.</span>
+
+<span class="sd">   Chang et al. 2022 sg2 (CCTGGCACCCGAGGCCACGA) is the canonical example:</span>
+<span class="sd">   - PAM matches NNGRRN ✓</span>
+<span class="sd">   - Position is TSS-80 (optimal window) ✓</span>
+<span class="sd">   - But rigid anchoring places it at TSS-78 or TSS-84, not exactly TSS-80</span>
+<span class="sd">   - Sliding register enumeration (±2bp) correctly recovers sg2</span>
+
+<span class="sd">   This is not a hack - it reflects biological reality of dCas9 binding.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Iterator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.region</span><span class="w"> </span><span class="kn">import</span> <span class="n">Region</span><span class="p">,</span> <span class="n">RegionSet</span><span class="p">,</span> <span class="n">GenomeBuild</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># NUCLEASE ROLE (v0.9.3+)</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="NucleaseRole">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.NucleaseRole">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">NucleaseRole</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Role determines PAM strictness.</span>
+
+<span class="sd">    CUTTING: Nuclease must cleave DNA. Requires canonical PAM.</span>
+<span class="sd">             Used for: knockout, HDR, base editing at cut site</span>
+
+<span class="sd">    BINDING: Nuclease only needs to bind (dCas9). Tolerates non-canonical PAMs.</span>
+<span class="sd">             Used for: CRISPRa, CRISPRi, epigenome editing</span>
+
+<span class="sd">    This distinction is critical because CRISPRa papers routinely use</span>
+<span class="sd">    guides that would fail canonical PAM validation but work experimentally</span>
+<span class="sd">    because dCas9 binding tolerance &gt;&gt; Cas9 cutting tolerance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CUTTING</span> <span class="o">=</span> <span class="s2">&quot;cutting&quot;</span>
+    <span class="n">BINDING</span> <span class="o">=</span> <span class="s2">&quot;binding&quot;</span></div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># NUCLEASE DEFINITIONS</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="Nuclease">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.Nuclease">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Nuclease</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Supported CRISPR nucleases.&quot;&quot;&quot;</span>
+    <span class="n">SPCAS9</span> <span class="o">=</span> <span class="s2">&quot;SpCas9&quot;</span>           <span class="c1"># NGG PAM, 20bp guide</span>
+    <span class="n">SPCAS9_NG</span> <span class="o">=</span> <span class="s2">&quot;SpCas9-NG&quot;</span>     <span class="c1"># NG PAM (relaxed)</span>
+    <span class="n">SACAS9</span> <span class="o">=</span> <span class="s2">&quot;SaCas9&quot;</span>           <span class="c1"># NNGRRT PAM, 21-23bp guide</span>
+    <span class="n">ASCAS12A</span> <span class="o">=</span> <span class="s2">&quot;AsCas12a&quot;</span>       <span class="c1"># TTTV PAM (5&#39; PAM), 23bp guide</span>
+    <span class="n">LBCAS12A</span> <span class="o">=</span> <span class="s2">&quot;LbCas12a&quot;</span>       <span class="c1"># TTTV PAM</span>
+    <span class="n">CAS9_HF1</span> <span class="o">=</span> <span class="s2">&quot;Cas9-HF1&quot;</span>       <span class="c1"># NGG PAM (high fidelity)</span>
+    <span class="n">ECAS9</span> <span class="o">=</span> <span class="s2">&quot;eCas9&quot;</span>             <span class="c1"># NGG PAM (enhanced specificity)</span></div>
+
+
+
+<div class="viewcode-block" id="NucleaseConfig">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.NucleaseConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NucleaseConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for a nuclease.&quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">pam_pattern</span><span class="p">:</span> <span class="nb">str</span>           <span class="c1"># Regex pattern for PAM (cutting mode - strict)</span>
+    <span class="n">pam_side</span><span class="p">:</span> <span class="nb">str</span>              <span class="c1"># &#39;3prime&#39; (Cas9) or &#39;5prime&#39; (Cas12a)</span>
+    <span class="n">guide_length</span><span class="p">:</span> <span class="nb">int</span>          <span class="c1"># Standard guide length</span>
+    <span class="n">guide_length_range</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>  <span class="c1"># (min, max) allowed</span>
+
+    <span class="c1"># For display</span>
+    <span class="n">pam_display</span><span class="p">:</span> <span class="nb">str</span>           <span class="c1"># Human-readable PAM (e.g., &quot;NGG&quot;)</span>
+
+    <span class="c1"># v0.9.3: Relaxed PAM for binding mode (CRISPRa/CRISPRi)</span>
+    <span class="c1"># dCas9 binding tolerates more PAM variants than Cas9 cutting</span>
+    <span class="n">pam_pattern_binding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># If None, use pam_pattern</span>
+    <span class="n">pam_display_binding</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="NucleaseConfig.get_pam_pattern">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.NucleaseConfig.get_pam_pattern">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_pam_pattern</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">role</span><span class="p">:</span> <span class="n">NucleaseRole</span> <span class="o">=</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">CUTTING</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get PAM pattern for the specified role.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">role</span> <span class="o">==</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">BINDING</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">pam_pattern_binding</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pam_pattern_binding</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pam_pattern</span></div>
+
+
+<div class="viewcode-block" id="NucleaseConfig.get_pam_display">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.NucleaseConfig.get_pam_display">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_pam_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">role</span><span class="p">:</span> <span class="n">NucleaseRole</span> <span class="o">=</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">CUTTING</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get PAM display string for the specified role.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">role</span> <span class="o">==</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">BINDING</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">pam_display_binding</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pam_display_binding</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pam_display</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pam_display</span><span class="si">}</span><span class="s2">)&quot;</span></div>
+
+
+
+<span class="c1"># Nuclease configurations</span>
+<span class="c1"># v0.9.3: Added binding-mode PAM patterns for CRISPRa/CRISPRi</span>
+<span class="c1"># These are experimentally validated relaxations where dCas9 binding</span>
+<span class="c1"># works despite non-canonical PAMs (cutting would fail)</span>
+<span class="n">NUCLEASE_CONFIGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Nuclease</span><span class="o">.</span><span class="n">SPCAS9</span><span class="p">:</span> <span class="n">NucleaseConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;SpCas9&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;[ACGT]GG&quot;</span><span class="p">,</span>  <span class="c1"># NGG (cutting - strict)</span>
+        <span class="n">pam_side</span><span class="o">=</span><span class="s2">&quot;3prime&quot;</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">guide_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+        <span class="n">pam_display</span><span class="o">=</span><span class="s2">&quot;NGG&quot;</span><span class="p">,</span>
+        <span class="c1"># Binding mode: NAG also works for dCas9 binding (Hsu et al. 2013)</span>
+        <span class="n">pam_pattern_binding</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;[ACGT][AG]G&quot;</span><span class="p">,</span>  <span class="c1"># NGG or NAG</span>
+        <span class="n">pam_display_binding</span><span class="o">=</span><span class="s2">&quot;NRG&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">Nuclease</span><span class="o">.</span><span class="n">SPCAS9_NG</span><span class="p">:</span> <span class="n">NucleaseConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;SpCas9-NG&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;[ACGT]G&quot;</span><span class="p">,</span>   <span class="c1"># NG</span>
+        <span class="n">pam_side</span><span class="o">=</span><span class="s2">&quot;3prime&quot;</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">guide_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+        <span class="n">pam_display</span><span class="o">=</span><span class="s2">&quot;NG&quot;</span><span class="p">,</span>
+        <span class="c1"># Already relaxed - no further relaxation for binding</span>
+    <span class="p">),</span>
+    <span class="n">Nuclease</span><span class="o">.</span><span class="n">SACAS9</span><span class="p">:</span> <span class="n">NucleaseConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;SaCas9&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;[ACGT][ACGT]G[AG][AG]T&quot;</span><span class="p">,</span>  <span class="c1"># NNGRRT (cutting - strict)</span>
+        <span class="n">pam_side</span><span class="o">=</span><span class="s2">&quot;3prime&quot;</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span>
+        <span class="n">guide_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+        <span class="n">pam_display</span><span class="o">=</span><span class="s2">&quot;NNGRRT&quot;</span><span class="p">,</span>
+        <span class="c1"># Binding mode: Much more permissive for dSaCas9</span>
+        <span class="c1"># Literature shows NNGRRN works for binding (not cutting)</span>
+        <span class="c1"># Chang et al. 2022 sg2 has GCGAGA (NNGRRN pattern)</span>
+        <span class="n">pam_pattern_binding</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;[ACGT][ACGT]G[AG][AG][ACGT]&quot;</span><span class="p">,</span>  <span class="c1"># NNGRRN</span>
+        <span class="n">pam_display_binding</span><span class="o">=</span><span class="s2">&quot;NNGRRN&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">Nuclease</span><span class="o">.</span><span class="n">ASCAS12A</span><span class="p">:</span> <span class="n">NucleaseConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;AsCas12a&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;TTT[ACG]&quot;</span><span class="p">,</span>  <span class="c1"># TTTV</span>
+        <span class="n">pam_side</span><span class="o">=</span><span class="s2">&quot;5prime&quot;</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span>
+        <span class="n">guide_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+        <span class="n">pam_display</span><span class="o">=</span><span class="s2">&quot;TTTV&quot;</span><span class="p">,</span>
+        <span class="c1"># Binding mode: TTV also works for dCas12a</span>
+        <span class="n">pam_pattern_binding</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;TT[ACG]&quot;</span><span class="p">,</span>  <span class="c1"># TTV</span>
+        <span class="n">pam_display_binding</span><span class="o">=</span><span class="s2">&quot;TTV&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">Nuclease</span><span class="o">.</span><span class="n">LBCAS12A</span><span class="p">:</span> <span class="n">NucleaseConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;LbCas12a&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;TTT[ACG]&quot;</span><span class="p">,</span>  <span class="c1"># TTTV</span>
+        <span class="n">pam_side</span><span class="o">=</span><span class="s2">&quot;5prime&quot;</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span>
+        <span class="n">guide_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+        <span class="n">pam_display</span><span class="o">=</span><span class="s2">&quot;TTTV&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern_binding</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;TT[ACG]&quot;</span><span class="p">,</span>  <span class="c1"># TTV</span>
+        <span class="n">pam_display_binding</span><span class="o">=</span><span class="s2">&quot;TTV&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">Nuclease</span><span class="o">.</span><span class="n">CAS9_HF1</span><span class="p">:</span> <span class="n">NucleaseConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Cas9-HF1&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;[ACGT]GG&quot;</span><span class="p">,</span>  <span class="c1"># NGG</span>
+        <span class="n">pam_side</span><span class="o">=</span><span class="s2">&quot;3prime&quot;</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">guide_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+        <span class="n">pam_display</span><span class="o">=</span><span class="s2">&quot;NGG&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern_binding</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;[ACGT][AG]G&quot;</span><span class="p">,</span>  <span class="c1"># NRG</span>
+        <span class="n">pam_display_binding</span><span class="o">=</span><span class="s2">&quot;NRG&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">Nuclease</span><span class="o">.</span><span class="n">ECAS9</span><span class="p">:</span> <span class="n">NucleaseConfig</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;eCas9&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;[ACGT]GG&quot;</span><span class="p">,</span>  <span class="c1"># NGG</span>
+        <span class="n">pam_side</span><span class="o">=</span><span class="s2">&quot;3prime&quot;</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">guide_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
+        <span class="n">pam_display</span><span class="o">=</span><span class="s2">&quot;NGG&quot;</span><span class="p">,</span>
+        <span class="n">pam_pattern_binding</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;[ACGT][AG]G&quot;</span><span class="p">,</span>  <span class="c1"># NRG</span>
+        <span class="n">pam_display_binding</span><span class="o">=</span><span class="s2">&quot;NRG&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">}</span>
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># CANDIDATE GUIDE</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="CandidateGuide">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.CandidateGuide">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CandidateGuide</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A candidate protospacer from enumeration.</span>
+
+<span class="sd">    This is the raw output of PAM scanning - not yet evaluated.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span>              <span class="c1"># Guide sequence (20bp for SpCas9)</span>
+    <span class="n">pam</span><span class="p">:</span> <span class="nb">str</span>                   <span class="c1"># PAM sequence</span>
+    <span class="n">chromosome</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">start</span><span class="p">:</span> <span class="nb">int</span>                 <span class="c1"># 0-based start of guide</span>
+    <span class="n">end</span><span class="p">:</span> <span class="nb">int</span>                   <span class="c1"># Exclusive end</span>
+    <span class="n">strand</span><span class="p">:</span> <span class="nb">str</span>                <span class="c1"># &#39;+&#39; or &#39;-&#39;</span>
+
+    <span class="c1"># Provenance</span>
+    <span class="n">region_id</span><span class="p">:</span> <span class="nb">str</span>             <span class="c1"># Which region this came from</span>
+    <span class="n">nuclease</span><span class="p">:</span> <span class="n">Nuclease</span>
+
+    <span class="c1"># Position relative to TSS (computed during enumeration)</span>
+    <span class="n">tss_relative_position</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Unique ID</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">guide_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">strand</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sequence_with_pam</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">NUCLEASE_CONFIGS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">nuclease</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">pam_side</span> <span class="o">==</span> <span class="s1">&#39;3prime&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sequence</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">pam</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pam</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">sequence</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<div class="viewcode-block" id="CandidateGuide.to_dict">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.CandidateGuide.to_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert to dictionary for downstream processing.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;guide_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">guide_id</span><span class="p">,</span>
+            <span class="s1">&#39;sequence&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence</span><span class="p">,</span>
+            <span class="s1">&#39;pam&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pam</span><span class="p">,</span>
+            <span class="s1">&#39;chromosome&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span><span class="p">,</span>
+            <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">,</span>
+            <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">,</span>
+            <span class="s1">&#39;strand&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">strand</span><span class="p">,</span>
+            <span class="s1">&#39;region_id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">region_id</span><span class="p">,</span>
+            <span class="s1">&#39;nuclease&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuclease</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="s1">&#39;tss_relative_position&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">tss_relative_position</span><span class="p">,</span>
+            <span class="s1">&#39;sequence_with_pam&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sequence_with_pam</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Candidate(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sequence</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pam</span><span class="si">}</span><span class="s2"> @ </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">chromosome</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="si">}</span><span class="s2">)&quot;</span></div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># SEQUENCE UTILITIES</span>
+<span class="c1"># =============================================================================</span>
+
+<span class="n">COMPLEMENT</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;ACGTacgt&#39;</span><span class="p">,</span> <span class="s1">&#39;TGCAtgca&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">reverse_complement</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the reverse complement of a DNA sequence.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">seq</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">COMPLEMENT</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_valid_dna</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if sequence contains only valid DNA bases.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^[ACGTacgt]+$&#39;</span><span class="p">,</span> <span class="n">seq</span><span class="p">))</span>
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># PAM SCANNER</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="PAMScanner">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.PAMScanner">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PAMScanner</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Scan sequences for PAM sites and extract protospacers.</span>
+
+<span class="sd">    This is pure string scanning - no biological decisions.</span>
+
+<span class="sd">    v0.9.3: Added NucleaseRole parameter to select PAM stringency.</span>
+<span class="sd">            BINDING mode uses relaxed PAMs suitable for CRISPRa/CRISPRi.</span>
+<span class="sd">            Added guide_length override for non-standard designs.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; # Cutting mode (knockout) - strict PAM</span>
+<span class="sd">        &gt;&gt;&gt; scanner = PAMScanner(Nuclease.SPCAS9, role=NucleaseRole.CUTTING)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; # Binding mode (CRISPRa) - relaxed PAM</span>
+<span class="sd">        &gt;&gt;&gt; scanner = PAMScanner(Nuclease.SACAS9, role=NucleaseRole.BINDING)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; # Custom guide length (some papers use 20bp with SaCas9)</span>
+<span class="sd">        &gt;&gt;&gt; scanner = PAMScanner(Nuclease.SACAS9, guide_length=20)</span>
+<span class="sd">        &gt;&gt;&gt; candidates = scanner.scan_sequence(sequence, region)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">nuclease</span><span class="p">:</span> <span class="n">Nuclease</span> <span class="o">=</span> <span class="n">Nuclease</span><span class="o">.</span><span class="n">SPCAS9</span><span class="p">,</span>
+        <span class="n">role</span><span class="p">:</span> <span class="n">NucleaseRole</span> <span class="o">=</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">CUTTING</span><span class="p">,</span>
+        <span class="n">guide_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># v0.9.3: Override default length</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nuclease</span> <span class="o">=</span> <span class="n">nuclease</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">role</span> <span class="o">=</span> <span class="n">role</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">NUCLEASE_CONFIGS</span><span class="p">[</span><span class="n">nuclease</span><span class="p">]</span>
+
+        <span class="c1"># v0.9.3: Allow guide length override (some papers use non-standard lengths)</span>
+        <span class="c1"># e.g., Chang et al. 2022 uses 20bp guides with SaCas9 (normally 21bp)</span>
+        <span class="k">if</span> <span class="n">guide_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">min_len</span><span class="p">,</span> <span class="n">max_len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">guide_length_range</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">min_len</span> <span class="o">&lt;=</span> <span class="n">guide_length</span> <span class="o">&lt;=</span> <span class="n">max_len</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Guide length </span><span class="si">{</span><span class="n">guide_length</span><span class="si">}</span><span class="s2"> outside typical range &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">min_len</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">max_len</span><span class="si">}</span><span class="s2">] for </span><span class="si">{</span><span class="n">nuclease</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">guide_length</span> <span class="o">=</span> <span class="n">guide_length</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">guide_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">guide_length</span>
+
+        <span class="c1"># Get PAM pattern based on role</span>
+        <span class="n">pam_pattern</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get_pam_pattern</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+
+        <span class="c1"># Compile PAM patterns for both strands</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pam_pattern_fwd</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pam_pattern</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pam_pattern_rev</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reverse_complement_pattern</span><span class="p">(</span><span class="n">pam_pattern</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Log which mode we&#39;re using</span>
+        <span class="n">pam_display</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get_pam_display</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;PAMScanner initialized: </span><span class="si">{</span><span class="n">nuclease</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">role</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> mode &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;(PAM: </span><span class="si">{</span><span class="n">pam_display</span><span class="si">}</span><span class="s2">, guide: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">guide_length</span><span class="si">}</span><span class="s2">bp)&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_reverse_complement_pattern</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert a PAM regex pattern to its reverse complement.&quot;&quot;&quot;</span>
+        <span class="c1"># Handle character classes</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;[&#39;</span><span class="p">:</span>
+                <span class="c1"># Find matching ]</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                <span class="n">char_class</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">j</span><span class="p">]</span>
+                <span class="c1"># Complement each character in class</span>
+                <span class="n">comp_class</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                    <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">char_class</span>
+                <span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">comp_class</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">comp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pattern</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">pattern</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># Reverse</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+
+<div class="viewcode-block" id="PAMScanner.scan_sequence">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.PAMScanner.scan_sequence">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scan_sequence</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">region</span><span class="p">:</span> <span class="n">Region</span><span class="p">,</span>
+        <span class="n">sequence_offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">CandidateGuide</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scan a sequence for PAM sites and extract protospacers.</span>
+
+<span class="sd">        v0.9.3: BINDING mode uses sliding register enumeration.</span>
+<span class="sd">        CRISPRa binding is tolerant of 1-2bp shifts in guide-PAM registration,</span>
+<span class="sd">        especially in GC-dense promoters where PAM-like motifs overlap.</span>
+<span class="sd">        This reflects biological reality - the functional binding register</span>
+<span class="sd">        can shift while maintaining activity.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            sequence: DNA sequence to scan.</span>
+<span class="sd">            region: Region metadata for provenance.</span>
+<span class="sd">            sequence_offset: Offset of sequence start in genomic coords.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of CandidateGuide objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sequence</span> <span class="o">=</span> <span class="n">sequence</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="n">candidates</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">seen_guides</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># Deduplicate guides from overlapping PAMs</span>
+        <span class="n">guide_len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">guide_length</span>  <span class="c1"># v0.9.3: Use instance guide_length</span>
+
+        <span class="c1"># v0.9.3: In BINDING mode, enumerate shifted registers (±2bp)</span>
+        <span class="c1"># This reflects CRISPRa binding tolerance - the exact PAM anchor</span>
+        <span class="c1"># is less critical than for cutting</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">role</span> <span class="o">==</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">BINDING</span><span class="p">:</span>
+            <span class="n">register_shifts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">register_shifts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Cutting mode: strict anchoring only</span>
+
+        <span class="c1"># Scan forward strand</span>
+        <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pam_pattern_fwd</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+            <span class="n">pam_start</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="n">pam_end</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+            <span class="n">pam_seq</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">shift</span> <span class="ow">in</span> <span class="n">register_shifts</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">pam_side</span> <span class="o">==</span> <span class="s1">&#39;3prime&#39;</span><span class="p">:</span>
+                    <span class="c1"># Guide is upstream of PAM (with optional register shift)</span>
+                    <span class="n">guide_start</span> <span class="o">=</span> <span class="n">pam_start</span> <span class="o">-</span> <span class="n">guide_len</span> <span class="o">+</span> <span class="n">shift</span>
+                    <span class="n">guide_end</span> <span class="o">=</span> <span class="n">pam_start</span> <span class="o">+</span> <span class="n">shift</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Guide is downstream of PAM (Cas12a)</span>
+                    <span class="n">guide_start</span> <span class="o">=</span> <span class="n">pam_end</span> <span class="o">+</span> <span class="n">shift</span>
+                    <span class="n">guide_end</span> <span class="o">=</span> <span class="n">pam_end</span> <span class="o">+</span> <span class="n">guide_len</span> <span class="o">+</span> <span class="n">shift</span>
+
+                <span class="c1"># Check bounds</span>
+                <span class="k">if</span> <span class="n">guide_start</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">guide_end</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="n">guide_start</span><span class="p">:</span><span class="n">guide_end</span><span class="p">]</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_dna</span><span class="p">(</span><span class="n">guide_seq</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># Deduplicate: same guide from different PAMs/shifts</span>
+                <span class="n">guide_key</span> <span class="o">=</span> <span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">guide_key</span> <span class="ow">in</span> <span class="n">seen_guides</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">seen_guides</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">guide_key</span><span class="p">)</span>
+
+                <span class="c1"># Convert to genomic coordinates</span>
+                <span class="n">genomic_start</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">start</span> <span class="o">+</span> <span class="n">sequence_offset</span> <span class="o">+</span> <span class="n">guide_start</span>
+                <span class="n">genomic_end</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">start</span> <span class="o">+</span> <span class="n">sequence_offset</span> <span class="o">+</span> <span class="n">guide_end</span>
+
+                <span class="c1"># Calculate TSS-relative position</span>
+                <span class="k">if</span> <span class="n">region</span><span class="o">.</span><span class="n">strand</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+                    <span class="n">tss_rel</span> <span class="o">=</span> <span class="n">genomic_start</span> <span class="o">-</span> <span class="n">region</span><span class="o">.</span><span class="n">tss_position</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">tss_rel</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">tss_position</span> <span class="o">-</span> <span class="n">genomic_end</span>
+
+                <span class="n">candidate</span> <span class="o">=</span> <span class="n">CandidateGuide</span><span class="p">(</span>
+                    <span class="n">sequence</span><span class="o">=</span><span class="n">guide_seq</span><span class="p">,</span>
+                    <span class="n">pam</span><span class="o">=</span><span class="n">pam_seq</span><span class="p">,</span>
+                    <span class="n">chromosome</span><span class="o">=</span><span class="n">region</span><span class="o">.</span><span class="n">chromosome</span><span class="p">,</span>
+                    <span class="n">start</span><span class="o">=</span><span class="n">genomic_start</span><span class="p">,</span>
+                    <span class="n">end</span><span class="o">=</span><span class="n">genomic_end</span><span class="p">,</span>
+                    <span class="n">strand</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
+                    <span class="n">region_id</span><span class="o">=</span><span class="n">region</span><span class="o">.</span><span class="n">region_id</span><span class="p">,</span>
+                    <span class="n">nuclease</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nuclease</span><span class="p">,</span>
+                    <span class="n">tss_relative_position</span><span class="o">=</span><span class="n">tss_rel</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+
+        <span class="c1"># Scan reverse strand</span>
+        <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pam_pattern_rev</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+            <span class="n">pam_start</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="n">pam_end</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+            <span class="n">pam_seq_genomic</span> <span class="o">=</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+
+            <span class="k">for</span> <span class="n">shift</span> <span class="ow">in</span> <span class="n">register_shifts</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">pam_side</span> <span class="o">==</span> <span class="s1">&#39;3prime&#39;</span><span class="p">:</span>
+                    <span class="c1"># On minus strand, guide is downstream of PAM in sequence coords</span>
+                    <span class="n">guide_start</span> <span class="o">=</span> <span class="n">pam_end</span> <span class="o">+</span> <span class="n">shift</span>
+                    <span class="n">guide_end</span> <span class="o">=</span> <span class="n">pam_end</span> <span class="o">+</span> <span class="n">guide_len</span> <span class="o">+</span> <span class="n">shift</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Cas12a on minus strand</span>
+                    <span class="n">guide_start</span> <span class="o">=</span> <span class="n">pam_start</span> <span class="o">-</span> <span class="n">guide_len</span> <span class="o">+</span> <span class="n">shift</span>
+                    <span class="n">guide_end</span> <span class="o">=</span> <span class="n">pam_start</span> <span class="o">+</span> <span class="n">shift</span>
+
+                <span class="c1"># Check bounds</span>
+                <span class="k">if</span> <span class="n">guide_start</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">guide_end</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="n">guide_seq_template</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">[</span><span class="n">guide_start</span><span class="p">:</span><span class="n">guide_end</span><span class="p">]</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_dna</span><span class="p">(</span><span class="n">guide_seq_template</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># Guide sequence is reverse complement of template</span>
+                <span class="n">guide_seq</span> <span class="o">=</span> <span class="n">reverse_complement</span><span class="p">(</span><span class="n">guide_seq_template</span><span class="p">)</span>
+
+                <span class="c1"># Deduplicate: same guide from different PAMs/shifts</span>
+                <span class="n">guide_key</span> <span class="o">=</span> <span class="p">(</span><span class="n">guide_seq</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">guide_key</span> <span class="ow">in</span> <span class="n">seen_guides</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">seen_guides</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">guide_key</span><span class="p">)</span>
+
+                <span class="c1"># Convert to genomic coordinates</span>
+                <span class="n">genomic_start</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">start</span> <span class="o">+</span> <span class="n">sequence_offset</span> <span class="o">+</span> <span class="n">guide_start</span>
+                <span class="n">genomic_end</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">start</span> <span class="o">+</span> <span class="n">sequence_offset</span> <span class="o">+</span> <span class="n">guide_end</span>
+
+                <span class="c1"># Calculate TSS-relative position</span>
+                <span class="k">if</span> <span class="n">region</span><span class="o">.</span><span class="n">strand</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+                    <span class="n">tss_rel</span> <span class="o">=</span> <span class="n">genomic_start</span> <span class="o">-</span> <span class="n">region</span><span class="o">.</span><span class="n">tss_position</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">tss_rel</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">tss_position</span> <span class="o">-</span> <span class="n">genomic_end</span>
+
+                <span class="n">candidate</span> <span class="o">=</span> <span class="n">CandidateGuide</span><span class="p">(</span>
+                    <span class="n">sequence</span><span class="o">=</span><span class="n">guide_seq</span><span class="p">,</span>
+                    <span class="n">pam</span><span class="o">=</span><span class="n">pam_seq_genomic</span><span class="p">,</span>
+                    <span class="n">chromosome</span><span class="o">=</span><span class="n">region</span><span class="o">.</span><span class="n">chromosome</span><span class="p">,</span>
+                    <span class="n">start</span><span class="o">=</span><span class="n">genomic_start</span><span class="p">,</span>
+                    <span class="n">end</span><span class="o">=</span><span class="n">genomic_end</span><span class="p">,</span>
+                    <span class="n">strand</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                    <span class="n">region_id</span><span class="o">=</span><span class="n">region</span><span class="o">.</span><span class="n">region_id</span><span class="p">,</span>
+                    <span class="n">nuclease</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nuclease</span><span class="p">,</span>
+                    <span class="n">tss_relative_position</span><span class="o">=</span><span class="n">tss_rel</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span><span class="si">}</span><span class="s2"> candidates in region </span><span class="si">{</span><span class="n">region</span><span class="o">.</span><span class="n">region_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">candidates</span></div>
+</div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># ENUMERATION RESULT</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="EnumerationResult">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.EnumerationResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EnumerationResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Result of guide enumeration across all regions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">candidates</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">CandidateGuide</span><span class="p">]</span>
+    <span class="n">region_set</span><span class="p">:</span> <span class="n">RegionSet</span>
+    <span class="n">nuclease</span><span class="p">:</span> <span class="n">Nuclease</span>
+
+    <span class="c1"># Statistics</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_candidates</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">candidates_by_region</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">region_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">region_id</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">counts</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">candidates_by_strand</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;+&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">strand</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">counts</span>
+
+<div class="viewcode-block" id="EnumerationResult.to_dict_list">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.EnumerationResult.to_dict_list">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert candidates to list of dicts for downstream processing.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">candidates</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="EnumerationResult.summary">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.EnumerationResult.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate summary string.&quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;Enumeration Result for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">region_set</span><span class="o">.</span><span class="n">gene_symbol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;  Nuclease: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nuclease</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;  Total candidates: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_candidates</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;  By strand: + = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">candidates_by_strand</span><span class="p">[</span><span class="s1">&#39;+&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, - = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">candidates_by_strand</span><span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;  By region:&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">region_id</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">candidates_by_region</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">region_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># HIGH-LEVEL ENUMERATION</span>
+<span class="c1"># =============================================================================</span>
+
+<div class="viewcode-block" id="enumerate_guides">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.enumerate_guides">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">enumerate_guides</span><span class="p">(</span>
+    <span class="n">region_set</span><span class="p">:</span> <span class="n">RegionSet</span><span class="p">,</span>
+    <span class="n">sequences</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+    <span class="n">nuclease</span><span class="p">:</span> <span class="n">Nuclease</span> <span class="o">=</span> <span class="n">Nuclease</span><span class="o">.</span><span class="n">SPCAS9</span><span class="p">,</span>
+    <span class="n">role</span><span class="p">:</span> <span class="n">NucleaseRole</span> <span class="o">=</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">CUTTING</span><span class="p">,</span>
+    <span class="n">guide_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># v0.9.3: Override guide length</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EnumerationResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enumerate all candidate guides in a region set.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        region_set: Regions to scan.</span>
+<span class="sd">        sequences: Dict mapping region_id to DNA sequence.</span>
+<span class="sd">        nuclease: Nuclease to use for PAM scanning.</span>
+<span class="sd">        role: NucleaseRole.CUTTING (strict PAM) or NucleaseRole.BINDING (relaxed).</span>
+<span class="sd">        guide_length: Override default guide length (e.g., 20bp with SaCas9).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        EnumerationResult with all candidates.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; # Knockout (cutting) - strict PAM</span>
+<span class="sd">        &gt;&gt;&gt; result = enumerate_guides(regions, sequences, Nuclease.SPCAS9)</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; # CRISPRa (binding) - relaxed PAM, 20bp guides</span>
+<span class="sd">        &gt;&gt;&gt; result = enumerate_guides(</span>
+<span class="sd">        ...     regions, sequences, Nuclease.SACAS9,</span>
+<span class="sd">        ...     role=NucleaseRole.BINDING,</span>
+<span class="sd">        ...     guide_length=20,  # Chang et al. used 20bp with SaCas9</span>
+<span class="sd">        ... )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">scanner</span> <span class="o">=</span> <span class="n">PAMScanner</span><span class="p">(</span><span class="n">nuclease</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span> <span class="n">guide_length</span><span class="o">=</span><span class="n">guide_length</span><span class="p">)</span>
+    <span class="n">all_candidates</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="n">region_set</span><span class="o">.</span><span class="n">regions</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">region</span><span class="o">.</span><span class="n">region_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sequences</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No sequence provided for region </span><span class="si">{</span><span class="n">region</span><span class="o">.</span><span class="n">region_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">seq</span> <span class="o">=</span> <span class="n">sequences</span><span class="p">[</span><span class="n">region</span><span class="o">.</span><span class="n">region_id</span><span class="p">]</span>
+        <span class="n">candidates</span> <span class="o">=</span> <span class="n">scanner</span><span class="o">.</span><span class="n">scan_sequence</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">region</span><span class="p">)</span>
+        <span class="n">all_candidates</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Enumerated </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_candidates</span><span class="p">)</span><span class="si">}</span><span class="s2"> candidates across </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">region_set</span><span class="o">.</span><span class="n">regions</span><span class="p">)</span><span class="si">}</span><span class="s2"> regions (</span><span class="si">{</span><span class="n">role</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2"> mode)&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">EnumerationResult</span><span class="p">(</span>
+        <span class="n">candidates</span><span class="o">=</span><span class="n">all_candidates</span><span class="p">,</span>
+        <span class="n">region_set</span><span class="o">=</span><span class="n">region_set</span><span class="p">,</span>
+        <span class="n">nuclease</span><span class="o">=</span><span class="n">nuclease</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="enumerate_from_sequence">
+<a class="viewcode-back" href="../../../reference/index.html#phaselab.crispr.enumerate_from_sequence">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">enumerate_from_sequence</span><span class="p">(</span>
+    <span class="n">sequence</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">gene_symbol</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+    <span class="n">tss_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">chromosome</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;chr1&quot;</span><span class="p">,</span>
+    <span class="n">strand</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span>
+    <span class="n">nuclease</span><span class="p">:</span> <span class="n">Nuclease</span> <span class="o">=</span> <span class="n">Nuclease</span><span class="o">.</span><span class="n">SPCAS9</span><span class="p">,</span>
+    <span class="n">role</span><span class="p">:</span> <span class="n">NucleaseRole</span> <span class="o">=</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">CUTTING</span><span class="p">,</span>
+    <span class="n">guide_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># v0.9.3: Override guide length</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EnumerationResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enumerate guides directly from a sequence string.</span>
+
+<span class="sd">    Convenience function for testing or when working with</span>
+<span class="sd">    user-provided promoter sequences.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sequence: DNA sequence to scan.</span>
+<span class="sd">        gene_symbol: Gene name for labeling.</span>
+<span class="sd">        tss_position: Position of TSS within sequence.</span>
+<span class="sd">        chromosome: Chromosome for coordinates.</span>
+<span class="sd">        strand: Strand of the gene.</span>
+<span class="sd">        nuclease: Nuclease to use.</span>
+<span class="sd">        role: NucleaseRole.CUTTING (strict) or NucleaseRole.BINDING (relaxed).</span>
+<span class="sd">        guide_length: Override default guide length (e.g., 20bp with SaCas9).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        EnumerationResult with candidates.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; # CRISPRa with relaxed PAM and 20bp guides</span>
+<span class="sd">        &gt;&gt;&gt; result = enumerate_from_sequence(</span>
+<span class="sd">        ...     promoter_seq,</span>
+<span class="sd">        ...     gene_symbol=&quot;Rai1&quot;,</span>
+<span class="sd">        ...     tss_position=600,</span>
+<span class="sd">        ...     nuclease=Nuclease.SACAS9,</span>
+<span class="sd">        ...     role=NucleaseRole.BINDING,</span>
+<span class="sd">        ...     guide_length=20,  # Chang et al. used 20bp</span>
+<span class="sd">        ... )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.region</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+        <span class="n">RegionSet</span><span class="p">,</span> <span class="n">Region</span><span class="p">,</span> <span class="n">Window</span><span class="p">,</span> <span class="n">TSSAnnotation</span><span class="p">,</span>
+        <span class="n">TSSSource</span><span class="p">,</span> <span class="n">GenomeBuild</span><span class="p">,</span> <span class="n">Modality</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create a simple region covering the entire sequence</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">upstream</span><span class="o">=</span><span class="n">tss_position</span><span class="p">,</span> <span class="n">downstream</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">-</span> <span class="n">tss_position</span><span class="p">)</span>
+
+    <span class="c1"># Determine modality based on role</span>
+    <span class="n">modality</span> <span class="o">=</span> <span class="n">Modality</span><span class="o">.</span><span class="n">CRISPRA</span> <span class="k">if</span> <span class="n">role</span> <span class="o">==</span> <span class="n">NucleaseRole</span><span class="o">.</span><span class="n">BINDING</span> <span class="k">else</span> <span class="n">Modality</span><span class="o">.</span><span class="n">KNOCKOUT</span>
+
+    <span class="n">region</span> <span class="o">=</span> <span class="n">Region</span><span class="p">(</span>
+        <span class="n">chromosome</span><span class="o">=</span><span class="n">chromosome</span><span class="p">,</span>
+        <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">end</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">),</span>
+        <span class="n">strand</span><span class="o">=</span><span class="n">strand</span><span class="p">,</span>
+        <span class="n">gene_id</span><span class="o">=</span><span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="n">gene_symbol</span><span class="o">=</span><span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="n">tss_id</span><span class="o">=</span><span class="s2">&quot;input&quot;</span><span class="p">,</span>
+        <span class="n">tss_position</span><span class="o">=</span><span class="n">tss_position</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+        <span class="n">modality</span><span class="o">=</span><span class="n">modality</span><span class="p">,</span>
+        <span class="n">genome_build</span><span class="o">=</span><span class="n">GenomeBuild</span><span class="o">.</span><span class="n">HG38</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">region_set</span> <span class="o">=</span> <span class="n">RegionSet</span><span class="p">(</span>
+        <span class="n">gene_id</span><span class="o">=</span><span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="n">gene_symbol</span><span class="o">=</span><span class="n">gene_symbol</span><span class="p">,</span>
+        <span class="n">genome_build</span><span class="o">=</span><span class="n">GenomeBuild</span><span class="o">.</span><span class="n">HG38</span><span class="p">,</span>
+        <span class="n">modality</span><span class="o">=</span><span class="n">modality</span><span class="p">,</span>
+        <span class="n">regions</span><span class="o">=</span><span class="p">[</span><span class="n">region</span><span class="p">],</span>
+        <span class="n">tss_source</span><span class="o">=</span><span class="n">TSSSource</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">sequences</span> <span class="o">=</span> <span class="p">{</span><span class="n">region</span><span class="o">.</span><span class="n">region_id</span><span class="p">:</span> <span class="n">sequence</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">enumerate_guides</span><span class="p">(</span><span class="n">region_set</span><span class="p">,</span> <span class="n">sequences</span><span class="p">,</span> <span class="n">nuclease</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span> <span class="n">guide_length</span><span class="o">=</span><span class="n">guide_length</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

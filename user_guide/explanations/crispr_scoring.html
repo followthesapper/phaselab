@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CRISPR Scoring &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=30646c52"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/explanations/crispr_scoring';</script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Evidence Levels" href="evidence_levels.html" />
+    <link rel="prev" title="The GO/NO-GO Threshold" href="go_no_go_threshold.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="two_stage_framework.html">Two-Stage Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="claim_levels.html">Claim Levels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="informational_relativity.html">Informational Relativity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_theory.html">Coherence Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="go_no_go_threshold.html">The GO/NO-GO Threshold</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">CRISPR Scoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evidence_levels.html">Evidence Levels</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Explanations</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">CRISPR Scoring</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="crispr-scoring">
+<h1>CRISPR Scoring<a class="headerlink" href="#crispr-scoring" title="Link to this heading">#</a></h1>
+<p>This document explains how PhaseLab scores CRISPR guide RNAs.</p>
+<section id="scoring-components">
+<h2>Scoring Components<a class="headerlink" href="#scoring-components" title="Link to this heading">#</a></h2>
+<p>Each guide receives scores from multiple components:</p>
+<p><strong>Sequence Features</strong></p>
+<ol class="arabic simple">
+<li><p><strong>GC Content</strong> (0-1)
+- Optimal range: 40-65%
+- Penalized outside this range
+- Affects binding stability</p></li>
+<li><p><strong>Homopolymer Runs</strong> (penalty)
+- Runs of 4+ identical bases penalized
+- Causes synthesis and binding issues</p></li>
+<li><p><strong>Thermodynamic Stability</strong> (ΔG)
+- SantaLucia nearest-neighbor model
+- Optimal: -30 to -45 kcal/mol
+- Too strong: slow turnover
+- Too weak: poor binding</p></li>
+</ol>
+<p><strong>Position Features</strong></p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Distance from TSS</strong> (0-1)
+- CRISPRa: -400 to +50 optimal
+- CRISPRi: +50 to +300 optimal
+- Knockout: Exonic regions</p></li>
+<li><p><strong>Chromatin Accessibility</strong> (0-1)
+- DNase peaks boost score
+- ATAC-seq integration available
+- Closed chromatin penalized</p></li>
+</ol>
+<p><strong>Specificity Features</strong></p>
+<ol class="arabic simple" start="6">
+<li><p><strong>Off-Target Score</strong> (0-1)
+- MIT specificity algorithm
+- CFD score for mismatches
+- Lower = more off-targets</p></li>
+<li><p><strong>Seed Region</strong> (penalty)
+- Mismatches in seed (positions 1-12) heavily weighted
+- PAM-proximal region critical</p></li>
+</ol>
+<p><strong>Coherence Features (v0.6.0+)</strong></p>
+<ol class="arabic simple" start="8">
+<li><p><strong>Coherence Score</strong> (0-1)
+- IR framework metric
+- Two modes: heuristic vs quantum
+- GO/NO-GO classification</p></li>
+</ol>
+</section>
+<section id="score-combination">
+<h2>Score Combination<a class="headerlink" href="#score-combination" title="Link to this heading">#</a></h2>
+<p><strong>v0.6.0 Weighting</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">combined_score</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mf">0.20</span> <span class="o">*</span> <span class="n">gc_score</span> <span class="o">+</span>
+    <span class="mf">0.15</span> <span class="o">*</span> <span class="n">thermo_score</span> <span class="o">+</span>
+    <span class="mf">0.15</span> <span class="o">*</span> <span class="n">position_score</span> <span class="o">+</span>
+    <span class="mf">0.15</span> <span class="o">*</span> <span class="n">accessibility_score</span> <span class="o">+</span>
+    <span class="mf">0.35</span> <span class="o">*</span> <span class="n">specificity_score</span>
+<span class="p">)</span>
+
+<span class="c1"># Coherence as secondary filter</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">is_go</span><span class="p">:</span>
+    <span class="n">combined_score</span> <span class="o">*=</span> <span class="mf">0.5</span>  <span class="c1"># Penalty for NO-GO</span>
+</pre></div>
+</div>
+<p><strong>v0.6.1 Two-Stage Scoring</strong></p>
+<p>Stage 1: Hard safety gates (must pass all):</p>
+<ul class="simple">
+<li><p>Off-target count &lt; threshold</p></li>
+<li><p>No exact matches in critical regions</p></li>
+<li><p>GC content in acceptable range</p></li>
+</ul>
+<p>Stage 2: Soft ranking (weighted sum):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">soft_score</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mf">0.25</span> <span class="o">*</span> <span class="n">gc_score</span> <span class="o">+</span>
+    <span class="mf">0.20</span> <span class="o">*</span> <span class="n">thermo_score</span> <span class="o">+</span>
+    <span class="mf">0.15</span> <span class="o">*</span> <span class="n">position_score</span> <span class="o">+</span>
+    <span class="mf">0.10</span> <span class="o">*</span> <span class="n">accessibility_score</span> <span class="o">+</span>
+    <span class="mf">0.25</span> <span class="o">*</span> <span class="n">specificity_score</span> <span class="o">+</span>
+    <span class="n">weight</span> <span class="o">*</span> <span class="n">coherence_score</span>  <span class="c1"># 0.30 for quantum, 0.05 for heuristic</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="coherence-weighting-v0-6-1">
+<h2>Coherence Weighting (v0.6.1)<a class="headerlink" href="#coherence-weighting-v0-6-1" title="Link to this heading">#</a></h2>
+<p><strong>The Problem</strong></p>
+<p>v0.6.0 weighted heuristic coherence at 0.30, but:</p>
+<ul class="simple">
+<li><p>Heuristic R clusters around 0.68-0.69</p></li>
+<li><p>Poor discrimination between guides</p></li>
+<li><p>Overinflated influence on ranking</p></li>
+</ul>
+<p><strong>The Solution</strong></p>
+<p>v0.6.1 adjusts weights by mode:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Weight</p></th>
+<th class="head"><p>Rationale</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>heuristic</p></td>
+<td><p>0.05</p></td>
+<td><p>Tie-breaker only</p></td>
+</tr>
+<tr class="row-odd"><td><p>quantum</p></td>
+<td><p>0.30</p></td>
+<td><p>Research-grade</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="evidence-levels">
+<h2>Evidence Levels<a class="headerlink" href="#evidence-levels" title="Link to this heading">#</a></h2>
+<p>v0.6.1 assigns evidence levels affecting final scores:</p>
+<p><strong>Level A: Hardware-Validated</strong></p>
+<ul class="simple">
+<li><p>Validated on IBM Quantum hardware</p></li>
+<li><p>Full score weight</p></li>
+<li><p>Strongest evidence</p></li>
+</ul>
+<p><strong>Level B: VQE-Simulated</strong></p>
+<ul class="simple">
+<li><p>Quantum mode coherence</p></li>
+<li><p>Full score weight</p></li>
+<li><p>Good evidence</p></li>
+</ul>
+<p><strong>Level C: Heuristic Only</strong></p>
+<ul class="simple">
+<li><p>Fast proxy metric</p></li>
+<li><p>Capped score influence</p></li>
+<li><p>Weaker evidence</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">evidence_level</span> <span class="o">==</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span>
+    <span class="c1"># Cap heuristic-only guides</span>
+    <span class="n">combined_score</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">combined_score</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="risk-mass-metrics-v0-6-1">
+<h2>Risk Mass Metrics (v0.6.1)<a class="headerlink" href="#risk-mass-metrics-v0-6-1" title="Link to this heading">#</a></h2>
+<p>New metrics for off-target risk:</p>
+<p><strong>risk_mass_close</strong></p>
+<p>Off-targets within 100bp of any TSS:</p>
+<div class="math notranslate nohighlight">
+\[\text{risk\_mass\_close} = \sum_{ot \in \text{close}} \text{CFD}(ot)\]</div>
+<p><strong>risk_mass_exonic</strong></p>
+<p>Off-targets in exonic regions:</p>
+<div class="math notranslate nohighlight">
+\[\text{risk\_mass\_exonic} = \sum_{ot \in \text{exonic}} \text{CFD}(ot)\]</div>
+<p><strong>tail_risk_score</strong></p>
+<p>Aggregate tail risk:</p>
+<div class="math notranslate nohighlight">
+\[\text{tail\_risk} = \frac{\sum_{i &gt; 90\%} \text{CFD}_i}{\sum_i \text{CFD}_i}\]</div>
+</section>
+<section id="modality-specific-scoring">
+<h2>Modality-Specific Scoring<a class="headerlink" href="#modality-specific-scoring" title="Link to this heading">#</a></h2>
+<p><strong>CRISPRa</strong></p>
+<p>Additional factors:</p>
+<ul class="simple">
+<li><p>VP64/VPR fusion compatibility</p></li>
+<li><p>Synergistic activation domain distance</p></li>
+<li><p>Enhancer proximity bonus</p></li>
+</ul>
+<p><strong>CRISPRi</strong></p>
+<p>Additional factors:</p>
+<ul class="simple">
+<li><p>KRAB domain compatibility</p></li>
+<li><p>Steric hindrance score</p></li>
+<li><p>Repression efficiency model</p></li>
+</ul>
+<p><strong>Knockout</strong></p>
+<p>Additional factors:</p>
+<ul class="simple">
+<li><p>Frameshift probability</p></li>
+<li><p>Repair pathway prediction (NHEJ vs HDR)</p></li>
+<li><p>Essential exon targeting</p></li>
+</ul>
+<p><strong>Base Editing</strong></p>
+<p>Additional factors:</p>
+<ul class="simple">
+<li><p>Activity window position (4-8)</p></li>
+<li><p>Bystander edit count</p></li>
+<li><p>C or A presence at target</p></li>
+</ul>
+<p><strong>Prime Editing</strong></p>
+<p>Additional factors:</p>
+<ul class="simple">
+<li><p>PBS binding strength</p></li>
+<li><p>RT template efficiency</p></li>
+<li><p>Hairpin formation risk</p></li>
+</ul>
+</section>
+<section id="score-interpretation">
+<h2>Score Interpretation<a class="headerlink" href="#score-interpretation" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Score Range</p></th>
+<th class="head"><p>Interpretation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt; 0.8</p></td>
+<td><p>Excellent candidate</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.6 - 0.8</p></td>
+<td><p>Good candidate</p></td>
+</tr>
+<tr class="row-even"><td><p>0.4 - 0.6</p></td>
+<td><p>Acceptable</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.2 - 0.4</p></td>
+<td><p>Marginal</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt; 0.2</p></td>
+<td><p>Poor candidate</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Recommended workflow:</p>
+<ol class="arabic simple">
+<li><p>Filter by GO status</p></li>
+<li><p>Filter by score &gt; 0.6</p></li>
+<li><p>Rank by combined_score</p></li>
+<li><p>Validate top 3-5 with quantum coherence</p></li>
+</ol>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="evidence_levels.html"><span class="doc">Evidence Levels</span></a> - Evidence classification</p></li>
+<li><p><a class="reference internal" href="../tutorials/crispr_guide_design.html"><span class="doc">CRISPR Guide Design</span></a> - Design tutorial</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="go_no_go_threshold.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The GO/NO-GO Threshold</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="evidence_levels.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Evidence Levels</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scoring-components">Scoring Components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#score-combination">Score Combination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coherence-weighting-v0-6-1">Coherence Weighting (v0.6.1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evidence-levels">Evidence Levels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-mass-metrics-v0-6-1">Risk Mass Metrics (v0.6.1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modality-specific-scoring">Modality-Specific Scoring</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#score-interpretation">Score Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

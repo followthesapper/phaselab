@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tutorials &#8212; PhaseLab 0.6.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=09465d15" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=2bd037f0"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=30646c52"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/tutorials/index';</script>
+    <link rel="icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Spatial Coherence Analysis (v1.0.0)" href="spatial_coherence.html" />
+    <link rel="prev" title="Quick Start" href="../../quickstart.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="auto">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo-lm.svg" class="logo__image only-light" alt=""/>
+    <img src="../../_static/logo.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">PhaseLab</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../howtos/index.html">
+    How-To Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../explanations/index.html">
+    Explanations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../research/index.html">
+    Research Applications
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../developer/index.html">
+    Developer Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../faq.html">
+    Frequently Asked Questions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../citing.html">
+    Citing PhaseLab
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/followthesapper/phaselab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/phaselab/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fas fa-box fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="spatial_coherence.html">Spatial Coherence Analysis (v1.0.0)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protein_mutscan.html">Protein Mutational Scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_landscapes.html">Binding Landscape Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sms_pipeline.html">SMS Therapeutic Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crispr_guide_design.html">CRISPR Guide Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="circadian_modeling.html">Circadian Clock Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantum_validation.html">Quantum Hardware Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_basics.html">Coherence Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_modes.html">Coherence Modes (v0.6.1)</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Tutorials</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">#</a></h1>
+<p>Step-by-step guides for learning PhaseLab.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spatial_coherence.html">Spatial Coherence Analysis (v1.0.0)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spatial_coherence.html#the-core-insight">The Core Insight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_coherence.html#basic-example">Basic Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_coherence.html#understanding-the-output">Understanding the Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_coherence.html#stability-classes">Stability Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_coherence.html#loading-real-data">Loading Real Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_coherence.html#configuring-analysis">Configuring Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_coherence.html#the-key-insight">The Key Insight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_coherence.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="protein_mutscan.html">Protein Mutational Scanning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="protein_mutscan.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_mutscan.html#basic-example">Basic Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_mutscan.html#finding-essential-domains">Finding Essential Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_mutscan.html#per-residue-coherence-profile">Per-Residue Coherence Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_mutscan.html#loading-real-dms-data">Loading Real DMS Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_mutscan.html#mapping-to-structure">Mapping to Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_mutscan.html#interpretation-guide">Interpretation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_mutscan.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_mutscan.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="binding_landscapes.html">Binding Landscape Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="binding_landscapes.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding_landscapes.html#basic-example">Basic Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding_landscapes.html#finding-binding-hot-spots">Finding Binding Hot Spots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding_landscapes.html#ic50-and-other-metrics">IC50 and Other Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding_landscapes.html#drug-discovery-application">Drug Discovery Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding_landscapes.html#reaction-optimization">Reaction Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding_landscapes.html#hts-screening-analysis">HTS Screening Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding_landscapes.html#interpretation">Interpretation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding_landscapes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sms_pipeline.html">SMS Therapeutic Pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sms_pipeline.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sms_pipeline.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sms_pipeline.html#understanding-results">Understanding Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sms_pipeline.html#individual-trials">Individual Trials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sms_pipeline.html#falsification-tests">Falsification Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sms_pipeline.html#claim-levels">Claim Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sms_pipeline.html#configuration-options">Configuration Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sms_pipeline.html#full-example">Full Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sms_pipeline.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="crispr_guide_design.html">CRISPR Guide Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#crispra-guide-design">CRISPRa Guide Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#crispri-guide-design">CRISPRi Guide Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#knockout-guide-design">Knockout Guide Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#prime-editing">Prime Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#base-editing">Base Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#multi-guide-sets">Multi-Guide Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#enhancer-targeting">Enhancer Targeting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#scoring-functions">Scoring Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#complete-pipeline-example">Complete Pipeline Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crispr_guide_design.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="circadian_modeling.html">Circadian Clock Modeling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#smith-magenis-syndrome">Smith-Magenis Syndrome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#basic-clock-simulation">Basic Clock Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#custom-clock-parameters">Custom Clock Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#time-series-output">Time Series Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#therapeutic-dose-response">Therapeutic Dose-Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#kuramoto-oscillators">Kuramoto Oscillators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#multi-tissue-modeling">Multi-Tissue Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#chronotherapy-optimization">Chronotherapy Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#integration-with-crispr-design">Integration with CRISPR Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circadian_modeling.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quantum_validation.html">Quantum Hardware Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#simulator-testing">Simulator Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#hardware-validation">Hardware Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#ir-measurement-grouping">IR Measurement Grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#error-mitigation">Error Mitigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#vqe-coherence">VQE Coherence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#hardware-results-analysis">Hardware Results Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#complete-validation-pipeline">Complete Validation Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#expected-hardware-results">Expected Hardware Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quantum_validation.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_basics.html">Coherence Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coherence_basics.html#what-is-coherence">What is Coherence?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_basics.html#the-go-no-go-threshold">The GO/NO-GO Threshold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_basics.html#computing-coherence">Computing Coherence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_basics.html#classification">Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_basics.html#circular-statistics">Circular Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_basics.html#physical-interpretation">Physical Interpretation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_basics.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coherence_modes.html">Coherence Modes (v0.6.1)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#heuristic-mode-default">Heuristic Mode (Default)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#quantum-mode">Quantum Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#checking-method-details">Checking Method Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#full-results-with-details">Full Results with Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#batch-processing">Batch Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#z-score-for-relative-ranking">Z-Score for Relative Ranking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#evidence-levels">Evidence Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coherence_modes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="core-tutorials-v1-0-0">
+<h2>Core Tutorials (v1.0.0)<a class="headerlink" href="#core-tutorials-v1-0-0" title="Link to this heading">#</a></h2>
+<section id="spatial-coherence-analysis">
+<h3>Spatial Coherence Analysis<a class="headerlink" href="#spatial-coherence-analysis" title="Link to this heading">#</a></h3>
+<p>The core v1.0.0 methodology - spatial coherence of response landscapes.</p>
+<p><a class="reference internal" href="spatial_coherence.html"><span class="doc">Spatial Coherence Analysis (v1.0.0)</span></a></p>
+</section>
+<section id="protein-mutational-scanning">
+<h3>Protein Mutational Scanning<a class="headerlink" href="#protein-mutational-scanning" title="Link to this heading">#</a></h3>
+<p>Apply spatial coherence to deep mutational scanning (DMS) data.</p>
+<p><a class="reference internal" href="protein_mutscan.html"><span class="doc">Protein Mutational Scanning</span></a></p>
+</section>
+<section id="binding-landscape-analysis">
+<h3>Binding Landscape Analysis<a class="headerlink" href="#binding-landscape-analysis" title="Link to this heading">#</a></h3>
+<p>Analyze protein-ligand and protein-protein binding data.</p>
+<p><a class="reference internal" href="binding_landscapes.html"><span class="doc">Binding Landscape Analysis</span></a></p>
+</section>
+<section id="sms-therapeutic-pipeline">
+<h3>SMS Therapeutic Pipeline<a class="headerlink" href="#sms-therapeutic-pipeline" title="Link to this heading">#</a></h3>
+<p>Complete Smith-Magenis Syndrome gene therapy assessment.</p>
+<p><a class="reference internal" href="sms_pipeline.html"><span class="doc">SMS Therapeutic Pipeline</span></a></p>
+</section>
+</section>
+<section id="additional-tutorials">
+<h2>Additional Tutorials<a class="headerlink" href="#additional-tutorials" title="Link to this heading">#</a></h2>
+<section id="crispr-guide-design">
+<h3>CRISPR Guide Design<a class="headerlink" href="#crispr-guide-design" title="Link to this heading">#</a></h3>
+<p>Design guide RNAs with phase-coherence validation.</p>
+<p><a class="reference internal" href="crispr_guide_design.html"><span class="doc">CRISPR Guide Design</span></a></p>
+</section>
+<section id="circadian-clock-modeling">
+<h3>Circadian Clock Modeling<a class="headerlink" href="#circadian-clock-modeling" title="Link to this heading">#</a></h3>
+<p>Model SMS circadian disruption and gene therapy effects.</p>
+<p><a class="reference internal" href="circadian_modeling.html"><span class="doc">Circadian Clock Modeling</span></a></p>
+</section>
+<section id="quantum-hardware-validation">
+<h3>Quantum Hardware Validation<a class="headerlink" href="#quantum-hardware-validation" title="Link to this heading">#</a></h3>
+<p>Validate guides on IBM Quantum hardware (research use).</p>
+<p><a class="reference internal" href="quantum_validation.html"><span class="doc">Quantum Hardware Validation</span></a></p>
+</section>
+</section>
+<section id="legacy-tutorials">
+<h2>Legacy Tutorials<a class="headerlink" href="#legacy-tutorials" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tutorials below cover pre-v1.0.0 concepts. Guide-sequence coherence
+has been <strong>deprecated</strong> in favor of spatial coherence analysis.</p>
+</div>
+<section id="coherence-basics-legacy">
+<h3>Coherence Basics (Legacy)<a class="headerlink" href="#coherence-basics-legacy" title="Link to this heading">#</a></h3>
+<p>Fundamentals of IR coherence metrics.</p>
+<p><a class="reference internal" href="coherence_basics.html"><span class="doc">Coherence Basics</span></a></p>
+</section>
+<section id="coherence-modes-legacy">
+<h3>Coherence Modes (Legacy)<a class="headerlink" href="#coherence-modes-legacy" title="Link to this heading">#</a></h3>
+<p>Understanding heuristic vs quantum coherence computation.</p>
+<p><a class="reference internal" href="coherence_modes.html"><span class="doc">Coherence Modes (v0.6.1)</span></a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../quickstart.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quick Start</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="spatial_coherence.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Spatial Coherence Analysis (v1.0.0)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-tutorials-v1-0-0">Core Tutorials (v1.0.0)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-coherence-analysis">Spatial Coherence Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protein-mutational-scanning">Protein Mutational Scanning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-landscape-analysis">Binding Landscape Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sms-therapeutic-pipeline">SMS Therapeutic Pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-tutorials">Additional Tutorials</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crispr-guide-design">CRISPR Guide Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circadian-clock-modeling">Circadian Clock Modeling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-hardware-validation">Quantum Hardware Validation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legacy-tutorials">Legacy Tutorials</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherence-basics-legacy">Coherence Basics (Legacy)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coherence-modes-legacy">Coherence Modes (Legacy)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Dylan Vaca.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
