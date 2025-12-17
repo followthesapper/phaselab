@@ -1,12 +1,17 @@
 """
-PhaseLab Quantum: ATLAS-Q integration for advanced quantum simulation.
+PhaseLab Quantum: ATLAS-Q integration and quantum computation modes.
 
-This module provides integration with ATLAS-Q for:
-- IR measurement grouping (5× variance reduction)
-- Real circular statistics coherence (vs heuristic)
-- VQE optimization for guide validation
+This module provides:
+- Quantum mode configuration (off/audit/required)
+- Integration with ATLAS-Q for IR measurement grouping
+- VQE optimization for coherence validation
+- IBM Quantum hardware support
 - GPU acceleration (when available)
-- Rust backend for fast simulation
+
+Quantum Modes (v1.0.0):
+- OFF: Classical-only (default, fastest)
+- AUDIT: Classical + quantum validation on subset
+- REQUIRED: Quantum mandatory for all coherence
 
 All features are optional and gracefully degrade if atlas-quantum
 is not installed.
@@ -38,6 +43,19 @@ def get_atlas_q_version() -> str:
     return "not installed"
 
 
+# Configuration exports (eagerly loaded for convenience)
+from .config import (
+    QuantumMode,
+    QuantumConfig,
+    get_quantum_config,
+    set_quantum_config,
+    set_quantum_mode,
+    get_quantum_mode,
+    configure_quantum,
+    quantum_status,
+)
+
+
 # Lazy imports for submodules
 def __getattr__(name: str):
     """Lazy import submodules."""
@@ -57,8 +75,19 @@ def __getattr__(name: str):
 
 
 __all__ = [
+    # Availability checks
     "is_atlas_q_available",
     "get_atlas_q_version",
+    # Quantum mode configuration
+    "QuantumMode",
+    "QuantumConfig",
+    "get_quantum_config",
+    "set_quantum_config",
+    "set_quantum_mode",
+    "get_quantum_mode",
+    "configure_quantum",
+    "quantum_status",
+    # Submodules
     "grouping",
     "coherence",
     "vqe",

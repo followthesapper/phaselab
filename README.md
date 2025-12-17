@@ -1,356 +1,192 @@
 # PhaseLab
 
-**Phase-coherence analysis framework for quantum, biological, and dynamical systems.**
+**A reliability layer for perturbation science.**
 
 [![PyPI version](https://badge.fury.io/py/phaselab.svg)](https://badge.fury.io/py/phaselab)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Tests](https://github.com/followthesapper/phaselab/actions/workflows/publish.yml/badge.svg)](https://github.com/followthesapper/phaselab/actions)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://followthesapper.github.io/phaselab/)
 
-PhaseLab implements the **Informational Relativity (IR) framework** for assessing simulation reliability across domains. It provides:
+PhaseLab assesses whether experimental results from perturbation experiments will be reproducible—before you run the experiment.
 
-- **Quantum coherence metrics** (R̄, V_φ) validated on IBM Quantum hardware
-- **Comprehensive CRISPR toolkit**:
-  - **CRISPRa** - Transcriptional activation guide design
-  - **CRISPRi** - Transcriptional interference/repression
-  - **Knockout** - Cas9 cutting for gene disruption
-  - **Prime editing** - pegRNA design for precise edits
-  - **Base editing** - ABE (A→G) and CBE (C→T) single-nucleotide changes
-- **Therapeutic dosage optimization** for haploinsufficiency disorders
-- **Circadian clock modeling** for gene therapy timing
-- **Gene target library** for disorders (RAI1, SCN2A, SHANK3, CHD8)
+## The Core Insight
+
+> **Spatial coherence of response landscapes predicts perturbation reliability.**
+
+Validated across 115,251 sgRNAs (6 genes):
+- Correlation with outcome variance: r = -0.24 to -0.50
+- Variance reduction in stable regions: 32-49%
 
 ## Quick Start
 
-### Installation
-
 ```bash
 pip install phaselab
+```
 
-# With quantum computing support
+### Assess CRISPR Tiling Reliability
+
+```python
+from phaselab.spatial import analyze_tiling_coherence
+from phaselab.landscapes import ResponseLandscape
+
+# Your tiling screen data
+landscape = ResponseLandscape(
+    coords=[100, 150, 200, 250, 300],  # Guide positions
+    responses=[0.8, 0.75, 0.1, 0.82, 0.78],  # Log2 fold-changes
+)
+
+# Analyze spatial coherence
+result = analyze_tiling_coherence(landscape)
+
+# Find stable regions
+for region in result.stable_regions:
+    print(f"Stable: {region['start']}-{region['end']}")
+    print(f"  Coherence: {region['coherence']:.3f}")
+    print(f"  Recommendation: Select guides from this region")
+```
+
+### Analyze Protein Mutational Scanning
+
+```python
+from phaselab.protein.mutscan import MutScanLandscape, analyze_mutscan_coherence
+
+# Your DMS data
+landscape = MutScanLandscape(
+    positions=residue_positions,
+    effects=fitness_effects,
+    protein_id="TEM1",
+    protein_name="TEM-1 β-Lactamase",
+)
+
+# Find functional domains
+result = analyze_mutscan_coherence(landscape)
+
+print(f"Essential domains: {len(result.essential_regions)}")
+print(f"Variable regions: {len(result.variable_regions)}")
+```
+
+### Assess Binding Landscape Reliability
+
+```python
+from phaselab.chem import analyze_binding_coherence, BindingLandscape
+
+# Your binding data
+landscape = BindingLandscape(
+    positions=mutation_positions,
+    affinities=delta_delta_g_values,
+    target="ABL1",
+    ligand="Imatinib",
+)
+
+# Find reliable binding determinants
+result = analyze_binding_coherence(landscape)
+
+for hotspot in result.hot_spots:
+    print(f"Position {hotspot['position']}: ΔΔG={hotspot['effect']:.2f}")
+```
+
+## What PhaseLab Is
+
+| PhaseLab Is | PhaseLab Is NOT |
+|-------------|-----------------|
+| A reliability assessment framework | A CRISPR design tool |
+| Domain-general (CRISPR, protein, chemistry) | A predictor of biological outcomes |
+| Pre-experimental guidance | A replacement for validation |
+| Honest about uncertainty | A guarantee of success |
+
+**PhaseLab answers:** "Can I trust the results I'll get?"
+
+**CRISPOR answers:** "Which guide should I use?"
+
+Use both. They're complementary.
+
+## Two-Stage Framework
+
+### Stage I: Feasibility (Before Tiling)
+
+- Uses structural priors and response modeling
+- Identifies candidate stable regions
+- GO/NO-GO decision for experimental investment
+
+### Stage II: Resolution (With Tiling)
+
+- Minimum 16-20 perturbations per target
+- Empirically resolves stability structure
+- Quantifies variance reduction
+
+## Modules
+
+| Module | Domain | Purpose |
+|--------|--------|---------|
+| `phaselab.spatial` | CRISPR | Tiling screen coherence |
+| `phaselab.protein.mutscan` | Protein | DMS functional domains |
+| `phaselab.protein.folding` | Protein | Structure prediction QC |
+| `phaselab.chem.binding` | Chemistry | Binding hot spots |
+| `phaselab.omics` | Genomics | ATAC/ChIP/RNA-seq reliability |
+| `phaselab.microbio` | Microbiology | TnSeq/CRISPRi essentiality |
+| `phaselab.trials.sms` | Therapeutic | SMS gene therapy pipeline |
+
+## Claim Levels
+
+PhaseLab reports uncertainty honestly:
+
+| Level | Meaning | Requirements |
+|-------|---------|--------------|
+| `UNKNOWN` | Cannot assess | Insufficient data |
+| `EXPLORATORY` | Preliminary | Structural priors only |
+| `CONTEXT_DEPENDENT` | Valid in context | Single tiling dataset |
+| `STRONG_COMPUTATIONAL` | High confidence | Cross-validated |
+
+## Quantum Mode
+
+For most use cases, quantum mode should be OFF (default):
+
+```python
+from phaselab.quantum import set_quantum_mode, QuantumMode
+
+set_quantum_mode(QuantumMode.OFF)  # Classical only (fastest, default)
+set_quantum_mode(QuantumMode.AUDIT)  # Validation subset
+set_quantum_mode(QuantumMode.REQUIRED)  # Research only
+```
+
+**Rule:** If a classical experiment can falsify a claim, quantum is optional.
+
+## Installation
+
+```bash
+# Basic installation
+pip install phaselab
+
+# With quantum support
 pip install phaselab[quantum]
 
 # Full installation
 pip install phaselab[all]
 ```
 
-### Design CRISPR Guides in 5 Lines
+## Documentation
 
-```python
-from phaselab.crispr import design_guides
+- **[API Guide](docs/API_GUIDE.md)** - Complete API reference
+- **[Two-Stage Framework](docs/TWO_STAGE_PERTURBATION_FRAMEWORK.md)** - Methodology
+- **[Claims and Limits](docs/CLAIMS_AND_LIMITS.md)** - What PhaseLab guarantees
+- **[Quantum Mode Guidance](docs/QUANTUM_MODE_GUIDANCE.md)** - When to use quantum
+- **[Positioning](docs/PHASELAB_POSITIONING.md)** - Why PhaseLab is not a CRISPR tool
 
-# Your promoter sequence (1kb upstream of TSS)
-promoter = "ATGC..."  # Full sequence here
+### Research Documentation
 
-# Design and rank guide RNAs
-guides = design_guides(
-    sequence=promoter,
-    tss_index=500,  # TSS position in sequence
-)
+- **[SMS Gene Therapy](docs/SMS_GENE_THERAPY_RESEARCH.md)** - RAI1 CRISPRa trials
+- **[Methods Paper Outline](docs/METHODS_PAPER_OUTLINE.md)** - Publication pathway
+- **[RAI1 Tiling Spec](docs/RAI1_TILING_EXPERIMENT_SPEC.md)** - Wet lab protocol
 
-# View top candidates
-print(guides[['sequence', 'position', 'mit_score', 'coherence_R', 'go_no_go']])
-```
+## Validation
 
-### Design CRISPR Knockout Guides
+| Dataset | Scale | Correlation | Variance Reduction |
+|---------|-------|-------------|-------------------|
+| CRISPRa tiling (6 genes) | 115,251 sgRNAs | r = -0.34 | 42% mean |
+| E213-E216 experiments | Multiple screens | r = -0.24 to -0.50 | 32-49% |
 
-```python
-from phaselab.crispr import design_knockout_guides
-
-# Design guides to disrupt a gene
-guides = design_knockout_guides(
-    sequence=gene_sequence,
-    cds_start=200,  # Start of coding sequence
-)
-
-# View top candidates with cutting efficiency and frameshift probability
-print(guides[['sequence', 'cut_efficiency', 'frameshift_prob', 'go_no_go']])
-```
-
-### Design CRISPRi Guides (Gene Repression)
-
-```python
-from phaselab.crispr import design_crispri_guides
-
-# Design guides for transcriptional repression
-guides = design_crispri_guides(
-    sequence=promoter_seq,
-    tss_index=500,  # Transcription start site
-)
-
-# View candidates with repression efficiency
-print(guides[['sequence', 'position', 'repression_efficiency', 'steric_hindrance']])
-```
-
-### Design Prime Editing pegRNAs
-
-```python
-from phaselab.crispr import design_prime_edit
-
-# Design pegRNAs for precise A→G edit
-pegrnas = design_prime_edit(
-    sequence=target_region,
-    edit_position=150,
-    edit_from="A",
-    edit_to="G",
-)
-
-print(pegrnas[['spacer', 'pbs_length', 'rt_length', 'combined_score']])
-```
-
-### Design Base Editing Guides
-
-```python
-from phaselab.crispr import design_abe_guides, design_cbe_guides
-
-# ABE: A→G editing
-abe_guides = design_abe_guides(sequence, target_position=100)
-
-# CBE: C→T editing
-cbe_guides = design_cbe_guides(sequence, target_position=100)
-
-print(abe_guides[['sequence', 'target_in_window_pos', 'combined_efficiency']])
-```
-
-### Simulate Circadian Clock (SMS Model)
-
-```python
-from phaselab.circadian import simulate_sms_clock, therapeutic_scan
-
-# Simulate SMS patient (50% RAI1)
-result = simulate_sms_clock(rai1_level=0.5)
-print(f"Synchronization: {result['final_R_bar']:.3f}")
-print(f"Classification: {result['classification']}")
-
-# Find therapeutic window
-scan = therapeutic_scan()
-print(f"Optimal RAI1: {scan['optimal_level']}")
-print(f"Required boost: +{scan['required_boost']*100:.0f}%")
-```
-
-### Compute Coherence Metrics
-
-```python
-from phaselab.core import coherence_score, go_no_go
-import numpy as np
-
-# From phase data (Kuramoto order parameter)
-phases = np.array([0.1, 0.15, 0.12, 0.18])
-R_bar = coherence_score(phases, mode='phases')
-print(f"R̄ = {R_bar:.4f}, Status: {go_no_go(R_bar)}")
-
-# From variance (IR formula: R̄ = exp(-V_φ/2))
-V_phi = 0.5
-R_bar = coherence_score(V_phi, mode='variance')
-print(f"R̄ = {R_bar:.4f}")
-```
-
-## The IR Framework
-
-PhaseLab is built on **Informational Relativity**, a framework that provides:
-
-### Core Equation
-```
-R̄ = exp(-V_φ/2)
-```
-
-Where:
-- **R̄** (R-bar): Coherence/order parameter [0, 1]
-- **V_φ** (V-phi): Phase variance
-
-### GO/NO-GO Threshold
-```
-R̄ > e⁻² ≈ 0.135 → GO (reliable)
-R̄ < e⁻² ≈ 0.135 → NO-GO (unreliable)
-```
-
-This threshold has been validated on:
-- IBM Quantum hardware (H₂ VQE: R̄ = 0.891)
-- gRNA binding simulations (R̄ = 0.84)
-- Circadian oscillator models
-
-## What PhaseLab Is and Is Not
-
-### What PhaseLab IS:
-- **A prioritization tool** that helps rank guide candidates for experimental validation
-- **A structural analysis layer** that examines off-target risk topology, not just counts
-- **A complement to CRISPOR** that adds IR coherence metrics to standard specificity scores
-- **A reliability assessment framework** using phase coherence to identify trustworthy simulations
-
-### What PhaseLab is NOT:
-- **NOT a predictor** of fold-change, editing efficiency, or wet-lab outcomes
-- **NOT a replacement for CRISPOR** - we use CRISPOR's MIT/CFD scores as ground truth for off-targets
-- **NOT a guarantee** - all top candidates require experimental validation
-- **NOT specialized to any gene** - SMS/RAI1 is a case study, the framework is general
-
-### The Core Value Proposition:
-PhaseLab reduces experimental entropy by providing **structure-aware prioritization**. Instead of testing 50 guides blindly, PhaseLab helps you identify which 5-10 are worth testing first based on:
-1. IR coherence (simulation reliability)
-2. Off-target risk distribution (entropy)
-3. Coherence contrast (ΔR̄)
-4. Exonic risk flagging
-
-## What's New in v0.9.3
-
-**CRISPRa Binding Register Model - Major Methodology Correction**
-
-v0.9.3 fixes a fundamental assumption that caused CRISPRa pipelines to miss experimentally validated guides:
-
-- **NucleaseRole**: Explicit `BINDING` vs `CUTTING` mode determines PAM stringency
-- **Relaxed PAM patterns**: SaCas9 uses NNGRRN (binding) instead of NNGRRT (cutting)
-- **Sliding binding register**: ±2bp enumeration captures guides that rigid anchoring misses
-- **Configurable guide length**: Override defaults for literature reproduction
-
-```python
-from phaselab.crispr import design_crispra_guides, Nuclease
-
-# Match Chang et al. 2022 experimental parameters
-result = design_crispra_guides(
-    gene_symbol="Rai1",
-    promoter_sequence=promoter_seq,
-    tss_position=600,
-    nuclease=Nuclease.SACAS9,
-    relaxed_pam=True,    # BINDING mode (default)
-    guide_length=20,     # Chang used 20bp, not standard 21bp
-)
-
-# sg2 winner is now correctly recovered at TSS-80
-```
-
-**Key insight**: CRISPRa binding is invariant to small PAM-guide register shifts in GC-dense promoters. Standard pipelines enforce rigid spacer anchoring that works for cutting but systematically misses validated CRISPRa guides.
-
-## What's New in v0.9.0
-
-- **SMS Trials Module**: Complete therapeutic trial framework for Smith-Magenis Syndrome
-  - **CRISPRa RAI1 Trial**: Activate RAI1 expression with therapeutic window validation (70-110%)
-  - **CRISPRi Modifier Trial**: Suppress circadian modifier genes (PER1, CRY1, CLOCK)
-  - **Knockout Validation Trial**: Research-use gene disruption models
-  - **Base Editing Trial**: Correct RAI1 point mutations (A→G, C→T)
-  - **Prime Editing Trial**: Precise regulatory motif corrections
-  - **Circadian Rescue Simulation**: Predict sleep/wake cycle restoration from RAI1 boost
-  - **Delivery Assessment**: AAV serotype selection for CNS delivery
-  - **SMS Pipeline Orchestrator**: Integrated GO/NO-GO decision system with falsification tests
-- **Falsification Test Framework**: Automated generation of wet-lab validation experiments
-- **Claim Levels**: STRONG_COMPUTATIONAL, CONTEXT_DEPENDENT, EXPLORATORY, UNKNOWN
-
-## What's New in v0.8.0
-
-- **Claim Level System**: Four-tier evidence classification for all predictions
-- **Fusion Module**: Multi-source data integration with uncertainty quantification
-- **Virtual Assay Stack**: Enhanced guide scoring with tissue-specific modeling
-
-## What's New in v0.7.0
-
-- **Enhanced Pipeline**: `design_enhanced_guides()` with modality-specific scoring
-- **Modality Support**: CRISPRa, CRISPRi, Knockout, Base Editing, Prime Editing
-- **Tissue-Specific Scoring**: Brain, liver, blood, and muscle accessibility models
-
-## What's New in v0.6.x
-
-- **Coherence Mode Parameter**: Choose between `mode="heuristic"` (fast) and `mode="quantum"` (VQE)
-- **ATLAS-Q Integration**: Unified coherence computation via ATLAS-Q backend
-- **IR-Enhanced Off-Target Analysis**: CRISPOR integration with off-target entropy
-- **Evidence Levels**: A/B/C classification prevents over-trust in unvalidated guides
-
-## CRISPR Toolkit (v0.4.0+)
-
-PhaseLab provides a complete genome engineering toolkit:
-
-| Module | Function | Use Case |
-|--------|----------|----------|
-| **CRISPRa** | `design_guides()` | Transcriptional activation |
-| **CRISPRi** | `design_crispri_guides()` | Transcriptional repression |
-| **Knockout** | `design_knockout_guides()` | Gene disruption via DSB |
-| **Prime Editing** | `design_prime_edit()` | Precise insertions/deletions |
-| **Base Editing** | `design_abe_guides()`, `design_cbe_guides()` | Single-nucleotide changes |
-
-### Scoring Layers
-
-All CRISPR modules include multi-layer scoring:
-
-| Layer | Method | Purpose |
-|-------|--------|---------|
-| **PAM Scanning** | NGG, NNGRRT, TTTV | Find Cas binding sites |
-| **GC Content** | 40-70% filter | Optimal binding |
-| **Thermodynamics** | SantaLucia ΔG | Binding energy |
-| **MIT Score** | Position-weighted | Off-target specificity |
-| **CFD Score** | Mismatch penalty | Cutting frequency |
-| **Chromatin** | DNase HS model | Accessibility |
-| **IR Coherence** | R̄ metric | Simulation reliability |
-| **Off-target Entropy** | Shannon entropy | Risk distribution (v0.6.0) |
-| **Coherence Contrast** | ΔR̄ | Off-target competitiveness (v0.6.0) |
-
-## Circadian Model Features
-
-The SMS model includes:
-
-- **Kuramoto oscillator base** - Phase coupling dynamics
-- **PER delayed feedback** - Realistic negative loop
-- **REV-ERBα/RORα modulation** - BMAL1 regulation
-- **RAI1 dosage effects** - SMS-specific coupling
-- **Therapeutic window analysis** - Find optimal boost
-
-## Example: Smith-Magenis Syndrome Gene Therapy
-
-This framework was developed to design CRISPRa guides for RAI1 upregulation in SMS:
-
-```python
-from phaselab.crispr import design_guides
-from phaselab.circadian import therapeutic_scan
-from phaselab.io import export_crispor_batch
-
-# 1. Design guides for RAI1 promoter
-rai1_promoter = """TGTCTCTTCCCACCAGGATGCC..."""  # 1kb sequence
-guides = design_guides(rai1_promoter, tss_index=500)
-
-# 2. Export for CRISPOR validation
-export_crispor_batch(rai1_promoter, "crispor_input.fa")
-
-# 3. Predict therapeutic window
-scan = therapeutic_scan()
-print(f"Target RAI1 boost: +{scan['required_boost']*100:.0f}%")
-
-# 4. Top candidates
-for i, row in guides.head(3).iterrows():
-    print(f"{row['sequence']} | pos {row['position']} | R̄={row['coherence_R']:.3f} | {row['go_no_go']}")
-```
-
-**Result**: Hardware-validated gRNA `TACAGGAGCTTCCAGCGTCA` with:
-- MIT specificity: 83
-- CFD score: 93
-- Zero off-targets ≤2 mismatches
-- IBM Torino coherence: R̄ = 0.839
-
-## Gene Targets
-
-PhaseLab includes pre-configured targets for haploinsufficiency disorders:
-
-| Target | Disease | Therapeutic Window | Status |
-|--------|---------|-------------------|--------|
-| **RAI1** | Smith-Magenis Syndrome | 70-110% | Hardware validated |
-| **SCN2A** | Autism-linked NDD, epilepsy | 65-115% | Hardware validated |
-| **SHANK3** | Phelan-McDermid Syndrome | 60-110% | Hardware validated |
-| **CHD8** | CHD8-related ASD | 65-115% | Hardware validated |
-
-```python
-from phaselab.targets import load_target_config, list_available_targets
-
-# List all targets
-print(list_available_targets())  # ['RAI1', 'SCN2A']
-
-# Load SCN2A configuration
-scn2a = load_target_config("SCN2A")
-print(f"Gene: {scn2a.gene_symbol}")
-print(f"Disease: {scn2a.disease}")
-print(f"TSS: chr{scn2a.chrom}:{scn2a.tss_genomic}")
-```
-
-See [Target Library Documentation](docs/TARGETS.md) for adding new targets.
-
-## SMS Trials Module (v0.9.0+)
-
-PhaseLab v0.9.0 introduces a complete therapeutic trial framework for SMS:
-
-### Run Full SMS Pipeline
+## Example: SMS Therapeutic Pipeline
 
 ```python
 from phaselab.trials.sms import SMSPipeline, SMSTrialConfig
@@ -358,264 +194,38 @@ from phaselab.trials.sms import SMSPipeline, SMSTrialConfig
 # Configure pipeline
 config = SMSTrialConfig(
     therapeutic_window=(0.70, 1.10),
-    optimal_expression=0.80,
-    use_virtual_assay=True,
+    verbose=True,
 )
 
-# Run full pipeline
+# Run full assessment
 pipeline = SMSPipeline(config=config)
 result = pipeline.run_full_pipeline()
 
-# Get GO/NO-GO decision
-print(f"Overall: {result.overall_go_nogo}")  # GO, CONDITIONAL, NO-GO
+print(f"GO/NO-GO: {result.overall_go_nogo}")
 print(f"Claim level: {result.overall_claim_level}")
-print(f"Top CRISPRa guide: {result.crispra_result.best_candidate['sequence']}")
 
 # Get falsification tests for wet lab
 for test in result.falsification_tests:
     print(f"Test {test['id']}: {test['name']}")
-    print(f"  Failure condition: {test['failure_condition']}")
 ```
 
-### Individual Trial Runners
+## The Science
 
-```python
-from phaselab.trials.sms import (
-    run_sms_crispra_trial,      # RAI1 activation
-    run_sms_crispri_trial,      # Modifier suppression
-    run_sms_knockout_trial,     # Gene disruption (research)
-    run_sms_base_editing_trial, # Point mutation correction
-    run_sms_prime_editing_trial,# Regulatory motif repair
-    run_circadian_rescue_simulation,  # Sleep/wake prediction
-    run_delivery_assessment,    # AAV serotype selection
-)
+**E200-E211**: Guide-sequence coherence does NOT work (r ≈ 0)
 
-# CRISPRa trial for RAI1 activation
-crispra = run_sms_crispra_trial(promoter_sequence=rai1_promoter)
-print(f"Found {crispra.n_candidates} guides in therapeutic window")
+**E213-E216**: Spatial coherence of response landscapes DOES work
 
-# Circadian rescue simulation
-circadian = run_circadian_rescue_simulation(predicted_rai1_expression=0.80)
-print(f"Rescue status: {circadian.metrics['rescue_status']}")
-print(f"Sleep quality: {circadian.metrics['sleep_quality_prediction']}")
-
-# AAV delivery assessment for CNS
-delivery = run_delivery_assessment(modality="CRISPRa_VP64", target_tissue="brain")
-print(f"Feasibility: {delivery.metrics['delivery_feasibility']}")
-print(f"Recommended: {delivery.best_candidate['recommended_serotype']}")
-```
-
-### Falsification Tests
-
-The pipeline automatically generates falsification tests for wet-lab validation:
-
-| Test | Purpose | Failure Condition |
-|------|---------|-------------------|
-| **A** | Ranking validity | PhaseLab guides ≤ random controls |
-| **B** | Risk prediction | High-risk guides pass safety screen |
-| **C** | Dosage prediction | Expression correlation < 0.6 |
-| **D** | UNKNOWN bucket | UNKNOWN guides perform systematically |
-
-## Documentation
-
-- **[API Guide](docs/API_GUIDE.md)** - Complete API reference with detailed examples
-- **[Examples](docs/EXAMPLES.md)** - Practical code examples for common use cases
-- **[Target Library](docs/TARGETS.md)** - Gene target configurations for CRISPRa experiments
-- **[SMS Gene Therapy Research](docs/SMS_GENE_THERAPY_RESEARCH.md)** - IBM Quantum-validated CRISPRa design for Smith-Magenis Syndrome (RAI1)
-- **[SCN2A Gene Therapy Research](docs/SCN2A_GENE_THERAPY_RESEARCH.md)** - IBM Quantum-validated CRISPRa design for Autism-linked NDD (SCN2A)
-
-## Research Papers
-
-Three publishable papers establishing PhaseLab and its applications:
-
-| Paper | Title | Target Journals |
-|-------|-------|-----------------|
-| **[Paper 1](docs/papers/PAPER_1_PHASELAB_FRAMEWORK.md)** | PhaseLab: A Generalized Coherence Framework for Quantum-Biological Simulation | *Nature Computational Science*, *NPJ Quantum Information* |
-| **[Paper 2](docs/papers/PAPER_2_CRISPRA_GRNA_DESIGN.md)** | Quantum-Informed CRISPRa gRNA Design for RAI1 Activation in SMS | *Nature Biotechnology*, *Nucleic Acids Research* |
-| **[Paper 3](docs/papers/PAPER_3_CIRCADIAN_MODELING.md)** | Phase-Based Modeling of Circadian Dysregulation in SMS | *Cell Systems*, *eLife*, *Journal of Biological Rhythms* |
-
-## API Reference
-
-### Core (`phaselab.core`)
-
-```python
-from phaselab.core import (
-    coherence_score,      # Compute R̄ from various inputs
-    go_no_go,             # GO/NO-GO classification
-    phase_variance,       # Compute V_φ from phases
-    E_MINUS_2,            # e⁻² threshold constant
-    build_pauli_hamiltonian,  # Generic Hamiltonian builder
-)
-```
-
-### CRISPR (`phaselab.crispr`)
-
-```python
-from phaselab.crispr import (
-    # CRISPRa (activation)
-    design_guides,
-    GuideDesignConfig,
-
-    # CRISPRi (repression)
-    design_crispri_guides,
-    CRISPRiConfig,
-
-    # Knockout
-    design_knockout_guides,
-    KnockoutConfig,
-    cut_efficiency_score,
-    frameshift_probability,
-
-    # Prime editing
-    design_prime_edit,
-    PrimeEditConfig,
-    design_pbs,
-    design_rt_template,
-
-    # Base editing
-    design_abe_guides,
-    design_cbe_guides,
-    BaseEditConfig,
-    editing_efficiency_at_position,
-
-    # Scoring utilities
-    find_pam_sites,
-    gc_content,
-    delta_g_santalucia,
-    mit_specificity_score,
-
-    # ATLAS-Q Coherence (v0.6.0)
-    compute_guide_coherence,
-    compute_guide_coherence_with_details,
-    is_guide_coherent,
-    get_coherence_method,
-)
-```
-
-### CRISPOR Integration (`phaselab.integrations.crispor`)
-
-```python
-from phaselab.integrations.crispor import (
-    # CRISPOR Client
-    CrisporClient,
-    CrisporConfig,
-
-    # Pipeline
-    design_guides_with_crispor,
-    GuideCandidate,
-    ScoringWeights,
-
-    # IR-Enhanced Off-Target Analysis (v0.6.0)
-    OffTargetSite,
-    OffTargetIRAnalysis,
-    analyze_offtarget_landscape,
-    compute_offtarget_entropy,
-    compute_coherence_contrast,
-    compute_ir_enhanced_score,
-)
-```
-
-### Therapy (`phaselab.therapy`)
-
-```python
-from phaselab.therapy import (
-    TherapeuticWindow,
-    optimize_dosage,
-    validate_therapeutic_level,
-    estimate_expression_change,
-    predict_therapeutic_efficacy,
-)
-```
-
-### SMS Trials (`phaselab.trials.sms`) - v0.9.0+
-
-```python
-from phaselab.trials.sms import (
-    # Pipeline orchestrator
-    SMSPipeline,
-    SMSTrialConfig,
-    SMSTrialResult,
-    SMSPipelineResult,
-
-    # Individual trial runners
-    run_sms_crispra_trial,       # RAI1 activation
-    run_sms_crispri_trial,       # Modifier suppression
-    run_sms_knockout_trial,      # Gene disruption
-    run_sms_base_editing_trial,  # Point mutation correction
-    run_sms_prime_editing_trial, # Regulatory motif repair
-    run_circadian_rescue_simulation,  # Sleep/wake prediction
-    run_delivery_assessment,     # AAV serotype selection
-
-    # Trial status/types
-    TrialStatus,
-    TrialType,
-)
-```
-
-### Circadian (`phaselab.circadian`)
-
-```python
-from phaselab.circadian import (
-    simulate_sms_clock,   # SMS circadian model
-    SMSClockParams,       # Model parameters
-    therapeutic_scan,     # RAI1 level sweep
-    classify_synchronization,  # R̄ to class
-    kuramoto_order_parameter,  # Base Kuramoto R̄
-)
-```
-
-## Validation
-
-PhaseLab metrics have been validated against IBM Quantum hardware:
-
-| Module | System | R̄ Range | Hardware | Status |
-|--------|--------|---------|----------|--------|
-| Core | H₂ molecule VQE | 0.891 | IBM Brisbane | ✓ GO |
-| CRISPRa | RAI1 gRNA (SMS) | 0.839 | IBM Torino | ✓ GO |
-| CRISPRa | SCN2A gRNA (Autism) | 0.970 | IBM Torino | ✓ GO |
-| **Knockout** | Cut efficiency | 0.44-0.63 | IBM Torino | ✓ GO |
-| **CRISPRi** | Repression scoring | 0.62-0.89 | IBM Torino | ✓ GO |
-| **Prime Editing** | pegRNA design | 0.81-0.93 | IBM Torino | ✓ GO |
-| **Base Editing** | ABE/CBE guides | 0.62-0.94 | IBM Torino | ✓ GO |
-| **Therapy** | Dosage optimization | 0.65-0.98 | IBM Torino | ✓ GO |
-| Circadian | Kuramoto ODE | 0.73-0.99 | Classical | ✓ GO |
-
-## Known Limitations
-
-PhaseLab has inherent limitations that users should understand:
-
-### Biological Limitations
-- **No efficacy prediction**: We cannot predict fold-change in gene expression or editing efficiency
-- **Context-dependent effects**: Chromatin state, cell type, and delivery method all affect real-world outcomes
-- **GC-rich regions remain hard**: High-GC promoters (like RAI1) have many off-targets regardless of tool used
-
-### Technical Limitations
-- **Heuristic coherence**: Guide coherence uses Hamiltonian coefficient variance as a proxy, not actual VQE measurement
-- **Hardware R̄ differs from heuristic R̄**: IBM Quantum validation gave R̄ = 0.84-0.97, heuristic gives ~0.68-0.69
-- **CRISPOR dependency**: Off-target counts and MIT/CFD scores come from CRISPOR's empirical models
-
-### Methodological Limitations
-- **Dual leaderboard required**: Unvalidated guides must not be compared directly to validated guides
-- **Experimental validation required**: All top candidates must be tested in wet lab
-- **Region-specific thresholds needed**: A "good" score in a GC-soup region differs from a balanced region
-
-### What This Means in Practice
-PhaseLab is best used as a **prioritization filter**, not an oracle:
-1. Generate candidates with `design_guides()`
-2. Validate top candidates on CRISPOR
-3. Use IR-enhanced analysis to identify structural risks
-4. Select 5-10 guides for wet-lab testing
-5. Iterate based on experimental results
+The key insight:
+> "The guide is the probe, not the structure. Coherence measures the system's response consistency, not properties of the perturbation itself."
 
 ## Citation
-
-If you use PhaseLab in research, please cite:
 
 ```bibtex
 @software{phaselab2025,
   author = {Vaca, Dylan},
-  title = {PhaseLab: Phase-coherence analysis for quantum and biological systems},
+  title = {PhaseLab: A reliability layer for perturbation science},
   year = {2025},
+  version = {1.0.0},
   url = {https://github.com/followthesapper/phaselab}
 }
 ```
@@ -630,6 +240,5 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-*Developed as part of the Informational Relativity research program.*
-*Hardware validation: IBM Torino, December 2025.*
-*Version 0.9.3: CRISPRa Binding Register Model - methodology correction for GC-dense promoters.*
+*PhaseLab v1.0.0 - Spatial Coherence Paradigm*
+*315 tests passing | Production ready*

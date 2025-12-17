@@ -3,186 +3,187 @@ Quick Start
 
 This guide covers the essential PhaseLab workflows in 5 minutes.
 
-Core Coherence
---------------
+Core Concept: Spatial Coherence
+-------------------------------
 
-PhaseLab's foundation is the Informational Relativity coherence metric:
-
-.. code-block:: python
-
-   import phaselab as pl
-
-   # Compute coherence from phase data
-   phases = [0.1, 0.15, 0.12, 0.08, 0.11]
-   R_bar = pl.coherence_score(phases)
-   print(f"Coherence R: {R_bar:.4f}")
-
-   # GO/NO-GO classification (threshold: e^-2 ~ 0.135)
-   status = pl.go_no_go(R_bar)
-   print(f"Status: {status}")  # "GO" or "NO-GO"
-
-   # Phase variance (V_phi)
-   V_phi = pl.phase_variance(phases)
-   print(f"Phase variance: {V_phi:.6f}")
-
-The universal GO/NO-GO threshold is e^-2 (approximately 0.1353). Systems with R > e^-2 are considered coherent ("GO"), while those below are unreliable ("NO-GO").
-
-CRISPR Guide Design
--------------------
-
-Design guide RNAs with coherence validation:
+PhaseLab's foundation is **spatial coherence of response landscapes**:
 
 .. code-block:: python
 
-   from phaselab.crispr import design_guides, GuideDesignConfig
+   from phaselab.landscapes import ResponseLandscape
+   from phaselab.spatial import analyze_tiling_coherence
 
-   # Target sequence with TSS
-   sequence = """
-   ATGCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
-   AGGCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
-   """
-   tss_index = 50  # Transcription start site
-
-   # Design guides
-   guides = design_guides(sequence, tss_index)
-
-   # View top candidates
-   print(guides[['sequence', 'position', 'gc_content', 'combined_score', 'go_no_go']].head())
-
-Coherence Modes (v0.6.1)
-------------------------
-
-PhaseLab v0.6.1 introduces honest coherence computation with two modes:
-
-.. code-block:: python
-
-   from phaselab.crispr import compute_guide_coherence, get_coherence_eligibility_info
-
-   guide = "ATCGATCGATCGATCGATCG"
-
-   # HEURISTIC mode (default, fast ~0.1ms)
-   # Uses Hamiltonian coefficient variance as proxy
-   # R ~ 0.68-0.69, use as tie-breaker only
-   r_heuristic = compute_guide_coherence(guide, mode="heuristic")
-   print(f"Heuristic R: {r_heuristic:.4f}")
-
-   # QUANTUM mode (slow ~100-500ms, research-grade)
-   # Runs actual VQE simulation
-   # R ~ 0.84-0.97, matches hardware validation
-   r_quantum = compute_guide_coherence(guide, mode="quantum")
-   print(f"Quantum R: {r_quantum:.4f}")
-
-   # Check what method will be used
-   info = get_coherence_eligibility_info(mode="quantum")
-   print(f"Method: {info['method']}")
-   print(f"ATLAS-Q active: {info['acceleration_active']}")
-
-Evidence Levels
----------------
-
-v0.6.1 classifies guides by validation evidence:
-
-- **Level A**: Hardware-validated on IBM Quantum (strongest evidence)
-- **Level B**: VQE-simulated with quantum mode (good evidence)
-- **Level C**: Heuristic only (use as tie-breaker)
-
-.. code-block:: python
-
-   from phaselab.integrations.crispor import analyze_offtarget_landscape
-
-   # Get detailed analysis with evidence levels
-   result = analyze_offtarget_landscape(
-       guide_seq="ATCGATCGATCGATCGATCG",
-       offtarget_sites=[...],
-       coherence_mode="quantum"
+   # Your perturbation-response data
+   landscape = ResponseLandscape(
+       coords=[100, 150, 200, 250, 300],  # Perturbation positions
+       responses=[0.8, 0.75, 0.1, 0.82, 0.78],  # Response values
    )
 
-   print(f"Evidence level: {result.evidence_level}")
-   print(f"Coherence: {result.coherence:.4f}")
+   # Analyze spatial coherence
+   result = analyze_tiling_coherence(landscape)
 
-Different CRISPR Modalities
+   # Check if model is validated
+   print(f"Correlation: {result.profile.correlation:.3f}")
+   print(f"Validated: {'YES' if result.is_validated else 'NO'}")
+
+   # Find stable regions
+   for region in result.stable_regions:
+       print(f"Stable: {region['start']}-{region['end']}")
+       print(f"  Coherence: {region['coherence']:.3f}")
+
+Stability Classification
+------------------------
+
+PhaseLab classifies perturbation regions into four categories:
+
+- **STABLE** (coherence > 0.7): Low variance, reliable predictions
+- **MIXED** (0.4-0.7): Moderate variance, context-dependent
+- **AMPLIFYING** (< 0.4): High variance, unreliable
+- **IRRELEVANT**: Below response threshold
+
+CRISPR Tiling Analysis
+----------------------
+
+Analyze CRISPR tiling screen data:
+
+.. code-block:: python
+
+   from phaselab.spatial import load_tiling_screen, analyze_tiling_coherence
+
+   # Load tiling screen data
+   landscape = load_tiling_screen(
+       "tiling_screen.tsv",
+       position_col="tss_distance",
+       response_col="log2fc",
+   )
+
+   # Analyze coherence
+   result = analyze_tiling_coherence(
+       landscape,
+       window=5,
+       stable_threshold=0.7,
+   )
+
+   # Select guides from stable regions
+   for region in result.stable_regions:
+       print(f"Select guides from {region['start']} to {region['end']}")
+
+Protein Mutational Scanning
 ---------------------------
 
-PhaseLab supports the complete CRISPR toolkit:
+Analyze deep mutational scanning (DMS) data:
 
 .. code-block:: python
 
-   from phaselab.crispr import (
-       design_guides,           # CRISPRa (activation)
-       design_crispri_guides,   # CRISPRi (interference)
-       design_knockout_guides,  # Knockout
-       design_prime_edit,       # Prime editing
-       design_base_edit_guides, # Base editing (ABE/CBE)
+   from phaselab.protein.mutscan import MutScanLandscape, analyze_mutscan_coherence
+
+   # Create landscape from DMS data
+   landscape = MutScanLandscape(
+       positions=residue_positions,
+       effects=fitness_effects,
+       protein_id="TEM1",
+       protein_name="TEM-1 β-Lactamase",
+       effect_type="fitness",
    )
 
-   # CRISPRa for gene activation
-   crispra_guides = design_guides(sequence, tss_index)
-
-   # CRISPRi for gene repression
-   crispri_guides = design_crispri_guides(sequence, tss_index)
-
-   # Knockout for gene disruption
-   knockout_guides = design_knockout_guides(sequence, exon_start=100, exon_end=200)
-
-   # Prime editing for precise edits
-   pegRNA = design_prime_edit(
-       sequence,
-       edit_position=150,
-       edit_type="substitution",
-       new_base="G"
+   # Analyze coherence
+   result = analyze_mutscan_coherence(
+       landscape,
+       window=10,
+       essential_threshold=-1.0,
    )
 
-   # Base editing for single nucleotide changes
-   abe_guides = design_base_edit_guides(
-       sequence,
-       target_position=150,
-       editor_type="ABE"  # or "CBE"
+   # Find essential domains
+   print(f"Essential regions: {len(result.essential_regions)}")
+   for domain in result.essential_regions[:3]:
+       print(f"  Residues {domain.start}-{domain.end}: effect={domain.mean_effect:.2f}")
+
+Binding Landscape Analysis
+--------------------------
+
+Analyze protein-ligand binding data:
+
+.. code-block:: python
+
+   from phaselab.chem import BindingLandscape, analyze_binding_coherence
+
+   # Create binding landscape
+   landscape = BindingLandscape(
+       positions=mutation_positions,
+       affinities=delta_delta_g_values,
+       target="ABL1",
+       ligand="Imatinib",
+       affinity_type="ddG",
    )
 
-Circadian Clock Modeling
+   # Analyze coherence
+   result = analyze_binding_coherence(landscape)
+
+   # Find reliable hot spots
+   for hotspot in result.hot_spots[:5]:
+       print(f"Position {hotspot['position']}: ΔΔG={hotspot['effect']:.2f}")
+
+Claim Levels
+------------
+
+PhaseLab reports honest uncertainty:
+
+.. code-block:: python
+
+   from phaselab.fusion import ClaimLevel
+
+   # Claim levels propagate through analyses
+   print("UNKNOWN - Cannot assess reliability")
+   print("EXPLORATORY - Structural priors only")
+   print("CONTEXT_DEPENDENT - Single tiling dataset")
+   print("STRONG_COMPUTATIONAL - Cross-validated")
+
+Quantum Mode
+------------
+
+For most use cases, quantum mode should be OFF:
+
+.. code-block:: python
+
+   from phaselab.quantum import set_quantum_mode, QuantumMode
+
+   # Default: Classical only (fastest)
+   set_quantum_mode(QuantumMode.OFF)
+
+   # Validation: Classical + quantum subset
+   set_quantum_mode(QuantumMode.AUDIT)
+
+   # Research: Quantum mandatory
+   set_quantum_mode(QuantumMode.REQUIRED)
+
+**Rule:** If a classical experiment can falsify a claim, quantum is optional.
+
+SMS Therapeutic Pipeline
 ------------------------
 
-Model SMS circadian disruption for gene therapy research:
+Run the complete SMS gene therapy assessment:
 
 .. code-block:: python
 
-   from phaselab.circadian import simulate_sms_clock
+   from phaselab.trials.sms import SMSPipeline, SMSTrialConfig
 
-   # Simulate SMS condition (50% RAI1)
-   baseline = simulate_sms_clock(rai1_level=0.5)
-   print(f"SMS Period: {baseline['period']:.2f} hours")
-   print(f"SMS Coherence: {baseline['coherence']:.4f}")
-
-   # Simulate with CRISPRa restoration (85% RAI1)
-   treated = simulate_sms_clock(rai1_level=0.85)
-   print(f"Treated Period: {treated['period']:.2f} hours")
-   print(f"Treated Coherence: {treated['coherence']:.4f}")
-
-Quantum Coherence from Hamiltonians
------------------------------------
-
-For advanced quantum applications:
-
-.. code-block:: python
-
-   from phaselab.quantum import (
-       compute_coherence_from_hamiltonian,
-       compute_coherence_from_expectations,
-       is_atlas_q_available,
+   # Configure pipeline
+   config = SMSTrialConfig(
+       therapeutic_window=(0.70, 1.10),
+       verbose=True,
    )
-   import numpy as np
 
-   # Check ATLAS-Q availability
-   print(f"ATLAS-Q: {is_atlas_q_available()}")
+   # Run assessment
+   pipeline = SMSPipeline(config=config)
+   result = pipeline.run_full_pipeline()
 
-   # Compute coherence from Hamiltonian coefficients
-   coefficients = np.array([0.5, 0.3, 0.2, 0.1])
-   result = compute_coherence_from_hamiltonian(
-       coefficients,
-       use_atlas_q=True
-   )
-   print(f"R: {result.R_bar:.4f}, V_phi: {result.V_phi:.4f}")
-   print(f"Status: {'GO' if result.is_go else 'NO-GO'}")
+   # Get GO/NO-GO decision
+   print(f"Overall: {result.overall_go_nogo}")
+   print(f"Claim level: {result.overall_claim_level}")
+
+   # Get falsification tests
+   for test in result.falsification_tests:
+       print(f"Test {test['id']}: {test['name']}")
 
 Next Steps
 ----------
